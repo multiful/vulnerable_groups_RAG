@@ -1,0 +1,111 @@
+[Raw Knowledge Sources]
+├─ Official PDF / HTML
+├─ Structured CSV
+└─ External API (시험일정/접수일정/링크)   ※ 후속 스프린트, 현재는 연결 예약만
+
+         ↓
+
+[Source Routing & Profiling]
+- source_type
+- doc_type
+- freshness_level
+- exact_sensitivity
+- layout signals(text_density, image_ratio, table_count, multi_column, scan_page_ratio)
+
+         ↓
+
+┌──────────────────────── PDF / HTML Lane ────────────────────────┐
+│ [HTML Direct Path: DOM / Main Content Parser]                   │
+│   - 공식 안내 페이지 / FAQ / 지원 링크                          │
+│   - main content / heading / list / link 추출                   │
+│                                                                  │
+│ [Primary Parser: PyMuPDF4LLM]                                    │
+│   - born-digital official PDF 기본 경로                          │
+│                                                                  │
+│ [Table Parser: pdfplumber (표 후보 페이지 보강)]                │
+│   - 일정표 / 격자표 / 회차표 / 행·열 구조 보존 필요 페이지      │
+│                                                                  │
+│ [Fallback: OCR(page-level) / Docling(document-level)]           │
+│   - OCR: 저텍스트·스캔 페이지만                                  │
+│   - Docling: 기본 parse + 페이지 보강 실패 문서군만             │
+│                                                                  │
+│ [Boilerplate Removal + Reading Order Fix]                        │
+│   - 반복 헤더 / 쪽번호 제거                                     │
+│   - 다단 문서 reading order 복원                                │
+└──────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────── CSV / API Lane ────────────────────────┐
+│ [Dataset Type Registry]                                          │
+│   - cert_master / cert_alias / cert_domain_mapping               │
+│   - cert_job_mapping / roadmap_stage_master / risk_stage_master  │
+│   - 이후 exam_schedule / application_schedule / support_link     │
+│                                                                  │
+│ [Schema Mapping]                                                 │
+│   - 컬럼 alias → canonical field                                 │
+│                                                                  │
+│ [Canonicalization]                                               │
+│   - cert_id / alias / issuer / domain / job 정규화              │
+│   - risk_stage는 1단계~5단계 ID로만 관리                         │
+│                                                                  │
+│ [Entity Builder]                                                 │
+│   - certificate / domain_sub_label / job_sub_label              │
+│   - risk_stage / roadmap_stage                                   │
+│                                                                  │
+│ [Relation Builder]                                               │
+│   - cert_to_domain                                               │
+│   - cert_to_job                                                  │
+│   - cert_to_roadmap_stage                                        │
+│   - risk_stage_to_domain                                         │
+│   - risk_stage_to_roadmap_stage                                  │
+│                                                                  │
+│ [Atomic Record Doc Builder]                                      │
+│   - certificate_candidate_row 생성                               │
+│   - related_domains: domain_v2 세부 라벨만                       │
+│   - related_jobs: prefer_job 세부 직무만                         │
+│   - API 일정 필드는 reserved(null)                               │
+└──────────────────────────────────────────────────────────────────┘
+
+         ↓
+
+[Canonical Merge]
+- cert_id normalization
+- alias normalization
+- issuer normalization
+- job normalization
+- domain normalization
+- risk_stage normalization (1단계 ~ 5단계)
+- roadmap_stage normalization
+- valid_from / valid_to / doc_version
+- API 유입 전 schedule/link 필드는 reserved 상태 유지
+
+         ↓
+
+[Chunk Builder]
+- PDF guide/FAQ: markdown-aware + heading propagation
+- table docs: block chunking
+- CSV/API: atomic record chunks
+- parent-child: 현재는 선택 사항
+
+         ↓
+
+[Metadata Tagging]
+- doc_id / chunk_id / source_type / doc_type
+- cert_id / job_role_id / domain_sub_label / domain_top_label
+- risk_stage_id / roadmap_stage / agency
+- source_url / section_path / source_loc / chunk_hash
+- valid_from / valid_to / doc_version
+
+         ↓
+
+[Embedding Layer]
+- dense_vector
+- text_for_sparse (exact miss가 골든셋에서 재현될 때만 추가)
+- exact_terms
+- emb_model_version / emb_prompt_version
+
+         ↓
+
+[Index Store Layer]
+├─ Canonical Relational Store
+├─ Vector Store
+└─ Sparse/BM25 Store (optional)
