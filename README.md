@@ -1,94 +1,70 @@
+# README.md
+
+> **파일명**: README.md  
+> **최종 수정일**: 2026-04-03  
+> **문서 역할**: 프로젝트 최상위 안내 문서 / 관문 문서  
+> **문서 우선순위**: 0  
+> **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, Indexing_Architecture.txt  
+> **참조 규칙**: 작업 시작 전 본 문서와 `CHANGE_CONTROL.md`를 먼저 읽고, 이후 관련 상세 문서를 확인한다.
+
+---
+
 # 청년 위험군 맞춤형 자격증·로드맵 추천 시스템
 
-청년 위험군 분류 결과를 바탕으로 관련 자격증·직무·도메인 후보를 추천하고, 단계에 맞는 로드맵을 제안하며, 이후 시험 일정·접수 일정·지원 링크까지 연결하는 AI 기반 추천 시스템입니다.
-
-현재는 **지식 파이프라인과 추천 기반 데이터 구조를 먼저 안정화하는 단계**이며, 우선순위는 다음과 같습니다.
-
-
-- 문서 수정 및 진행 원칙은 `CHANGE_CONTROL.md`를 기준으로 한다.
-
-
-1. PDF / HTML / CSV 소스 구조 정리  
-2. CSV canonicalization 및 entity / relation 구축  
-3. RAG 파이프라인 기반 추천용 인덱스 설계  
-4. 추후 일정 API 연동을 통한 시험일정/접수일정/링크 연결
+청년 위험군 단계와 관심 직무/도메인을 바탕으로, 관련 자격증을 추천하고 단계형 로드맵을 제안하는 시스템이다.  
+추후 시험 일정, 접수 일정, 지원 링크까지 연결할 수 있는 확장 구조를 목표로 하지만, 현재 단계에서는 **추천 구조와 지식 파이프라인을 먼저 안정화하는 것**을 우선한다.
 
 ---
 
-## 1. 프로젝트 개요
+## 1. 프로젝트 요약
 
-이 프로젝트는 단순 자격증 검색 서비스가 아니라, **청년 위험군 단계(1단계 ~ 5단계)** 와 **전공/직무/도메인 연관성**을 함께 고려하여 다음을 수행하는 시스템을 목표로 합니다.
+이 프로젝트는 아래 4개 축을 연결한다.
 
-- 사용자 상태를 위험군 단계 구조로 관리
-- 관련 자격증 / 직무 / 도메인 후보 추천
-- 위험 단계에 맞는 로드맵 제안
-- 추후 시험 일정 / 접수 일정 / 지원 링크 연결
+1. **위험군 단계**
+   - 청년 사용자의 현재 상태를 1단계 ~ 5단계 구조로 관리한다.
 
-### 위험군 단계 구조
+2. **구조적 추천**
+   - 자격증을 단독 객체가 아니라 직무, 도메인, 로드맵 단계와 연결된 후보로 추천한다.
+
+3. **문서 기반 설명 근거**
+   - PDF / HTML 기반 공식 문서에서 추천 결과를 설명할 근거를 검색한다.
+
+4. **추후 일정 확장**
+   - 후속 스프린트에서 시험 일정, 접수 일정, 지원 링크를 연결한다.
+
+---
+
+## 2. 핵심 개념
+
+### 2.1 위험군 단계
 - **1단계**: 취업 안정권
 - **5단계**: 취업을 하고 싶어도 하기 어려운 가장 높은 위험군
-- **2~4단계**: 단계형 위험군 체계로 관리하며, 세부 의미 정의는 후속 문서에서 확정
+- **2~4단계**: 단계형 위험군 체계로 관리하며, 세부 의미는 후속 문서에서 확정
+
+### 2.2 taxonomy 원칙
+- `related_domains`는 **도메인 taxonomy의 세부 라벨만 사용**
+- `related_jobs`는 **희망 직무 taxonomy의 세부 직무만 사용**
+- 자유 텍스트 라벨 생성은 허용하지 않는다
+
+### 2.3 데이터 처리 원칙
+- **PDF / HTML**: 설명형 지식 소스, Parse 및 indexing 대상
+- **CSV**: 구조화 데이터 소스, structured no-parse canonicalization 대상
+- **API**: 일정/링크 최신성 소스, 현재는 reserved 상태
 
 ---
 
-## 2. 해결하려는 문제
+## 3. 현재 범위
 
-기존 자격증 추천 서비스는 다음과 같은 한계를 가집니다.
+현재 프로젝트는 아래 범위를 우선 대상으로 한다.
 
-- 사용자의 취업 위험 수준을 반영하지 못함
-- 자격증을 단일 키워드 검색 수준에서만 추천함
-- 직무 / 도메인 / 자격증 / 로드맵의 관계가 분리되어 있음
-- 일정 / 접수 / 공식 링크 정보가 분산되어 있음
-- PDF, HTML, CSV, API 등 서로 다른 소스가 통합적으로 관리되지 않음
+- PDF / HTML / CSV 소스 구조 정리
+- CSV canonicalization 및 entity / relation 구축
+- recommendation candidate row 설계
+- RAG 파이프라인 기반 설명 근거 검색 구조 설계
+- 위험군 맞춤 추천 + 로드맵 제안 흐름 고정
+- 루트 문서 기준선 정리
 
-본 프로젝트는 이 문제를 해결하기 위해 다음 구조를 사용합니다.
-
-- **PDF / HTML**: 설명·가이드·FAQ·공고형 지식 소스
-- **CSV**: 추천과 연결에 필요한 구조화 데이터 소스
-- **API**: 추후 일정·링크 갱신용 소스
-- **RAG + Canonical Store**: 검색과 추천 모두를 위한 통합 기반
-
----
-
-## 3. 핵심 기능 요약
-
-### 3.1 위험군 기반 추천
-- 위험군 단계별로 적합한 자격증 / 직무 / 도메인 후보를 제시
-- 동일 자격증이라도 사용자 상태에 따라 추천 맥락을 다르게 구성
-
-### 3.2 자격증-직무-도메인 연결
-- 자격증을 단독 객체로 보지 않고 관련 직무, 관련 도메인과 함께 추천
-- `related_domains`는 도메인 taxonomy의 **세부 라벨**만 사용
-- `related_jobs`는 희망 직무 taxonomy의 **세부 직무**만 사용
-
-### 3.3 로드맵 제안
-- 위험군 단계와 자격증/도메인 관계를 바탕으로 단계형 로드맵 제안
-- 로드맵 단계는 별도 master 데이터 기준으로 관리
-
-### 3.4 지식 검색 / 설명 근거 제공
-- PDF / HTML 문서를 구조 보존 기반으로 인덱싱
-- FAQ, 시험안내, 공식 안내문 등에서 설명 근거를 검색 가능하게 구성
-
-### 3.5 일정 / 링크 연결 (후속 스프린트)
-- 시험 일정
-- 접수 일정
-- 지원 링크
-- 공공/기관 API 기반 최신화
-
----
-
-## 4. 현재 개발 범위 / 제외 범위
-
-## 현재 개발 범위
-- 데이터 소스 분류 및 source routing 설계
-- PDF / HTML Parse 구조 설계
-- CSV structured no-parse 경로 설계
-- canonical entity / relation 모델 설계
-- retriever용 candidate row 설계
-- RAG indexing 구조 설계
-- 루트 문서 체계 정리
-
-## 현재 제외 범위
+### 현재 제외 범위
 - 일정 API 실연동
 - 시험일정 / 접수일정 실데이터 연결
 - reranker 학습
@@ -96,55 +72,137 @@
 - generation prompt 고도화
 - 위험군 2~4단계 세부 의미 확정
 
+제품 목표와 범위의 상세 정의는 `PRD.md`를 따른다.
+
 ---
 
-## 5. 시스템 상위 아키텍처 요약
+## 4. 시스템 개요
+
+시스템은 크게 아래 두 레인을 중심으로 동작한다.
+
+### 4.1 PDF / HTML Lane
+- HTML Direct Path
+- Primary PDF Parser
+- Table Assist / OCR / Fallback
+- Chunk Builder
+- Metadata Tagging
+- Embedding / Retrieval
+
+### 4.2 CSV / API Lane
+- Dataset Type Registry
+- Schema Mapping
+- Canonicalization
+- Entity Builder
+- Relation Builder
+- Candidate Row Builder
+
+이 두 흐름은 이후 canonical merge, retrieval, recommendation 계층에서 연결된다.  
+전체 구조의 상세 정의는 `SYSTEM_ARCHITECTURE.md`와 `RAG_PIPELINE.md`를 따른다.
+
+---
+
+## 5. 루트 문서 안내
+
+이 프로젝트는 루트 md 문서를 기준선으로 운영한다.
+
+| 문서명 | 역할 |
+|---|---|
+| `README.md` | 프로젝트 입구 문서 |
+| `CHANGE_CONTROL.md` | 문서 수정 규칙, 메타데이터 갱신 원칙, 작업 절차 |
+| `DIRECTORY_SPEC.md` | 디렉토리 구조와 파일/폴더 책임 |
+| `Indexing_Architecture.txt` | 인덱싱/지식 파이프라인 참고 구조 문서 |
+| `PRD.md` | 문제 정의, 타깃 사용자, 제품 범위 |
+| `SYSTEM_ARCHITECTURE.md` | 시스템 계층, 책임, 데이터 흐름 |
+| `FEATURE_SPEC.md` | 기능별 입력/출력/예외처리 |
+| `DATA_SCHEMA.md` | 엔티티, 관계, candidate row, 메타데이터 구조 |
+| `API_SPEC.md` | API 계약, request/response, 오류 형식 |
+| `PROMPT_DESIGN.md` | 프롬프트 역할, 입력 슬롯, 출력 계약 |
+| `RAG_PIPELINE.md` | Parse / Chunk / Embedding / Retrieval 파이프라인 |
+| `EVALUATION_GUIDELINE.md` | 평가 기준, baseline, 비교 원칙 |
+| `EVALUATION.md` | 평가 결과 |
+| `EXPERIMENT_GUIDE.md` | 실험 세팅과 재현 방법 |
+| `ERROR_ANALYSIS.md` | 실패 사례와 개선 방향 |
+| `DEV_LOG.md` | 진행 로그와 변경 이력 |
+
+---
+
+## 6. 문서 읽는 순서
+
+작업 시작 시 아래 순서로 문서를 확인한다.
+
+1. `README.md`
+2. `CHANGE_CONTROL.md`
+3. `PRD.md`
+4. `SYSTEM_ARCHITECTURE.md`
+5. 작업에 직접 관련된 상세 문서
+   - 기능 수정 → `FEATURE_SPEC.md`
+   - 데이터 구조 수정 → `DATA_SCHEMA.md`
+   - API 수정 → `API_SPEC.md`
+   - 프롬프트 수정 → `PROMPT_DESIGN.md`
+   - RAG 파이프라인 수정 → `RAG_PIPELINE.md`
+   - 디렉토리 수정 → `DIRECTORY_SPEC.md`
+
+---
+
+## 7. 최종 루트 디렉토리
+
+프로젝트의 최종 루트 디렉토리는 아래를 기준으로 한다.
 
 ```text
-[Raw Knowledge Sources]
-├─ Official PDF / HTML
-├─ Structured CSV
-└─ External API (시험일정/접수일정/링크)   ※ 후속 스프린트
+project-root/
+├─ .gitignore
+├─ README.md
+├─ CHANGE_CONTROL.md
+├─ DIRECTORY_SPEC.md
+├─ Indexing_Architecture.txt
+├─ PRD.md
+├─ SYSTEM_ARCHITECTURE.md
+├─ FEATURE_SPEC.md
+├─ API_SPEC.md
+├─ PROMPT_DESIGN.md
+├─ DATA_SCHEMA.md
+├─ RAG_PIPELINE.md
+├─ EVALUATION_GUIDELINE.md
+├─ EVALUATION.md
+├─ EXPERIMENT_GUIDE.md
+├─ ERROR_ANALYSIS.md
+├─ DEV_LOG.md
+│
+├─ docs/
+├─ data/
+├─ frontend/
+├─ backend/
+├─ scripts/
+├─ experiments/
+├─ infra/
+└─ shared/
+```
 
-         ↓
+세부 폴더 설명은 `DIRECTORY_SPEC.md`를 따른다.
 
-[Source Routing & Profiling]
-- source_type
-- doc_type
-- freshness_level
-- exact_sensitivity
-- layout signals(text_density, image_ratio, table_count, multi_column, scan_page_ratio)
+---
 
-         ↓
+## 8. 운영 원칙
 
-┌──────────────────────── PDF / HTML Lane ────────────────────────┐
-│ [HTML Direct Path: DOM / Main Content Parser]                   │
-│ [Primary Parser: PyMuPDF4LLM]                                    │
-│ [Table Parser: pdfplumber]                                       │
-│ [Fallback: OCR(page-level) / Docling(document-level)]            │
-│ [Boilerplate Removal + Reading Order Fix]                        │
-└──────────────────────────────────────────────────────────────────┘
+이 프로젝트는 **루트 문서 리팩토링을 거친 뒤 구현하는 방식**으로 진행한다.
 
-┌───────────────────────── CSV / API Lane ────────────────────────┐
-│ [Dataset Type Registry]                                          │
-│ [Schema Mapping]                                                 │
-│ [Canonicalization]                                               │
-│ [Entity Builder]                                                 │
-│ [Relation Builder]                                               │
-│ [Atomic Record Doc Builder]                                      │
-└──────────────────────────────────────────────────────────────────┘
+- 기능, 정책, 구조가 바뀌면 먼저 관련 루트 문서를 수정한다.
+- 문서를 수정할 때는 상단 메타데이터의 `최종 수정일`도 함께 갱신한다.
+- 해결된 문제는 PRD에 그대로 방치하지 않는다.
+- 문서 간 충돌이 생기면 `CHANGE_CONTROL.md`의 우선순위를 따른다.
+- 구조 변경 전에는 `DIRECTORY_SPEC.md`, 시스템 변경 전에는 `SYSTEM_ARCHITECTURE.md`를 먼저 수정한다.
 
-         ↓
+자세한 운영 규칙은 `CHANGE_CONTROL.md`를 따른다.
 
-[Canonical Merge]
-         ↓
-[Chunk Builder]
-         ↓
-[Metadata Tagging]
-         ↓
-[Embedding Layer]
-         ↓
-[Index Store Layer]
-├─ Canonical Relational Store
-├─ Vector Store
-└─ Sparse / BM25 Store (optional)
+---
+
+## 9. 최종 요약
+
+이 프로젝트는 아래 두 축을 먼저 안정화하는 것을 목표로 한다.
+
+1. **CSV canonicalization 기반 추천 구조 정비**
+2. **PDF / HTML 기반 설명 근거 검색 구조 정비**
+
+즉, 현재 단계의 핵심은  
+완성형 일정 연동 서비스가 아니라  
+**위험군 맞춤 추천 + 로드맵 제안 + 설명 근거 결합이 가능한 기준 구조를 만드는 것**이다.
