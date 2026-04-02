@@ -4,6 +4,10 @@
 
 현재는 **지식 파이프라인과 추천 기반 데이터 구조를 먼저 안정화하는 단계**이며, 우선순위는 다음과 같습니다.
 
+
+- 문서 수정 및 진행 원칙은 `CHANGE_CONTROL.md`를 기준으로 한다.
+
+
 1. PDF / HTML / CSV 소스 구조 정리  
 2. CSV canonicalization 및 entity / relation 구축  
 3. RAG 파이프라인 기반 추천용 인덱스 설계  
@@ -144,4 +148,3 @@
 ├─ Canonical Relational Store
 ├─ Vector Store
 └─ Sparse / BM25 Store (optional)
->>>>>>> Stashed changes

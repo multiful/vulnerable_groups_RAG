@@ -1,3 +1,5 @@
+# Indexing_Architecture.txt
+
 [Raw Knowledge Sources]
 ├─ Official PDF / HTML
 ├─ Structured CSV
