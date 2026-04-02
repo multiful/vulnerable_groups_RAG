@@ -1,0 +1,209 @@
+.bx-wrapper {
+	padding: 0px; margin-right: 204px; position: relative;
+}
+.bx-wrapper img {
+	display: block; max-width: 100%;
+}
+.bx-viewport {
+	-webkit-transform: translatez(0);
+}
+.bx-wrapper {
+	background: rgb(255, 255, 255);
+}
+.bx-wrapper .bx-pager {
+	width: 100%; bottom: 0px; position: absolute;
+}
+.bx-wrapper .bx-controls-auto {
+	width: 100%; bottom: 0px; position: absolute;
+}
+.bx-wrapper .bx-loading {
+	background: url("../img/main/bx_loader.gif") no-repeat 50% 50% rgb(255, 255, 255); left: 0px; top: 0px; width: 100%; 
+	height: 100%; position: absolute; z-index: 100; min-height: 50px;
+}
+.bx-wrapper .bx-pager {
+	text-align: center; color: rgb(102, 102, 102); padding-bottom: 20px; font-family: Arial; font-size: 0.85em; font-weight: bold;
+}
+.bx-wrapper .bx-default-pager.bx-pager a {
+	background: rgb(102, 102, 102); margin: 0px 5px; border-radius: 5px; width: 10px; height: 10px; text-indent: -9999px; display: block; -webkit-border-radius: 5px; -moz-border-radius: 5px;
+}
+.bx-wrapper .bx-default-pager.bx-pager a:hover {
+	background: rgb(0, 0, 0);
+}
+.bx-wrapper .bx-default-pager.bx-pager a.active {
+	background: rgb(0, 0, 0);
+}
+.bx-wrapper .bx-default-pager.bx-pager a:focus {
+	background: rgb(0, 0, 0);
+}
+.bx-wrapper .bx-pager-item {
+	vertical-align: bottom; display: inline-block;
+}
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+	vertical-align: bottom; display: inline-block;
+}
+.bx-wrapper .bx-pager-item {
+	line-height: 0; font-size: 0px;
+}
+.slider:hover .bx-wrapper .bx-next {
+	display: none;
+}
+.slider:hover .bx-wrapper .bx-prev {
+	display: none;
+}
+.bx-wrapper .bx-next {
+	display: none;
+}
+.bx-wrapper .bx-prev {
+	display: none;
+}
+.bx-wrapper .bx-prev {
+	background: url("../img/main/controls.png") no-repeat 0px -32px; left: -20px; opacity: 0.7;
+}
+.bx-wrapper .bx-prev:hover {
+	background-position: 0px 0px;
+}
+.bx-wrapper .bx-prev:focus {
+	background-position: 0px 0px;
+}
+.bx-wrapper .bx-next {
+	background: url("../img/main/controls.png") no-repeat -43px -32px; right: -20px; opacity: 0.7;
+}
+.bx-wrapper .bx-next:hover {
+	background-position: -43px 0px;
+}
+.bx-wrapper .bx-next:focus {
+	background-position: -43px 0px;
+}
+.bx-wrapper .bx-controls-direction a {
+	top: 50%; width: 32px; height: 32px; text-indent: -100px; overflow: hidden; margin-top: -16px; position: absolute; z-index: 999;
+}
+.bx-wrapper .bx-controls-direction a.disabled {
+	display: none;
+}
+.bx-wrapper .bx-controls-auto {
+	text-align: center;
+}
+.bx-wrapper .bx-controls-auto .bx-start {
+	background: url("../images/controls.png") no-repeat -86px -11px; margin: 0px 3px; width: 10px; height: 11px; text-indent: -9999px; display: block;
+}
+.bx-wrapper .bx-controls-auto .bx-start:hover {
+	background-position: -86px 0px;
+}
+.bx-wrapper .bx-controls-auto .active.bx-start {
+	background-position: -86px 0px;
+}
+.bx-wrapper .bx-controls-auto .bx-start:focus {
+	background-position: -86px 0px;
+}
+.bx-wrapper .bx-controls-auto .bx-stop {
+	background: url("../images/controls.png") no-repeat -86px -44px; margin: 0px 3px; width: 9px; height: 11px; text-indent: -9999px; display: block;
+}
+.bx-wrapper .bx-controls-auto .bx-stop:hover {
+	background-position: -86px -33px;
+}
+.bx-wrapper .bx-controls-auto .active.bx-stop {
+	background-position: -86px -33px;
+}
+.bx-wrapper .bx-controls-auto .bx-stop:focus {
+	background-position: -86px -33px;
+}
+.bx-wrapper .bx-has-pager.bx-has-controls-auto.bx-controls .bx-pager {
+	width: 80%; text-align: left;
+}
+.bx-wrapper .bx-has-pager.bx-has-controls-auto.bx-controls .bx-controls-auto {
+	width: 35px; right: 0px;
+}
+.bx-wrapper .bx-caption {
+	background: rgba(80, 80, 80, 0.75); left: 0px; width: 100%; bottom: 0px; position: absolute;
+}
+.bx-wrapper .bx-caption span {
+	padding: 10px; color: rgb(255, 255, 255); font-family: Arial; font-size: 0.85em; display: block;
+}
+.slider-box {
+	padding: 0px; width: 100%; overflow: hidden; margin-top: 10px; display: table; background-color: rgb(239, 240, 243);
+}
+.slider {
+	margin: 0px auto; width: 980px; border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); border-right-width: 2px; border-left-width: 2px; border-right-style: solid; border-left-style: solid; position: relative;
+}
+.inbg-01 {
+	background-color: rgb(186, 206, 230);
+}
+.bxslider li {
+	overflow: hidden;
+}
+.bxslider li a {
+	margin: 0px auto; width: 980px; display: block;
+}
+.bx-clone {
+	display: none !important;
+}
+.btn_pager {
+	top: 0px; right: 0px; float: right; position: absolute; z-index: 10;
+}
+.btn_pager ul {
+	margin: 0px auto; width: 204px;
+}
+.btn_pager li {
+	width: 50%; float: left;
+}
+.btn_pager a {
+	background-position: 0px -43px; border-radius: 0px; width: 102px; height: 44px; text-indent: -9999em; border-bottom-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255);
+	border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid; display: inline-block; background-repeat: no-repeat; background-color: rgb(216, 218, 226);
+}
+.btn_pager a.itq {
+	background-image: url("../img/main/tab1.png");
+}
+.btn_pager a.erp {
+	background-image: url("../img/main/tab2.png");
+}
+.btn_pager a.gtq {
+	background-image: url("../img/main/tab3.png");
+}
+.btn_pager a.ieq {
+	background-image: url("../img/main/tab4.png?202512291");
+}
+.btn_pager a.mat {
+	background-image: url("../img/main/tab5.png");
+}
+.btn_pager a.icdl {
+	background-image: url("../img/main/tab6.png");
+}
+.btn_pager a.swc {
+	background-image: url("../img/main/tab7.png");
+}
+.btn_pager a.itop {
+	background-image: url("../img/main/tab8.png");
+}
+.btn_pager a.cat {
+	background-image: url("../img/main/tab9.png");
+}
+.btn_pager a.dat {
+	background-image: url("../img/main/tab10.png");
+}
+.btn_pager a.dsac {
+	background-image: url("../img/main/tab11.png");
+}
+.btn_pager a.pat {
+	background-image: url("../img/main/tab12.png");
+}
+.btn_pager a.mbd {
+	background-image: url("../img/main/tab13.png");
+}
+.btn_pager a._3pm {
+	background-image: url("../img/main/tab14.png");
+}
+.btn_pager a.dmc {
+	background-image: url("../img/main/tab15.png");
+}
+.btn_pager a.aipot {
+	background-image: url("../img/main/tab16.png");
+}
+.btn_pager a.aibt {
+	background-image: url("../img/main/tab17.png");
+}
+.btn_pager a.gtqai {
+	background-image: url("../img/main/tab18.png");
+}
+.btn_pager a.active {
+	background-position: 0px 0px; background-color: rgb(255, 82, 94);
+}

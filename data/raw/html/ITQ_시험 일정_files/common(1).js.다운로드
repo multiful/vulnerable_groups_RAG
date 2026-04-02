@@ -1,0 +1,503 @@
+
+/**
+ * HTML 속성 ENCODE
+ */
+function fnEncHtmlAttr(data) {
+	var rstData	= data;
+
+	rstData	= rstData.replace(/&amp;/g,"&");
+	rstData	= rstData.replace(/&gt;/g,">");
+	rstData	= rstData.replace(/&lt;/g,"<");
+	rstData	= rstData.replace(/&quot;/g,"\"");
+
+	return	rstData;
+}
+
+/*
+ * Object를 넘기면 object의 Property를 알려줌.
+ */
+function objToString (obj) {
+	var str = '';
+	for (var p in obj) {
+		if (obj.hasOwnProperty(p)) {
+			str += p + '::' + obj[p] + '\n';
+		}
+	}
+	alert(str);
+}
+
+/**
+ * 모달 팝업 동적 생성
+ * @param alertTxt - 모달창 내용
+ * @param modalType - 모달 타입 : 'alert', 'error'
+ */
+function fnModalAlert(alertTxt,modalType, callback) {
+
+	//var txt = replaceAll(alertTxt,'.','.<br/>');
+	var txt = alertTxt;
+	var btnCloseTxt = "Close"
+	var modalTitleTxt = "";
+
+	switch (modalType) {
+		case "info" :
+			modalTitleTxt = "Information";
+			break;
+		case "alert" :
+			modalTitleTxt = "Warning";
+			break;
+		case "error" :
+			modalTitleTxt = "Error"
+			break;
+		default :
+			modalTitleTxt = "Warning";
+			break;
+	}
+
+	var modalWindow = $(
+		'<div id="modal-warning-info" class="modal fade" tabindex="-1" style="width:400px">' +
+			'<div class="modal-header">' +
+				'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">' +
+					'&times;' +
+				'</button><h3>'+ modalTitleTxt + '</h3>'+
+			'</div>' +
+			'<div class="modal-body">' +
+				'<p>' + txt + '</p>' +
+			'</div>'+
+			'<div class="modal-footer">' +
+				'<button id="fnModalAlert_btn_close" class="btn btn_s bg_darkgray text_color_white col-5 col-12-s" data-dismiss="modal">' +
+					btnCloseTxt +
+				'</button>' +
+			'</div>' +
+		'</div>'
+	);
+	modalWindow.find('#fnModalAlert_btn_close').click(function(event) {
+		if(typeof callback === 'function') {
+			callback();
+		}
+		modalWindow.modal('hide');
+	});
+	modalWindow.modal('show');
+};
+
+/**
+ * 모달 Confirm 동적 생성
+ * @param alertTxt 모달 내용
+ * @param cancelButtonTxt 취소버튼 텍스트
+ * @param okButtonTxt 확인 버튼 텍스트
+ * @param callback 콜백 함수
+ *
+ * 사용법
+ * $("#test-alert-confirm-jsbuild").on("click", function(event) {
+ *	var selid = "1";
+ *	var question = 'ID'+ selid +'삭제하시겠습니까? ';
+ *	var cancelButtonTxt = '취소';
+ *	var okButtonTxt = '확인';
+ *
+ *	var callback = function() {
+ *		alert('삭제 승인 : ' + selid);
+ *	};
+ *	confirm(question, cancelButtonTxt, okButtonTxt, callback);
+ *});
+ */
+function fnModalConfirm(alertTxt,cancelButtonTxt, okButtonTxt, callback) {
+
+	//var txt = replaceAll(alertTxt,'.','.<br/>');
+	var txt = alertTxt;
+	
+	var btnConfirmTxt = okButtonTxt;
+	var btnCancelTxt = cancelButtonTxt;
+	var modalTitleTxt = "";
+	var iconClass = "";
+
+	modalTitleTxt = "Information";
+	var modalWindow = $(
+		'<div id="modal-warning-info" class="modal fade" tabindex="-1" style="width:400px">' +
+			'<div class="modal-header">' +
+				'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">' +
+					'&times;' +
+				'</button><h3>'+ modalTitleTxt + '</h3>'+
+			'</div>' +
+			'<div class="modal-body">' +
+				'<p>' + txt + '</p>' +
+			'</div>' +
+			'<div class="modal-footer">' +
+				'<button class="btn btn_s bg_darkgray text_color_white col-5 col-12-s" id="modal-btn-yes">' +
+					btnConfirmTxt +
+				'</button>' +
+				'<button class="btn btn_s bg_red text_color_white col-5 col-12-s" id="modal-btn-cancel">' +
+					btnCancelTxt +
+				'</button>' +
+			'</div>' +
+		'</div>'
+	);
+	modalWindow.find('#modal-btn-yes').click(function(event) {
+		callback();
+		modalWindow.modal('hide');
+	});
+	modalWindow.find('#modal-btn-cancel').click(function(event) {
+		modalWindow.modal('hide');
+	});
+	modalWindow.modal('show');
+};
+
+function replaceAll(sValue, param1, param2) {
+
+	return sValue.split(param1).join(param2);
+}
+
+//두개의 배열을 합치고 중복 제거 후 배열 돌려줌.
+var concatArraysUniqueWithSort = function (thisArray, otherArray) {
+    var newArray = thisArray.concat(otherArray).sort(function (a, b) {
+        return a > b ? 1 : a < b ? -1 : 0;
+    });
+
+    return newArray.filter(function (item, index) {
+        return newArray.indexOf(item) === index;
+    });
+};
+
+
+//모두선택 처리
+$(document).on('click', 'th input:checkbox' , function(){
+	var that = this;
+	$(this).closest('table').find('tr > td:first-child input:checkbox')
+	.each(function(){
+		this.checked = that.checked;
+		//$(this).closest('tr').toggleClass('selected');
+	});
+});
+
+//textarea 줄바꿈시 자동으로 사이즈 조정
+//$('textarea[class*=autosize]').autosize({append: "\n"});
+
+//에러페이지 화면에서 이전페이지 이동
+$('#afterErrorPage').on('click', function(e) {
+    e.preventDefault(); // 기본 동작 방지 (필요 시)
+    window.history.go(-2);
+});
+function fnSetLanguage(lang){
+	var url = domainctx+"/index.do?locale="+lang;
+	window.location.href = url;
+}
+$("#langSel").on('change', function() {
+    const lang = $(this).val();
+    const url = domainctx+"/index.do?locale="+lang;
+    window.location.href = url;
+});
+
+
+jQuery.fn.extend({
+    /**
+     * 숫자만 입력 가능하도록 처리 (최신 브라우저 및 전각 문자 완벽 대응)
+     */
+    numberOnly: function() {
+        return this.each(function() {
+            try {
+                var $this = $(this);
+                
+                // input 이벤트: 키보드, 복사/붙여넣기, 모바일 키패드, 전각/한글 조합 등 모든 값 변경을 감지
+                $this.on('input', function() {
+                    var originalValue = $this.val();
+                    
+                    // 숫자가 아닌 모든 문자(전각 문자, 영문, 한글, 특수문자 등)를 정규식으로 제거
+                    var cleanedValue = originalValue.replace(/[^0-9]/g, '');
+                    
+                    // 기존 값과 정제된 값이 다를 때만 덮어쓰기 (커서 깜빡임 방지)
+                    if (originalValue !== cleanedValue) {
+                        $this.val(cleanedValue);
+                    }
+                });
+
+                // 포커스를 얻었을 때 처리 - number format을 위한 콤마 제거 (기존 로직 유지)
+                $this.on('focus', function() {
+                    $this.val($this.val().replace(/,/g, ''));
+                });
+
+            } catch(e) {
+                console.error("[jsutil.js's numberFormat] " + e.message);
+            }
+        });
+    }
+});
+
+function fnCmmPagination(totCnt) {
+	var param = {};
+	param.totCnt = totCnt;
+	param.pageIndex = $("#pageIndex").val();
+	param.pageUnit = $("#pageUnit").val();
+	$.ajax({
+        type:"POST",
+        url:"/common/cmmPagination.do",
+        data:param,
+        success:function(data){
+        	$("#gridPaging").html(data);
+       		//재조회
+        },
+        error:function(e){
+            alert(e.responseText);
+        }
+    });
+}
+
+/**
+ * Re 모달 팝업 동적 생성
+ * @param alertTxt - 모달창 내용
+ * @param modalType - 모달 타입 : 'alert', 'error'
+ */
+function fnReModalAlert(alertTxt,modalType, callback) {
+
+	//var txt = replaceAll(alertTxt,'.','.<br/>');
+	var txt = alertTxt;
+	var btnCloseTxt = "Close"
+	var modalTitleTxt = "";
+
+	switch (modalType) {
+		case "info" :
+			modalTitleTxt = "Information";
+			break;
+		case "alert" :
+			modalTitleTxt = "Warning";
+			break;
+		case "error" :
+			modalTitleTxt = "Error"
+			break;
+		default :
+			modalTitleTxt = "Warning";
+			break;
+	}
+
+	var modalWindow = $(
+		'<div data-remodal-id="modalAlert" class="remodal remodal-alert" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc" style="width:380px">' +
+		'<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>'+
+			'<div>'+
+				'<h2 id="modal1Title">'+ modalTitleTxt + '</h2>' +
+				'<div id="modal1Desc">' +
+					'<div class="section_modal">' +
+						'<p>' + txt + '</p>' +
+					'</div>' +
+				'</div>' +
+				'<hr>' +
+				'<button data-remodal-action="confirm" class="remodal-confirm" id="fnReModalAlert_btn_close">확인</button>' +
+			'</div>' +
+		'</div>' 
+	);
+	var inst = modalWindow.remodal();
+	modalWindow.find('#fnReModalAlert_btn_close').click(function(event) {
+		if(typeof callback === 'function') {
+			callback();
+		}
+		inst.close();
+	});
+	inst.open();
+};
+
+function fnReModalConfirm(alertTxt,cancelButtonTxt, okButtonTxt, callback) {
+
+	//var txt = replaceAll(alertTxt,'.','.<br/>');
+	var txt = alertTxt;
+	var btnConfirmTxt = okButtonTxt;
+	var btnCancelTxt = cancelButtonTxt;
+	var modalTitleTxt = "";
+	var iconClass = "";
+
+	modalTitleTxt = "Information";
+	var modalWindow = $(
+		'<div data-remodal-id="modalAlert" class="remodal remodal-alert" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc" style="width:380px">' +
+		'<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>'+
+			'<div>'+
+				'<h2 id="modal1Title">'+ modalTitleTxt + '</h2>' +
+				'<div id="modal1Desc">' +
+					'<div class="section_modal">' +
+						'<p>' + txt + '</p>' +
+					'</div>' +
+				'</div>' +
+				'<hr>' +
+				'<button data-remodal-action="confirm" class="remodal-confirm" id="remodal-btn-yes">'+btnConfirmTxt+'</button> ' +
+				'<button data-remodal-action="confirm" class="remodal-confirm" id="remodal-btn-cancel">'+btnCancelTxt+'</button>' +
+			'</div>' +
+		'</div>' 
+	);
+	var inst = modalWindow.remodal();
+	modalWindow.find('#remodal-btn-yes').click(function(event) {
+		callback();
+		inst.close();
+	});
+	modalWindow.find('#remodal-btn-cancel').click(function(event) {
+		inst.close();
+	});
+	inst.open();
+};
+
+//3자리 콤마
+function numberWithCommas(x) {
+	
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function applyDetailValidation (certiCode, applyDetail){
+	var resultObj = {code : '0', msg : 'OK'};
+	var rstCode = "00";
+	var subjectCnt = applyDetail.length;
+	var certiCode = certiCode;
+	var arr_applyDetail = applyDetail;
+	
+	var subjectList = new Array();
+	var swList = new Array();
+	
+	for (var i = 0; i < arr_applyDetail.length; i++) {
+		subjectList.push(arr_applyDetail[i].subjectCode);
+		swList.push(arr_applyDetail[i].swCode);
+	}
+	/*ITQ 일때 */
+	if("ITQ" === certiCode) {
+		if(subjectCnt > 1) {
+			//같은과목군
+			if(subjectList.contains("1111")) {
+				if(subjectList.contains("1112")) rstCode = "16";
+			} 
+
+			//if(subjectList.contains("1112")) {
+			//	if(subjectList.contains("1111")) rstCode = "16";
+			//}
+			
+			if(subjectList.contains("1122")) {
+				if(subjectList.contains("1121")) rstCode = "16";
+			}
+			
+			//if(subjectList.contains("1132")) {
+			//	if(subjectList.contains("1121")) rstCode = "16";
+			//} 
+
+			if(subjectList.contains("1142")) {
+				if(subjectList.contains("1141")) rstCode = "16";
+			}
+			
+			//같은 교시 배정 과목
+			if(subjectList.contains("1121")) {
+				if(subjectList.contains("1132")) rstCode = "16";
+			} 
+			
+			if(subjectList.contains("1141")) {
+				if(subjectList.contains("1112")) rstCode = "16";
+			} 			
+
+		}
+	} else if("GTQ" === certiCode) {
+		
+		if(subjectCnt > 1) {
+			
+			//subjectSwVoList = createSubjectSwList(detailList);
+			
+			for(var i=0; i < arr_applyDetail.length ; i++) {
+				var swCode = arr_applyDetail[i].d_sw;
+				var subjectCode = arr_applyDetail[i].d_subject;
+				if(subjectList.contains("GID1") && subjectList.contains("G102")) {
+					if("G102" === subjectCode && "E3K" === swCode) {
+						rstCode = "16";
+					}
+				} 
+				if(subjectList.contains("GID2") && subjectList.contains("G103")) {
+					if("G103" === subjectCode && "E3K"=== swCode) {
+						rstCode = "16";
+					}
+				} 
+				if(subjectList.contains("GID3") && subjectList.contains("G103")) {
+					if("G103" === subjectCode && "E3K" === swCode) {
+						rstCode = "16";
+					}
+				}
+				if(subjectList.contains("GID2") && subjectList.contains("GID3")) {
+					rstCode = "16";
+				}
+				if(subjectList.contains("G103") && subjectList.contains("GID2")) {
+					rstCode = "16";
+				}
+				//3급 끼리 접수 불가
+				if((subjectList.contains("G103") && subjectList.contains("GID3"))
+						|| (subjectList.contains("G103") && subjectList.contains("GL03"))
+						|| (subjectList.contains("GID3") && subjectList.contains("GL03"))
+						) {
+							rstCode = "16";
+				}
+			}
+			
+		}
+		
+	} else if("ERP"===certiCode) {
+		if(subjectCnt > 1) {
+			if(subjectList.contains("E11")) {
+				
+				if(subjectList.contains("E21") || subjectList.contains("E13") || subjectList.contains("E23")) rstCode = "16";
+				
+			} else if(subjectList.contains("E21")) {
+				
+				if(subjectList.contains("E11") || subjectList.contains("E13") || subjectList.contains("E23")) rstCode = "16";
+				
+			} else if(subjectList.contains("E13")) {
+				
+				if(subjectList.contains("E11") || subjectList.contains("E21") || subjectList.contains("E23")) rstCode = "16";
+				
+			} else if(subjectList.contains("E23")) {
+				
+				if(subjectList.contains("E11") || subjectList.contains("E21") || subjectList.contains("E13")) rstCode = "16";
+				
+			} else if(subjectList.contains("E12")) {
+				
+				if(subjectList.contains("E22") || subjectList.contains("E14") || subjectList.contains("E24")) rstCode = "16";
+				
+			} else if(subjectList.contains("E22")) {
+				
+				if(subjectList.contains("E12") || subjectList.contains("E14") || subjectList.contains("E24")) rstCode = "16";
+				
+			} else if(subjectList.contains("E14")) {
+				
+				if(subjectList.contains("E12") || subjectList.contains("E22") || subjectList.contains("E24")) rstCode = "16";
+				
+			} else if(subjectList.contains("E24")) {
+				
+				if(subjectList.contains("E12") || subjectList.contains("E22") || subjectList.contains("E14")) rstCode = "16";
+				
+			}
+		}
+	}
+
+	if(rstCode === "16") {
+		resultObj.code = "1";
+		resultObj.msg = "FAIL";
+	}
+
+	//console.log("resultObj.code",resultObj.code);
+	//console.log("resultObj.msg",resultObj.msg);
+
+	return resultObj;
+}
+
+function fnGoHome() {
+	location.href = "/";
+}
+
+function fnGoHome(qcertiCode,qtype) {
+	
+	if(qcertiCode == undefined || qcertiCode == null || qcertiCode == "") {
+		location.href = "/";
+	} else {
+		location.href ="/qplus/"+qcertiCode.toLowerCase();
+	}
+}
+(function($) { 
+	$.ajaxSetup({
+           beforeSend: function(xhr) {
+            xhr.setRequestHeader("AJAX", true);
+        },
+        error: function(xhr, status, err) {
+            if (xhr.status == 401) {
+                   fnModalAlert('인증된 사용자가 아닙니다.', 'error');
+            } else if (xhr.status == 403) {
+                   fnModalAlert('접근 권한이 없습니다.', 'error');
+            } else {
+            	console.log(xhr.status+" "+ xhr.statusText+" "+ xhr.responseText+" "+ xhr.readyState);
+                //fnModalAlert("예외가 발생했습니다. 관리자에게 문의하세요.", 'error');
+            }
+        }
+    });
+})(jQuery);

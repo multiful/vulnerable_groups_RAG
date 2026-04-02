@@ -1,0 +1,311 @@
+/**
+ * jquery-bootstrap-scrolling-tabs
+ * @version v0.0.8
+ * @link https://github.com/mikejacobson/jquery-bootstrap-scrolling-tabs
+ * @author Mike Jacobson <michaeljjacobson1@gmail.com>
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ *
+ * jQuery plugin version of Angular directive angular-bootstrap-scrolling-tabs:
+ * https://github.com/mikejacobson/angular-bootstrap-scrolling-tabs
+ *
+ * Usage:
+ *
+ *    Use case #1: HTML-defined tabs
+ *    ------------------------------
+ *    Demo: http://plnkr.co/edit/thyD0grCxIjyU4PoTt4x?p=preview
+ *
+ *      Sample HTML:
+ *
+ *           <!-- Nav tabs -->
+ *           <ul class="nav nav-tabs" role="tablist">
+ *             <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">Tab Number 1</a></li>
+ *             <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">Tab Number 2</a></li>
+ *             <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">Tab Number 3</a></li>
+ *             <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab">Tab Number 4</a></li>
+ *           </ul>
+ *
+ *           <!-- Tab panes -->
+ *           <div class="tab-content">
+ *             <div role="tabpanel" class="tab-pane active" id="tab1">Tab 1 content...</div>
+ *             <div role="tabpanel" class="tab-pane" id="tab2">Tab 2 content...</div>
+ *             <div role="tabpanel" class="tab-pane" id="tab3">Tab 3 content...</div>
+ *             <div role="tabpanel" class="tab-pane" id="tab4">Tab 4 content...</div>
+ *           </div>
+ *
+ *
+ *      JavaScript:
+ *
+ *            $('.nav-tabs').scrollingTabs();
+ *
+ *      On window resize, the tabs should refresh themselves, but to force a refresh:
+ *
+ *            $('.nav-tabs').scrollingTabs('refresh');
+ *
+ *
+ *    Use Case #2: Data-driven tabs
+ *    -----------------------------
+ *    Demo: http://plnkr.co/edit/MWBjLnTvJeetjU3NEimg?p=preview
+ *
+ *      Sample HTML:
+ *
+ *          <!-- build .nav-tabs and .tab-content in here -->
+ *          <div id="tabs-inside-here"></div>
+ *
+ *
+ *      JavaScript:
+ *
+ *             $('#tabs-inside-here').scrollingTabs({
+ *               tabs: tabs, // required
+ *               propPaneId: 'paneId', // optional
+ *               propTitle: 'title', // optional
+ *               propActive: 'active', // optional
+ *               propDisabled: 'disabled', // optional
+ *               propContent: 'content', // optional
+ *               ignoreTabPanes: false, // optional
+ *               scrollToTabEdge: false, // optional
+ *               disableScrollArrowsOnFullyScrolled: false // optional
+ *             });
+ *
+ *      Settings/Options:
+ *
+ *        tabs:             tabs data array
+ *        prop*:            name of your tab object's property name that
+ *                          corresponds to that required tab property if
+ *                          your property name is different than the
+ *                          standard name (paneId, title, etc.)
+ *        ignoreTabPanes:   relevant for data-driven tabs only--set to true if
+ *                          you want the plugin to only touch the tabs
+ *                          and to not generate the tab pane elements
+ *                          that go in .tab-content. By default, the plugin
+ *                          will generate the tab panes based on the content
+ *                          property in your tab data, if a content property
+ *                          is present.
+ *        scrollToTabEdge:  set to true if you want to force full-width tabs
+ *                          to display at the left scroll arrow. i.e., if the
+ *                          scrolling stops with only half a tab showing,
+ *                          it will snap the tab to its edge so the full tab
+ *                          shows.
+ *        disableScrollArrowsOnFullyScrolled:
+ *                          set to true if you want the left scroll arrow to
+ *                          disable when the tabs are scrolled fully left,
+ *                          and the right scroll arrow to disable when the tabs
+ *                          are scrolled fully right.
+ *
+ *
+ *
+ *      On tabs data change:
+ *
+ *            $('#tabs-inside-here').scrollingTabs('refresh');
+ *
+ *      On tabs data change, if you want the active tab to be set based on
+ *      the updated tabs data (i.e., you want to override the current
+ *      active tab setting selected by the user), for example, if you
+ *      added a new tab and you want it to be the active tab:
+ *
+ *             $('#tabs-inside-here').scrollingTabs('refresh', {
+ *               forceActiveTab: true
+ *             });
+ *
+ *      Any options that can be passed into the plugin can be set on the
+ *      plugin's 'defaults' object instead so you don't have to pass them in:
+ *
+ *             $.fn.scrollingTabs.defaults.tabs = tabs;
+ *             $.fn.scrollingTabs.defaults.forceActiveTab = true;
+ *             $.fn.scrollingTabs.defaults.scrollToTabEdge = true;
+ *             $.fn.scrollingTabs.defaults.disableScrollArrowsOnFullyScrolled = true;
+ *
+ *
+ *    Events
+ *    -----------------------------
+ *    The plugin triggers event 'ready.scrtabs' when the tabs have
+ *    been wrapped in the scroller and are ready for viewing:
+ *
+ *      $('.nav-tabs')
+ *        .scrollingTabs()
+ *        .on('ready.scrtabs', function() {
+ *          // tabs ready, do my other stuff...
+ *        });
+ *
+ *      $('#tabs-inside-here')
+ *        .scrollingTabs({ tabs: tabs })
+ *        .on('ready.scrtabs', function() {
+ *          // tabs ready, do my other stuff...
+ *        });
+ *
+ *
+ *    Destroying
+ *    -----------------------------
+ *    To destroy:
+ *
+ *      $('.nav-tabs').scrollingTabs('destroy');
+ *
+ *      $('#tabs-inside-here').scrollingTabs('destroy');
+ *
+ *    If you were wrapping markup, the markup will be restored; if your tabs
+ *    were data-driven, the tabs will be destroyed along with the plugin.
+ *
+ */
+/**
+ * Modernized jQuery Scrolling Tabs Plugin (ES6+)
+ */
+;(($, window, document) => {
+    'use strict';
+
+    const CONSTANTS = {
+        CONTINUOUS_SCROLL_INTERVAL: 50,
+        SCROLL_ARROW_WIDTH: 20,
+        SCROLL_OFFSET_FRACTION: 6,
+        DATA_KEY_IS_MOUSEDOWN: 'scrtabsismousedown',
+        CLASSES: {
+            DISABLE: 'scrtabs-disable'
+        },
+        EVENTS: {
+            CLICK: 'click.scrtabs',
+            RESIZE: 'resize.scrtabs',
+            FORCE_REFRESH: 'forcerefresh.scrtabs'
+        }
+    };
+
+    // --- Utility: Debounce for Resize ---
+    const debounce = (func, threshold = 100) => {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), threshold);
+        };
+    };
+
+    /* *******************************************************************
+     * ScrollingTabs Class
+     * *******************************************************************/
+    class ScrollingTabs {
+        constructor($container, options) {
+            this.$container = $container;
+            this.settings = $.extend({}, $.fn.scrollingTabs.defaults, options);
+            
+            this.movableContainerLeftPos = 0;
+            this.scrollArrowsVisible = false;
+            
+            this.init();
+        }
+
+        init() {
+            this.setElementReferences();
+            this.setEventListeners();
+            this.refreshAllElementSizes();
+            
+            this.$container.css('visibility', 'visible');
+        }
+
+        setElementReferences() {
+            const $scroller = this.$container;
+            this.$fixedContainer = $scroller.find('.scrtabs-tabs-fixed-container');
+            this.$movableContainer = $scroller.find('.scrtabs-tabs-movable-container');
+            this.$tabsUl = $scroller.find('.nav-tabs, .nav-pills');
+            this.$leftArrow = $scroller.find('.scrtabs-js-tab-scroll-arrow-left');
+            this.$rightArrow = $scroller.find('.scrtabs-js-tab-scroll-arrow-right');
+            this.$arrows = this.$leftArrow.add(this.$rightArrow);
+        }
+
+        setEventListeners() {
+            // 화살표 클릭 및 마우스 이벤트 (on 사용)
+            this.$leftArrow.on({
+                'mousedown.scrtabs': () => this.startScroll('left'),
+                'mouseup.scrtabs mouseleave.scrtabs': () => this.stopScroll('left'),
+                'click.scrtabs': () => this.scrollOnce('left')
+            });
+
+            this.$rightArrow.on({
+                'mousedown.scrtabs': () => this.startScroll('right'),
+                'mouseup.scrtabs mouseleave.scrtabs': () => this.stopScroll('right'),
+                'click.scrtabs': () => this.scrollOnce('right')
+            });
+
+            // 리사이즈 이벤트 최적화
+            $(window).on(CONSTANTS.EVENTS.RESIZE, debounce(() => this.refreshAllElementSizes()));
+            
+            // 외부 강제 리프레시 대응
+            $('body').on(CONSTANTS.EVENTS.FORCE_REFRESH, () => this.refreshAllElementSizes());
+        }
+
+        refreshAllElementSizes() {
+            const containerWidth = this.$container.outerWidth();
+            let movableWidth = 0;
+
+            // 탭 너비 합산 계산 (ES6 find/each)
+            this.$tabsUl.find('> li').each(function() {
+                movableWidth += $(this).outerWidth(true);
+            });
+
+            this.movableContainerWidth = movableWidth + 1;
+            this.fixedContainerWidth = containerWidth;
+
+            this.updateVisibility();
+        }
+
+        updateVisibility() {
+            const shouldShowArrows = this.movableContainerWidth > this.fixedContainerWidth;
+            
+            if (shouldShowArrows) {
+                this.$arrows.show();
+                this.scrollArrowsVisible = true;
+                const arrowWidth = this.$leftArrow.outerWidth() + this.$rightArrow.outerWidth();
+                this.$fixedContainer.width(this.fixedContainerWidth - arrowWidth);
+            } else {
+                this.$arrows.hide();
+                this.scrollArrowsVisible = false;
+                this.$fixedContainer.width(this.fixedContainerWidth);
+                this.moveTo(0);
+            }
+        }
+
+        startScroll(direction) {
+            this.isMouseDown = true;
+            this.continueScrolling(direction);
+        }
+
+        stopScroll() {
+            this.isMouseDown = false;
+        }
+
+        scrollOnce(direction) {
+            const offset = this.fixedContainerWidth / CONSTANTS.SCROLL_OFFSET_FRACTION;
+            const moveVal = (direction === 'left') ? offset : -offset;
+            this.moveTo(this.movableContainerLeftPos + moveVal);
+        }
+
+        continueScrolling(direction) {
+            if (!this.isMouseDown) return;
+
+            this.scrollOnce(direction);
+            setTimeout(() => this.continueScrolling(direction), CONSTANTS.CONTINUOUS_SCROLL_INTERVAL);
+        }
+
+        moveTo(pos) {
+            const minPos = this.fixedContainerWidth - this.movableContainerWidth - (this.scrollArrowsVisible ? 40 : 0);
+            
+            // 경계값 제한
+            this.movableContainerLeftPos = Math.max(minPos, Math.min(0, pos));
+
+            this.$movableContainer.stop().animate({
+                left: `${this.movableContainerLeftPos}px`
+            }, 'fast');
+        }
+    }
+
+    // --- jQuery Plugin Bridge ---
+    $.fn.scrollingTabs = function(options) {
+        return this.each(function() {
+            const $this = $(this);
+            if (!$this.data('scrtabs')) {
+                $this.data('scrtabs', new ScrollingTabs($this, options));
+            }
+        });
+    };
+
+    $.fn.scrollingTabs.defaults = {
+        scrollToTabEdge: false,
+        disableScrollArrowsOnFullyScrolled: false
+    };
+
+})(jQuery, window, document);

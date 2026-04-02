@@ -1,0 +1,468 @@
+function showProgress() {
+	var progress_str ="<div  id=\"progress\" class=\"loadingWrap\" style=\"display:block;\">";
+	progress_str +="<div class=\"loading_inner\">";
+	progress_str +="<div class=\"itemWrap\">";
+	progress_str +="<div class=\"item\">";
+	progress_str +="<img src=\"/qnet/type/img/common/qnet_loading_logo01.svg\" alt=\"\">";
+	progress_str +="</div>";
+	progress_str +="<div class=\"item\">";
+	progress_str +="<img src=\"/qnet/type/img/common/qnet_loading_logo02.svg\" alt=\"\">";
+	progress_str +="</div>";
+	progress_str +="<div class=\"item\">";
+	progress_str +="<img src=\"/qnet/type/img/common/qnet_loading_logo03.svg\" alt=\"\">";
+	progress_str +="</div>";
+	progress_str +="</div>";
+	/*progress_str +="<p class=\"headLine2\">잠시만 기다려 주세요.</p>";*/
+	progress_str +="</div>";
+	progress_str +="</div>";
+	progress_str +="</div>";
+	/*
+	var progress_str = "<div id=\"progress\" class=\"loadingWrap\" style=\"display:block;opacity: 0.4;background:#000;z-index:99999;\">";
+	progress_str +="<div class=\"loading\">";
+	progress_str +="<div class=\"itemWrap\">";
+	progress_str +="<div class=\"item\"></div>";
+	progress_str +="<div class=\"item\"></div>";
+	progress_str +="<div class=\"item\"></div>";
+	progress_str +="</div>";
+	//progress_str +="<p class=\"headLine2\" style=\"color:#fff;\">잠시만 기다려 주세요.</p>";
+	progress_str +="</div>";
+	progress_str +="</div>";
+	*/
+	$('body').append(progress_str);
+}
+
+function hideProgress() {
+    $('#progress').remove();
+}
+
+jQuery.fn.center = function () {
+    this.css("position", "absolute");
+    this.css("top", ($(window).height() - this.height()) / 2 + $(window).scrollTop() + "px");
+    this.css("left", ($(window).width() - this.width()) / 2 + $(window).scrollLeft() + "px");
+    return this;
+};
+
+//************* AJAX 관련 공통 *************
+// XMLHttpRequest 생성
+function newXMLHttpRequest() {
+	var reqHttp;
+	if (window.ActiveXObject) {	 // IE
+		try {
+			reqHttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				reqHttp =  new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e1) {
+				reqHttp =  null;
+			}
+		}
+	} else if (window.XMLHttpRequest){  // IE 이외
+		try {
+			reqHttp =  new XMLHttpRequest();
+		} catch (e) {
+			reqHttp =  null;
+		}
+	}
+	if (reqHttp == null) errorMessage();   //XMLHttpRequest 생성 실패
+	return reqHttp;
+}
+
+// 지원할 수 없는 브라우저 사용
+function errorMessage() {
+	alert("지원할 수 없는 브라우저입니다.");
+}
+
+// readyState와 status 체크
+function openSendStatus_old(getPost, urlFileAppl, trueFalse, sendData, method) {
+	var xmlHttp = newXMLHttpRequest();             // XMLHttpRequest 생성
+	xmlHttp.open(getPost, urlFileAppl, trueFalse); // 송신방법,URL,통신방법
+	xmlHttp.onreadystatechange = function() {     // 처리상태 변경 발생
+		if (xmlHttp.readyState == 4) {             // 서버 처리 완료
+			if (xmlHttp.status == 200) {           // 파일 수신 성공
+				eval(method);                      // 메인 처리
+			} else {
+				exceptionControl(xmlHttp);         // 예외 처리
+			}
+		}
+	};
+	xmlHttp.send(sendData);                        // 처리 데이터 송신
+}
+
+// 예외 처리 (status != 200)
+function exceptionControl(xmlHttp) {
+	var exceptShow = "상태 코드: " + xmlHttp.status;
+	exceptShow += ",  비정상으로 종료되었습니다.";
+}
+
+function callAjax(_url, _data, _success, _error, _async) {
+	showProgress();
+	//setTimeout(function(){
+	var url;
+	if(_url.indexOf("gpin") == -1) {
+		if(_url.indexOf("&") == -1) {
+			url = _url;
+		} else {
+			url = _url.substring(0, _url.indexOf("&"));	
+		}
+	} else {
+		url = _url.substring(0, _url.indexOf("?"));
+	}
+	var params = _url.substring(_url.indexOf("?")+1,_url.length);
+	var data = getParamMap(params);
+	
+	if(_data != null && _data != "") {
+		if(Object.prototype.toString.call(_data) === "[object JSON]") {
+			_data = objToQueryStringStr(eval(_data));
+		} 
+		data = objToQueryStringStr(data) +"&"+_data; //GET방식으로 넘어온 파라미터와 POST로 넘어온 파라미터를 합침.
+	} else {
+		data = objToQueryStringStr(data);
+	}
+	
+	jQuery.ajax({
+		type: "POST",
+		async: _async, // DEFAULT:true, 주의 순자적으로 호출 하는곳에선 false 사용하도록 할것(대신 progress 안보인다.)
+		url: url,
+		data: (data),    //VESTWEB 웹위변조 난독화를 안하려면 VestAjaxExt만 삭제하면 됌.
+		dataType: 'json', // AJAX return Data type
+		contentType: "application/x-www-form-urlencoded; charset=utf-8", // AJAX contentType
+		success: function(data) {
+			hideProgress();
+			_success(data);
+		},
+		error: function(request, status, error) {
+			hideProgress();
+			//location.href="main.do?id=displayError";
+			if ( _error ) {
+				_error(request, status, error);
+			}
+		},
+		complete: function(request, status) {
+			hideProgress();
+		}
+	});
+	//}, 500);
+}
+function callAjaxHtml(_url, _data, _success, _error, _async) {
+	showProgress();
+	//setTimeout(function(){
+	var url;
+	if(_url.indexOf("gpin") == -1) {
+		if(_url.indexOf("&") == -1) {
+			url = _url;
+		} else {
+			url = _url.substring(0, _url.indexOf("&"));	
+		}
+	} else {
+		url = _url.substring(0, _url.indexOf("?"));
+	}
+	
+	var params = _url.substring(_url.indexOf("?")+1,_url.length);
+	var data = getParamMap(params);
+
+	//POST에서 data가 넘어온 경우
+	if(_data != null && _data != "") {
+		if(Object.prototype.toString.call(_data) === "[object JSON]") {
+			_data = objToQueryStringStr(eval(_data));
+		} 
+		data = objToQueryStringStr(data) +"&"+_data; //GET방식으로 넘어온 파라미터와 POST로 넘어온 파라미터를 합침.
+	} else {
+		data = objToQueryStringStr(data);
+	}		
+	jQuery.ajax({
+		type: "POST",
+		async: _async, // DEFAULT:true, 주의 순자적으로 호출 하는곳에선 false 사용하도록 할것(대신 progress 안보인다.)
+		url: url,
+		data: (data),			//VESTWEB 웹위변조 난독화를 안하려면 VestAjaxExt만 삭제하면 됌.
+		dataType: "html", // AJAX return Data type
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",  // AJAX contentType
+		success: function(data) {
+			hideProgress();
+			_success(data);
+		},
+		error: function(request, status, error) {
+			hideProgress();
+			//location.href="main.do?id=displayError";
+			if ( _error ) {
+				_error(request, status, error);
+			}
+		},
+		complete: function(request, status) {
+			hideProgress();
+		}
+	});
+	//}, 500);
+}
+
+//progress bar 생성 안함
+function callAjaxHtml2(_url, _data, _success, _error, _async) {
+	//setTimeout(function(){
+	var url;
+	if(_url.indexOf("gpin") == -1) {
+		if(_url.indexOf("&") == -1) {
+			url = _url;
+		} else {
+			url = _url.substring(0, _url.indexOf("&"));	
+		}
+	} else {
+		url = _url.substring(0, _url.indexOf("?"));
+	}
+
+	var params = _url.substring(_url.indexOf("?")+1,_url.length);
+	var data = getParamMap(params);
+	
+	//POST에서 data가 넘어온 경우
+	if(_data != null && _data != "") {
+		if(Object.prototype.toString.call(_data) === "[object JSON]") {
+			_data = objToQueryStringStr(eval(_data));
+		} 
+		data = objToQueryStringStr(data) +"&"+_data; //GET방식으로 넘어온 파라미터와 POST로 넘어온 파라미터를 합침.
+	} else {
+		data = objToQueryStringStr(data);
+	}		
+			
+	jQuery.ajax({
+		type: "POST",
+		async: _async, // DEFAULT:true, 주의 순자적으로 호출 하는곳에선 false 사용하도록 할것(대신 progress 안보인다.)
+		url: url,
+		data: (data), 			//VESTWEB 웹위변조 난독화를 안하려면 VestAjaxExt만 삭제하면 됌.
+		dataType: "html", // AJAX return Data type
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",  // AJAX contentType
+		success: function(data) {
+			_success(data);
+		},
+		error: function(request, status, error) {
+			//location.href="main.do?id=displayError";
+			if ( _error ) {
+				_error(request, status, error);
+			}
+		},
+		complete: function(request, status) {
+		}
+	});
+	//}, 500);
+}
+
+
+//250512 fetch 추가
+function callFetchHtml(_url, _data, _success, _error, _async = true) {
+	
+	showProgress();
+	
+    // URL 정리
+    let url;
+    if (_url.indexOf("gpin") === -1) {
+        if (_url.indexOf("&") === -1) {
+            url = _url;
+        } else {
+            url = _url.substring(0, _url.indexOf("&"));
+        }
+    } else {
+        url = _url.substring(0, _url.indexOf("?"));
+    }
+
+    // 파라미터 분리
+    let params = "";
+    if (_url.indexOf("?") !== -1) {
+        params = _url.substring(_url.indexOf("?") + 1);
+    }
+    let data = getParamMap(params);
+
+    // POST에서 추가 데이터 합치기
+    if (_data != null && _data !== "") {
+        if (Object.prototype.toString.call(_data) === "[object JSON]") {
+            _data = objToQueryStringStr(eval(_data));  // 필요시 JSON.parse로 수정 추천
+        }
+        data = objToQueryStringStr(data) + "&" + _data;
+    } else {
+        data = objToQueryStringStr(data);
+    }
+
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+        },
+        body: data
+    };
+
+    if (_async === false) {
+        // 비동기 없이 then/catch 체인
+        fetch(url, fetchOptions)
+            .then(response => {
+				hideProgress();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(responseData => {
+                if (typeof _success === "function") {
+                    _success(responseData);
+                }
+            })
+            .catch(error => {
+				hideProgress();
+                if (typeof _error === "function") {
+                    _error(null, null, error.message);
+                }
+            })
+            .finally(() => {
+                // complete 처리 필요시 추가
+            });
+    } else {
+        // async/await 방식
+        (async () => {
+            try {
+				hideProgress();
+                const response = await fetch(url, fetchOptions);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const responseData = await response.text();
+                if (typeof _success === "function") {
+                    _success(responseData);
+                }
+            } catch (error) {
+				hideProgress();
+                if (typeof _error === "function") {
+                    _error(null, null, error.message);
+                }
+            } finally {
+                // complete 처리 필요시 추가
+            }
+        })();
+    }
+}
+
+// 250512 fetch 추가
+function callFetchHtml2(_url, _data, _success, _error, _async = true) {
+    let url;
+    if (_url.indexOf("gpin") === -1) {
+        if (_url.indexOf("&") === -1) {
+            url = _url;
+        } else {
+            url = _url.substring(0, _url.indexOf("&"));
+        }
+    } else {
+        url = _url.substring(0, _url.indexOf("?"));
+    }
+
+    let params = "";
+    if (_url.indexOf("?") !== -1) {
+        params = _url.substring(_url.indexOf("?") + 1);
+    }
+    let data = getParamMap(params);
+
+    // POST 데이터가 넘어온 경우
+    if (_data != null && _data !== "") {
+        if (Object.prototype.toString.call(_data) === "[object JSON]") {
+            _data = objToQueryStringStr(eval(_data)); // 안전하게 하고 싶으면 JSON.parse 추천
+        }
+        data = objToQueryStringStr(data) + "&" + _data;
+    } else {
+        data = objToQueryStringStr(data);
+    }
+
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+        },
+        body: data
+    };
+
+    if (_async === false) {
+        // then/catch 체인 방식
+        fetch(url, fetchOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(responseData => {
+                if (typeof _success === "function") {
+                    _success(responseData);
+                }
+            })
+            .catch(error => {
+                if (typeof _error === "function") {
+                    _error(null, null, error.message);
+                }
+            })
+            .finally(() => {
+                // complete 처리 필요시 추가
+            });
+    } else {
+        // async/await 방식
+        (async () => {
+            try {
+                const response = await fetch(url, fetchOptions);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const responseData = await response.text();
+                if (typeof _success === "function") {
+                    _success(responseData);
+                }
+            } catch (error) {
+                if (typeof _error === "function") {
+                    _error(null, null, error.message);
+                }
+            } finally {
+                // complete 처리 필요시 추가
+            }
+        })();
+    }
+}
+
+function openSendStatus(getPost, urlFileAppl, trueFalse, sendData, method)
+	{
+		var rand = Math.random();
+		var xmlHttp;
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlHttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlHttp.onreadystatechange=function()
+		{
+			if (xmlHttp.readyState==4 && xmlHttp.status==200)
+			{	
+				//console.log("RESPONSE 난독화 된 값 : " + xmlHttp.responseText + "\n" + "복호화 된 값 : " + VestDec(xmlHttp.responseText));
+				eval(method);
+			} else {
+				exceptionControl(xmlHttp);         // 예외 처리
+			}
+		}
+		var vestYn = true;
+		var url;
+		if(urlFileAppl.indexOf("gpin") == -1) {
+			if(urlFileAppl.indexOf("&") == -1) {
+				url = urlFileAppl;
+			} else {
+				url = urlFileAppl.substring(0, urlFileAppl.indexOf("&"));
+			}
+		} else {
+			url = urlFileAppl.substring(0, urlFileAppl.indexOf("?"));
+			vestYn = false;
+		}
+		var params = urlFileAppl.substring(urlFileAppl.indexOf("?")+1,urlFileAppl.length);
+		sendData = getParamMap(params);
+		
+		xmlHttp.open(getPost, url, trueFalse); // 송신방법,URL,통신방법
+		xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
+		
+		if(vestYn) {
+			var data = (objToQueryStringStr(sendData));	//VESTWEB 웹위변조 난독화를 안하려면 VestAjaxExt만 삭제하면 됌.
+		} else {
+			var data = objToQueryStringStr(sendData);
+		}
+		//var data = VestAjaxJson(sendData);
+		xmlHttp.send(data);
+	}
+//************* AJAX 관련 공통 *************

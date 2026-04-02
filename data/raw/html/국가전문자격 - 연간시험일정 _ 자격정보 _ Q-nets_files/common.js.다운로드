@@ -1,0 +1,3433 @@
+///////////////////////////////////////////////////////////////////////////
+//TO-BE
+$(function(){
+     //20250425 팝업 포커스 추가
+//    const $popWrap = $(".pop_wrap");
+//    if($popWrap.length) {
+//        const observer = new MutationObserver(function (mutationList) {
+//            for (const mutation of mutationList) {
+//                if(mutation.type === "childList") {
+//                    const $target = $popWrap.find(".popTit");
+//                    $target.attr('id','popupTitleText');
+//                    $popWrap.attr('role','dialog').attr('aria-modal','true');
+//                    $popWrap.attr('aria-labelledby','popupTitleText');
+//                    if($target.length) {
+//                        $target.attr('aria-live','assertive').attr('aria-atomic','true');
+//                        $target.attr('tabindex','-1');
+//                        $target[0].scrollIntoView({block:'center'});
+//                        $target.focus();
+//                        setTimeout(function(){
+//                            $target.attr('aria-live','assertive').attr('aria-atomic','true');
+//                            $target.attr('tabindex','-1');
+//                            $target[0].scrollIntoView({block:'center'});
+//                            $target.focus();
+//                            setTimeout(function(){
+//                                $target.focus();
+//                            },350);
+//                        },400);
+//                        break;
+//                    }
+//                }
+//            }
+//            setTimeout(function (){
+//            	assertChange();
+//        	}, 500)
+//            
+//        });
+//        observer.observe($popWrap.get(0),{
+//        	childList: true,
+//        	subtree : true 
+//        });
+//       $popWrap.on('click', '.btn_popClose', function () {
+//    	   $popWrap.removeAttr('role').removeAttr('aria-modal').removeAttr('aria-labelledby');
+//    	   $('.popTit').removeAttr('id').removeAttr('aria-live').removeAttr('aria-atomic').removeAttr('tabindex'); 
+//       });
+//    }
+    
+	/*
+	$(window).load(function(){
+		//체크박스 disabled
+		$(document).find("input[type=checkbox]:disabled").each(function(){
+			$(this).addClass("disabled");
+			$(this).after("<span></span>")
+		});
+		//라디오 disabled
+		$(document).find("input[type=radio]:disabled").each(function(){
+			$(this).addClass("disabled");
+			$(this).after("<span></span>")
+		});
+	});
+	*/
+
+	//마우스 롤오버 효과
+	$("ul.mOver").find("> li > a").on({
+		"mouseenter" : function(){
+			$(this).find("img").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+		},
+		"focusin" : function(){
+			$(this).find("img").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+		},
+		"mouseleave" : function(){
+			$(this).find("img").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+		},
+		"focusout" : function(){
+			$(this).find("img").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+		}
+	});
+	//툴팁 접근성 추가
+	$(".info_tool").each(function(){
+		$(this).tooltip();
+		$(this).attr("tabIndex", 0 );
+	});
+	$(".top > ul.mOver").each(function(){
+		function imgReplace(obj,flag){
+			var imgSrc = obj.attr("src");
+			if(flag == "over"){
+				imgSrc = imgSrc.replace("_off.","_over.");
+			} else if(flag == "out"){
+				imgSrc = imgSrc.replace("_over.","_off.");
+			}
+			obj.attr("src",imgSrc);
+		}
+		function imgOver(){
+			$(".top > ul.mOver").find("img").each(function(){
+				imgReplace($(this) , "over");
+			});
+		}
+		function imgOut(){
+			$(".top > ul.mOver").find("img").each(function(){
+				imgReplace($(this) , "out");
+			});
+		}
+		$(this).find("> li").on({
+			"mouseenter" : function(){
+				$(this).find("img").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+				imgOver();
+				imgReplace($(this).find("img") , "out");
+			},
+			"mouseleave" : function(){
+				$(this).find("img").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+				imgOut();
+			}
+		});
+		$(this).find("> li > a").on({
+			"focusin" : function(){
+				$(this).find("img").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+				imgOver();
+				imgReplace($(this).find("img") , "out");
+			},
+			"focusout" : function(){
+				$(this).find("img").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+				imgOut();
+			}
+		});
+	});
+	$("ul.link_go").find("> li > a").on({
+		"mouseenter" : function(){
+			$(this).find("span").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+			$(this).find("em").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+			$(this).find("strong").stop().animate( { "color" : "#fff", "background-color" : "#819b29" }, 200);
+		},
+		"focusin" : function(){
+			$(this).find("span").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+			$(this).find("em").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+			$(this).find("strong").stop().animate( { "color" : "#fff", "background-color" : "#819b29" }, 200);
+		},
+		"mouseleave" : function(){
+			$(this).find("span").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+			$(this).find("em").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+			$(this).find("strong").stop().animate( { "color" : "#c3dcf4", "background-color" : "#00557e" }, 200);
+		},
+		"focusout" : function(){
+			$(this).find("span").stop().animate( { "opacity" : "1" }, 300, "easeInOutQuart" );
+			$(this).find("em").stop().animate( { "opacity" : "0" }, 300, "easeInOutQuart" );
+			$(this).find("strong").stop().animate( { "color" : "#c3dcf4", "background-color" : "#00557e" }, 200);
+		}
+	});
+	/*$("ul.link_go.mOver").find("> li > a").on({
+		"mouseenter" : function(){
+			$(this).find("strong").stop().animate( { "color" : "#fff" }, 300);
+		},
+		"focusin" : function(){
+			$(this).find("strong").stop().animate( { "color" : "#fff" }, 300);
+		},
+		"mouseleave" : function(){
+			$(this).find("strong").stop().animate( { "color" : "#c3dcf4" }, 300);
+		},
+		"focusout" : function(){
+			$(this).find("strong").stop().animate( { "color" : "#c3dcf4" }, 300);
+		}
+	});*/
+	$("ul.link.mOver").find("> li > a").on({
+		"mouseenter" : function(){
+			$(this).stop().animate( { "color" : "#fff" }, 100);
+		},
+		"focusin" : function(){
+			$(this).stop().animate( { "color" : "#fff" }, 100);
+		},
+		"mouseleave" : function(){
+			$(this).stop().animate( { "color" : "#333" });
+		},
+		"focusout" : function(){
+			$(this).stop().animate( { "color" : "#333" });
+		}
+	});
+
+	// href="#"의 경우 top으로 이동하는 것 방지
+	$("a").click(function(){
+		if($(this).attr("href")=="#"){
+			return false;
+		}
+	});
+
+	// button의 경우 summit 방지
+	$("button").click(function(){
+		return false;
+	});
+
+	//숫자만 입력 가능하도록 처리 하는 부분
+	$(".numInput").each(function(){
+		$(this).numeric();
+	});
+
+	//숫자, 입력 가능하도록 처리 하는 부분
+	$(".numInput2").each(function(){
+		$(this).numeric2();
+	});
+
+	// 날짜mask 적용
+	$(".dateMask").each(function(){
+		$(this).css({"ime-mode" : "disabled"});
+		$(this).mask("9999-99-99");
+//		$(this).blur(function(){
+//			dateChk($(this).attr("id"));
+//		});
+	});
+
+	//파일찾아보기 버튼 기능[ie 작동 안함]
+//	$(".btn_file").click(function(){
+//		var idx = $(".btn_file").index(this);
+//		$("input[type=file]").eq(idx).trigger("click");
+//	});
+
+	//화면확대
+	$(".zoom").find("> .in").click(function(){
+		//zoomInOut("zoom","in");
+		Zoom.exec(1);
+	});
+
+	//화면축소
+	$(".zoom").find("> .out").click(function(){
+		//zoomInOut("zoom","out");
+		Zoom.exec(-1);
+	});
+});
+//20250425
+//function assertChange(){
+//	$('[aria-live=assertive]').css('background' , 'var(--primary)');
+//	$('[aria-live=assertive]').focus();
+//}
+
+//큐넷 상단 공지사항
+function startGnb() {
+	var $notice = $(".notice_area"),
+		$noticeCon = $(".notice_area > .center_area"),
+		$noticeH = $noticeCon.height(),
+		speed = 600;
+	noticeReset();
+	//큐넷 메인
+	/*
+	if($("#wrap").hasClass("main")){
+		$notice.stop().animate({height : $noticeH}, speed, "easeInOutQuart", function(){
+			$notice.css({"border-bottom":"1px solid #dad2af"});
+		});
+	}*/
+	function noticeReset(){
+		$notice.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$notice.css({"border-bottom":"0"});
+			$noticeCon.hide();
+			$("#header").find(".notice").attr("title" , "긴급공지 열기");
+			$("#header").find(".notice").removeClass("on");
+		});
+	}
+	$(".notice_area").each(function(){
+		$noticeCon.find("> .close").click(function(){
+			noticeReset();
+		});
+		$("#header").find(".notice").click(function(){
+			if($noticeCon.css("display") == "none"){
+				$noticeCon.show();
+				$notice.stop().animate({height : $noticeH}, speed, "easeInOutQuart", function(){
+					$notice.css({"border-bottom":"1px solid #dad2af"});
+				});
+				$("#header").find(".notice").addClass("on");
+				$("#header").find(".notice").attr("title" , "긴급공지 닫기");
+			}else{
+				noticeReset();
+			}
+		});
+	});
+	//전체메뉴
+	var $total = $(".total_menu"),
+		bgH = $total.find("> .center_area").height() + parseInt($total.find("> .center_area").css("padding-top")) + parseInt($total.find("> .center_area").css("padding-bottom"));
+		$total.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$total.find("> .center_area").hide();
+		});
+
+	$total.find(".sub_01 > ul").each(function(){
+		var $ulHeight = $(this).height();
+		$(this).find(">li").css({height:$ulHeight});
+	});
+	$total.find(".sub_01 > ul > li").each(function(){
+		var $ulWidth = $(this).width() + 20;
+		$(this).css({width:$ulWidth});
+	});
+
+	$(".total").click(function(){
+		$total.find("> .center_area").show();
+		$total.stop().animate({height : bgH}, speed, "easeInOutQuart");
+	});
+	$total.find(".close_top, .close_bot").click(function(){
+		$total.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$total.find("> .center_area").hide();
+		});
+	});
+	/* gnb */
+	var $gnb = $(".gnb"),
+		$gnb1depth = $(".gnb > ul > li"),
+		$oldHeight = 34,
+		$gnb2depth = $gnb1depth.find("> div > ul > li"),
+		$gnb3depth = $gnb2depth.find("> ul > li"),
+		$gnbBg = $(".gnb_bg");
+	//2014.11.12 반응형에 따른 삭제
+	/*
+	$gnb.find(".sub02 > ul").each(function(){
+		var $ulWidth = $(this).width() + 10;
+		$(this).css({width:$ulWidth});
+	});
+	*/
+	/* reset */
+	$gnb.stop().animate({height : $oldHeight}, speed, "easeInOutQuart");
+	//$gnbBg.stop().animate({height : 0}, speed, "easeInOutQuart");
+	$gnb.find("li.on").addClass("active");
+
+	$gnb1depth.find(">a").mouseenter(function(){
+		$gnb1depth.find("div").hide();
+		$gnb2depth.removeClass("on");
+		$gnb2depth.find(">ul").hide();
+
+		$(this).parent("li").find(">div").show();
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+
+		var bgH = Math.max($(this).next("div").height(), $(this).parent("li").find(">div").find(">ul>li>ul").height()) + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom")) + 10,
+			sLeft = $(this).parent("li").find("> div > ul").width() + 20,
+			ssLeft = $(this).parent("li").find("> div > ul > li > ul").width() + 40,
+			sH = $(this).parent("li").find("> div > ul").height();
+
+		/* 3depth가 있을 경우 */
+		if($(this).parent("li").find(">div").find(">ul>li:first-child").find("ul").length){
+			$(this).parent("li").find(">div").find(">ul>li:first-child").addClass("on").find("ul").show();
+		} else {
+			//$(this).parent("li").find("> div > ul").height($(this).parent("li").find("> div > ul").height());
+		}
+
+		$(this).parent("li").find("ul").css("min-height",sH);
+
+		$(this).parent("li").find("> div > ul > li > ul").css({"left":sLeft});
+		$(this).parent("li").find("> div > ul > li > ul > li > ul").css({"left":ssLeft});
+
+		$gnb.stop().animate({height : bgH}, speed, "easeInOutQuart");
+		$gnbBg.stop().animate({height : bgH}, speed, "easeInOutQuart");
+
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+	$gnb1depth.focusin(function(){
+		$(this).mouseenter();
+	});
+
+	$($gnb, $gnbBg).mouseleave(function(){
+		gnbReset();
+	});
+
+	$gnb1depth.filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			gnbReset();
+	   }
+	});
+
+	$gnb1depth.filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+			gnbReset();
+	   } else if (b.keyCode == 9) {}
+	});
+
+	function gnbReset(){
+		$gnb.stop().animate({height : $oldHeight}, speed, "easeInOutQuart");
+		$gnbBg.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$gnb1depth.removeClass("on");
+			$gnb1depth.find("div").hide();
+			$gnb.find("li.active").addClass("on");
+		});
+	}
+
+	$gnb2depth.find(">a").mouseenter(function(){
+		var max = Math.max($(this).parent("li").find(">ul").height(), $(this).parent("li").parent("ul").height()),
+			bgH = max + parseInt($(this).parent("li").find("> div").css("padding-top")) + parseInt($(this).parent("li").find("> div").css("padding-bottom"));
+
+		if($(this).parent("li").find(">ul").length){
+			$gnb.stop().animate({height : bgH}, speed, "easeInOutQuart");
+			$gnbBg.stop().animate({height : bgH}, speed, "easeInOutQuart");
+		}else{
+			$(this).parent("li").css({"background":"none"});
+		}
+
+		$gnb3depth.removeClass("on");
+		$gnb3depth.find(">ul").hide();
+		$gnb2depth.find(">ul").hide();
+
+		$gnb2depth.removeClass("on");
+		$(this).parent("li").addClass("on");
+		$(this).parent("li").find(">ul").show();
+
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+
+	$gnb3depth.find(">a").mouseenter(function(){
+		var sH = $(this).parents("ul").height();
+
+		$gnb3depth.find(">ul").hide();
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+		$(this).parent("li").find(">ul").show();
+
+		$(this).parent("li").find(">ul").height(sH);
+	})
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+
+	/* lnb */
+	var $lnb = $(".lnb");
+	var $contH = $(document).find(".content").height();
+	$("#lnb").css({"min-height":$contH});
+
+	$lnb.find(">li >ul").each(function(){
+		$(this).parent("li").addClass("low");
+	});
+	$lnb.find("> li > ul").hide();
+	$lnb.find("> li.on > ul").show();
+	$lnb.find("> li.on").addClass("active");
+
+	$lnb.find("> li > a").click(function(){
+		$lnb.find("> li").removeClass("on");
+		if($(this).parent("li").find(">ul").css("display") == "none"){
+			$lnb.find("> li").removeClass("on");
+			$(this).parent("li").addClass("on");
+			$(this).parent("li").find(">ul").slideDown("easeInOutQuart");
+			$(this).parent("li").siblings().find(">ul").slideUp("easeInOutQuart");
+
+		} else {
+			$(this).parent("li").removeClass("on");
+			$(this).parent("li").find(">ul").slideUp("easeInOutQuart");
+		}
+
+	});
+
+	$("#lnb").mouseleave(function(){
+		lnbReset();
+	});
+	$(".login").mouseenter(function(){
+		lnbReset();
+	});
+
+	$lnb.find(">li").filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			lnbReset();
+	   }
+	});
+
+	$lnb.find(">li").filter(":last").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			if($(this).parent("li").find(">ul").css("display") == "none"){
+				lnbReset();
+			}
+	   }
+	});
+
+	$lnb.find(">li").filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+			lnbReset();
+	   } else if (b.keyCode == 9) {}
+	});
+
+	function lnbReset(){
+		$lnb.find("> li").removeClass("on");
+		$lnb.find("> li > ul").hide();
+		$lnb.find("> li.active").addClass("on");
+		$lnb.find("> li.active ul").show();
+	}
+
+	$lnb.find(">li>ul>li>ul>li>a").mouseenter(function(){
+		$(this).closest("ul").parent("li").addClass("on");
+	});
+	/*
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+	*/
+
+	$lnb.find(">li>ul>li>ul").mouseleave(function(){
+		$(this).parent("li").removeClass("on");
+	});
+
+	$lnb.find(">li>ul>li>ul>li").filter(":last").find("a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			$(this).closest("ul").parent("li").removeClass("on");
+	   }
+	});
+}
+
+
+//전문자격 전체메뉴
+function startGnb_s(){
+	var $notice = $(".notice_area"),
+	$noticeCon = $(".notice_area > .center_area"),
+	$noticeH = $noticeCon.height(),
+	speed = 600;
+	noticeReset();
+	//큐넷 메인
+	/*if($("#wrap").hasClass("main")){
+		$notice.stop().animate({height : $noticeH}, speed, "easeInOutQuart", function(){
+			$notice.css({"border-bottom":"1px solid #dad2af"});
+		});
+	}*/
+	//전문 메인
+	//검정원 메인
+	function noticeReset(){
+		$notice.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$notice.css({"border-bottom":"0"});
+			$noticeCon.hide();
+			$("#header").find(".notice").attr("title" , "긴급공지 열기");
+			$("#header").find(".notice").removeClass("on");
+		});
+	}
+	$(".notice_area").each(function(){
+		$noticeCon.find("> .close").click(function(){
+			noticeReset();
+		});
+		$("#header").find(".notice").click(function(){
+			if($noticeCon.css("display") == "none"){
+				$noticeCon.show();
+				$notice.stop().animate({height : $noticeH}, speed, "easeInOutQuart", function(){
+					$notice.css({"border-bottom":"1px solid #dad2af"});
+				});
+				$("#header").find(".notice").addClass("on");
+				$("#header").find(".notice").attr("title" , "긴급공지 닫기");
+			}else{
+				noticeReset();
+			}
+		});
+	});
+
+	$(".total_menu_pro").each(function(){
+		var $total_pro = $(".total_menu_pro"),
+			$totalCon = $(".total_menu_pro > .list").height() + 10;
+			$ulCon = $(".total_menu_pro > .list > ul.one").height() - 80;
+			$myCon = $(".total_menu_pro > .list > ul.my").height() - 95;
+			$total_pro.hide();
+			$(".total_menu_pro > .list > ul.one").find("strong").next("ul").css({height:$ulCon});
+			$(".total_menu_pro > .list > ul.my").find("span").next("ul").css({height:$myCon});
+		function noticeReset(){
+			$total_pro.stop().animate({height : 0}, 600, "easeInOutQuart", function(){
+				$total_pro.css({"border-top":"0"});
+				$total_pro.find(".close").hide();
+				$total_pro.hide();
+			});
+		}
+		$total_pro.find(".close").click(function(){
+			noticeReset();
+		});
+		$("#header").find(".total_pro").click(function(){
+			if($("#wrap").hasClass("main")){
+				$total_pro.css({"border-top":"2px solid #016cbc"});
+			} else {
+				$total_pro.css({"border-top":"0"});
+			}
+			$total_pro.show();
+			$total_pro.find(".close").show();
+			$total_pro.stop().animate({height : $totalCon}, 600, "easeInOutQuart");
+		});
+	});
+
+	//전문자격 GNB
+	var $pro_gnb = $(".gnb_pro"),
+		$pro_oldHeight = $pro_gnb.height(),
+		$pro_gnb1depth = $pro_gnb.find("> ul > li"),
+		$pro_gnb2depth = $pro_gnb1depth.find("> ul"),
+		$pro_gnbBg = $(".gnb_bg"),
+		$conH = $pro_gnb.find("> ul").height(),
+		$bgH = $pro_gnb.find("> ul").height() - 24,
+		pro_speed = 600;
+	/* reset */
+	$pro_gnb.stop().animate({height : $pro_oldHeight}, pro_speed, "easeInOutQuart");
+	$pro_gnb.find("li.on").addClass("active");
+	$pro_gnb2depth.hide();
+
+	$pro_gnb1depth.find("> a").mouseenter(function(){
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+		$pro_gnb.stop().animate({height : $conH}, pro_speed, "easeInOutQuart");
+		$pro_gnbBg.stop().animate({height : $bgH}, pro_speed, "easeInOutQuart");
+		$pro_gnb2depth.show().stop().animate({height : $conH}, pro_speed, "easeInOutQuart");
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+	$pro_gnb1depth.mouseenter(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+	});
+
+	$($pro_gnb, $pro_gnbBg).mouseleave(function(){
+		pro_gnbReset();
+	});
+
+	$pro_gnb1depth.filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+		if(b.keyCode == 9 && b.shiftKey) {
+		} else if (b.keyCode == 9) {
+			pro_gnbReset();
+		}
+	});
+
+	$pro_gnb1depth.filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+		if(b.keyCode == 9 && b.shiftKey) {
+			pro_gnbReset();
+		} else if (b.keyCode == 9) {}
+	});
+
+	function pro_gnbReset(){
+		$pro_gnb.stop().animate({height : $pro_oldHeight}, pro_speed, "easeInOutQuart");
+		$pro_gnbBg.stop().animate({height : 0}, pro_speed, "easeInOutQuart", function(){
+			$pro_gnb1depth.removeClass("on");
+			$pro_gnb2depth.hide();
+			$pro_gnb.find("li.active").addClass("on");
+		});
+	}
+
+	/* 전문자격 lnb */
+	var $lnb = $(".lnb");
+
+	$lnb.find(">li >ul").each(function(){
+		$(this).parent("li").addClass("low");
+	});
+	$lnb.find("> li > ul").hide();
+	$lnb.find("> li.on > ul").show();
+	$lnb.find("> li.on").addClass("active");
+
+	$lnb.find("> li > a").click(function(){
+		$lnb.find("> li").removeClass("on");
+		if($(this).parent("li").find(">ul").css("display") == "none"){
+			$lnb.find("> li").removeClass("on");
+			$(this).parent("li").addClass("on");
+			$(this).parent("li").find(">ul").slideDown("easeInOutQuart");
+			$(this).parent("li").siblings().find(">ul").slideUp("easeInOutQuart");
+
+		} else {
+			$(this).parent("li").removeClass("on");
+			$(this).parent("li").find(">ul").slideUp("easeInOutQuart");
+		}
+
+	});
+
+	$("#lnb").mouseleave(function(){
+		lnbReset();
+	});
+	$(".login").mouseenter(function(){
+		lnbReset();
+	});
+
+	$lnb.find(">li").filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			lnbReset();
+	   }
+	});
+
+	$lnb.find(">li").filter(":last").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			if($(this).parent("li").find(">ul").css("display") == "none"){
+				lnbReset();
+			}
+	   }
+	});
+
+	$lnb.find(">li").filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+			lnbReset();
+	   } else if (b.keyCode == 9) {}
+	});
+
+	function lnbReset(){
+		$lnb.find("> li").removeClass("on");
+		$lnb.find("> li > ul").hide();
+		$lnb.find("> li.active").addClass("on");
+		$lnb.find("> li.active ul").show();
+	}
+
+	$lnb.find(">li>ul>li>ul>li>a").mouseenter(function(){
+		$(this).closest("ul").parent("li").addClass("on");
+	});
+	/*
+	.focusin(function(){
+		$(this).mouseenter();
+	});
+	*/
+
+	$lnb.find(">li>ul>li>ul").mouseleave(function(){
+		$(this).parent("li").removeClass("on");
+	});
+
+	$lnb.find(">li>ul>li>ul>li").filter(":last").find("a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			$(this).closest("ul").parent("li").removeClass("on");
+	   }
+	});
+
+}
+
+//검정원 GNB
+function startGnb_t(){
+	var $qtq_gnb = $(".gnb_qtq"),
+		$qtq_oldHeight = $qtq_gnb.height(),
+		$qtq_gnb1depth = $qtq_gnb.find("> ul > li"),
+		$qtq_gnb2depth = $qtq_gnb1depth.find("> ul"),
+		$qtq_gnbBg = $(".gnb_bg"),
+		$conH = $qtq_gnb.find("> ul").height(),
+		$bgH = $qtq_gnb.find("> ul").height() - 24,
+		qtq_speed = 600;
+	/* reset */
+	$qtq_gnb.stop().animate({height : $qtq_oldHeight}, qtq_speed, "easeInOutQuart");
+	$qtq_gnb.find("li.on").addClass("active");
+	$qtq_gnb2depth.hide();
+
+	$qtq_gnb1depth.find("> a").mouseenter(function(){
+		$(this).parent("li").addClass("on").siblings().removeClass("on");
+		$qtq_gnb.stop().animate({height : $conH}, qtq_speed, "easeInOutQuart");
+		$qtq_gnbBg.stop().animate({height : $bgH}, qtq_speed, "easeInOutQuart");
+		$qtq_gnb2depth.show().stop().animate({height : $conH}, qtq_speed, "easeInOutQuart");
+	}).focusin(function(){
+		$(this).mouseenter();
+	});
+	$qtq_gnb1depth.mouseenter(function(){
+		$(this).addClass("on").siblings().removeClass("on");
+	});
+
+
+	$($qtq_gnb, $qtq_gnbBg).mouseleave(function(){
+		qtq_gnbReset();
+	});
+
+	$qtq_gnb1depth.filter(":last").find("a:last").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+	   } else if (b.keyCode == 9) {
+			qtq_gnbReset();
+	   }
+	});
+
+	$qtq_gnb1depth.filter(":first").find(">a").off('keydown').on('keydown', function (b) {
+	   if(b.keyCode == 9 && b.shiftKey) {
+			qtq_gnbReset();
+	   } else if (b.keyCode == 9) {}
+	});
+
+	function qtq_gnbReset(){
+		$qtq_gnb.stop().animate({height : $qtq_oldHeight}, qtq_speed, "easeInOutQuart");
+		$qtq_gnbBg.stop().animate({height : 0}, qtq_speed, "easeInOutQuart", function(){
+			$qtq_gnb1depth.removeClass("on");
+			$qtq_gnb2depth.hide();
+			$qtq_gnb.find("li.active").addClass("on");
+		});
+	}
+	//검정원 전체메뉴
+//	$(".total_menu_qtq").each(function(){
+//		var $total_qtq = $(".total_menu_qtq"),
+//			$totalCon = $(".total_menu_qtq > .list").height() + 10;
+//			$ulCon = $(".total_menu_qtq > .list").height() - 115;
+//			$total_qtq.hide();
+//			$total_qtq.find("strong").next("ul").css({height:$ulCon});
+//		function noticeReset(){
+//			$total_qtq.stop().animate({height : 0}, 600, "easeInOutQuart", function(){
+//				$total_qtq.css({"border-top":"0"});
+//				$total_qtq.find(".close").hide();
+//				$total_qtq.hide();
+//			});
+//		}
+//		$total_qtq.find(".close").click(function(){
+//			noticeReset();
+//		});
+//		$("#header").find(".total_qtq").click(function(){
+//			$total_qtq.css({"border-top":"2px solid #016cbc"});
+//			$total_qtq.show();
+//			$total_qtq.find(".close").show();
+//			$total_qtq.stop().animate({height : $totalCon}, 600, "easeInOutQuart");
+//		});
+//	});
+}
+
+//큐넷 전체메뉴
+function startTotalMenu(aVal) {
+	var speed = 600;
+	var $total = $(".total_menu"),
+		bgH = $total.find("> .center_area").height() + parseInt($total.find("> .center_area").css("padding-top")) + parseInt($total.find("> .center_area").css("padding-bottom"));
+	$total.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+		$total.find("> .center_area").hide();
+	});
+	$total.find(".sub_01 > ul").each(function(){
+		var $ulHeight = $(this).height();
+		$(this).find(">li").css({height:$ulHeight});
+	});
+	$total.find(".sub_01 > ul > li").each(function(){
+		var $ulWidth = $(this).width() + 20;
+		$(this).css({width:$ulWidth});
+	});
+	$(".total").click(function(){
+		$total.find("> .center_area").show();
+		$total.stop().animate({height : bgH}, speed, "easeInOutQuart");
+	});
+	$total.find(".close_top, .close_bot").click(function(){
+		$total.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$total.find("> .center_area").hide();
+		});
+	});
+	// 수동 Open flag : 1
+	if (aVal != undefined && aVal == 1) {
+		$total.find("> .center_area").show();
+		$total.stop().animate({height : bgH}, speed, "easeInOutQuart");
+	}
+}
+
+//큐넷 전체메뉴
+function startTotalMenu_s(aVal) {
+	var speed = 600;
+	var $total_pro = $(".total_menu_pro"),
+		$totalCon = $(".total_menu_pro > .list").height() + 10;
+		$ulCon = $(".total_menu_pro > .list > ul.one").height() - 80;
+		$myCon = $(".total_menu_pro > .list > ul.my").height() - 95;
+		$total_pro.hide();
+		$(".total_menu_pro > .list > ul.one").find("strong").next("ul").css({height:$ulCon});
+		$(".total_menu_pro > .list > ul.my").find("span").next("ul").css({height:$myCon});
+	function noticeReset(){
+		$total_pro.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			$total_pro.css({"border-top":"0"});
+			$total_pro.find(".close").hide();
+			$total_pro.hide();
+		});
+	}
+	$total_pro.find(".close").click(function(){
+		noticeReset();
+	});
+	$("#header").find(".total_pro").click(function(){
+		if($("#wrap").hasClass("main")){
+			$total_pro.css({"border-top":"2px solid #016cbc"});
+		} else {
+			$total_pro.css({"border-top":"0"});
+		}
+		$total_pro.show();
+		$total_pro.find(".close").show();
+		$total_pro.stop().animate({height : $totalCon}, speed, "easeInOutQuart");
+	});
+
+	// 수동 Open flag : 1
+	if (aVal != undefined && aVal == 1) {
+		if($("#wrap").hasClass("main")){
+			$total_pro.css({"border-top":"2px solid #016cbc"});
+		} else {
+			$total_pro.css({"border-top":"0"});
+		}
+		$total_pro.show();
+		$total_pro.find(".close").show();
+		$total_pro.stop().animate({height : $totalCon}, speed, "easeInOutQuart");
+	}
+}
+
+//검정원 전체메뉴
+function startTotalMenu_t(aVal) {
+	var speed = 600;
+	var $total_qtq = $(".total_menu_qtq"),
+		$totalCon = $(".total_menu_qtq > .list").height() + 10;
+		$ulCon = $(".total_menu_qtq > .list").height() - 115;
+		$total_qtq.hide();
+		$total_qtq.find("strong").next("ul").css({height:$ulCon});
+	function noticeReset(){
+		$total_qtq.stop().animate({height : 0}, speed, "easeInOutQuart", function(){
+			//$total_qtq.css({"border-top":"0"});
+			$total_qtq.find(".close").hide();
+			$total_qtq.hide();
+		});
+	}
+	$total_qtq.find(".close").click(function(){
+		noticeReset();
+	});
+	$("#header").find(".total_qtq").click(function(){
+		//$total_qtq.css({"border-top":"2px solid #016cbc"});
+		$total_qtq.show();
+		$total_qtq.find(".close").show();
+		$total_qtq.stop().animate({height : $totalCon}, speed, "easeInOutQuart");
+	});
+
+	// 수동 Open flag : 1
+	if (aVal != undefined && aVal == 1) {
+		$total_qtq.show();
+		$total_qtq.stop().animate({height : $totalCon}, speed, "easeInOutQuart");
+	}
+}
+
+$(function(){
+	//퀵메뉴 2014.11.10 수정 : document -> window 변경
+	$("#wrap.qnet").find("#quick").each(function(){
+		if($("#wrap.qnet").hasClass("main")){
+			$(this).hide();
+		} else {
+			$(this).css("top","93px");
+			$(this).show();
+			var $quick_menu = $(this), // 퀵메뉴의 id명
+				$quick_top = parseInt($(this).css("top")), // 위에서부터 떨어져야 되는 거리
+				$quick_speed = 600; // 이동속도
+			$(window).scroll(function(){
+				$quick_menu.stop();
+				$quick_menu.animate( {"top": $(window).scrollTop() + $quick_top + "px" }, $quick_speed );
+			});
+
+			//2014.11.13 수정 반응형에 따른 내용 추가
+			if($(window).width() < 1000){
+				$quick_menu.hide();
+			} else {
+				$quick_menu.show();
+			}
+			$(window).resize(function(){
+				if($(window).width() < 1000){
+					$quick_menu.hide();
+				} else {
+					$quick_menu.show();
+				}
+			});
+
+			//2014.12.10 KJH 접근성 관련 조치사항 추가
+			/*$(this).mouseleave(function() {
+				var $quick = $(this).next("div");
+				if($quick.css("display") != "none"){
+					$(".quick_open").trigger("click");
+				}
+			});*/
+		}
+		var $quick = $(".quick_open").parent().next("div");
+		$(".quick_open").click(function(){//2014.11.07 수정
+			if($quick.css("display") == "none"){
+				$(".bodyBg").show();
+				$quick.show().stop().animate( { width : "982px", "padding-left" : "18px" }, 600, "easeInOutQuart" );
+				$(this).find(">img").attr("alt" , "빠른서비스 닫기");
+				imgReplace($(this).find(">img") , "on");
+			}else{
+				$quick.stop().animate( { width : "0", "padding-left" : 0  }, 600, "easeInOutQuart", function(){
+					$(this).hide();
+					$(".bodyBg").hide();
+					$(".quick_open").find(">img").attr("alt" , "빠른서비스 닫기");
+					imgReplace($(".quick_open").find(">img") , "off");
+				});
+			}
+			$quick.find("li.go08 > a").off('keydown').on('keydown', function (b) {
+			   if(b.keyCode == 9 && b.shiftKey) {
+			   } else if (b.keyCode == 9) {
+					b.preventDefault();
+					$(".quick_open").focus();
+			   }
+			});
+		});
+		$quick.find(".close").click(function(){
+			$quick.stop().animate( { width : "0", "padding-left" : 0  }, 600, "easeInOutQuart", function(){
+				$(this).hide();
+				$(".bodyBg").hide();
+				$(".quick_open").find(">img").attr("alt" , "빠른서비스 닫기");
+				imgReplace($(".quick_open").find(">img") , "off");
+			});
+		});
+	});
+
+	//응시자격자가진단, 개인정보 학력정보 수정 일자 체크
+	$("input[name^=work]").each(function(){
+		if($(this).attr("name").substr(0,11)=="workStartDt"||$(this).attr("name").substr(0,9)=="workEndDt"){
+			var idx = 0;
+			var tmp = 0;
+			if($(this).attr("id") != undefined){
+				if($(this).attr("name").substr(0,11)=="workStartDt"){
+					tmp = $(this).attr("id").split("_");
+					idx = Number(tmp[1]);
+				}
+				if($(this).attr("name").substr(0,9)=="workEndDt"){
+					tmp = $(this).attr("id").split("_");
+					idx = Number(tmp[1]);
+				}
+				workDayCal($(this),idx);
+				$(this).blur(function(){
+					workDayCal($(this),idx);
+				});
+				$(this).change(function(){
+					workDayCal($(this),idx);
+				});
+			}
+			/* 2014-11-28 KJH 키보드 접근성 위반으로 사용 안함(화면별로 적용)
+			$(this).keyup(function(){
+				//자동Focus
+				if($(this).attr("name").substr(0,11)=="workStartDt"){
+					if ( $(this).val().replace(/-/g,"").replace(/_/g,"").length == 8){
+						if($("#workEndDt_"+idx)){
+							$("#workEndDt_"+idx).focus();
+						}
+					}
+				}
+				if($(this).attr("name").substr(0,9)=="workEndDt"){
+					if ( $(this).val().replace(/-/g,"").replace(/_/g,"").length == 8){
+						if($("#addCont_"+idx)){
+							$("#addCont_"+idx).focus();
+						}
+						if($("#workCts_"+idx)){
+							$("#workCts_"+idx).focus();
+						}
+					}
+				}
+			});*/
+		}
+	});
+});
+
+//근무기간 계산
+function workDayCal(workDt,idx){
+	if(workDt.val()==""){
+		return;
+	}
+	var strDt = $("#workStartDt_"+idx);
+	var endDt = $("#workEndDt_"+idx);
+	if(strDt&&endDt){
+		if(strDt.val()==""||endDt.val()==""){
+			return;
+		}
+		if(strDt.val()>endDt.val()){
+			if($("#addCont_"+idx)){
+				$("#addCont_"+idx).text("");
+			}
+			return;
+		}
+		if($("#addCont_"+idx)
+				&&$("#industFldCcd_"+idx).val()!="17"
+				&&$("#industFldCcd_"+idx).val()!="18"
+				&&$("#industFldCcd_"+idx).val()!="19"){
+			var start_date = 0;
+			var end_date = 0;
+			var temp_start_date = 0;
+			var temp_end_date = 0;
+			var date_count = 0;
+			var mon_count = 0;
+			var term_date = "";
+
+			 start_date = strDt.val().split("-");
+			 end_date = endDt.val().split("-");
+
+			//start_date[0] = YYYY, start_date[1] = MM start_date[2] = DD
+
+			temp_start_date = new Date(start_date[0], Number(start_date[1]) - 1, start_date[2]);
+			temp_end_date = new Date(end_date[0], Number(end_date[1]) - 1, end_date[2]);
+
+
+			//밀리초, 초, 분, 시간
+			
+			//당일 ~ 당일의 경우 1일로 계산하기 위해 +1
+			date_count =  ((temp_end_date.getTime() - temp_start_date.getTime()) / 1000/ 60 / 60 / 24) + 1 ;
+			mon_count = Math.floor(((date_count / 252) * 12)* 100) / 100; 
+			
+			term_date = date_count+"일 ("+mon_count+"개월)";
+//			$("#addCont_"+idx).text(term_date);
+			
+//			term_date = date_count+"일";
+		
+				//건설일경우  계산방식 다르게
+				 if($("#crerObjFldCcd_"+idx).val() == "02"){
+					 $("#addCont_"+idx).text(term_date);
+					 return;
+				 }
+					//근무기간계산 DB에서
+				var sendData  = "start_date="+start_date+"&end_date="+end_date;		
+				var url = "myp012.do?id=getWorkDayCal";
+				callAjax(url, 
+						sendData,
+						function(data) {
+//							alert(data.workDay);
+
+							if(data.workDay != null && data.workDay !=""  ){
+								if(data.workDay.substring(0,1) == "."){
+									data.workDay = "0"+data.workDay;
+								}
+							}
+							term_date = date_count+"일 ("+data.workDay+"개월)";
+							$("#addCont_"+idx).text(term_date);
+						},
+						function(xReq, status, error) {
+		
+						},
+						true
+					);
+		
+	
+		}
+	}
+}
+
+//근무기간 체크
+function workDayChk(idx){
+	var strDt = $("input[name^=workStartDt]").eq(idx);
+	var endDt = $("input[name^=workEndDt]").eq(idx);
+
+	//var nowDt = fn_getToday();
+	/*if(workDt.val()>nowDt){ 2014.08.23 배은지 과장 요청으로 날짜 체크 제거
+		alert("현재일 이후로 입력할 수 없습니다.");
+		workDt.val("");
+		workDt.select();
+		workDt.focus();
+		return false;
+	}*/
+
+	if(strDt){
+		if(strDt.val() == "") {
+			alert('근무시작일자를  입력하세요');
+			strDt.focus();
+			return false;
+		}
+		//날짜 유효성 체크 dateChk(id값)
+		if(!dateChk(strDt.attr("id"))){
+			strDt.focus();
+			return false;
+		}
+	}
+
+	if(endDt){
+		if(endDt.val() == "") {
+			alert('근무종료일자를  입력하세요');
+			endDt.focus();
+			return false;
+		}
+		//날짜 유효성 체크 dateChk(id값)
+		if(!dateChk(endDt.attr("id"))){
+			endDt.focus();
+			return false;
+		}
+	}
+
+	if(strDt&&endDt){
+		if(strDt.val()>endDt.val()){
+			alert("근무시작일은 종료일보다 이후로 입력할 수 없습니다.");
+			strDt.focus();
+			//workDt.val("");
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/* 특정영역 프린트 하기. 에러있음. 제이쿼리 ui 작동 안됨
+function divPrint() {
+	var initBody = document.body.innerHTML;
+	window.onbeforeprint = function() {
+		document.body.innerHTML = document.getElementById('divPrint').innerHTML;
+	}
+	window.onafterprint = function() {
+		document.body.innerHTML = initBody;
+	}
+	window.print();
+}
+*/
+
+/**
+ * 제이쿼리 UI 팝업
+jQuery dialog plugin을 이용한 layer Popup
+
+	popParm.dialog = "divId";	//팝업div
+	popParm.open = true;		//팝업창 상단 X버튼 보이기
+	popParm.autoOpen = false;	//자동팝업open
+	popParm.draggable = true;	//드래그 가능
+	popParm.width = "500";		//가로
+	popParm.height = "350";		//세로
+	popParm.maxWidth = "";		//가로Max(값이 없을 경우 가로길이로 셋팅)
+	popParm.maxHeight = "";		//세로Max(값이 없을 경우 세로길이로 셋팅)
+	popParm.modal = ture;		//부모창 disabled 처리
+	popParm.resizable = true;	//사이즈 조절
+	popParm.buttons= [			//버튼(스크립트 정의 가능)
+			{
+				text: "확인",
+				click: function() {
+					$( this ).dialog( "close" );
+				}
+			},
+			{
+				text: "취소",
+				click: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		];
+*/
+
+function initPopup_old(popParm){
+	$("#"+popParm.dialog).dialog({
+		title	: popParm.title == null ? "" : popParm.title,
+		hide	:	{ effect   : popParm.effect   == null ? "" : popParm.effect,
+					  duration : popParm.duration == null ? "" : popParm.duration
+					},
+		closeOnEscape	: popParm.open == null ? true : popParm.open,
+		open: popParm.open == false ? function() { $(".ui-dialog-titlebar-close", $(this).parent()).hide();} : function() { $(".ui-dialog-titlebar-close", $(this).parent()).show();},
+		autoOpen: popParm.autoOpen 	== null ? false : popParm.autoOpen,
+		draggable:popParm.draggable == null ? false : popParm.draggable,
+		width	: popParm.width		== null||popParm.width	== "" ? "auto" : popParm.width,
+		height	: popParm.height	== null||popParm.height	== "" ? "auto" : popParm.height,
+		maxWidth: popParm.width		== "auto" ? "700" : popParm.width,
+		maxHeight: popParm.height	== "auto" ? "750" : popParm.height,
+		modal	: popParm.modal		== null ? true : popParm.modal,
+		resizable : popParm.resizable	== null ? false : popParm.resizable,
+		buttons : popParm.buttons 	== null ? [] : popParm.buttons,
+		dialogId : popParm.dialog
+
+	});
+}
+
+//params : id, title, url, $form.serialize(), width, height, buttons, open, modal,drag,resize
+function openPopup_old(viewId,title,url,sendData,width,height,buttons,open,modal,drag,resize){
+	
+	var popParm = {};
+	popParm.dialog	= viewId;
+	popParm.title	= title;
+	popParm.width	= width;
+	popParm.height	= height;
+	popParm.modal	= modal;
+	popParm.buttons	= buttons;
+	popParm.open	= open;
+	popParm.draggable = drag;
+	popParm.resizable = resize;
+	if (buttons == null) {
+		//기본버튼 사용할경우
+		/*var btnDef = [
+		{
+			text: "확인",
+			click: function() {
+			$( this ).dialog( "close" );
+			}
+		}
+		];*/
+		//기본버튼 사용 안할경우
+		var btnDef = null;
+		popParm.buttons	= btnDef;
+	} else if(buttons == "none"){
+		popParm.buttons	= null;
+	}
+
+	initPopup(popParm);
+
+	if(url!=null&&url!=""){
+		// 250512 progress 는 상관없음, width 값 추가
+		callAjaxViewPop(viewId, url, sendData, true, "", false, width);
+	}else{
+		
+	}
+
+	
+	$("#"+viewId).dialog("open");
+	$(".popConts").attr("tabindex",0).focus();
+	//$(".ui-dialog-content").focus();
+}
+
+//250512 팝업 포커스 새로 추가
+function callAjaxViewPop(viewId, url, sendData, progress, viewId2, async, popWidth){
+	
+	if(event != undefined){
+		$(event.currentTarget).attr("data-retrunFocus","Y");
+		$(event.currentTarget).addClass('dataFocus');
+	}
+
+	if(async==null)async=true;
+	if(progress){
+		callFetchHtml(url,
+			sendData,
+			function(data) {
+				if($("#"+viewId).length > 0){
+					$("#"+viewId).html("");
+					$("#"+viewId).append(data);
+					ui.LayerPop.Show("#"+viewId, popWidth);
+				}
+				if($("#"+viewId2).length > 0){
+					$("#"+viewId2).html("");
+					$("#"+viewId2).append(data);
+					ui.LayerPop.Show("#"+viewId2, popWidth);
+				}
+			},
+			function(xReq, status, error) {
+			},
+			async
+		);
+	} else {
+		callFetchHtml2(url,
+			sendData,
+			function(data) {
+				if($("#"+viewId).length > 0){
+					$("#"+viewId).html("");
+					$("#"+viewId).append(data);
+					ui.LayerPop.Show("#"+viewId, popWidth);
+				}
+				if($("#"+viewId2).length > 0){
+					$("#"+viewId2).html("");
+					$("#"+viewId2).append(data);
+					ui.LayerPop.Show("#"+viewId2, popWidth);
+				}
+			},
+			function(xReq, status, error) {
+			},
+			async
+		);
+	}
+}	
+
+//반응형 화면에 임시로 맞춘 기능 
+function initPopup(popParm) {
+	var popForm = $("#"+popParm.dialog);
+	if(popParm.buttons != null && popParm.buttons != '') {
+//		popForm.find("div#btnArea").empty();
+		
+		for (var i=0;i<popParm.buttons.length;i++) {
+			var btnPop = popForm.find("div.popBtnArea");
+			if(btnPop != undefined) {
+				if(i==0) btnPop.children().remove();
+				var button = "<button type='button' class='baseBtn' id='btnPop"+i+"'><span class='base'>"+popParm.buttons[i].text+"</span></button>";
+				btnPop.html(button);
+				btnPop.click(popParm.buttons[i].click);	
+			}
+		}		
+	}  
+}
+
+//params : id, title, url, $form.serialize(), width, height, buttons, open, modal,drag,resize
+function openPopup(viewId,title,url,sendData,width,height,buttons,open,modal,drag,resize){
+	
+	var popParm = {};
+	popParm.dialog	= viewId;
+	popParm.title	= title;
+	popParm.width	= width;
+	popParm.height	= height;
+	popParm.modal	= modal;
+	popParm.buttons	= buttons;
+	popParm.open	= open;
+	popParm.draggable = drag;
+	popParm.resizable = resize;
+	if (buttons == null) {
+		//기본버튼 사용할경우
+		/*var btnDef = [
+		{
+			text: "확인",
+			click: function() {
+			$( this ).dialog( "close" );
+			}
+		}
+		];*/
+		//기본버튼 사용 안할경우
+		var btnDef = null;
+		popParm.buttons	= btnDef;
+	} else if(buttons == "none"){
+		popParm.buttons	= null;
+	}
+	
+	if(url!=null&&url!=""){
+		// 250512 progress 는 상관없음, width 값 추가
+		callAjaxViewPop(viewId, url, sendData, true, "", false, width);
+		//만약 여기서 오류 나면 아래 주석처리 하세용
+		//initPopup(popParm); 
+	} else{
+		 ui.LayerPop.Show('#'+viewId, width);    
+	}
+	
+//    ui.LayerPop.Show('#'+viewId, width);    
+       
+}
+
+
+//팝업 검색 및 Ajax처리
+function callAjaxView(viewId, url, sendData, progress, viewId2, async){
+	if(async==null)async=true;
+	if(progress){
+		callAjaxHtml(url,
+			sendData,
+			function(data) {
+				if($("#"+viewId).length > 0){
+					$("#"+viewId).html("");
+					$("#"+viewId).append(data);
+				}
+				if($("#"+viewId2).length > 0){
+					$("#"+viewId2).html("");
+					$("#"+viewId2).append(data);
+				}
+			},
+			function(xReq, status, error) {
+			},
+			async
+		);
+	} else {
+		callAjaxHtml2(url,
+			sendData,
+			function(data) {
+				if($("#"+viewId).length > 0){
+					$("#"+viewId).html("");
+					$("#"+viewId).append(data);
+				}
+				if($("#"+viewId2).length > 0){
+					$("#"+viewId2).html("");
+					$("#"+viewId2).append(data);
+				}
+			},
+			function(xReq, status, error) {
+			},
+			async
+		);
+	}
+}
+
+// 2014.09.29 김종훈 : 도로명 주소관련 팝업(layer popup)
+function fnRoadAddrPopWin2(frmNm,zipNm1,zipNm2,addrNm1,gibunAddrNm1,townBldNm,addrNm2,popView) {
+	try {
+
+		var args = fnRoadAddrPopWin2.arguments;
+		var $form = $('<form></form>');
+
+		$form.attr("method","post");
+		$form.attr("action","/myp001.do");
+		$form.appendTo("body");
+		var inputTag = $('<input type="hidden" value="myp00101s08" name="id"/>');
+		$form.append(inputTag);
+
+		for (var ix = 0; ix < args.length; ix++) {
+			inputTag = $('<input type="hidden" value="'+args[ix]+'" name="args'+ ix +'"/>');
+			$form.append(inputTag);
+		}
+
+		var buttons = [//버튼(스크립트 정의 가능)
+			{
+				text: "닫기",
+				click: function() {
+					//$( this ).dialog( "close" );
+					//ui.LayerPop.Closed("#"+popView);
+				}
+			}
+		];
+		var sendData = $form.serialize().replace(/%/g,'%25');
+		openPopup(popView,"도로명주소검색","/myp001.do?id=myp00101s08",sendData,"1098","770",buttons);
+
+	} catch (e) {
+		alert('fnRoadAddrPopWin2:'+e);
+	}
+}
+
+// 단체 : 도로명 주소관련 팝업(layer popup)
+function fnRoadAddrPopWinGroup(frmNm,zipNm1,zipNm2,addrNm1,gibunAddrNm1,townBldNm,addrNm2,popView,frameNm) {
+	try {
+
+		var args = fnRoadAddrPopWinGroup.arguments;
+		var $form = $('<form></form>');
+
+		$form.attr("method","post");
+		$form.attr("action","/myp001.do");
+		$form.appendTo("body");
+		var inputTag = $('<input type="hidden" value="myp00101s08" name="id"/>');
+		$form.append(inputTag);
+ 
+		for (var ix = 0; ix < args.length; ix++) {
+			inputTag = $('<input type="hidden" value="'+args[ix]+'" name="args'+ ix +'"/>');
+			$form.append(inputTag);
+		}
+
+		var buttons = [//버튼(스크립트 정의 가능)
+			{
+				text: "닫기",
+				click: function() {
+					parent.$( this ).dialog( "close" );
+				}
+			}
+		];
+		var sendData = $form.serialize().replace(/%/g,'%25');
+		//해당 화면에서 layer를 show하기 때문에 ajax만 호출하도록 변경
+		//parent.openPopup(popView,"도로명주소검색","/myp001.do?id=myp00101s08",sendData);
+		parent.callAjaxView(popView, "/myp001.do?id=myp00101s08", sendData, true, "", false);
+	} catch (e) {
+		alert('fnRoadAddrPopWinGroup:'+e);
+	}
+}
+
+function fnRoadAddrPopWinSingo(frmNm,zipNm1,zipNm2,addrNm1,gibunAddrNm1,townBldNm,addrNm2,popView) {
+	try {
+
+		var args = fnRoadAddrPopWinSingo.arguments;
+		var $form = $('<form></form>');
+
+		$form.attr("method","post");
+		$form.attr("action","/myp001.do");
+		$form.appendTo("body");
+		var inputTag = $('<input type="hidden" value="myp00101s08" name="id"/>');
+		$form.append(inputTag);
+
+		for (var ix = 0; ix < args.length; ix++) {
+			inputTag = $('<input type="hidden" value="'+args[ix]+'" name="args'+ ix +'"/>');
+			$form.append(inputTag);
+		}
+
+		var buttons = [//버튼(스크립트 정의 가능)
+			{
+				text: "닫기",
+				click: function() {
+					$( this ).dialog( "close" );
+				}
+			}
+		];
+		var sendData = $form.serialize().replace(/%/g,'%25');
+		openPopup(popView,"도로명주소검색","/myp001.do?id=myp00101s08",sendData,"911","770",buttons);
+
+	} catch (e) {
+		alert('fnRoadAddrPopWinSingo:'+e);
+	}
+}
+
+
+
+//자격리스트
+$(function(){
+	var tabLcList = $(".tab_lc_group");
+
+	// 로딩시 높이 조정
+	var loadHeight = tabLcList.find(".tab_group_list .on div").height();
+	tabLcList.find(".tab_group_list .on").parent().height(loadHeight+36);
+
+	// 클릭시
+	var BtnGroupList = $(".tab_group_list > li > a");
+
+	BtnGroupList.click(function(){
+		var thisHeight = $(this).next("div").height();
+
+		$(".tab_group_list").height(35);
+		$(this).parents(".tab_group_list").height(thisHeight+36);
+
+
+		BtnGroupList.parent("li").removeClass("on");
+		$(this).parent("li").addClass("on");
+
+		return false;
+	});
+	// 자격정보 이미지 추가 //////////////////////////////////////////////////////////
+	var tabLcListImg = $(".tab_lc_group_img");
+	// 로딩시 높이 조정
+	var loadHeighImg = tabLcListImg.find(".tab_group_list_img .on div").height();
+	tabLcListImg.find(".tab_group_list_img .on").parent().height(loadHeighImg+130);
+	
+	// 클릭시
+	var BtnGroupListImg = $(".tab_group_list_img > li > a");
+	
+	BtnGroupListImg.click(function(){
+		var thisHeight = $(this).next("div").height();
+
+		$(".tab_group_list_img").height(100);
+		$(this).parents(".tab_group_list_img").height(thisHeight+130);
+
+
+		BtnGroupListImg.parent("li").removeClass("on");
+		$(this).parent("li").addClass("on");
+
+		return false;
+	});
+	
+});
+
+
+//이미지 on, off
+function imgReplace(obj,flag){
+	var imgSrc = obj.attr("src");
+	if(flag == "on"){
+		imgSrc = imgSrc.replace("_off.","_on.");
+	} else if(flag == "off"){
+		imgSrc = imgSrc.replace("_on.","_off.");
+	}
+	obj.attr("src",imgSrc);
+}
+
+//내용 열고 닫기
+$(function(){
+	var flag = "closed";
+	var winnerList = $(".winnerList > ul > li > div");
+	var onRemove = $(".winnerList > ul > li");
+
+	winnerList.hide();
+	$(".winnerList > ul > li").removeClass("on");
+	jQuery(".winnerList > ul > li > a").click(function(){
+		winnerList.hide();
+		if(flag == "closed"){
+			onRemove.removeClass("on");
+			$(this).next("div").show();
+			$(this).parents("li").addClass("on");
+			flag = "open";
+		} else if (flag == "open"){
+			onRemove.removeClass("on");
+			flag = "closed";
+		}
+	return false;
+	});
+});
+
+//아코디언
+$(function(){
+	$(".slide_list").each(function () {
+		$( ".slide_list" ).accordion({
+			heightStyle: ".slide_wrap",
+			header: ".slide_title",
+			active: false,
+			collapsible: true
+		});
+	});
+});
+
+//slide_menu Open,Close : 열려있을때 닫기 효과. 아코디언 제이쿼리 사용시에는 모두 open이 안되서 간단하게 스크립트로 처리
+$(function(){
+	$(".slide_menu").each(function () {
+		if($(this).find(".slide_wrap").css("display") == "none"){
+			$(".slide_close").hide();
+			$(".slide_open").show();
+		} else {
+			$(".slide_close").show();
+			$(".slide_open").hide();
+		}
+		$(".slide_menu .slide_title a").click(function(){
+			if($(this).find("> .slide_open").css("display") == "none"){
+				if($(this).parents(".slide_title").text().indexOf("상장") != -1){
+					$('#bookImg').css("top","290px");
+				//	$('#bookImg99').css("top","290px");
+				}
+				$(this).find(".slide_close").hide(); 
+				$(this).find(".slide_open").show();
+//				$(this).find(".slide_open").text("내용열기");
+				$(this).parents(".slide_title").next(".slide_wrap").hide();
+				$(this).parents(".slide_title").next(".tab_lc_wrap").hide();
+			} else {
+				if($(this).parents(".slide_title").text().indexOf("상장") != -1){
+					$('#bookImg').css("top","850px");    
+					//$('#bookImg99').css("top","800px");
+				}
+				$(this).find(".slide_close").show();
+				$(this).find(".slide_open").hide(); 
+//				$(this).find(".slide_close").text("내용닫기");
+				$(this).parents(".slide_title").next(".slide_wrap").show();
+				$(this).parents(".slide_title").next(".tab_lc_wrap").show();
+			}
+			return false;
+		});
+	});
+});
+
+//국가전문자격 전체보기 및 홈페이지 바로가기
+$(function(){
+	$(".accept_wrap").each(function () {
+		$(this).find(".in_qmenu").hide();
+		$( ".in_menu > a" ).click(function() {
+			if($(this).hasClass("up") == false){
+				$(this).addClass("up");
+				$(this).parents(".accept_wrap").find(".in_qmenu").show();
+			} else {
+				$(this).removeClass("up");
+				$(this).parents(".accept_wrap").find(".in_qmenu").hide();
+			}
+			return false;
+		});
+	});
+});
+
+/* 희망우체통 당첨자 보기
+$(function(){
+	var $winList = $(".winnerList");
+	var listAnchr = $(".winnerList > ul > li > a");
+
+	$winList.find(".view").hide();
+	$winList.find(".view").eq(0).show();
+	listAnchr.eq(0).addClass("on");
+
+	listAnchr.click(function(){
+		if($(this).next(".view").css("display") == "none"){
+			$winList.find(".view").hide();
+			$(this).next(".view").show();
+			listAnchr.removeClass("on");
+			$(this).addClass("on");
+		} else {
+			$(this).next(".view").hide();
+			$(this).removeClass("on");
+		}
+		return false;
+	});
+});*/
+
+//단체접수
+//아이프레임 높이값
+function iframeResize(){
+	var bodyH = $(window).height(),
+		headerH = $(document).find(".header").height() + parseInt($(document).find(".header").css("padding-top")),
+		titleH = $(document).find(".title_area").height(),
+		conPaH = parseInt($(document).find(".content").css("padding-top")) + parseInt($(document).find(".content").css("padding-bottom")),
+		conTopH = $(document).find(".iframe_top").height() + parseInt($(document).find(".iframe_top").css("margin-bottom")),
+		listType = $(document).find(".listType").height() + parseInt($(document).find(".listType").css("margin-bottom")) + parseInt($(document).find(".iframe_view").css("padding-bottom")),
+		conTabH = $(document).find(".iframe_tab > ul").height() + parseInt($(document).find(".tabContent").css("padding-bottom")),
+		iframeList = bodyH - headerH - titleH - conPaH - conTopH - 5,
+		iframeTab = bodyH - headerH - titleH - conPaH - conTopH - conTabH - 5,
+		iframeView = bodyH - headerH - titleH - conPaH - listType - 5,
+		bottomH = iframeList * 0.15,
+		iframeBottom = iframeList - bottomH - 40,
+		iframeBtn = iframeList - 30;
+		//bottomConH = bodyH - iframeList - conTopH - bottomH;
+	$(".iframe_list").each(function () {
+		$(this).find("> .iframeCont").css({"height":iframeList, "min-height":"348px"});
+	});
+	$(".iframe_bottom").each(function () {
+		$(this).parents(".iframe_list").find("> .iframeCont").css({"height":iframeBottom, "min-height":"258px"});
+		$(this).find(".iframeCont").css({"height":bottomH, "min-height":"50px"});
+		//alert(bottomH);
+	});
+	$(".iframe_btn").each(function () {
+		$(this).parents(".iframe_list").find("> .iframeCont").css({"height":iframeList, "min-height":"318px"});
+	});
+	$(".iframe_tab").each(function () {
+		$(this).find(".iframeCont").css({"height":iframeTab, "min-height":"300px"});
+	});
+	$(".iframe_view").each(function () {
+		$(this).find(".iframeCont").css({"height":iframeView, "min-height":"453px"});
+	});
+}
+//테이블 스크롤 높이값 2015.01.02 수정
+function tableResize(){
+	$("body").find("> form >.table_body").each(function () {
+		var bodyH = $(window).height(),
+		headH = $(document).find(".table_head").height(),
+		bottomH = $(document).find(".table_bottom").height(),
+		tableH = bodyH - headH - bottomH - 5;
+		//alert(tableH);
+		$(this).css({"height":tableH});//min-height 삭제
+	});
+}
+//$(function(){
+function startIfGroup() {
+	iframeResize();
+	tableResize();
+	$(window).resize(function(){
+		iframeResize();
+		tableResize();
+	});
+}
+//});
+
+//정오표
+$(function(){
+	//컨텐츠 bg 높이값
+	function jeongoResize(){
+		$(".jeongo").each(function () {
+		//var bodyH = $(window).height(),
+			conH = $(document).find(".content").height();
+			$(this).find(".container").css({"height":conH});
+		});
+	}
+	jeongoResize();
+	$(window).resize(function(){
+		jeongoResize();
+	});
+});
+
+/* 
+//달력
+$(function(){
+	$(".calendar").each(function () {
+		var $date = $(this).find("input[type=text]");
+		$date.attr("readonly",false);
+		$date.click(function() {
+			$date.attr("readonly",false);
+			//$date.val("");
+		});
+		$date.datepicker({
+			inline: true,
+			dateFormat: "yy-mm-dd", // 날짜 포맷
+			prevText: '이전 월',
+			nextText: '다음 월',
+			showButtonPanel: true,// 버튼 패널 사용
+			changeMonth: true,    //     월 선택박스 사용
+			changeYear: true,// 년 선택박스 사용
+			showOtherMonths: true,// 이전/다음 달 일수 보이기
+			selectOtherMonths: true,// 이전/다음 달 일 선택하기
+			minDate:"-100y",//년도 제한 100년 전
+			yearRange:"1900:2100",//년도 범위
+			showOn: "button",
+			buttonImage: "/qnet/images/common/btn_calendar_bg.png",
+			//appendText: "( 예:20140204 )",
+			//buttonImageOnly: true,
+			buttonText: "날짜 선택",
+			closeText: '닫기',
+			currentText: '오늘',
+			showMonthAfterYear: true,// 년과 달의 위치 바꾸기
+			// 한글화
+			monthNames : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames : ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort : ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin : ['일', '월', '화', '수', '목', '금', '토'],
+			showAnim: 'slideDown'
+
+		});
+	});
+});
+
+jQuery(function() {
+	// 달력 속성
+	$.datepicker.regional['ko'] = {
+		inline: true,
+		dateFormat: "yy-mm-dd", // 날짜 포맷
+		prevText: 'prev',
+		nextText: 'next',
+		showButtonPanel: true,// 버튼 패널 사용
+		changeMonth: true,        // 월 선택박스 사용 
+		changeYear: true,// 년 선택박스 사용
+		showOtherMonths: true,// 이전/다음 달 일수 보이기
+		selectOtherMonths: true,// 이전/다음 달 일 선택하기
+		minDate:"-100y",//년도 제한 100년 전
+		yearRange:"1900:2100",//년도 범위
+		showOn: "button",
+		buttonImage: "/qnet/images/common/btn_calendar_bg.png",
+		//appendText: "( 예:20140204 )",
+		//buttonImageOnly: true,
+		buttonText: "날짜 선택",
+		closeText: '닫기',
+		currentText: '오늘',
+		showMonthAfterYear: true,// 년과 달의 위치 바꾸기
+		// 한글화 //
+		monthNames : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		monthNamesShort : ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		dayNames : ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesShort : ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesMin : ['일', '월', '화', '수', '목', '금', '토'],
+		showAnim: 'slideDown'
+	};
+});
+*/
+
+// 달력 한방에
+jQuery.fn.ufSetCalc = function () {
+	var $date = $(this).find("input[type=text]");
+	if($(this).hasClass("calendarAdd")){
+		$(this).removeClass("calendarAdd");
+		$(this).addClass("calendar");
+	}
+	$date.val("");
+	$date.attr("readonly",false);
+	$date.click(function() {
+		$date.attr("readonly",false);
+	});
+	$date.datepicker($.datepicker.regional['ko']);
+
+	$date.mask("9999-99-99");
+//접근성 위반으로 날짜체크는 form submit시점에서 함.
+//	$date.blur(function(){
+//		dateChk($(this).attr("id"));
+//	});
+};
+
+/***
+ * 날짜형식체크
+ * @param sel
+ * @returns {Boolean}
+ */
+function dateChk(sel) {
+	var objSchTermFr = $("#"+sel);
+	var s_yy = objSchTermFr.val().substr(0,4);
+	var s_mm = objSchTermFr.val().substr(5,2);
+	var s_dd = objSchTermFr.val().substr(8,2);
+
+	var tmpdate1 = new Date(s_yy,parseFloat(s_mm)-1,s_dd);
+
+	/*var vReg51 = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+	if (objSchTermFr.val() != "" && !eval(vReg51).test(objSchTermFr.val())) {
+		alert("날짜 형식이 아닙니다.");
+		objSchTermFr.val("");
+		objSchTermFr.select();
+		objSchTermFr.focus();
+		return false;
+	} 00월 제어 안됨, 윤달제어 안됨 */
+
+	if(objSchTermFr.val().replace("-","").replace("_","") != "" && parseFloat(s_mm)!=tmpdate1.getMonth()+1){
+		alert("날짜 형식이 아닙니다.");
+		objSchTermFr.val("");
+		objSchTermFr.select();
+		objSchTermFr.focus();
+		return false;
+	}
+
+	if(objSchTermFr.val().replace("-","").replace("_","") != "" && s_yy<=1900){
+		alert("1900년 이전으로 입력 할 수 없습니다.");
+		objSchTermFr.val("");
+		objSchTermFr.select();
+		objSchTermFr.focus();
+		return false;
+	}
+
+	return true;
+}
+/***
+ * jQuery is null Function
+ * @param aVal
+ * @returns {Boolean}
+ */
+function ufIsNull(aVal) {
+	if (jQuery.type(aVal) == 'undefined' || aVal == '') {
+		return true;
+	}
+	return false;
+}
+/***
+ * 문자열 나누기
+ * (변수:값, ... ) 의 문자열을 lpadding 해서 보기 좋게 나누기.
+ * @param vStr : 문자열
+ * @param vPad : 좌측에 채울 문자의 길이
+ * @returns {String}
+ */
+function ufMsgStr(vStr, vPad) {
+	var arrItem = vStr.split(",");
+	var iLen = arrItem.length;
+	var sMsg = "";
+	var sCol = "";
+	for (var i=0; i<iLen; i++) {
+		sCol = arrItem[i].split(":");
+		sMsg += (lfnLPad(sCol[0], vPad, " ") + ":" + sCol[1] + ", \n");
+	}
+	return sMsg;
+}
+/***
+ * 좌측에 문자열 채우기 LPAD
+ * @param digit   : 원본문자
+ * @param size    : 새로운 문자의 길이
+ * @param attatch : 왼쪽에 채워넣을 문자
+ * @returns {String}
+ */
+function lfnLPad(digit, size, attatch) {
+    var add = "";
+    digit = digit.toString();
+    if (digit.length < size) {
+        var len = size - digit.length;
+        for (var i=0; i<len; i++) {
+            add += attatch;
+        }
+    }
+    return add + digit;
+}
+/***
+ * 사용자정의 메시지 박스 : 디버그용
+ * @param vStr
+ */
+function ufAlertWin(vStr) {
+	var myWindow = window.open("", "MsgWindow", "width=500, height=500");
+	var sDoc = "";
+	sDoc = "<pre style='font-family:돋움체'>"+vStr+"</pre>"
+		 + "<input type='button' onclick='window.close();' value='Close' />";
+	myWindow.document.write(sDoc);
+}
+
+/***
+ * 탭페이지 INIT 1 : 탭만 변경
+ * @param aTabId
+ */
+function initTab1(aTabId, idx) {
+	idx = idx==null?0:idx;
+	$("#"+ aTabId +" ul li:eq("+idx+")").addClass("on");
+	$("#"+ aTabId +" ul li a:eq("+idx+")").attr("title",$("#"+ aTabId +" ul li a:eq("+idx+")").text());//2015-06-11 KJH 접근성 위한 title 추가
+	$("#"+ aTabId +" ul li a").click(function (e) {
+		$("#"+ aTabId +" ul li a").each(function () {
+			if ($(this).parent('li').hasClass("on")) {
+				$(this).parent('li').removeClass("on");
+			}
+		});
+		$(this).parent('li').addClass("on");
+		//2015-06-11 KJH 접근성 위한 title 추가
+		$("#"+ aTabId +" ul li a").attr("title","");
+		$(this).attr("title",$(this).text());
+	});
+}
+
+/***
+ * 탭페이지 INIT 2 : 탭과 DIV 영역 같이 변경.
+ * @param aTabId
+ */
+function initTab(aTabId, aTapPageNm, idx) {
+	idx = idx==null?0:idx;
+	$("."+ aTapPageNm).hide();
+	$("."+ aTapPageNm +":eq("+idx+")").show();
+	$("#"+ aTabId +" ul li:eq("+idx+")").addClass("on");
+	$("#"+ aTabId +" ul li a:eq("+idx+")").attr("title",$("#"+ aTabId +" ul li a:eq("+idx+")").text()+" 선택됨");//2015-06-11 KJH 접근성 위한 title 추가
+	$("#"+ aTabId +" ul li a").click(function (e) {
+		$("."+ aTapPageNm).hide();
+		var eq = $("#"+ aTabId +" ul li a").index(this);
+		$("."+ aTapPageNm +":eq(" + eq + ")").show();
+		$("#"+ aTabId +" ul li a").each(function () {
+			if ($(this).parent('li').hasClass("on")) {
+				$(this).parent('li').removeClass("on");
+			}
+		});
+		$(this).parent('li').addClass("on");
+		//2015-06-11 KJH 접근성 위한 title 추가
+		$("#"+ aTabId +" ul li a").removeAttr("title","");
+		$(this).attr("title",$(this).text()+" 선택됨");
+	});
+}
+
+//즐겨찾기추가
+function addFavorite(){
+	//window.external.AddFavorite('http://www.q-net.or.kr/', 'Q-Net'); 크롬에서 오류..
+
+	var url = "http://www.q-net.or.kr/";   // URL
+		var title = "Q-Net";           // 사이트 이름
+
+	var browser=navigator.userAgent.toLowerCase();
+
+	// Mozilla, Firefox, Netscape
+	if (window.sidebar) {
+		window.sidebar.addPanel(title, url,"");
+	}
+	// IE or chrome
+	else if( window.external) {
+		// IE
+		if (browser.indexOf('chrome')==-1){
+			window.external.AddFavorite( url, title);
+		} else {
+		// chrome
+			alert('CTRL+D 또는 Command+D를 눌러 즐겨찾기에 추가해주세요.');
+		}
+	}
+	// Opera - automatically adds to sidebar if rel=sidebar in the tag
+	else if(window.opera && window.print) {
+		return true;
+	}
+	// Konqueror
+	else if (browser.indexOf('konqueror')!=-1) {
+		alert('CTRL+B를 눌러 즐겨찾기에 추가해주세요.');
+	}
+	// safari
+	else if (browser.indexOf('webkit')!=-1){
+		alert('CTRL+B 또는 Command+B를 눌러 즐겨찾기에 추가해주세요.');
+	} else {
+		alert('사용하고 계시는 브라우저에서는 이 버튼으로 즐겨찾기를 추가할 수 없습니다. 수동으로 링크를 추가해주세요.');
+	}
+}
+
+//오늘 날짜 설정
+function fn_getToday(){
+	var today=new Date();
+	var now_year=today.getFullYear();
+	var now_month=today.getMonth()+1;
+	var now_day=today.getDate();
+	var now_date="";
+
+	if(now_month<10) {
+		now_month='0'+now_month;
+	}
+	if(now_day<10) {
+		now_day='0'+now_day;
+	}
+	now_date=now_year+"-"+now_month+"-"+now_day;
+
+	return now_date;
+}
+
+//iframe에 contents셋팅 및 height조정
+function contSet(ifr, cont){
+	var doc = document.getElementById(ifr); //iframe이름
+	var iFrm= doc.contentWindow.document;
+	iFrm.open();
+	iFrm.write($("#"+cont).val().replaceAll("LINE-HEIGHT: 1.2","LINE-HEIGHT: 1.4"));
+	iFrm.close();
+	//$("#"+ifr).contents().find("body").css("font-family","맑은 고딕");
+	setTimeout(function(){
+		if($("#"+ifr).contents().find("html").length>0){
+			if($("#"+ifr).contents().find('body').length>0){
+				if($("#"+ifr).contents().find('body')[0].scrollHeight>350) $("#"+ifr).height($("#"+ifr).contents().find('body')[0].scrollHeight+Number(20)+"px");
+			} else {
+				if($("#"+ifr).contents().height()>350) $("#"+ifr).height($("#"+ifr).contents().height() + Number(20)+"px");
+			}
+		}
+	}, 500);
+}
+
+//iframe에 contents셋팅 및 height조정(브라우저 버전별 높이값 조절)
+function contSetH(ifr, cont, msieVer){
+	var doc = document.getElementById(ifr); //iframe이름
+	var iFrm= doc.contentWindow.document;
+	var height = 5;
+	if(msieVer=="ie8"||msieVer=="ie"){
+		height = 50;
+	}
+	iFrm.open();
+	iFrm.write($("#"+cont).val().replaceAll("LINE-HEIGHT: 1.2","LINE-HEIGHT: 1.4"));
+	iFrm.close();
+	//$("#"+ifr).contents().find("body").css("font-family","맑은 고딕");
+	setTimeout(function(){
+		if($("#"+ifr).contents().find("html").length>0){
+			if($("#"+ifr).contents().find('body').length>0){
+				$("#"+ifr).height($("#"+ifr).contents().find('body')[0].scrollHeight+Number(height)+"px");
+			} else {
+				$("#"+ifr).height($("#"+ifr).contents().height() + Number(height)+"px");
+			}
+		}
+	}, 500);
+}
+
+//iframe에 contents resize height
+function contResizeH(ifr){
+    var reload = $("#"+ifr).attr("src");
+    $("#"+ifr).attr("src", reload);
+	
+    var rHeight = 0;
+    setTimeout(function(){
+        if($("#"+ifr).contents().find("html").length>0){
+            $("#"+ifr).contents().height = "auto";
+            if($("#"+ifr).contents().find('body').length>0){
+                rHeight = $("#"+ifr).contents().find('body')[0].scrollHeight;
+            } else {
+                rHeight = $("#"+ifr).contents().height();
+            }
+            $("#"+ifr).height(rHeight+"px");
+        }
+    }, 500);
+}
+
+//민원신청
+function goMinwon(val){
+//	if(popup2('http://openvoc.hrdkorea.or.kr?site_id=02','cst00201','1050','820','1','1') == null){
+//	if(popup2('https://openvoc.hrdkorea.or.kr/CST/main.jsp','cst00201','1050','820','1','1') == null){
+//		alert("팝업 창 차단 여부를 확인해 주세요.");
+//	}	
+	//김종호대리요청 새창으로  
+	//고객참여로 변경 링크변경
+	var status = "";
+	var valc = val;
+//	var link  = "https://openvoc.hrdkorea.or.kr/CST/main.jsp";
+	
+	//링크 주소 수정(2025.10.28, hgi, 배승욱 주임 요청)
+	var link  = "http://www.hrdkorea.or.kr/2/2/3/2";
+	//var link  = "http://www.hrdkorea.or.kr/2/2/2/2";
+	
+	
+	
+	if(valc == "" ||  valc == null  ){
+		
+	}else if(valc =="1"){ 
+//		link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON01.jsp";
+	//	link  = "http://www.hrdkorea.or.kr/7/1/1/1";
+	}else if(valc =="2"){
+//		link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON02.jsp";
+	//	link  = "http://www.hrdkorea.or.kr/7/1/1/2";
+	}else if(valc =="3"){
+//		link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON03.jsp";
+	//	link  = "http://www.hrdkorea.or.kr/7/1/1/3";
+	}
+	window.open(link,"",status); 	
+	
+//	var sendData  = "";
+//	var url = "man004.do?id=timeCheck";
+//	callAjax(url, 
+//			sendData,
+//			function(data) {
+//				if(data.timeCheck == "OK"){
+//				
+//				}else{
+//					alert("사용할 수 없음");
+//					
+//				}
+//			},
+//			function(xReq, status, error) {
+//					alert("사용할 수 없음");
+//			},
+//			true
+//		);
+//	//시간계산
+//	//오늘 날짜 설정
+//	var today=new Date();
+//	var now_year=today.getFullYear();
+//	var now_month=today.getMonth()+1;
+//	var now_day=today.getDate();
+//	var now_hour = today.getHours();
+//	var now_min  = today.getMinutes();
+//	if(now_month <10){
+//		now_month = "0"+now_month;
+//	}
+//	
+//	if(now_min <10){
+//		now_min = "0"+now_min;
+//	}
+	
+
+	
+//	var d = now_year+""+now_month+""+now_day+""+now_hour+""+now_min;
+//	if(d >= 201805301610 && d <= 201805301737){
+//								            
+//		alert("16부터 17시30분까지");
+//	}else{
+//		if(valc == "" ||  valc == null  ){
+//			
+//		}else if(valc =="1"){ 
+//			link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON01.jsp";
+//		}else if(valc =="2"){
+//			link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON02.jsp";
+//		}else if(valc =="3"){
+//			link  = "https://openvoc.hrdkorea.or.kr/CST/MINWON/MINWON03.jsp";
+//		}
+//		window.open(link,"",status); 	
+//	}
+	
+
+	
+	
+}
+
+//cookie
+function getCookie( name ){
+	var nameOfCookie = name + "=";
+	var x = 0;
+	while ( x <= document.cookie.length )
+	{
+			var y = (x+nameOfCookie.length);
+			if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+					if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+							endOfCookie = document.cookie.length;
+					return unescape( document.cookie.substring( y, endOfCookie ) );
+			}
+			x = document.cookie.indexOf( " ", x ) + 1;
+			if ( x == 0 )
+					break;
+	}
+	return "";
+}
+
+//입력byte 구하기
+String.prototype.getBytes = function() {
+	var contents = this;
+	var str_character;
+	var int_char_count;
+	var int_contents_length;
+
+	int_char_count = 0;
+	int_contents_length = contents.length;
+
+	for (var k = 0; k < int_contents_length; k++) {
+		str_character = contents.charAt(k);
+		if (escape(str_character).length > 4)
+			int_char_count += 2;
+		else
+			int_char_count++;
+	}
+	return int_char_count;
+};
+
+//문자열 변환
+String.prototype.replaceAll = function(searchStr, replaceStr) {
+	var temp = this;
+
+	while (temp.indexOf(searchStr) != -1) {
+		temp = temp.replace(searchStr, replaceStr);
+	}
+
+	return temp;
+};
+///////////////////////////////////////////////////////////////////////////
+// AS-IS
+/*Common JavaScript*/
+
+/****************************************************************
+팝업 (타입1)
+****************************************************************/
+
+// 함수이름 : popup1()
+// 함수설명 : 공용팝업 함수
+// 입 력 값 : 객체, 속성
+// 반 환 값 :
+function popup1(url,title,width,height,top,left,resize){
+	if(resize==null||resize==undefined) resize = "no";
+	window.open(url,title,"width="+width+", height="+height+", top="+top+", left="+left+", resizable="+resize+", scrollbars=yes, toolbar=no,  location=no,  directories=no,  status=no,  menubar=no");
+}
+
+function popup2(url,title,width,height,top,left,resize){
+	if(resize==null||resize==undefined) resize = "no";
+	var tmp = window.open(url,title,"width="+width+", height="+height+", top="+top+", left="+left+", resizable="+resize+", scrollbars=yes, toolbar=no,  location=no,  directories=no,  status=no,  menubar=no");
+	return tmp;
+}
+function popup3(url){
+  var tmp = window.open(url);
+  if(tmp)
+	tmp.focus();
+ }
+/****************************************************************
+줌인
+****************************************************************/
+
+// 함수이름 : zoomIn()
+// 함수설명 : 공용팝업 함수
+// 입 력 값 : 객체, 속성
+// 반 환 값 :
+
+   /*****Zoom In & Zoom Out Script*****/
+
+    var zoomRate = 5;            // 확대/축소시 증감률
+    var maxRate = 140;            //최대확대률
+    var minRate = 100;            //최소축소률
+
+    function GetCookie(name){
+        if (document.cookie != "") {
+            zoomc = document.cookie.split("; ");
+            for (var i=0; i < zoomc.length; i++) {
+                zoomv = zoomc[i].split("=");
+                if (zoomv[0] == name) {
+                    return  unescape(zoomv[1]);
+                }
+            }
+        }else{
+            return "";
+        }
+    }
+
+    function SetCookie(name,value){
+        document.cookie = name + "=" + escape (value)+";path=/;";
+    }
+
+    function GoZoom(contentid){
+        if(GetCookie("zoomVal") != null && GetCookie("zoomVal") != ""){
+            document.body.style.zoom = GetCookie("zoomVal");
+            currZoom=GetCookie("zoomVal");
+        }
+        else{
+            document.body.style.zoom = '100%';
+            currZoom = '100%';
+        }
+    }
+
+    //Zoom In & Zoom Out  all[contentid] -> document.body.style.zoom = 110%
+    function zoomInOut(contentid, how) {
+
+        if(GetCookie("zoomVal") != null && GetCookie("zoomVal") != ""){
+            document.body.style.zoom = GetCookie("zoomVal");
+            currZoom=GetCookie("zoomVal");
+        }
+        else{
+            document.body.style.zoom = '100%';
+            currZoom = '100%';
+        }
+        if ((how == "in") && (parseInt(currZoom) >= maxRate)) {
+           alert("더이상 확대 할 수 없습니다.");
+            return;
+        }
+        if ((how == "out") && (parseInt(currZoom) <= minRate)) {
+        	alert("더이상 축소 할 수 없습니다.");
+        	return;
+        }
+        if (how == "in") {
+            document.body.style.zoom = parseInt(document.body.style.zoom)+zoomRate+'%';
+        }
+        else {
+            document.body.style.zoom = parseInt(document.body.style.zoom)-zoomRate+'%';
+        }
+        SetCookie("zoomVal",document.body.style.zoom);
+    }
+
+    //    +, - key event
+    document.onkeypress = getKey;
+
+    function getKey(keyStroke) {
+        isNetscape=(document.layers);
+        eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+        which = String.fromCharCode(eventChooser).toLowerCase();
+        which2 = eventChooser;
+
+        var el=event.srcElement;
+
+        if ((el.tagName != "INPUT") && (el.tagName != "TEXTAREA"))        //input,textarea 안에서의 +.-값은 실행안되도록
+        {
+            if(which == "+" )
+                zoomInOut('zoom', 'in');
+            else if(which == "-" )
+                zoomInOut('zoom', 'out');
+        }
+    }
+
+/*** *********************************************************************
+*
+*		업무용 function 처리 시작
+*
+*************************************************************************/
+
+/**
+ *	사이트 전역 파라메터들의 파라메터 문자열을 리턴해 줍니다.
+ */
+	function getGlobalParams(gSite, gId, gTitle){
+		//var gSite	=	gSite;	//	사이트 코드
+		//var gId	=	gId;	//	전문자격(계열) 코드
+		//var gTitle	=	gTitle;	//	전문자격명
+		//alert(gSite+" "+gId+" "+gTitle);
+		//return strParams = "gSite="+encodeURIComponent(gSite)+"&gId="+encodeURIComponent(gId)+"&gTitle="+gTitle;
+		// gTitle 삭제 처리 ( by 2008-09-25   jhchae)
+		return strParams = "gSite="+encodeURIComponent(gSite)+"&gId="+encodeURIComponent(gId);
+	}
+
+/**
+* 로딩 시간동안 메시지 처리.
+*/
+	function showProcess(obj, imgURL){
+		var imageURL = imgURL;
+		var viewStr	=	"<table width='665' cellpadding='0' cellspacing='0'><tr><td height='300' align='center'><img src='"+imageURL+"ajax-loader.gif'></td></tr></table>";
+		obj.innerHTML = viewStr;
+	}
+
+/**
+* 한 form에서 maxlength만큼 이동하면 다음으로 이동하기
+*  fromName : 해당 폼명
+*  nowNM : 현재 객체 명
+*  nextNM : 이동할 객체 명
+*/
+function nextFocus(formName, nowNM, nextNM){
+	/* 2014-11-28 KJH 키보드 접근성 위반으로 사용 안함
+	var frm = 'document.'+ formName +'.';
+	var oNow = eval(frm + nowNM);
+
+	if (typeof oNow == 'object'){
+		if ( oNow.value.length == oNow.maxLength){
+			var oNext = eval(frm + nextNM);
+			if ((typeof oNext) == 'object')
+				oNext.focus();
+		}
+	}*/
+}
+
+/**
+* left menu 회원 로그인시 image 처리
+*/
+var idImgURL;
+var pswImgURL;
+function Loginimg1 (id) {
+	if(id.value == "" && id.name == "mem_id"){
+		idImgURL = id.style.backgroundImage;
+	}else if(id.value == "" && id.name == "mem_pswd"){
+		pswImgURL = id.style.backgroundImage;
+	}
+	id.style.backgroundImage="";
+}
+
+function Loginimg2 (id) {
+	if(id.value == "" && id.name == "mem_id"){
+		id.style.backgroundImage=idImgURL;
+	}else if(id.value == "" && id.name == "mem_pswd"){
+		id.style.backgroundImage=pswImgURL;
+	}
+}
+
+/********************************************************************
+*
+*				String script
+*
+*********************************************************************/
+
+/**
+* 요청한 문자에 몇 개의 빈공간이 있는지 체크후 빈공간 값을 넘겨줌.
+*/
+	function checkBlank(keyword){
+	  var st_num, key_len;
+	  st_num = keyword.indexOf(" ");
+	  var i = 0;
+	  while (st_num != -1){
+			keyword = keyword.replace(" ", "");
+			st_num  = keyword.indexOf(" ");
+			i++;
+		}
+	  key_len=keyword.length;
+      return i;
+	}
+
+/**
+* 요청한 문자에 빈공간을 제외한 문자 길이를 리턴.
+*/
+	function checkBlankStrLen(keyword){
+	  var st_num, key_len;
+	  st_num = keyword.indexOf(" ");
+	  while (st_num != -1){
+			keyword = keyword.replace(" ", "");
+			st_num  = keyword.indexOf(" ");
+		}
+	  key_len=keyword.length;
+      return key_len;
+	}
+
+/**
+* 요청한 문자의 공백을 제거하고 문자를 돌려줌.
+*/
+function trim(keyword){
+	var st_num, key_len;
+	st_num = keyword.indexOf(" ");
+	while (st_num != -1){
+		keyword = keyword.replace(" ", "");
+		st_num  = keyword.indexOf(" ");
+	}
+	return keyword;
+}
+/**
+* 문자열을 해당 토큰으로 잘라  array로 값을 넒김
+* @param str : 문자열
+* @param token : 구분자
+*/
+function tokenizer(str, token){
+	var strArr = new Array();
+	var retval = str.split(token);
+	for(var i=0;i<retval.length;i++){
+		strArr[i] = retval[i];
+	}
+	return strArr;
+}
+
+
+/********************************************************************
+*
+*				validation Check
+*
+*********************************************************************/
+
+/**
+* 같은 문자가 연속돼서 입력됐는지 확인.
+*/
+function isSameValue(str){
+	var cnt = 0;
+	 for( var i=0; i < str.length; ++i){
+         if( str.charAt(0) == str.substring( i, i+1 ) ) ++cnt;
+     }
+	if(str.length == cnt){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+/**
+* 주민번호 체크하기 01
+* 앞자리와 뒷자리 처음만 유효성 검사함.
+*/
+function isValid_juminChk01(socno){
+		var socnoStr = socno.toString();
+		year = socnoStr.substring(0,2);
+		month = socnoStr.substring(2,4);
+		day = socnoStr.substring(4,6);
+		g = socnoStr.substring(6, 7);
+
+		if (g == 3 || g == 4){
+			year = "20" + year;
+		}else{
+			year = "19" + year;
+		}
+
+		// 주민등록번호 앞자리의 생년월일만 검사한다.
+		d = new Date(year, month-1, day);
+		if (d == "NaN") return false;
+
+		if (year == d.getFullYear() && month == d.getMonth()+1 && day == d.getDate())
+			return true;
+		else
+			return false;
+}
+
+/**
+* 주민번호 체크하기 02
+* 빈공간여부 등의 일반적인 주민등록번호 체크
+*/
+function isValid_juminChk02(socno){
+	var socnoStr = socno.toString();
+	 a = socnoStr.substring(0, 1);
+	 b = socnoStr.substring(1, 2);
+	 c = socnoStr.substring(2, 3);
+	 d = socnoStr.substring(3, 4);
+	 e = socnoStr.substring(4, 5);
+	 f = socnoStr.substring(5, 6);
+	 g = socnoStr.substring(6, 7);
+	 h = socnoStr.substring(7, 8);
+	 i = socnoStr.substring(8, 9);
+	 j = socnoStr.substring(9, 10);
+	 k = socnoStr.substring(10, 11);
+	 l = socnoStr.substring(11, 12);
+	 m = socnoStr.substring(12, 13);
+	 month = socnoStr.substring(2,4);
+	 day = socnoStr.substring(4,6);
+	 socnoStr1 = socnoStr.substring(0, 7);
+	 socnoStr2 = socnoStr.substring(7, 13);
+
+	 // valid check
+	 if(month <= 0 || month > 12) return false;
+	 if(day <= 0 || day > 31) return false;
+
+	 //주민등록뒷자리 첫번째 번호 유효성 체크 (1,2,3,4) are only valid
+	 if(g > 4 || g == 0) return false;
+
+	 //only number
+	 if (isNaN(socnoStr1) || isNaN(socnoStr2)){
+		 return false;
+	 }
+	//no Blank
+	if(checkBlank(socnoStr) > 0){
+	  return false;
+	}
+
+	 temp=a*2+b*3+c*4+d*5+e*6+f*7+g*8+h*9+i*2+j*3+k*4+l*5;
+	 temp=temp%11;
+	 temp=11-temp;
+	 temp=temp%10;
+
+	 if(temp == m)
+		return true;
+	 else
+		return false;
+}
+
+/**
+* 주민번호 체크하기 11
+* 2011.03.00 jungho 외국인 주민번호 앞자리(생년월일) 유효성 검사함.
+*/
+function isValid_juminChk11(socno){
+	var socnoStr = socno.toString();
+	var junoCheck = socnoStr.substring(6, 7);
+	var birthYear = "";
+
+	if(junoCheck in {5:1, 6:1}){
+		birthYear = "19";
+	}else if(junoCheck in {7:1, 8:1}){
+		birthYear = "20";
+	}else{
+		return false;
+	}
+
+	birthYear += socno.substr(0, 2);
+	var birthMonth = socno.substr(2, 2) - 1;
+	var birthDate = socno.substr(4, 2);
+	var birth = new Date(birthYear, birthMonth, birthDate);
+
+	if ( birth.getYear() % 100 != socno.substr(0, 2) || birth.getMonth() != birthMonth || birth.getDate() != birthDate) {
+		return false;
+	}
+	return true;
+}
+
+/**
+* 주민번호 체크하기 12
+* 2011.03.00 jungho 외국인 주민등록 번호 체크 로직
+*/
+function isValid_juminChk12(reg_no) {
+//	var reg_no = reg_no.toString();
+//	var sum = 0;
+//	var odd = 0;
+//	var buf = new Array(13);
+//	for (i = 0; i < 13; i++) {buf[i] = parseInt(reg_no.charAt(i));}
+//
+//	odd = buf[7]*10 + buf[8];
+//
+//	if (odd%2 != 0) {return false;}
+//
+//	if ((buf[11] != 6)&&(buf[11] != 7)&&(buf[11] != 8)&&(buf[11] != 9)) {return false;}
+//
+//	var multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];
+//	for (i = 0, sum = 0; i < 12; i++) {sum += (buf[i] *= multipliers[i]);}
+//
+//	sum=13-(sum%11);
+//
+//	if (sum>=10) {sum-=10;}
+//
+//	sum += 2;    
+//	
+//	if (sum>=10) {sum-=10;}
+//	
+//	if ( sum != buf[12]) {
+//		return false;
+//	}
+//	else {
+//		return true;
+//	}
+
+	var jumin = reg_no.toString();
+	var a = jumin.substring(0, 1);
+	var b = jumin.substring(1, 2);
+	var c = jumin.substring(2, 3); 
+	var d = jumin.substring(3, 4);
+	var e = jumin.substring(4, 5);
+	var f = jumin.substring(5, 6);
+	var g = jumin.substring(6, 7);
+	var h = jumin.substring(7, 8);
+	var i = jumin.substring(8, 9);
+	var j = jumin.substring(9, 10);
+	var k = jumin.substring(10, 11);
+	var l = jumin.substring(11, 12);
+	var m = jumin.substring(12, 13);
+	var month = jumin.substring(2, 4);
+	var day = jumin.substring(4, 6);
+
+	// valid check
+	if (month <= 0 || month > 12)
+		return false;
+	if (day <= 0 || day > 31)
+		return false;
+
+//	if (g > 4 || g == 0)
+//		return false;
+
+	var temp = a * 2 + b * 3 + c * 4 + d * 5 + e * 6 + f * 7 + g * 8 + h * 9 + i * 2 + j * 3 + k * 4 + l * 5;
+	temp = temp % 11;
+	temp = 13 - temp;
+	temp = temp % 10;
+
+	if (temp == m)
+		return true;
+	else
+		return false;
+	
+}
+
+/**
+* 이메일 validation check
+*/
+function isValid_email( str ){
+     /* check whether input value is included space or not  */
+     if(str == ""){
+     	alert("이메일 주소를 입력하세요.");
+     	return false;
+     }
+
+    if( checkBlank(str) >0 ){
+         alert("이메일 주소를 빈공간 없이 넣으세요.");
+         return false;
+     }
+
+     /* checkFormat */
+//     var isEmail = /\w+([-+._]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
+     var isEmail =/^[0-9a-zA-Z]([-_*\.]?[0-9a-zA-Z-_])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[0-9a-zA-Z]{2,3}$/;
+     if( !isEmail.test(str) ){
+         alert("이메일 형식이 잘못 되었습니다.");
+         return false;
+     }
+     if( str.length > 60 ){
+         alert("이메일 주소는 60자까지 유효합니다.");
+         return false;
+     }
+
+     return true;
+}
+
+/**
+* 한자 포함인지 유무 확인 로직 2011.03.00 jungho
+*/
+function isHanja(str){
+	var isENAME = /[\u3000-\u303F\u2E80-\u2EFF\u2FF0-\u2FFF\u31C0-\u31EF\u3200-\u9FBF\uF900-\uFAFF]/;
+	for( i=0 ; i< str.length ; i++ ){
+		idcheck = str.charAt(i);
+		if(isENAME.test(idcheck)){
+			return false;
+		}
+	}
+	return true;
+}
+
+/**
+* charCode로 한글인지 유무 확인.
+*/
+function isValid_HgulNm(str){
+	var ret;
+	for (var i = 0; i < str.length; i++){
+		ret = str.charCodeAt(i);
+		if (ret >= 33 && ret <= 126){ // 한글은 허용
+			return false;
+		}
+	}
+	return true;
+}
+
+/**
+*	영문명 확인
+*/
+function isValid_EngNm(str){
+    /* check format */
+    var isENAME = /^[A-Za-z  ]{3,40}$/;
+    if(!isENAME.test(str)){
+		return false;
+	}
+    return true;
+}
+
+/**
+*	영문대문자 3~40자리
+*/
+function isValid_EngNms(str){
+    /* check format */
+    var isENAME = /^[A-Z- ]{3,40}$/;
+    if(!isENAME.test(str)){
+		return false;
+	}
+    return true;
+}
+/**
+*	영문소문자 3~40자리
+*/
+function isValid_EngNmd(str){
+    /* check format */
+    var isENAME = /^[a-z ]{3,40}$/;
+    if(!isENAME.test(str)){
+		return false;
+	}
+    return true;
+}
+
+/**
+*	특수문자만 6~40자리 체크
+*/
+ function isValid_sword(str){
+	var sword = /^[`\-=\\\[\];',\./~!@#\$%\^&\*\(\)_\+|\{\}:"<>\? ]{6,40}$/;
+	return sword.test(str);
+}
+
+/**
+* 한글과 영문만 입력
+* 2012.07.06 jungho 외국인 비밀번호를 찾기 프로그램 개발 전까지 임시적으로 빈칸 허용
+*/
+function isValid_HgEnName(str){
+	for(i=0; i<str.length; i++){
+		var chkAt = str.charCodeAt(i);
+		if(chkAt<65){
+			if (chkAt != '32'){
+				return false;
+			}
+		}else{
+			if(chkAt>122 && chkAt<=127){
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+/**
+* 숫자와 영문만 입력체크
+*/
+function isNumEngOnly(str) {
+    chk1 = /^[a-z\d]+/i;  //a-z와 0-9이외의 문자가 있는지 확인 // 특수문자 - 도 가능하도록
+    chk2 = /[a-z]/i;  //적어도 한개의 a-z 확인
+    return chk1.test(str) && chk2.test(str);
+}
+
+/**
+* 숫자와 영문만 입력됨.(4~10 자리)
+*/
+function isNumEng(str) {
+    chk1 = /^[a-z\d]{4,10}$/i;  //a-z와 0-9이외의 문자가 있는지 확인
+    chk2 = /[a-z]/i;  //적어도 한개의 a-z 확인
+    chk3 = /\d/;  //적어도 한개의 0-9 확인
+    return chk1.test(str) && chk2.test(str) && chk3.test(str);
+}
+
+/**
+* 영어와 숫자가 조합되었는지 체크(6~10 자리)
+*
+* 2012.10.04 gej 길이 변경({6,10} => {6,15})
+*/
+function isNumEngChk(str) {
+	chk1 = /^[a-zA-Z\d]{6,15}$/g;
+	chk2 = /[a-zA-Z]/i;
+	chk3 = /\d/;
+	return chk1.test(str) && chk2.test(str) && chk3.test(str);
+}
+
+/**
+* 2012.07.04 gej 영어, 숫자, 특수문자 조합되었는지 체크(9~10 자리)
+*/
+function isNumEngSpecialChk(str) {
+	chk1 = /^[a-zA-Z\d~!@#$%^&*]{9,16}$/g;
+	chk2 = /[a-zA-Z]/i;
+	chk3 = /\d/;
+	chk4 = /[~!@#$%^&*]/;
+	return chk1.test(str) && chk2.test(str) && chk3.test(str) && chk4.test(str);
+}
+
+/**
+* ID체크시 사용 ( 숫자와 영문만 입력됨.(4~10 자리) )
+* 숫자와 영문자 꼭 혼합되는지 여부 체크하는것은 없앤.. function ( 2008-10-17)
+*
+* 2012.10.04 gej 길이 변경({4,10} => {6,15})
+*/
+function isIDCheck1(str) {
+    chk1 = /^[a-z\d]{6,15}$/i;  //a-z와 0-9이외의 문자가 있는지 확인
+    return chk1.test(str);
+}
+
+/**
+*	특수문자 사용 못하게 함.
+*/
+function isSpecial(str){
+	re = /[\(\)\{\}\[\]?.;:*~`^\_+<>!@\#$%&\'\"\\\=]/gi;
+	if(re.test(str)){
+		return false;
+	}
+	return true;
+}
+
+/**
+*	특수문자 사용 못하게 함.
+*/
+function isSpecial00(str){
+	re = /[\{\}\[\]?.,;:*~`^\-_+<>!@\#$%&\'\"\\\=]/gi;
+	if(re.test(str)){
+		return false;
+	}
+	return true;
+}
+
+
+/**
+ * & 문자 포함 여부 리턴
+*/
+function isAndChk(str) {
+	chk = /&/;
+	return chk.test(str);
+}
+
+
+/*****************************************
+* activeX 관련
+*****************************************/
+function WriteActiveXElement(element_id){
+	document.write(element_id.innerHTML);
+}
+
+/****************************************
+* 단체 상단 메뉴
+****************************************/
+function MM_swapImgRestore(){ //v3.0
+  var i,x,a=document.MM_sr;
+  for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++){
+	  x.src=x.oSrc;
+  }
+}
+
+function MM_preloadImages(){ //v3.0
+	var d=document;
+	if(d.images){
+		if(!d.MM_p){
+			d.MM_p=new Array();
+		}
+
+		var i,j=d.MM_p.length,a=MM_preloadImages.arguments;
+		for(i=0; i<a.length; i++){
+			if (a[i].indexOf("#")!=0){
+				d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];
+			}
+		}
+	}
+}
+
+function MM_findObj(n, d){ //v4.01
+	var p,i,x;
+	if(!d){
+		d=document;
+	}
+
+	if((p=n.indexOf("?"))>0&&parent.frames.length){
+		d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);
+	}
+
+	if(!(x=d[n])&&d.all){
+		x=d.all[n];
+	}
+
+	for (i=0;!x&&i<d.forms.length;i++){
+		x=d.forms[i][n];
+	}
+
+	for(i=0;!x&&d.layers&&i<d.layers.length;i++){
+		x=MM_findObj(n,d.layers[i].document);
+	}
+
+	if(!x && d.getElementById){
+		x=d.getElementById(n);
+	}
+	return x;
+}
+
+function MM_swapImage() { //v3.0
+	var i,j=0,x,a=MM_swapImage.arguments;
+	document.MM_sr=new Array;
+
+	for(i=0;i<(a.length-2);i+=3){
+		if ((x=MM_findObj(a[i]))!=null){
+			document.MM_sr[j++]=x;
+
+			if(!x.oSrc){
+				x.oSrc=x.src;
+			}
+			x.src=a[i+2];
+		}
+	}
+}
+
+
+function onMenu(flag){
+	switch(flag){
+		case 1 :
+		document.location = "";
+		break;
+		case 2 :
+		document.location = "";
+		break;
+		case 3 :
+		document.location = "";
+		break;
+		case 4 :
+		if(confirm('로그아웃 하시겠습니까?')){
+			document.location = 'man001.do?id';
+		}
+		break;
+	}
+}
+
+/** [날짜 유효성 검사]
+	날짜의 유효성을 검사한다.
+
+	[사용법]
+	if (!_$dateValidChk("20110228")) {
+		alert("입력하신 날짜가 부적합합니다.");
+		return false;
+	}
+*/
+function _$dateValidChk(strDate) {
+	if (strDate == "" || strDate.length != 8)
+		return false;
+
+	num_yy			= Number(strDate.substring(0, 4));
+	num_mm			= Number(strDate.substring(4, 6));
+	num_dd			= Number(strDate.substring(6, 8));
+
+	date			= new Date(num_yy, num_mm-1, num_dd);
+
+	var com_yy		= (date.getFullYear() + "");
+	var com_mm		= (date.getMonth() + 1);
+	var yymm1		= num_yy + "" + num_mm;
+	var yymm2		= com_yy + "" + com_mm;
+
+	if (yymm1 != yymm2) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/** [날짜 포멧]
+	날짜(8자리)를 포멧팅한다.
+
+	[사용법]
+	obj.value = _$DateFormat("20110228", "-"); => 2011-02-28
+*/
+function _$DateFormat(str, delim) {
+	var token		= delim || "-";
+	var dateStr		= str.replace(/\s|\-|\//g, "");
+	var retStr		= "";
+
+	for (var i = 0; i < dateStr.length; i++) {
+		var ch		= dateStr.charAt(i);
+		if (i < 4) {
+			retStr	+= ch + (i == 3 ? token : "");
+		} else if (i < 6) {
+			retStr	+= ch + (i == 5 ? token : "");
+		} else if (i < 8) {
+			retStr	+= ch;
+		}
+	}
+	return retStr;
+
+}
+
+/** [숫자 필터함수]
+	대상문자열(str)에서 숫자와 ignores에 해당하는
+	값을 제외하고 나머지는 filter 처리한다.
+
+	[사용법]
+	case 1 : obj.value = _$NumberFilter("1,abc234.0", ["-", "."]); => 1,234.0
+	case 2 : obj.value = _$NumberFilter("1,abc234.0", "-"); => 1,2340
+*/
+function _$NumberFilter(str, ignores) {
+
+	/* [파라미터 검사]
+		대상 문자열(str)이 존재해야하고 string이어야 하며 값이 반드시 존재해야 한다. */
+	if (!str || typeof str != "string" || str.replace(/^\s*|\s*$/g, "").length == 0)
+		return "";
+
+	/* [공백제거] */
+	var chkStr = str.replace(/^\s*|\s*$/g, "");
+
+	/* [필터에서 제외되는 파라미터 검사]
+		파라미터가 존재하는 경우에만 Array 형태로 치환한다. */
+	var ignore_tokens;
+	if (!(ignores instanceof Array)) {
+		if (ignores)
+			ignore_tokens = [ignores];
+		else
+			ignore_tokens = [];
+	}
+	else
+		ignore_tokens = ignores;
+
+	/* [필터처리] */
+	var ret_string = "";
+	for (var i = 0; i < chkStr.length; i++) {
+		var chr = chkStr.charAt(i);
+
+		/* [숫자가 아닌 경우] */
+		if (chr != chr * 1) {
+			var bTokenChk  = false;
+
+			/* [필터제외대상 검사] */
+			for (var ix = 0; ix < ignore_tokens.length; ix ++) {
+				if (chr == ignore_tokens[ix]) {
+					bTokenChk = true;
+				}
+			}
+
+			/* [숫자가 아니거나 필터제외 대상이 아닌 경우]
+				숫자가 아니거나 필터제외대상이 아닌 경우에는
+				반환할 문자열에 포함시키지 않는다. */
+			if (!bTokenChk)
+				continue;
+		}
+		ret_string   = ret_string + String(chr);
+	}
+
+	/* [필터처리된 문자열 반환] */
+	return ret_string;
+}
+
+
+/* 2011.11.16 : 원창옥 : 도로명 주소관련 팝업 */
+function fnRoadAddrPopWin(frmNm,zipNm1,zipNm2,addrNm1,addrNm2,townBldNm) {
+	try {
+		var pop_options = "width=800,"
+						+ "height=550,"
+						+ "top=100,"
+						+ "left=100,"
+						+ "resizable=no,"
+						+ "scrollbars=yes,"
+						+ "toolbar=no,"
+						+ "location=no,"
+						+ "directories=no,"
+						+ "status=no,"
+						+ "menubar=no";
+		var pop_name = "SEARCHROADADDRESS";
+		var win = window.open("", pop_name, pop_options);
+		if (!win) {
+			alert("팝업이 차단되어 있습니다.");
+			return;
+		} else {
+			win.focus();
+			var args = fnRoadAddrPopWin.arguments;
+			var $frmRoadAddr = document.$frmRoadAddr;
+			if (!$frmRoadAddr) {
+				$frmRoadAddr = document.createElement("form");
+				$frmRoadAddr.name = "$frmRoadAddr";
+				$frmRoadAddr.method = "POST";
+				$frmRoadAddr.target = pop_name;
+				$frmRoadAddr.action = "/myp001.do";
+
+				var inputTag = document.createElement("input");
+				inputTag.type = "hidden";
+				inputTag.name = "id";
+				inputTag.value = "myp00101s08";
+				$frmRoadAddr.appendChild(inputTag);
+
+				for (var ix = 0; ix < args.length; ix++) {
+					inputTag = document.createElement("input");
+					inputTag.type = "hidden";
+					inputTag.name = "args" + ix;
+					inputTag.value = args[ix];
+					$frmRoadAddr.appendChild(inputTag);
+				}
+			} else {
+				for (var ix = 0; ix < args.length; ix++) {
+					$frmRoadAddr["args"+ix].value = args[ix];
+				}
+			}
+
+			try {
+				/* IE */
+				document.appendChild($frmRoadAddr);
+			} catch(ex) {
+				/* Firefox */
+				document.body.appendChild($frmRoadAddr);
+			}
+			$frmRoadAddr.submit();
+		}
+	} catch (e) {
+		alert('fnRoadAddrPopWin:'+e);
+	}
+}
+
+/* 문자열길이체크 */
+function getStrByteLength(obj) {
+	var byteLength = 0;
+
+	for (var inx = 0; inx < obj.value.length; inx++) {
+		var oneChar = escape(obj.value.charAt(inx));
+
+		if (oneChar.length == 1) {
+            byteLength++;
+        } else if (oneChar.indexOf("%u") != -1) {
+            byteLength += 2;
+        } else if (oneChar.indexOf("%") != -1) {
+            byteLength += oneChar.length / 3;
+        }
+    }
+
+    return byteLength;
+}
+
+/**주민등록번호 만 나이 리턴*/
+function s_JuminAge(juminNo){
+	 var juminBirth = juminNo.substring(0, 6);
+	 var juminSex = juminNo.substring(6, 7);
+
+	 var toDate =  new Date();
+	 var toYear = toDate.getFullYear();
+	 var toMonth = toDate.getMonth()+1;
+	 var toDay = toDate.getDate();
+
+	 var juminYear = ((juminSex=="1" || juminSex=="2" || juminSex=="5" || juminSex == "6")? "19" : "20") + juminBirth.substring(0, 2);
+	 var juminMonth = juminBirth.substring(2, 4);
+	 var juminDay = juminBirth.substring(4, 6);
+
+	 var ageYear = Number(toYear) - Number(juminYear);
+	 if(Number(toMonth)  < Number(juminMonth)) ageYear -= 1;
+	 else if(Number(toMonth)  == Number(juminMonth)){
+		 if(Number(toDay)  < Number(juminDay)) ageYear -= 1;
+	 }
+	 return ageYear;
+}
+
+/**
+ *	페이지 이동하기
+ *	frm	: form Object
+ */
+function getPage(goURL){
+	location.href=goURL;
+}
+
+Object.defineProperty(console, '_commandLineAPI' , {get : function(){throw '..' }});
+
+/**
+* 마우스 오른쪽 버튼 막기
+*/
+//function rightButtonClick(){
+//	if(event.button==2){
+//		alert("마우스 오른쪽 버튼은 이용하실 수 없습니다.");
+//		return false;
+//	}
+//}
+//document.onmousedown = rightButtonClick;
+document.oncontextmenu = new Function ('return false');
+
+/* START [2011.04.01 : NetFUNNEL-다량접속제어모듈 적용] */
+//document.write('<scr' + 'ipt type=\"text/javascript\" charset=UTF-8 src=\"qnet/js/netfunnel.js\"></scr' + 'ipt>'); //includeLink.jsp에 포함
+/* END */
+
+function doStartInstall(){
+	npPfsCtrl.checkInstall({
+		before : function(){
+		alert("정상적인 설치가 되었는지 확인합니다. 설치가 완료되면 자동으로 첫 페이지로 이동합니다.");
+		},
+		after : function(){
+		alert("설치가 완료되었습니다.");
+		
+		location.href = "/index.jsp";
+		}
+	});
+}
+
+function uuidv4() {
+	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c=> 
+		(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c /4).toString(16)
+	);
+}
+
+function getParamMap(queryString) {
+	let splited = queryString.replace("?","").split(/[=?&]/);
+	let param = {};
+	for (let i=0; i<splited.length;i++) {
+		param[splited[i]] = splited[++i];
+	}
+	return param;
+}
+
+function objToQueryStringStr(obj){
+	var _str = '';
+	if(obj && obj instanceof Object){
+		for(var _key in obj){
+			_str += _key+"="+obj[_key]+"&";
+		}
+	}
+	_str = _str.substring(0, _str.length-1);
+	return _str;
+}
+
+function toCommaNumber(value) {
+    var strNum = value.replace(/[^0-9.-]/gi, "") + "";
+    var sign = "";
+    var decimal = "";
+    
+    var numSplit = strNum.split(".");
+    
+    if( numSplit.length == 2 ) {
+        strNum = numSplit[0];
+        decimal = numSplit[1];
+    }
+    
+    if( strNum.length>1 && (strNum.substring(0,1)) ) {
+        sign = strNum.substring(0,1);
+        if( sign!="-" && sign!="+" ) sign = "";
+        else strNum = strNum.substring(1, strNum.length);
+    }
+    
+    var splitPoint = strNum.length%3 != 0 ? strNum.length%3 : 3;
+    var firstNum = strNum.substring(0, splitPoint);
+    var elseNum =  strNum.substring(splitPoint);
+    var won = firstNum + elseNum.replace(/([0-9]{3})/g,",$1");
+    if(decimal!="") decimal= "." + decimal;
+    
+    return sign + won + decimal;
+}
+
+
+function toDate(value) {
+    if( !value ) {
+        console.log("value error. value[" + value + "]");
+        return;
+    }
+    if( value.constructor!=Date && value.constructor!=String ) {
+        console.log("type error. value type[" + value.constructor + "]");
+        return;
+    }
+    if( value.length!=8 && value.length!=14 ) {
+        console.log("length error. value length[" + value.length + "]");
+        return;
+    }
+    
+    var date;
+    
+    if( value.constructor == Date ) {
+        date = value; 
+    }
+    else if( value.constructor == String ) {
+        var strDate = value.replace(/([^0-9])/g,"");
+        
+        if( strDate.length == 8 ) {
+            var year = Number(strDate.substring(0,4));
+            var month = Number(strDate.substring(4,6))-1;
+            var day = Number(strDate.substring(6,8));
+            date = new Date(year, month, day);
+        }
+        else if( strDate.length == 14 ) {
+            var year = Number(strDate.substring(0,4));
+            var month = Number(strDate.substring(4,6))-1;
+            var day = Number(strDate.substring(6,8));
+            var hours = Number(strDate.substring(8,10));
+            var minutes = Number(strDate.substring(10,12));
+            var seconds = Number(strDate.substring(12,14));
+            date = new Date(year, month, day, hours, minutes, seconds);
+        }
+    }
+    
+    return date;
+}
+
+function toFormatDate(value, format) {
+    var DAY_NAMES = ["일","월","화","수","목","금","토"];
+    var DAY_FULL_NAMES = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+    
+    if( !value ) {
+        console.log("value error. value[" + value + "]");
+        return;
+    }
+    if( value.constructor!=Date && value.constructor!=String ) {
+        console.log("type error. value type[" + value.constructor + "]");
+        return;
+    }
+    if( value.length!=8 && value.length!=14 ) {
+        console.log("length error. value length[" + value.length + "]");
+        return;
+    }
+    
+    var d = this.toDate(value);
+    
+    return format.replace(/(yyyy|yy|mm|m|dd|d|www|w|hh|h|HH|H|nn|n|ss|s|a\/p)/gi, function($1) {
+        switch ($1) {
+            case 'yyyy': return d.getFullYear();
+            case 'yy'  : return lfnLPad(d.getFullYear(), 2, "0");
+            case 'mm'  : return lfnLPad((d.getMonth() + 1), 2, "0");
+            case 'm'   : return (d.getMonth() + 1);
+            case 'w'   : return DAY_NAMES[d.getDay()];
+            case 'www' : return DAY_FULL_NAMES[d.getDay()];
+            case 'dd'  : return lfnLPad(d.getDate(), 2, "0");
+            case 'd'   : return d.getDate();
+            case 'hh'  : return lfnLPad(((h = d.getHours() % 12) ? h : 12), 2, "0");
+            case 'h'   : return ((h = d.getHours() % 12) ? h : 12);
+            case 'HH'  : return lfnLPad(d.getHours(), 2, "0");
+            case 'H'   : return d.getHours();
+            case 'nn'  : return lfnLPad(d.getMinutes(), 2, "0");
+            case 'n'   : return d.getMinutes();
+            case 'ss'  : return lfnLPad(d.getSeconds(), 2, "0");
+            case 's'   : return d.getSeconds();
+            case 'a/p' : return d.getHours() < 12 ? 'a' : 'p';
+        }
+    });    
+}
+
+//[S] 전화번호 직접 입력 CheckBox - HHS 2025.07.29
+function makeSelfInput(selectId, checkBoxElement, buttonId, inputAreaId) {
+    //Params select Id, 적용하는 체크박스(this), select와 연동된 button Id, hiddenInput에 값을 넣을 input을 포함하는 div Id
+    var inputBoxCheck = checkBoxElement.checked;
+    if (inputBoxCheck) {
+        buttonId.style.display = 'none';
+        buttonId.value = '0';
+//        selectId.value = '';
+        inputAreaId.style.display = 'block';
+       
+    } else {
+    	inputAreaId.style.display = 'none';
+        inputAreaId.getElementsByTagName('input')[0].value = '';
+        buttonId.value = '0';
+//        selectId.value = '';
+        buttonId.style.display = 'block';
+    }
+}
+
+function changeHiddenInputValue(selectId, selfInput) {
+	//직접 입력 시 hiddenInput에 onChange
+    if (selfInput.value.length < 4) {
+        
+    	  alert("직접 입력한 전화번호는 4자리만 입력 가능합니다.");
+    	  selfInput.value= "";
+          return false;
+    } else {
+        selectId.value = selfInput.value;
+    }
+} 

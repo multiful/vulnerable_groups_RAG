@@ -1,0 +1,19 @@
+function getHostName(){
+	var strHost = document.location.href;
+	strHost = strHost.substring( strHost.indexOf("://") +3, strHost.length );
+	strHost = strHost.substring( 0, strHost.indexOf("/") );
+	return strHost ;
+}
+function useSSL(){
+	var reqHdrHost = document.location.hostname; //getHostName() ;
+	if( reqHdrHost == "localhost" ||
+		reqHdrHost == "127.0.0.1" ||
+		reqHdrHost == "218.54.130.108" ||
+		reqHdrHost == "165.213.106.40" ||
+		reqHdrHost == "114.200.62.162" ||
+		reqHdrHost == "218.54.130.122"){
+		return false ;
+	}else{
+		return true ;
+	}
+}

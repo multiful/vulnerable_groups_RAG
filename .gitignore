@@ -78,3 +78,6 @@ temp/
 
 # Keep project markdown docs tracked
 !*.md
+
+
+*.advanced_rag_indexing_guide.md

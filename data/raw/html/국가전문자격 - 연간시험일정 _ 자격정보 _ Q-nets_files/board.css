@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+/* 게시물 없음 */
+.typeNoArticle {height:auto !important;padding:0 !important;}
+
+/* 검색 */
+/* 상단검색 */
+.BBS_option {position:relative;display:flex;justify-content: flex-end;align-items: flex-end;margin-bottom:15px;}
+.BBS_option .listNum {font-size:18px;}
+.BBS_option .listNum b {font-weight: 700;}
+.BBS_option .searchBox {position:relative;display:flex;align-items: center;box-sizing:border-box;text-align:right;font-size:0;}
+.BBS_option .searchBox .selectBase {margin-right:5px;width:140px;} 
+.BBS_option .searchBox .selectBase {color:#666;}
+.BBS_option .searchBox .selectBase::placeholder {color:#666;}
+.BBS_option .searchBox .inputBtnArea{position:relative;display:inline-block;width:250px;}
+.BBS_option .searchBox .inputBtnArea .inputBase{padding-right:50px;color:#666;}
+.BBS_option .searchBox .inputBtnArea .inputBase::placeholder {color:#666;}
+.BBS_option .searchBox .inputBtnArea .btn_search {position:absolute;right:0;top:0;overflow:hidden;width:48px;height:48px;background:url(../img/common/ico_sch.svg) no-repeat center center/19px auto;}
+.board_area .BBS_option {margin-bottom: 19px;margin-top:-63px;}
+.board_area .BBS_option+.BBS_option {margin-top:0;}
+.pageTabBase~.board_area .BBS_option {margin-top:0px;}
+.pageTitleArea.typeNoti~.board_area .BBS_option {margin-top:0px;}
+
+/* 241014 수정 */
+.board_area .BBS_option .searchBox .selectBase {width:auto;min-width: 140px;} 
+
+/* 리스트 */
+/* 기본 게시판 고정항목 순서
+th 1번 : 번호 / th.headNum
+th 2번 : 카테고리 / th.headCateg
+th 3번 : 제목 / th.headTxt
+th 4번 : (첨부)파일 / th.headFile
+th 6번 : 작성자 / th.headWriter
+th 5번 : 등록일 / th.headDate
+th 7번 : 조회수 / th.headView
+*/
+.BBSlist thead th.headNum {width:100px;}
+.BBSlist thead th.headCateg {width:160px;}
+.BBSlist thead th.headFile {width:110px;}
+.BBSlist thead th.headDate {width:120px;}
+.BBSlist thead th.headView {width:120px;}
+.BBSlist thead th.headWriter {width:80px;}
+.BBSlist thead th.headSort {width:100px;}
+
+.BBSlist {width:100%;border-top:2px solid #000;}
+.BBSlist .typeNoti {background:#E5F1FB}
+.BBSlist th {height:62px;padding:12px 15px;border-bottom:1px solid #D1D1D1;font-size:18px;font-weight:700;text-align: center;}
+.BBSlist td {padding:12px 15px;overflow:hidden;text-overflow:ellipsis;height:64px;border-bottom:1px solid #d0d0d0 ;white-space:nowrap;text-align:center;font-size: 16px;color:#666666;}
+.BBSlist td .markNotice {display:block;margin:0 auto;width:40px;padding:3px 5px;border-radius: 13px;background:var(--second);color:#fff;font-size: 12px;font-weight: 500;}
+.BBSlist td a {display:inline-block;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:18px;font-weight:500;line-height:22px;vertical-align:middle;white-space:nowrap;line-height: 22px;color:#000;max-width: calc(100% - 25px);;}
+.BBSlist .txtL .ico_new {display:inline-block;overflow:hidden;width:17px;height:17px;margin:0 0 0 3px;background:url(../img/common/ico_new_blue.svg) no-repeat 50% 50%;vertical-align: middle;}
+.BBSlist td .fileDown{width:32px;height:32px;display:inline-block;background:url(../img/common/ico_hasFile.svg) no-repeat center center/100% auto;vertical-align:middle;}
+.write_guide{margin-bottom:20px;padding-left: 11px;color: #111;font-size: 16px;font-weight: 600;line-height: 18px;text-align: right;}
+.mark_need{display: inline-block;position: relative;overflow: hidden;width: 6px;height: 6px;margin-right: 7px;margin-left: 0;text-indent: -999px;border-radius: 50%;background-color:var(--primary);vertical-align: middle;}
+.BBSlist td.c_Red a {color:inherit !important}
+.BBSlist td.wB a {font-weight:inherit !important}
+
+
+/* 상세 */
+.lineList_v {width:100%;padding-bottom:0px;border-top:2px solid #111;}
+.lineList_v dt {position:relative;overflow:hidden;padding:32px 0px 34px 0px;border-bottom:1px solid #D1D1D1;}
+.lineList_v dd {padding:0px 0px 24px 0px;border-bottom:1px solid #D1D1D1;}
+.lineList_v .txtL {display:block;padding:0px 0 23px 0;font-size:0;}
+.lineList_v .txtL p{display:block;font-size:32px;line-height:44px;font-weight:700;}
+.lineList_v .txtInfo {display:flex;font-size:0;text-align:left;}
+.lineList_v .txtInfo>span {display:flex;position:relative;vertical-align:middle;font-size:16px;line-height:1em;margin-right:15px;padding-right:18px;margin-bottom:5px;}
+.lineList_v .txtInfo>span::before {content:'';display:block;position:absolute;right:0;top:1px;width:1px;height:12px;box-sizing:border-box;background:#C6C6C6;}
+.lineList_v .txtInfo>span:last-child {margin-right:0;padding-right:0;}
+.lineList_v .txtInfo>span:last-child::before {display:none;}
+.lineList_v .txtInfo>span>em{font-style:normal;display:inline-block;vertical-align:middle;color:#666}
+.lineList_v .txtInfo>span>em.name{margin-right:9px;font-weight: 700;color:#000}
+.lineList_v .txtInfo>span>em.data{color:#666}
+.lineList_v .txtInfo + .txtInfo{margin-top:7px;}
+.lineList_v .view_txt{padding:35px 64px 0;display:block;overflow:hidden;font-size:18px;font-weight:400;line-height:26px;word-break:break-all;word-wrap:break-word;min-height: 140px;}
+.lineList_v .view_txt textarea {margin:35px 0;}
+.lineList_v .view_img{width:100%;font-size:0;}
+.lineList_v .view_img>img{display:block;max-width:100%;margin:0 auto;margin-bottom:40px;}
+.lineList_v .centerImg {margin:35px 0;}
+.lineList_v img+img {margin-top:35px;}
+
+.fileArea {position:relative;padding:0 30px;margin-top:24px;padding-left:65px;border-bottom: 1px solid #d1d1d1;padding-bottom: 24px;}
+.fileArea p.tit {position:absolute;left:0;top:4px;font-size: 16px;font-weight: 700;}
+.fileArea .fileWrap .file {display:flex;align-items: center;}
+.fileArea .fileWrap .file+.file {margin-top:8px;}
+.fileArea .fileWrap .file p {margin-right:10px; font-size:16px;color:#666;max-width: calc(100% - 120px);overflow: hidden;white-space: pre;text-overflow: ellipsis;}
+.fileArea .fileWrap .file .btnS {display:flex;align-items: center;padding:5px 10px;height:32px;background:#fff;border:1px solid #8E8E8E;border-radius: 6px;}
+.fileArea .fileWrap .file .btnS>span {padding-right:20px;background:url(../img/common/icon_downS.svg) no-repeat right 0 top 50%;font-size: 14px;}
+
+/* 만족도조사 */
+.satisfactSurvey {margin-top:80px;background:#fff;padding:35px 40px 40px 40px;border-radius: 16px;}
+.satisfactSurvey .inputSurvey {display:flex;justify-content: space-between;align-items: center;margin-top:21px}
+.satisfactSurvey .inputSurvey .registArea {display:flex;align-items: center;}
+.satisfactSurvey .inputSurvey .registArea .inputBase {width:320px;margin-right: 8px;font-size: 16px;}
+.satisfactSurvey .inputSurvey .registArea .inputBase::placeholder {color:#666}
+.satisfactSurvey .inputSurvey .registArea .btn_register {display:flex;justify-content: center;align-items: center;width:80px;height:48px;background:#666666;border-radius: 6px;color:#fff;font-weight: 500;font-size: 15px;}
+.satisfactSurvey .inputSurvey .inputBox {margin-right: 35px;}
+
+/* 설문조사 (List) */
+.typeSurvey .BBSlist thead th.headStatus {width:110px;}
+.typeSurvey .BBSlist thead th.headPeriod {width:215px;}
+.typeSurvey .BBSlist thead th.headPeople {width:120px;}
+.typeSurvey .BBSlist .survey_status {display:flex;justify-content: center;align-items: center;width:60px;height:30px;font-size: 14px;border-radius: 16px;margin:0 auto;}
+.typeSurvey .BBSlist .survey_status.ing {border:1px solid var(--primary);color:var(--primary);}
+.typeSurvey .BBSlist .survey_status.end {border:1px solid #666;color:#666}
+
+
+/* 이전글다음글 */
+.prevNnext {overflow:hidden;margin-top:80px;border-top:1px solid #d1d1d1;}
+.prevNnext li {overflow:hidden;width:100%;border-bottom:1px solid #d1d1d1;padding:0 30px 0 17px;}
+.prevNnext li>strong{display:block;float:left;overflow:hidden;width:125px;height:62px;box-sizing:border-box;padding-left:30px;color:#666;font-size:16px;line-height:62px;white-space:nowrap;text-align:left;}
+.prevNnext li.prev>strong {background:url(../img/common/icon_borderPrev.svg) no-repeat left 0 top 50%/13px auto;}
+.prevNnext li.next>strong {background:url(../img/common/icon_borderNext.svg) no-repeat left 0 top 50%/13px auto;}
+.prevNnext li>p {position:relative;display:block;float:left;overflow:hidden;width:calc(100% - 125px);height:62px;box-sizing:border-box;padding:0;background:none !important;font-size:18px;line-height:62px;white-space:nowrap;}
+.prevNnext li>.no_article {color:#666;text-align:left;}
+.prevNnext li>.article>a {display:inline-block;width:calc(100% - 100px);overflow:hidden;text-overflow:ellipsis;font-size:18px;line-height:62px;text-align:left;white-space:nowrap;vertical-align: top;}
+.prevNnext li>.article>a+.date {position:absolute;right:0;top:50%;transform: translateY(-50%);color:#666;font-size:16px;;line-height:62px;text-align:right;vertical-align:top;}
+/* 250402 */
+.prevNnext li>.article>a:focus-visible{outline-offset:-2px;}
+
+@media only screen and (max-width:1700px){
+    .board_area .BBS_option {margin-top:8px;margin-bottom: 24px;}
+}
+
+@media only screen and (max-width:1500px){
+     /* 만족도 조사 */
+     .satisfactSurvey .inputSurvey .inputBox {margin-right: 15px;}
+     .satisfactSurvey .inputSurvey .registArea .inputBase {width:220px;}
+}
+
+@media only screen and (max-width:1260px){
+    /* 검색 */
+     .BBS_option .searchBox .inputBtnArea {width:220px;}
+     
+     /* 만족도 조사 */
+     .satisfactSurvey .inputSurvey {flex-wrap: wrap;}
+     .satisfactSurvey .inputSurvey .registArea {width:100%;margin-top:20px;}
+     .satisfactSurvey .inputSurvey .registArea .inputBase {width:calc(100% - 88px)}
+
+     /* 설문조사 */
+     .typeSurvey .BBSlist thead th.headPeriod {width:130px;}
+     .typeSurvey .BBSlist thead th.headStatus {width:90px;}
+     .typeSurvey .BBSlist thead th.headPeople {width:100px;}
+     .typeSurvey .BBSlist thead th.headNum {width:90px;}
+
+     .typeSurvey .BBSlist td.tbodyPeriod {text-overflow: inherit;white-space: inherit;text-align: left;}
+     
+}
+
+
+@media only screen and (max-width:1040px){
+     /* 검색 */
+     .BBS_option .searchBox .selectBase {width:140px;}
+     .BBS_option .searchBox .inputBtnArea {width:200px;}
+
+     
+    /* 리스트 */
+    .BBSlist {width:calc(100% + 44px);margin-left:-22px;}
+    .BBSlist colgroup,
+    .BBSlist thead {display:none;}
+    /*.BBSlist td:nth-child(4),
+    .BBSlist td:nth-child(7),*/
+    .BBSlist tr {display:block;padding:17px 22px;font-size:0;border-bottom: 1px solid #D1D1D1;}
+    .BBSlist td {height:auto;line-height:1.2em;display:inline-block;padding:0 0px 3px 0px;border:0;text-align:left;font-size: 14px;}
+    .BBSlist td>span {font-size: inherit;line-height: inherit;}
+    .BBSlist tr td.tbodyView {display:none;}
+    .BBSlist .txtL {display:block;}
+    .BBSlist .txtL a {overflow:hidden;text-overflow:ellipsis;line-height:30px;font-size:16px;white-space:nowrap;}
+    .BBSlist tr.typeNoti {position:relative;}
+    .BBSlist td .markNotice {height:21px;}
+    .BBSlist tr.typeNoti td:first-child {position:absolute;left:22px;top:21px;height:auto;padding:0;line-height:normal;display:block;width:auto;}
+    .BBSlist tr.typeNoti td:first-child>span {display:flex;align-items: center;justify-content: center;padding-top:3px;}
+    .BBSlist tr.typeNoti .txtL {padding:0 5px 3px 50px;}
+    .BBSlist .typeNoArticle {display:block !important;}
+    .BBSlist td {position:relative;display:block;width:100%;}
+    .BBSlist td.tbodyWriter {display:inline-block;width:auto;vertical-align: top;padding-right: 3px;margin-right:3px;}
+    .BBSlist td.tbodyDate {display:inline-block;width:auto;vertical-align: top;padding-right: 3px;margin-right: 3px;}
+    .BBSlist td.tbodyWriter+.tbodyDate {padding-left:8px;}
+    .BBSlist td.tbodyWriter+.tbodyDate:before {content:'';position:absolute;left:0;top:2px;display:block;width:1px;height:12px;background:#D1D1D1;}
+    .BBSlist td.noArticle {width:100% !important;}
+    .BBSlist tr.typeNoti.typeSort td:first-child {top:38px;}
+    .BBSlist td.tbodyFile {display:inline-block;vertical-align: top;padding-right: 3px;margin-right: 3px;width:auto;}
+    .BBSlist td.tbodyFile+.tbodyWriter {padding-left:8px;}
+    .BBSlist td.tbodyFile+.tbodyWriter:before {content:'';position:absolute;left:0;top:2px;display:block;width:1px;height:12px;background:#D1D1D1;}
+    .BBSlist td.tbodyFile .fileDown {width:18px;height:18px;background-size: 27px auto;overflow: visible;}
+
+    /* 상세 */
+    .BBSlist {width:calc(100% + 44px);margin-left:-22px;}
+    .lineList_v {width:calc(100% + 44px);margin-left:-22px;}
+    .lineList_v .view_txt textarea {margin:15px 0;}
+    .lineList_v .centerImg {margin:15px 0;} 
+
+    .lineList_v dt {padding:25px 22px;}
+    .lineList_v .txtL p {font-size:24px;line-height: 30px;}
+
+    .fileArea {padding:0 22px 25px 22px;}
+    .fileArea p.tit {display:block;position:relative;left:0;top:0;margin-bottom: 8px;;}
+
+    .lineList_v .view_txt {padding:32px 22px;}
+
+    .board_area .BBS_option {border-top:16px}
+
+    .pageTabBase~.board_area .BBS_option {margin-top:19px;}
+    .pageTitleArea.typeNoti~.board_area .BBS_option {margin-top:19px;}
+
+    /* 설문조사 */
+    .typeSurvey .BBSlist td {position:relative;display:inline-block;padding-right:12px;margin-right:12px;vertical-align: top;width:auto;padding-top:6px;}
+    .typeSurvey .BBSlist td:before {content:'';display:block;width:1px;height:12px;background:#D1D1D1;position:absolute;right:0;top:8px;}
+    .typeSurvey .BBSlist td:last-child {margin-right: 0;padding-right: 0;}
+    .typeSurvey .BBSlist td:last-child:before {display:none;}
+    .typeSurvey .BBSlist .survey_status {position:relative;top:-4px;width:54px;height:24px;font-size: 12px;}
+    .typeSurvey .BBSlist td.txtL {display:block;padding-right: 0;margin-right: 0;margin-top:0;}
+    .typeSurvey .BBSlist td.txtL::before {display:none;}
+
+    
+    /* 이전글/다음글 */
+    .prevNnext {width:calc(100% + 44px);margin-left:-22px;}
+    .prevNnext li {padding-left:22px;}
+}
+
+@media only screen and (max-width:600px){
+    /* 리스트 */
+    .BBS_option {display:block;}
+    .BBS_option .listNum{margin-bottom:10px;font-size:16px}
+    .BBS_option .searchBox .selectBase{width:calc(50% - 2.5px);max-width:100%;}
+    .BBS_option .searchBox .selectBase:nth-of-type(2){margin-right:0;}
+    .BBS_option .searchBox .inputBtnArea{width:100%;margin-top:5px;}
+
+    .BBS_option .searchBox {flex-wrap: wrap;}
+    
+    .BBS_option .searchBox.option1 .selectBase{width:125px;}
+    .BBS_option .searchBox.option1 .inputBtnArea{width:calc(100% - 130px);margin-top:0;}
+
+    .BBS_option .searchBox.option2 .selectBase{width:calc(50% - 2.5px);}
+    .BBS_option .searchBox.option2 .selectBase:first-child {margin-right: 5px;}
+    .BBS_option .searchBox.option2 .inputBtnArea{width:100%;margin-top:5px;}
+
+    /* 상세 */
+    .fileArea {padding:0 17px 25px 17px;}
+
+    .lineList_v {width:calc(100% + 34px);margin-left:-17px;}
+    .lineList_v .txtInfo>span>em.name {min-width: 65px;;}
+    .lineList_v .txtInfo {display:block;}
+    .lineList_v .txtInfo>span::before {display:none;}
+    .lineList_v .txtInfo>span {margin-bottom: 0;}
+    .lineList_v .txtInfo>span+span {margin-top:8px;}
+
+    .fileArea .fileWrap .file p {margin-right: 0;font-size: 14px;}
+    .fileArea .fileWrap .file+.file {margin-top:20px;}
+    .fileArea .fileWrap .file {display:block;}
+    .fileArea .fileWrap .file .btnS {margin-top:5px;}
+    .fileArea .fileWrap .file .btnS>span {font-size:12px;}
+
+    .lineList_v .view_txt {padding:32px 17px;font-size: 16px;}
+
+    /* 만족도 조사 */
+    .satisfactSurvey {padding:20px;margin-top:56px;}
+    .satisfactSurvey .inputSurvey {margin-top:10px;}
+    .satisfactSurvey .inputSurvey .inpListArea {display:flex;flex-wrap: wrap;width:100%;}
+    .satisfactSurvey .inputSurvey .inputBox {width:33.333%;margin-right: 0;padding-right: 10px;}
+    .satisfactSurvey .inputSurvey .inputBox:nth-child(n+4) {margin-top: 10px;}
+    .satisfactSurvey .inputSurvey .inputBox:nth-child(n+5) {width:40%}
+
+    /* 이전글/다음글 */
+    
+    .prevNnext {width:calc(100% + 34px);margin-left:-17px;margin-top:48px;}
+    .prevNnext li {padding-left:17px;padding-right: 17px;}
+    .prevNnext li>strong {width:85px;height:56px;padding-right:23px;padding-right:17px;line-height: 56px;}
+    .prevNnext li>p {width:calc(100% - 85px);height:56px;line-height: 56px;font-size: 16px;}
+    .prevNnext li>.article>a {width:calc(100% - 80px);font-size: 16px;line-height: 56px;}
+    .prevNnext li>strong {font-size: 14px;}
+    .prevNnext li>.article>a+.date {font-size: 14px;line-height: 56px;}
+    
+}
+
+@media only screen and (max-width:370px){
+    .satisfactSurvey .inputSurvey .inputBox {width:50% !important}
+    .satisfactSurvey .inputSurvey .inputBox:nth-child(n+3) {margin-top:10px;}
+    .satisfactSurvey .inputSurvey .registArea .inputBase {font-size: 14px;}
+}
+
+@media only screen and (max-width:350px){
+    .typeSurvey .BBSlist td {margin-right: 8px;padding-right: 8px;}
+}

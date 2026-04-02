@@ -44,6 +44,7 @@
 project-root/
 ├─ .gitignore
 ├─ README.md
+├─ PROJECT_SUMMARY.md
 ├─ CHANGE_CONTROL.md
 ├─ DIRECTORY_SPEC.md
 ├─ ROOT_DOC_GUIDE.md
@@ -55,6 +56,7 @@ project-root/
 ├─ API_SPEC.md
 ├─ PROMPT_DESIGN.md
 ├─ DATA_SCHEMA.md
+├─ CSV_CANONICALIZATION_TEAM_GUIDE.md
 ├─ RAG_PIPELINE.md
 ├─ EVALUATION_GUIDELINE.md
 ├─ EVALUATION.md
@@ -82,6 +84,9 @@ Git 추적 제외 대상 정의
 ### `README.md`
 프로젝트 최상위 안내 문서  
 프로젝트 목적, 핵심 개념, 범위, 연관 문서 안내를 담당한다.
+
+### `PROJECT_SUMMARY.md`
+저장소 전체 요약 — 두 데이터 레인(CSV vs 문서), 스택, 디렉터리·문서 지도, 청킹 절차 요약, `docs/references/` 등 긴 방법론 문서 배치 안내.
 
 ### `CHANGE_CONTROL.md`
 문서 갱신 규칙, 작업 절차, 메타데이터 갱신 원칙을 담당한다.
@@ -119,6 +124,10 @@ API endpoint 계약과 request/response 구조를 정의한다.
 
 ### `DATA_SCHEMA.md`
 데이터 구조, canonical schema, 주요 엔티티/관계/필드를 정의한다.
+
+### `CSV_CANONICALIZATION_TEAM_GUIDE.md`
+CSV 레인(데이터 수집·스키마 매핑·canonical·엔티티/관계 산출) 담당자용 실행 지침서이다.  
+계약 필드는 `DATA_SCHEMA.md`가 우선한다.
 
 ### `RAG_PIPELINE.md`
 Parse, Chunking, Metadata, Embedding, Retrieval 구조를 정의한다.
@@ -401,6 +410,7 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 ### 루트 파일
 - `.gitignore`
 - `README.md`
+- `PROJECT_SUMMARY.md`
 - `CHANGE_CONTROL.md`
 - `DIRECTORY_SPEC.md`
 - `ROOT_DOC_GUIDE.md`
@@ -412,6 +422,7 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 - `API_SPEC.md`
 - `PROMPT_DESIGN.md`
 - `DATA_SCHEMA.md`
+- `CSV_CANONICALIZATION_TEAM_GUIDE.md`
 - `RAG_PIPELINE.md`
 - `EVALUATION_GUIDELINE.md`
 - `EVALUATION.md`

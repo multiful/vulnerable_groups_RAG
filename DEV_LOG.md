@@ -16,6 +16,15 @@
 
 ---
 
+## 2026-04-03 — PROJECT_SUMMARY 및 청킹·레퍼런스 문서 위치 안내
+
+### 수행
+
+- **신규** `PROJECT_SUMMARY.md`: 프로젝트 목적, CSV vs 문서 레인, 스택·폴더 요약, 문서 지도, 청킹 절차(`RAG_PIPELINE.md` §7 연계, `chunks.jsonl`·인제스트 CLI), 긴 방법론 문서는 `docs/references/` 권장.
+- **README.md**, **DIRECTORY_SPEC.md** §2·§3, **ROOT_DOC_GUIDE.md** §3·§4.1: `PROJECT_SUMMARY.md` 링크·트리 반영.
+
+---
+
 ## 2026-04-03 — 문서·디렉터리 정렬 및 최소 스캐폴딩
 
 ### 수행
@@ -58,3 +67,10 @@
 
 - `pytest backend/tests` (health + evidence missing cert_id).
 - `frontend` `npm run build`.
+
+---
+
+## 2026-04-03 — CSV 담당 팀 지침서
+
+- 루트에 `CSV_CANONICALIZATION_TEAM_GUIDE.md` 추가 (영민·유빈: 데이터 수집 슬라이드·Parse 슬라이드 기준 CSV 레인 전담 절차).
+- `README.md` §5 표에 해당 문서 링크 한 줄 추가.

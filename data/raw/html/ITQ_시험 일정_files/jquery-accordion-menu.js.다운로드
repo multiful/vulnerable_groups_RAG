@@ -1,0 +1,197 @@
+/**
+ * jQuery Accordion Menu Plugin - Modernized Version
+ */
+;(($, window, document) => {
+    const pluginName = "jqueryAccordionMenu";
+    const defaults = {
+        speed: 300,
+        showDelay: 0,
+        hideDelay: 0,
+        singleOpen: true,
+        clickEffect: true
+    };
+
+    class Plugin {
+        constructor(element, options) {
+            this.element = element;
+            // 인스턴스별 설정을 독립적으로 관리 (defaults를 직접 수정하지 않음)
+            this.settings = $.extend({}, defaults, options);
+            this._name = pluginName;
+            this.init();
+        }
+
+        init() {
+            this.openSubmenu();
+            this.submenuIndicators();
+            if (this.settings.clickEffect) {
+                this.addClickEffect();
+            }
+        }
+
+        openSubmenu() {
+            const $menu = $(this.element);
+            const { speed, showDelay, hideDelay, singleOpen } = this.settings;
+
+            // bind 대신 on 사용 (이벤트 위임 고려 가능)
+            $menu.children("ul").find("li").on("click", function(e) {
+                e.stopPropagation();
+                
+                const $this = $(this);
+                const $submenu = $this.children(".submenu");
+                const $anchor = $this.children("a");
+
+                if ($submenu.length > 0) {
+                    e.preventDefault(); // 서브메뉴가 있으면 링크 이동 방지
+
+                    if ($submenu.is(":hidden")) {
+                        // 서브메뉴 열기
+                        $submenu.delay(showDelay).slideDown(speed);
+                        $anchor.addClass("submenu-indicator-minus");
+
+                        if (singleOpen) {
+                            $this.siblings().children(".submenu").slideUp(speed);
+                            $this.siblings().find("a").removeClass("submenu-indicator-minus");
+                        }
+                    } else {
+                        // 서브메뉴 닫기
+                        $submenu.delay(hideDelay).slideUp(speed);
+                        $anchor.removeClass("submenu-indicator-minus");
+                    }
+                    return false;
+                }
+                
+                // 서브메뉴가 없는 경우에만 페이지 이동
+                const href = $anchor.attr("href");
+                if (href && href !== "#") {
+                    window.location.href = href;
+                }
+            });
+        }
+
+        submenuIndicators() {
+            const $submenus = $(this.element).find(".submenu");
+            if ($submenus.length > 0) {
+                $submenus.siblings("a").append('<span class="submenu-indicator">+</span>');
+            }
+        }
+
+        addClickEffect() {
+            $(this.element).find("a").on("click", function(e) {
+                const $this = $(this);
+                $this.find(".ink").remove();
+
+                const $ink = $('<span class="ink"></span>');
+                $this.prepend($ink);
+
+                const d = Math.max($this.outerWidth(), $this.outerHeight());
+                const x = e.pageX - $this.offset().left - d / 2;
+                const y = e.pageY - $this.offset().top - d / 2;
+
+                $ink.css({
+                    height: d,
+                    width: d,
+                    top: '${y}px',
+                    left: '${x}px'
+                }).addClass("animate-ink");
+            });
+        }
+    }
+
+    // 플러그인 정의
+    $.fn[pluginName] = function(options) {
+        return this.each(function() {
+            if (!$.data(this, 'plugin_${pluginName}')) {
+                $.data(this, 'plugin_${pluginName}', new Plugin(this, options));
+            }
+        });
+    };
+})(jQuery, window, document);
+/*; (function($, window, document, undefined) {
+    var pluginName = "jqueryAccordionMenu";
+    var defaults = {
+        speed: 300,
+        showDelay: 0,
+        hideDelay: 0,
+        singleOpen: true,
+        clickEffect: true
+    };
+    function Plugin(element, options) {
+        this.element = element;
+        this.settings = $.extend({},
+        defaults, options);
+        this._defaults = defaults;
+        this._name = pluginName;
+        this.init()
+    };
+    $.extend(Plugin.prototype, {
+        init: function() {
+            this.openSubmenu();
+            this.submenuIndicators();
+            if (defaults.clickEffect) {
+                this.addClickEffect()
+            }
+        },
+        openSubmenu: function() {
+            $(this.element).children("ul").find("li").bind("click",
+            function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                if ($(this).children(".submenu").length > 0) {
+                    if ($(this).children(".submenu").css("display") == "none") {
+                        $(this).children(".submenu").delay(defaults.showDelay).slideDown(defaults.speed);
+                        $(this).children(".submenu").siblings("a").addClass("submenu-indicator-minus");
+                        if (defaults.singleOpen) {
+                            $(this).siblings().children(".submenu").slideUp(defaults.speed);
+                            $(this).siblings().children(".submenu").siblings("a").removeClass("submenu-indicator-minus")
+                        }
+                        return false
+                    } else {
+                        $(this).children(".submenu").delay(defaults.hideDelay).slideUp(defaults.speed)
+                    }
+                    if ($(this).children(".submenu").siblings("a").hasClass("submenu-indicator-minus")) {
+                        $(this).children(".submenu").siblings("a").removeClass("submenu-indicator-minus")
+                    }
+                }
+                window.location.href = $(this).children("a").attr("href")
+            })
+        },
+        submenuIndicators: function() {
+            if ($(this.element).find(".submenu").length > 0) {
+                $(this.element).find(".submenu").siblings("a").append("<span class='submenu-indicator'>+</span>")
+            }
+        },
+        addClickEffect: function() {
+            var ink, d, x, y;
+            $(this.element).find("a").bind("click",
+            function(e) {
+                $(".ink").remove();
+                if ($(this).children(".ink").length === 0) {
+                    $(this).prepend("<span class='ink'></span>")
+                }
+                ink = $(this).find(".ink");
+                ink.removeClass("animate-ink");
+                if (!ink.height() && !ink.width()) {
+                    d = Math.max($(this).outerWidth(), $(this).outerHeight());
+                    ink.css({
+                        height: d,
+                        width: d
+                    })
+                }
+                x = e.pageX - $(this).offset().left - ink.width() / 2;
+                y = e.pageY - $(this).offset().top - ink.height() / 2;
+                ink.css({
+                    top: y + 'px',
+                    left: x + 'px'
+                }).addClass("animate-ink")
+            })
+        }
+    });
+    $.fn[pluginName] = function(options) {
+        this.each(function() {
+            if (!$.data(this, "plugin_" + pluginName)) {
+                $.data(this, "plugin_" + pluginName, new Plugin(this, options))
+            }
+        });
+        return this
+    }
+})(jQuery, window, document);*/

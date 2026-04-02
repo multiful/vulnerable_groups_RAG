@@ -1,0 +1,262 @@
+
+ 
+
+/* 파일찾기 스크립트 */
+
+$(function($){
+	$("#ref_file").bind ("change",function(){
+		$('#fileName').val($(this).val().replace(/^C:\\fakepath\\/i, ''));
+	});
+	
+});
+
+$(function($){
+	$("#newfile02").on("change","#ref_file02",function(e){
+		$("#fileName02").val($(this).val().replace(/^C:\\fakepath\\/i, ''));
+	});
+});
+
+
+/* 게시판 테이블 클래스 먹이기 */
+function tdBgChanger(){
+	var trs = document.getElementById('con_table').getElementsByTagName('tr');
+	var finalNum = Number(trs.length - 1);
+	for(var j=0;j<trs.length;j++){
+		if(j%2 == 0){
+			trs[j].className = 'gry';
+			if(j == finalNum){
+				trs[j].className = 'gry last';
+			}
+		}else{
+			if(j == finalNum){
+				trs[j].className = 'last';
+			}
+		}
+	}
+}
+
+/* 숫자만 허용 - 소수점포함 */
+function onlyNumberA(e){    
+    var keyCode = "";            
+    if(window.event)
+        keyCode = window.event.keyCode;
+    else
+        keyCode = e.which;
+        
+    
+    if((keyCode >= 48 && keyCode <=57) || (keyCode >= 96 && keyCode <= 105) || keyCode == 8 || keyCode == 9 || keyCode == 13 || keyCode == 46 ||  keyCode == 190) {
+        return true;
+    } else {
+
+        if(navigator.appName == "Opera")
+        {
+            alert("숫자만 입력할 수 있습니다.");
+            e.preventDefault();
+            return false;
+        }
+
+        if(window.event) 
+            window.event.returnValue = false;
+        else{
+            e.preventDefault();
+        }
+    }
+}
+
+/* 숫자만 허용 */
+function onlyNumber(e){    
+    var keyCode = "";            
+    if(window.event)
+        keyCode = window.event.keyCode;
+    else
+        keyCode = e.which;
+        
+    if((keyCode >= 48 && keyCode <=57) || (keyCode >= 96 && keyCode <= 105) || keyCode == 8 || keyCode == 9 || keyCode == 13 || keyCode == 46) {
+        return true;
+    } else {
+
+        if(navigator.appName == "Opera")
+        {
+            alert("숫자만 입력할 수 있습니다.");
+            e.preventDefault();
+            return false;
+        }
+
+        if(window.event) 
+            window.event.returnValue = false;
+        else{
+            e.preventDefault();
+        }
+    }
+}
+/*function ssn_check(value){
+	
+	var result = true;	
+	value = value.replace("-", "");	
+	if (/[^0-9-]+/.test(value))
+		result = false;
+	var ssnCheck = 0;
+	for (var i = 0; i < 12; i++) {
+		ssnCheck += (i % 8 + 2) * value.charAt(i);
+	}
+	ssnCheck = (11 - ssnCheck % 11) % 10;
+	
+	if(ssnCheck != value.charAt(12)) {				
+		result = false;
+	}
+	if(result != true){
+		var sum=0;
+	    var odd=0;  
+		result = true;	
+	    buf = new Array(13);
+	    for(i=0; i<13; i++) { buf[i]=parseInt(value.charAt(i)); }
+	    odd = buf[7]*10 + buf[8];
+	    if(odd%2 != 0) { return false; }
+	    if( (buf[11]!=6) && (buf[11]!=7) && (buf[11]!=8) && (buf[11]!=9) ) {return false;}
+	    multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];
+	    for(i=0, sum=0; i<12; i++) { sum += (buf[i] *= multipliers[i]); }
+	    sum = 11 - (sum%11);
+	    if(sum >= 10) { sum -= 10; }
+	    sum += 2;
+	    if(sum >= 10) { sum -= 10; }
+	    if(sum != buf[12]) {
+	    result = false;
+	    return result;}   
+	    result = true; 
+	    return result;    
+	 }
+		return result;
+}
+*/
+
+function ssn_check(value) // 유효성검사. 사용법fnRRNCheck("8201011234567");
+{
+    if (fnrrnCheck(value) || fnfgnCheck(value)) {
+        return true;
+    }
+    return false;
+}
+function fnrrnCheck(value) // 주민등록번호유효성검사.
+{
+	var result = true;	
+	value = value.replace("-", "");	
+	if (/[^0-9-]+/.test(value))
+		result = false;
+	var ssnCheck = 0;
+	for (var i = 0; i < 12; i++) {
+		ssnCheck += (i % 8 + 2) * value.charAt(i);
+	}
+	ssnCheck = (11 - ssnCheck % 11) % 10;
+	
+	if(ssnCheck != value.charAt(12)) {				
+		result = false;
+	}
+	if(result != true){
+		var sum=0;
+	    var odd=0;  
+		result = true;	
+	    buf = new Array(13);
+	    for(i=0; i<13; i++) { buf[i]=parseInt(value.charAt(i)); }
+	    odd = buf[7]*10 + buf[8];
+	    if(odd%2 != 0) { return false; }
+	    if( (buf[11]!=6) && (buf[11]!=7) && (buf[11]!=8) && (buf[11]!=9) ) {return false;}
+	    multipliers = [2,3,4,5,6,7,8,9,2,3,4,5];
+	    for(i=0, sum=0; i<12; i++) { sum += (buf[i] *= multipliers[i]); }
+	    sum = 11 - (sum%11);
+	    if(sum >= 10) { sum -= 10; }
+	    sum += 2;
+	    if(sum >= 10) { sum -= 10; }
+	    if(sum != buf[12]) {
+	    result = false;
+	    return result;}   
+	    result = true; 
+	    return result;    
+	 }
+		return result; 
+}
+function fnfgnCheck(value) // 외국인등록번호유효성검사.
+{
+    var sum = 0;
+    if (value.length != 13) {
+        return false;
+    }
+    else if (value.substr(6, 1) != 5 && value.substr(6, 1) != 6 && value.substr(6, 1) != 7 && value.substr(6, 1) != 8) {
+        return false;
+    }
+    if (Number(value.substr(7, 2)) % 2 != 0) {
+        return false;
+    }
+    for (var i = 0; i < 12; i++) {
+        sum += Number(value.substr(i, 1)) * ((i % 8) + 2);
+    }
+    if ((((11 - (sum % 11)) % 10 + 2) % 10) == Number(value.substr(12, 1))) {
+        return true;
+    }
+    return false;
+}
+
+
+
+
+function isValidDate(startDate, endDate) {
+	 var format = /^(19[7-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+ 
+	if(!format.test(startDate))   {
+		alert("시작일은 2014-02-01 형식으로 입력해야합니다.\r\n(1970-01-01부터 2099-12-31까지 검색 가능합니다.)");
+		return false;
+	 } else if(!format.test(endDate)) {
+		alert("종료일은 2014-02-01 형식으로 입력해야합니다.\r\n(1970-01-01부터 2099-12-31까지 검색 가능합니다.)");
+		 return false;
+	 }else    {
+		return true;
+	  }
+ }
+
+//그리드 유효성 체크========================================
+function addMultiInputNamingRules(form, field, rules){
+    $(form).find(field).each(function(index){
+      $(this).attr('alt', $(this).attr('name'));
+      $(this).attr('id', $(this).attr('name')+'-'+index);  
+      $(this).attr('name', $(this).attr('name')+'-'+index);
+      $(this).rules('add', rules);
+      
+    }); 
+}
+function removeMultiInputNamingRules(form, field){
+    $(form).find(field).each(function(index){ 
+	    $(this).attr('name', $(this).attr('alt')); 
+	    $(this).attr('id', $(this).attr('alt'));
+	    $(this).removeAttr('alt'); 
+    }); 
+}
+//======================================================
+
+//생년월일 유효성 체크//
+function lfn_validate(jumin1){
+	
+		var yy = jumin1.substring(2,4);
+		var mm = jumin1.substring(4,6);
+		var dd = jumin1.substring(6,8);
+		
+		
+		if(jumin1.length != 8 || yy < 00 || yy > 99 || mm < 01 || mm > 12 || dd < 01 || dd > 31 ){
+			return false;
+		}
+
+	  return true;
+}
+
+
+
+//]]>
+
+
+
+//================================
+
+
+
+           
+
+
+

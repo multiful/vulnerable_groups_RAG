@@ -1,0 +1,128 @@
+/* 웹브라우져 복사 방지 */
+$(document).ready(function() {   
+	  //$(document)[0].oncontextmenu = function() {return false;}  ; // 우클릭방지
+	  //$(document)[0].onselectstart = function() {return false;}  ; // 복사 방지
+	  //$(document)[0].ondragstart = function() {return false;}  ;   // 드래그방지
+	  //$(document)[0].onkeyup =	ClipBoardClear ;	  // 키이벤트 발생 시 클립보드 삭제
+	  //$(document)[0].onkeydown =	keyDown ;	
+	  /*
+	  $(document).keyup(function(e){
+		  if(e.keyCode == 44) {
+			  alert ("스크린캡쳐는 허락 되지 않습니다."); 
+			  return false;
+		  }
+		  if(e.keyCode > 111 && e.keyCode < 124) {
+			  alert ("개발도구용 키는 허락 되지 않습니다."); 
+			  return false;
+		  }
+		  
+		});
+	    */
+	  
+}); 
+ 
+ 
+function ClipBoardClear()
+{
+	if(window.clipboardData)
+	{
+		clipboardData.clearData();
+	}
+}
+//setInterval("ClipBoardClear();", 100);
+
+
+ 
+
+function keyDown()
+{ 
+   var keycode = event.keyCode;
+   var realkey = String.fromCharCode(event.keyCode);
+   alert("keycode: " + keycode + "\nrealkey: " + realkey);
+}
+
+
+
+function CheckPassWord(ObjUserID, ObjUserPassWord, objUserPassWordRe)
+{
+
+	if(ObjUserID == "" )
+    {
+        alert("아이디를 입력해주세요.");
+        return false;
+    }
+    
+	
+    if(ObjUserPassWord!= objUserPassWordRe)
+    {
+        alert("입력하신 비밀번호와 비밀번호확인이 일치하지 않습니다");
+        return false;
+    }
+
+    if(ObjUserPassWord.length<8)
+    {
+        alert("비밀번호는 문자, 숫자, 특수문자의 조합으로 8~16자리로 입력해주세요.");
+        return false;
+    }
+
+    if(!ObjUserPassWord.match(/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/))
+    {
+        alert("비밀번호는 문자, 숫자, 특수문자의 조합으로8~16자리로 입력해주세요.");
+        return false;
+    }
+    
+    if(ObjUserID.indexOf(ObjUserPassWord) > -1)
+    {
+        alert("비밀번호에 아이디를 사용할 수 없습니다.");
+        return false;
+    } 
+    
+    var SamePass_0 = 0; //동일문자 카운트
+    var SamePass_1 = 0; //연속성(+) 카운드
+    var SamePass_2 = 0; //연속성(-) 카운드
+
+
+    
+    var chr_pass_0;
+    var chr_pass_1;
+
+    var chr_pass_2;
+
+    
+    for(var i=0; i < ObjUserPassWord.length; i++)
+    {
+        chr_pass_0 = ObjUserPassWord.charAt(i);
+        chr_pass_1 = ObjUserPassWord.charAt(i+1); 
+        chr_pass_2 = ObjUserPassWord.charAt(i+2);
+        
+         //동일문자 카운트
+        if(chr_pass_0 == chr_pass_1 && chr_pass_1==chr_pass_2)
+        {
+            SamePass_0 = SamePass_0 + 1;
+        }
+        //연속성(+) 카운드 
+        if(chr_pass_0.charCodeAt(0) - chr_pass_1.charCodeAt(0) == 1 && chr_pass_1.charCodeAt(0) - chr_pass_2.charCodeAt(0) == 1)
+        {
+            SamePass_1 = SamePass_1 + 1;
+        }
+        
+        //연속성(-) 카운드
+        if(chr_pass_0.charCodeAt(0) - chr_pass_1.charCodeAt(0) == -1 && chr_pass_1.charCodeAt(0) - chr_pass_2.charCodeAt(0) == -1)
+        {
+            SamePass_2 = SamePass_2 + 1;
+        }
+    }
+    if(SamePass_0 > 0)
+    {
+        alert("동일문자를 3번 이상 사용할 수 없습니다.");
+        return false;
+    }
+   
+    if(SamePass_1 > 0 || SamePass_2 > 0 )
+    {
+        alert("연속된 문자열(123 또는 321, abc, cba 등)을\n 3자 이상 사용 할 수 없습니다.");
+        return false;
+    }
+ 		return true;  
+}
+  

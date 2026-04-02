@@ -1,0 +1,1668 @@
+@charset "utf-8";
+
+/* 공통 */
+.selectBase.full{max-width: 100% !important;}
+
+/* 자격증·확인서-수첩형과 상장형 자격증 병행 발급 */
+.certificateSelect .groupCont>.division .headLine3{color:var(--black);}
+.certificate ul{display:flex;}
+.certificate ul li {width:calc(50% - 12px)}
+.certificate ul li:first-child {margin-right: 24px;}
+.certificate ul li{flex:1;border:1px solid #D1D1D1;background-color:#fff;background-position:right 50px bottom 56px;background-repeat:no-repeat;border-radius:40px;padding:50px;}
+.certificate ul li.certificate01{background-image: url(../img/common/per/certificate/bg_certificate01.png);}
+.certificate ul li.certificate02{background-image: url(../img/common/per/certificate/bg_certificate02.png);}
+.certificate ul li .baseBtn{margin-top:48px;}
+
+.banner ul li+li{margin-top:25px;}
+.banner ul li a{display:block;background-position: right center;background-repeat:no-repeat;padding:43px 40px;border-radius:16px;color:#fff;height:150px;}
+.banner ul li.banner01 a{background-image: url(../img/common/per/certificate/bg_banner01.png);background-color:#2E5892;}
+.banner ul li.banner02 a{background-image: url(../img/common/per/certificate/bg_banner02.png);background-color:#157A4A;background-position: right 120px center;}
+.banner ul li.banner02 p{line-height:64px;}
+.banner ul li p{font-size:24px;color:#fff;}
+.banner ul li p .c_Point_g{color:#9EFFBB;}
+
+
+/* 자격증·확인서-상장형 자격증 발급·활용 */
+.grayBox{background:#DFE3EC;border-radius:10px;padding:30px;margin:20px 0;}
+.whiteBox{background:#fff;border-radius:10px;border:1px solid #D1D1D1;padding:50px;margin:20px 0;}
+.contF{display:flex;justify-content:space-between;flex-wrap: wrap;}
+.contF .half{width: calc(50% - 25px);}
+.contF .half>div{position:relative;}
+.contF .half>div:first-child:after{display:none;}
+.contF .half>div:after{content:'';width:1px;height:25px;position: absolute;left:50%;top:-25px;background:#C6C6C6;}
+.contF .half>div+div{margin-top:25px;}
+.bg_B1{background: var(--primary);padding:15px 20px;border-radius:10px;}
+.bg_B2{background: var(--second);padding:15px 20px;border-radius:10px;}
+.bg_B3{background: #E5F1FB;padding:15px 20px;border-radius:10px;}
+.bg_G1{background: #F1F3F7;padding:20px;border-radius:10px;}
+.txtBody{font-size:24px;display: block;width: 100%;letter-spacing: 0;line-height: 150%;}
+.txtList.dot.small{margin-top:10px;}
+.txtList.dot.small>li{font-size:16px;}
+.txtList.dot.small>li+li{margin-top:0;}
+.txtList.dot.small>li::before{background:#666;}
+.contTable+.txtAlert{margin-top:16px;}
+
+.certificateGuide .headLine2{margin-bottom: 30px;}
+.certificateGuide .contF .txtList.dot>li{font-size:16px;line-height:26px;color:#666;}
+.certificateGuide .contF .txtList.dot>li+li{margin-top:0;}
+.certificateGuide .contF .txtList.dot>li::before{background:#666;}
+.certificateGuide .example_list{margin:24px 0;}
+.certificateGuide .example_list ul{display:flex;align-items:stretch;}
+.certificateGuide .example_list ul li {flex:1;text-align:center;margin-right: 27px;}
+.certificateGuide .example_list ul li:last-child {margin-right: 0;}
+.certificateGuide .example_list ul li:nth-child(3) .exImg{background:url(../img/common/per/certificate/bg_example.png) no-repeat center bottom;background-size:cover;border:0;}
+.certificateGuide .example_list ul li:nth-child(5) .exImg{padding-top:5px;}
+.certificateGuide .example_list ul li .exImg{background:#fff;border:1px solid #D1D1D1;border-radius:10px;margin-bottom:16px;height:200px;overflow:hidden;padding-top:20px;}
+.certificateGuide .example_list ul li .exImg img{vertical-align:middle;}
+.certificateGuide .whiteBox .division+.division{margin-top:85px;}
+.certificateGuide .contF>* {margin-right: 0;} 
+.certificateGuide .whiteBox .division .txtBody{margin-bottom:40px;}
+.certificateGuide .whiteBox .bg_both{background:url(../img/common/per/certificate/bg_arrow_both.svg) no-repeat center;background-size:80% auto;width:30%;text-align:center;}
+.certificateGuide .whiteBox .c_Red{display:block;height:100%;position:relative;top:-27px;}
+.certificateGuide .division:last-of-type .contF {align-items: flex-start;}
+.certificateGuide .contF .half {width:calc(50% - 25px);}
+.certificateGuide .contF .half~.half {margin-left:50px;}
+
+.certificateGuide01{background:url(../img/common/per/certificate/bg_certificateGuide01.png) no-repeat right 60px top 34px;}
+.certificateGuide01 .bg_B1{width: 35%;}
+.certificateGuide01 .bg_B1, .certificateGuide01 .bg_B2{text-align:center;}
+.certificateGuide02{background:url(../img/common/per/certificate/bg_certificateGuide02.png) no-repeat right 60px top 34px;}
+.certificateGuide02 .deliver_process ul{display:flex;justify-content:space-between;align-items:center;}
+.certificateGuide02 .deliver_process ul li{flex:1;text-align:center;position:relative;margin-right: 40px;}
+.certificateGuide02 .deliver_process ul li:last-child {margin-right:0}
+.certificateGuide02 .deliver_process ul li:nth-child(2)::before,
+.certificateGuide02 .deliver_process ul li:nth-child(3)::before{background:url(../img/common/per/certificate/ico_arrow_processG.svg);}
+.certificateGuide02 .deliver_process ul li:last-child::before{display:none;}
+.certificateGuide02 .deliver_process ul li::before{content:'';width:10px;height:16px;position:absolute;right:-25PX;top:50%;margin-top:-8px;background:url(../img/common/per/certificate/ico_arrow_processB.svg);}
+.certificateGuide02 .deliver_process ul li p+p{margin-top:16px;}
+.certificateGuide .mbImg {display:none;}
+
+.subBanner{background: #4A6C87 url(../img/common/bg_subBanner.png) no-repeat right 102px top;padding:42px 40px 45px;border-radius:16px;}
+.subBanner .bannerTit{color:#fff;font-size:24px;line-height:150%;}
+.subBanner .txtBody1{color:#fff;}
+
+/* 자격증발급신청(상장)_선택확인 */
+.pop_selectIdentify .agreeChk{border-top:1px solid #D1D1D1;margin-top:40px;padding-top:24px;}
+
+/* 사진 들어가는 테이블 */
+.large img{width: 170px;}
+.small img{width: 147px;}
+.txtT{vertical-align:top;text-align:center;}
+.txtT .txtBody1{margin-bottom:16px;}
+.contF img{border:1px solid #D1D1D1;}
+
+/* 자격증발급신청(상장)_신청서작성 */
+.help{position: relative;}
+.help button{position:relative;width:24px;height:24px;background:url(../img/common/ico_help.svg);vertical-align:bottom;}
+.help button::before{content:'';width: 20px;height: 14px;background:url(../img/common/ico_triangle2.svg?v1);position: absolute;left:calc(50% - 10px);top:38px;opacity:0;transition:opacity 0.4s;z-index:2;}
+.help button.on::before{opacity:1;}
+/* 250402: z-index 수정 */
+.help .help_cont{display:none;font-size:14px;position:absolute;left:-85px;top:50px;width:356px;background:#DFE3EC;border-radius:10px;z-index:11;}
+.help .help_cont p{padding:16px;}
+.help .help_cont p span{font-size:inherit;}
+
+.arrange{display:flex;justify-items:center;}
+.arrange>div{min-width:234px; flex-wrap:nowrap;}
+.arrange .txtSide {margin-right: 40px;}
+.arrange .txtSide:last-of-type {margin-right: 0 !important;}
+
+.certificateWrite .w_tel{max-width:387px;}
+.certificateWrite .formInput{max-width:488px;}
+.formInput .hasBtn .inputBase{max-width:calc(100% - 84px) !important;margin-right:10px;}
+.certificateWrite .txtSide .inputWrap {display:flex;flex-wrap: wrap;align-items: center;}
+.certificateWrite .txtSide+.txtSide{margin-top: 16px;}
+.certificateWrite .txtSide .txtBody3{min-width:62px;font-weight:bold;}
+.certificateWrite .arrange{max-width:650px;}
+.certificateWrite .arrange .formInput{max-width:234px;}
+.certificateWrite .formInput{position: relative;}
+.certificateWrite .photoChange{text-align:left;justify-content: center;}
+.certificateWrite_n .txtSide .txtBody3{min-width:117px;}
+
+.profileRow .large{position: relative;font-size: 0;}
+.photoChange{margin-top:16px;display:flex;/*justify-content:center;*/flex-wrap: wrap;align-items:center;}
+.photoChange .help .help_cont{width:225px;}
+.photoChange .baseBtn[readonly]>.base{background-color: #F1F3F7 !important;}
+.photoChange .baseBtn[disabled]>.base{background-color: #F1F3F7 !important;}
+
+
+/* 공통_도로명주소검색 */
+.pop_address .popLayout{width: 1220px;}
+.pop_address .formInput{width: 140px;}
+.pop_address .txtBody3{font-weight:bold;font-size: 18px;}
+.pop_address .schArea ul{display:flex;justify-content: space-between;}
+.pop_address .schArea ul li {margin-right: 40px;}
+.pop_address .schArea ul li:last-of-type {margin-right: 0 !important;}
+.pop_address .schArea ul li:nth-child(1) .selectBase {width:140px}
+.pop_address .schArea ul li:nth-child(2) .selectBase {width:140px}
+.pop_address .schArea ul li:nth-child(3) {flex:1;}
+.pop_address .schArea ul li:nth-child(3) .optSchArea {flex:1;}
+.pop_address .optSchArea .inpArea .inputBase {flex:1;}
+.pop_address .resultArea{position: relative;margin-top:40px;}
+.pop_address .resultArea .emp{position: absolute;right:0;top:6px;}
+.pop_address .grayBox{margin-top: 36px;}
+.pop_address .grayBox .txtList.dot>li {font-size:16px;padding-left:208px;color:#666}
+.pop_address .grayBox .txtList.dot>li+li {margin-top:2px;}
+.pop_address .grayBox .txtList.dot>li:before {background:#000;width:2px;height:2px;top:11px;}
+.pop_address .grayBox .txtList.dot>li>b {position:absolute;left:0;top:0;font-weight: 700;padding-left:10px;color:#000}
+.pop_address .optSchArea .selectBase{width:178px;margin-bottom:0;}
+
+
+/* 자격증발급신청(상장)_신청완료 */
+.link_arrR{display:inline-block;background:#fff;border:1px solid #D1D1D1;border-radius:8px;padding:12px 22px;margin-top:10px;}
+.link_arrR span{font-size: inherit;padding-right: 15px;background:url(../img/common/ico_link_arrR_black.svg) no-repeat top 3px right 0;}
+.certificatePrint_c .txtAlert{font-size:18px;}
+.profileRow .profileLine{padding:18px 24px;vertical-align:top;}
+.profileRow .contF{justify-content: center;align-items: flex-start;}
+.profileRow .profileLine .large {margin-right: 20px;}
+.profileRow .profileLine .small {margin-right: 0px;}
+
+/* 자격증발급신청(수첩)_신청서작성_기타취득사항선택 */
+.etcList{background:#F1F3F7;border-top:1px solid #DDDDDD;border-bottom:1px solid #DDDDDD;margin:36px 0 30px;width:calc(100% + 80px);margin-left:-40px;position: relative;}
+.etcList::before{content:'';width:100%;height:40px;background:#F1F3F7;position:absolute;left:0;bottom:0;right:0;z-index:99;}
+.etcList .in{height:328px;overflow-y:scroll;padding:30px 40px 40px;position: relative;}
+.etcList ul{border-top:1px solid #DDDDDD;}
+.etcList ul li{border-bottom:1px solid #DDDDDD;padding:17px 0;}
+.etcList .txtBody2{position:absolute;right:40px;top:38px;font-size:16px;text-align:right;}
+
+/* 자격증발급신청(수첩)_결제완료_만족도조사 */
+.pop_satisfactionSurvey .popLayout{width:710px;}
+.pop_satisfactionSurvey .surveyChk{background: #fff;border:1px solid #D1D1D1;border-radius:10px;padding:30px;margin-bottom:16px;}
+.inputBox:last-child{margin-right:0;}
+
+/* 자격증발급신청(수첩)_신청완료_접수증 */
+.pop_filingReceipt .division+.division{margin-top:40px;}
+.pop_filingReceipt .popLayout{width:1406px;}
+.pop_filingReceipt .headLine3{margin-bottom:40px;}
+
+/* 마이페이지-개인정보수정-인증홈 */
+.personalInfor_home .method{display:flex;flex-wrap:wrap;}
+.personalInfor_home .method button {margin-right: 8px;}
+.personalInfor_home .method button:last-of-type {margin-right: 0;}
+.personalInfor_home .loginApp{margin-left:20px;font-size: 0;}
+.personalInfor_home .optSchArea{max-width:362px;}
+
+/* 마이페이지-개인정보수정-정보수집전문 */
+.pop_renameInfo .popLayout{width:1078px;}
+.pop_renameInfo .agreeArea>div+div{margin-top:32px;}
+.pop_renameInfo  .contTit2{margin-bottom:16px;}
+.pop_renameInfo  .txtBody1+ul.txtList{margin-top:8px;}
+
+/* 마이페이지-개인정보수정-개명신청 */
+.rename_request .agreeCont{border-top:2px solid #000000;position: relative;}
+.rename_request .agreeCont .middle_box{position:absolute;right:0;top:-68px;}
+.rename_request .agreeCont ul li{padding:29px 32px;border-bottom:1px solid #D1D1D1;display:flex;align-items:center;}
+.rename_request .agreeCont ul li .txtBody1{margin-left:30px;}
+
+/* 마이페이지-개인정보수정-정보수정 */
+.contF{justify-content:flex-start;align-items:center;}
+.contF>* {margin-right:8px;}
+.contF .inputBase~.txtBody3 {margin-left:7px;width:auto;margin-top:3px;margin-bottom: 3px;}
+.contF .selectBase~.txtBody3 {margin-left:7px;width:auto;margin-top:3px;margin-bottom: 3px;}
+.contF .tit{font-weight:bold;}
+.contF+.contF{margin-top:16px;}
+.contTable.mbRow.typeRow .birth .selectBase{max-width:157px;flex:1;}
+
+.personalInfor_modify .programOpt.typeBoth{align-items:flex-end;}
+.personalInfor_modify .photoChange{justify-content:flex-start;}
+
+.personalInfor_modify .help .help_cont{left:auto;right:-38px;}
+.personalInfor_modify .help .help_cont::before{left:auto;right: 38px;}
+
+/* 마이페이지-접수내역 */
+.appliList_pending .profileLine{vertical-align:top;}
+.appliList_careerCard .noLineArticle{background:#fff;border-radius:10px;}
+
+.pop_convenience .selectOpt{padding-bottom:24px;}
+.pop_convenience .txtList {padding-top:24px;}
+.pop_convenience .selectOpt+.txtList {border-top:1px solid #D1D1D1;}
+.pop_convenience .inpList {margin-top:-10px;}
+.pop_convenience .inpList .inputBox {margin-top:10px;} 
+
+/* 회원가입_본인인증*/
+.txtAlert_R{font-size:13px;color: #EB053B;background: url(../img/common/icon_exclam_red.svg) no-repeat left top 2px;padding-left:22px;margin-top:8px;display:block;width: 100%;}
+.linebox{border:1px solid #D1D1D1;border-radius:40px;padding:64px;text-align:center;}
+.certify .baseBtn{margin-top:40px;}
+.certify .txtBody1{display:inline-block;width:auto;}
+.certify .help{display:inline-block;vertical-align: middle;margin-top:-1px;margin-left:5px;}
+.certify .help .help_cont{width: 600px;}
+.certify {padding-bottom: 120px;}
+.baseBtn.kakaoBtn>.base{background: #FAE100 url(../img/common/per/hidden/btn_kakao.svg) no-repeat left 21px center;color:#000;padding-left: 51px;}
+
+.join_over_uncertified .write_guide{margin:45px 0 27px;}
+.join_over_uncertified .inputWrap.typeEye+.help {width:auto;}
+.join_over_uncertified .topNotice .baseBtn.white {min-width: 194px;}
+
+.inputBase.discord{border-color: var(--red);outline: none;}
+.inputBase.discord:focus{border-color: var(--red);outline: none;}
+
+/* 회원가입_완료 */
+.complete{background:url(../img/common/icon_complete.svg) no-repeat center top;padding-top: 104px;}
+.join_complete .whiteBox{text-align:center;border-radius:40px;}
+
+/* 고객지원-수험자가이드 */
+.testeeGuide .division{background:#fff;border-radius:40px;padding:42px 40px;}
+.testeeGuide .division+.division{margin-top:36px;padding-top:inherit;}
+.testeeGuide .headLine3{background-repeat:no-repeat;background-position:left center;padding-left:50px;}
+.testeeGuide .headLine3.testeeGuide01{background-image: url(../img/common/per/customer/ico_testeeGuide01.svg);}
+.testeeGuide .headLine3.testeeGuide02{background-image: url(../img/common/per/customer/ico_testeeGuide02.svg);}
+.testeeGuide .headLine3.testeeGuide03{background-image: url(../img/common/per/customer/ico_testeeGuide03.svg);}
+.testeeGuide .linkBox{display:flex;flex-wrap:wrap;}
+.testeeGuide .linkBox>div{width:25%;border-left: 1px solid #D1D1D1;box-sizing:border-box;padding:0 25px;}
+.testeeGuide .linkBox>div:first-child{padding-left:0;border-left:0;}
+.testeeGuide .linkBox>div:nth-child(4){padding-right:0;}
+.testeeGuide .linkBox .linklist>ul>li>a{display:block;background: url(../img/common/link_arrR_G.svg) no-repeat right center;}
+.testeeGuide .linkBox .linklist>ul>li+li{margin-top: 10px;}
+.testeeGuide .linkBox .linklist span{display:block;font-size:18px;color:#666;font-weight:600;}
+.testeeGuide .linkBtn{margin:16px 0;}
+.testeeGuide .linkBtn>ul{display:flex;flex-wrap:wrap;margin-left:-5px;}
+.testeeGuide .linkBtn>ul>li{width:calc(33.33% - 5px);margin-left:5px;}
+.testeeGuide .linkBtn>ul>li:nth-child(n+4) {margin-top:5px;}
+.testeeGuide .linkBtn>ul>li>a{display:block;border:1px solid #DFDFDF;border-radius:8px;font-size:15px;text-align:center;padding:5px 0;}
+
+/* 자격정보-총괄현황 */
+.downloadArea{position: relative;} 
+.downloadArea .ico_down_s{position: absolute;right:0;top:0;}
+.chart_area .chart_inner{max-width: 1040px;margin: 0 auto;}
+
+/* 자격정보-종목별현황 */
+.sideSearch{position: relative;margin-bottom:20px;}
+.sideSearch>.inputBtnArea{position:absolute;right:0;bottom:0;}
+.sideSearch .btn_search{position:absolute;right:0;top:0;overflow: hidden;width: 48px;height: 48px;background: url(../img/common/ico_sch.svg) no-repeat center center / 19px auto;}
+.sideR{display:flex;align-items:center;position:absolute;right:0;bottom:0;}
+.sideR .txtBody3{width:auto;margin-right: 20px;}
+
+.typeList>ul{display:flex;background:#fff;border:1px solid #D1D1D1;border-top:0;}
+.typeList:first-child>ul{border-radius: 10px 10px 0 0;border-top:1px solid #D1D1D1}
+.typeList:last-child>ul{border-radius: 0 0 10px 10px;}
+.typeList>ul>li{width:25%;padding:24px 32px;border-right: 1px solid #D1D1D1;position: relative;}
+.typeList>ul>li:nth-child(4n){border-right:0;}
+.typeList>ul>li button{width:100%;font-weight:600;background:url(../img/common/ico_btn_arrDown_blue.svg) no-repeat right center;text-align:left;}
+.typeCont{background: #DFE3EC;border:1px solid #D1D1D1;border-top:0;}
+.typeCont>ul{display:flex;flex-wrap:wrap;padding:24px 0;}
+.typeCont>ul>li{width:25%;padding:0 32px;}
+.typeCont>ul>li>a{display:block;position:relative;padding-left:12px;}
+.typeCont>ul>li>a:before{content: "";position: absolute;left:0;top: 11px;display: block;width: 4px;height: 4px;border-radius: 100%;background: var(--navy);}
+.downloadArea+.downloadArea{border-top:1px solid #D1D1D1;padding-top:17px;}
+.downloadArea+.downloadArea .ico_down_s{top:17px;}
+.downloadArea .headLine3{padding-right:190px;}
+
+.typeState .resultGrp .resultArea {border-top:2px solid #000;} 
+.typeState .resultGrp .resultArea>ul>li {border-bottom: 1px solid #ddd;padding:18px 0;}
+.typeState .resultGrp .resultArea>ul>li a{display:inline-block;font-weight:700;text-decoration:underline;}
+
+/* 마이페이지-학력/경력 수정 */
+.inputBase.full{max-width:100% !important;}
+.optSchArea .inpArea .btn_sch{width:74px;}
+.abilityModify .txtAlert{width:auto;margin-top:0;color:#000;font-size:18px;}
+.abilityModify .inputBox{vertical-align:middle;}
+.abilityModify .btnArea_side{margin-top:16px;align-items:flex-start;}
+.abilityModify .contArea_next {width: 100%;}
+.abilityModify .contArea_next .baseBtn.middle_box {margin-right: 0;}
+.abilityModify .contArea_next .selectBase {flex:1;}
+.abilityModify .contArea_next .inputBox {margin-left:12px;}
+.autodiagProfessional_career .btnArea_s{margin:16px 0;}
+
+.contArea_next .typeEye {margin-right: 0;}
+/* 250612 접근성 수정 */ 
+.delArea{border: 1px solid #D1D1D1;border-top:0;background: #fff;text-align:center;height: 57px;padding: 15px 22px;display: block;width: 100%;}
+.btnDel{display:inline-block;font-size:18px;color:#111;background:url(../img/common/ico_delete.svg) no-repeat left center;padding-left:28px;}
+
+.job {display:flex;flex-wrap:wrap;align-items:center;}
+.job .selectBase,
+.job .inputBox {margin:0 8px;}
+.formInput .inputWrap.full{max-width:100% !important;}
+.formInput .inputWrap.full .selectBase{max-width: 100% !important;}
+
+/* 마이페이지-회원탈퇴 */
+.withdraw .noLineArticle{background: #fff;}
+.withdraw .btnArea{margin-top:0;padding-bottom:50px;}
+
+
+/* 확인서 발급안내(전문) */
+.confirmation .txtList{padding-left:26px;padding-top:7px;}
+.confirmationView{font-size:0;width:100%;display:flex;margin-top:12px;}
+.confirmationView .item{display:inline-block;vertical-align:top;width:calc(50% - 12px);border-radius:40px;border:1px solid #D1D1D1;background-color:#fff;padding:50px 0px;}
+.confirmationView .item:nth-of-type(2){margin-left:24px;}
+.confirmationView .item .headLine3{line-height:42px;padding:0 40px;}
+.confirmationView .item .linkItem{margin-top:56px;font-size:0;display:flex;min-height:110px;width:calc(100% - 20px);margin-left:10px;}
+.confirmationView .item .linkItem>li{flex:1;border-right:1px solid #D0D2D6;padding:0 30px;}
+.confirmationView .item .linkItem>li:last-of-type{border-right:none;}
+.confirmationView .item .linkItem>li a{display:block;background:url(../img/spcl/confirmation/icon_confirmationArrow.svg) no-repeat right top 5px/10px auto;}
+.confirmationView .item .linkItem>li .txtBody1{margin-bottom:11px;padding-right:15px;word-break:keep-all;}
+.confirmationView .item .linkItem>li .txtBody2{color:#666;word-break:keep-all;font-size:16px;}
+
+.documentNum .optSchArea{max-width:488px;}
+.documentNum .inpArea{align-items:center;}
+.documentNum span{display: inline-block;padding:0 8px 0 0;}
+.truth .inpArea p{margin-right: 8px;}
+
+/* 원서접수 */
+.infoSelect .selectArea{display:flex;flex-wrap:wrap;align-items:center;}
+.infoSelect .selectArea li {margin-right:24px;}
+.infoSelect .selectArea li .inputBox {margin:4px 0;}
+.infoSelect .selectArea li .formInput {margin-top:10px;}
+.infoSelect .selectArea li .formInput .inputBox{margin-right: 8px;vertical-align: middle;}
+.infoSelect .selectArea li .inputBox+.inputBase{width:calc(100% - 75px);}
+.infoSelect .optSchArea .selectBase{flex:1;margin-left: 40px;}
+
+.careerCard .tCont .btn{display:inline-block;margin-left:16px;}
+.careerCard .tCont .btn .baseBtn{margin-right:6px;} 
+.careerCard .textArea{background: #fff;margin:20px 0;}
+
+/* 원서접수-자격취득사항 팝업 */
+.pop_qualAcquire .popLayout{width:840px;}
+.pop_careerWrite .popLayout{width:840px;}
+.pop_careerWrite .contTable{margin-top:40px;}
+
+/* 원서접수-장소선택 */
+.placeSelect .noLineArticle{margin-top: 40px;}
+.placeSelect .btn{display:inline-block;margin-left:14px;}
+.placeSelect .tCont .btn .baseBtn{margin-right:6px;} 
+
+.areaSelect{padding-bottom:30px;border-bottom:1px solid #D1D1D1;margin-bottom:18px;display:flex;}
+.areaSelect .tit{margin-right: 20px;font-weight: 700;flex-shrink: 0;}
+.areaSelect .area {display:flex;flex-wrap:wrap;}
+.areaSelect .area .inputBox{margin-right:24px;margin:4px 0;margin-right: 16px;}
+
+/* 원서접수-완료 */
+.receiptComplete .whiteBox{border-radius:40px;margin-top:56px;}
+.receiptComplete .complete{text-align:center;}
+
+/* 마이페이지-관심자격 등록/수정 */
+.headLine3 span{display:inline-block;padding: 0 16px;position: relative;}
+.headLine3 span::before{content: '';background: var(--navy);width: 1px;height: 24px;position: absolute;left: 0;top:12px;}
+.headLine3 span:first-child{padding-left:0;}
+.headLine3 span:first-child:before{width:0;}
+
+.interestList .btnArea_side{border-bottom:1px solid #000;margin-bottom:24px;}
+.interestList .list{padding-bottom:30px;border-bottom:1px solid #D1D1D1;margin-bottom:24px;}
+.interestList .btnArea{margin-top:37px;}
+.interestList .noArticle{border-bottom:1px solid #D1D1D1;}
+
+/* 마이페이지-관심자격통계조회 팝업 */
+.pop_statistics .optSchArea .inpArea{margin-left:20px;}
+.pop_statistics .popLayout{width:1400px;}
+
+/* 마이페이지-관심자격추가 팝업 */
+.pop_statisticsAdd .optSchArea p{margin-right:20px;}
+.pop_statisticsAdd .contTabBase{margin-bottom:36px;}
+.pop_statisticsAdd .selectItemArea {/*max-height:400px;overflow-y:auto;*/margin-top:35px;background:#F1F3F7;padding-top:13px;padding-bottom: 31px;border-top:1px solid #D1D1D1}
+.pop_statisticsAdd .selectItemArea .schList>li {position:relative;border-bottom: 1px solid #d1d1d1;}
+.pop_statisticsAdd .selectItemArea .schList>li:before {content:'';display:block;width:40px;height:100%;position:absolute;left:-40px;top:0;background:#fff;display:none;}
+.pop_statisticsAdd .selectItemArea .schList>li:after {content:'';display:block;width:40px;height:100%;position:absolute;right:-40px;top:0;background:#fff;display:none;}
+.pop_statisticsAdd .selectItemArea .schList>li>a {display:block;padding:14px 0;}
+.pop_statisticsAdd .selectItemArea .schList>li span{display:inline-block;color:#666666;margin-right: 40px;}
+.pop_statisticsAdd .popLayout {padding-bottom: 0;}
+.pop_statisticsAdd .no_article{border-bottom:1px solid #D1D1D1;}
+.pop_statisticsAdd .scheduleAdd{margin-top: 36px;}
+.pop_statisticsAdd .scheduleAdd>ul{border-top:1px solid #000000;}
+.pop_statisticsAdd .scheduleAdd>ul>li{position:relative;border-bottom: 1px solid #d1d1d1;}
+.pop_statisticsAdd .scheduleAdd>ul>li:last-child{border-bottom:0;}
+.pop_statisticsAdd .scheduleAdd>ul>li:last-child a{padding-bottom:0;}
+.pop_statisticsAdd .scheduleAdd>ul>li>a{display:block;padding:14px 0;}
+.pop_statisticsAdd .scheduleAdd .no_article{border-bottom:0;padding:129px 0 0;background-position: left 50% top 29px;}
+
+/* 마이페이지-관심자격삭제 팝업 */
+.deletList{border-top: 1px solid #d1d1d1;}
+.deletList li{border-bottom: 1px solid #d1d1d1;padding:14px 0;}
+
+/* 마이페이지-관심자격 회차변경 팝업 */
+.pop_statisticsChange .popLayout{background: #F1F3F7;}
+.pop_statisticsChange .selectItemArea .schList>li {position:relative;border-top: 1px solid #d1d1d1;}
+.pop_statisticsChange .selectItemArea .schList>li:before {content:'';display:block;width:40px;height:100%;position:absolute;left:-40px;top:0;background:#fff;display:none;}
+.pop_statisticsChange .selectItemArea .schList>li:after {content:'';display:block;width:40px;height:100%;position:absolute;right:-40px;top:0;background:#fff;display:none;}
+.pop_statisticsChange .selectItemArea .schList>li>a {display:block;padding:14px 0;}
+
+/* 마이페이지-일자리 지원 개인정보 이용 동의 내역 */
+.useAgreeList .optList li{margin-bottom:16px;}
+.useAgreeList .optList li:last-child{margin-bottom:0;}
+.useAgreeList .optList .opt {display:flex;align-items: center;}
+.useAgreeList .optList .opt .tit {flex-basis: 70px;font-weight: 700;text-align:left;}
+.useAgreeList .optList .opt .area {flex:1;}
+
+/* 마이페이지-일자리지원이용동의_동의내역 팝업 */
+.pop_useAgree .popLayout{width:1078px;}
+.pop_useAgree .agreeBox .agreeCont{padding:27px 30px 30px;}
+.pop_useAgree .agreeBox{margin-bottom:32px;}
+.pop_useAgree .division>.txtBody1{margin:12px 0 32px;}
+
+/* 연간 국가기술자격 시험일정 */
+.nationalExamSchduleYear .groupCont>.division .txtBody1+.headLine3{margin-top:56px;}
+.whiteBox.linkList {padding:30px 40px;}
+.whiteBox.linkList .txtList{display:flex;flex-wrap:wrap;align-items: baseline;} /* 241011 수정*/
+.whiteBox.linkList .txtList li{width:33.33%;}
+.whiteBox.linkList .txt_arrR {text-decoration: none !important;}
+.whiteBox.linkList .txt_arrR:hover {text-decoration: underline  !important;}
+.whiteBox.linkList .txt_arrR>span {background:none !important;padding-right: 0 !important;}
+
+.linkLineBox .link_s_arrR {text-decoration: none  !important;}
+.linkLineBox .link_s_arrR:hover {text-decoration: underline  !important;}
+.linkLineBox .link_s_arrR>span {background:none !important;padding-right: 0 !important;}
+
+.whiteBox .scrollLink {text-decoration: none !important;}
+.whiteBox .scrollLink:hover {text-decoration: underline  !important;}
+.whiteBox .scrollLink>span {background:none !important;padding-right: 0 !important;}
+
+.examPlanpop .popLayout{width:1220px;}
+.examPlanpop .contTable table th{ word-break: break-all;}
+.examPlanpop .contTable.typeLong table th {font-size: 15px;padding-left:7px;padding-right: 7px;}
+.examPlanpop .contTable.typeLong table td {font-size: 15px;padding-left:7px;padding-right: 7px;}
+
+
+.writtenExamCharge .whiteBox{display: flex;align-items: baseline;}
+.writtenExamCharge .whiteBox .searchItem{width: calc(100% - 118px);margin-left:20px;}
+.whiteBox.linkList .txt_arrR:hover{color: var(--primary);text-decoration: underline;font-weight: 600;}
+.whiteBox.linkList .txt_arrR:hover span{background-image:url(../img/common/ico_link_arrR_blue.svg);background-size: 7px 13px;}
+
+.contTop{margin-top:56px;}
+
+/* 필기관할구역안내 */
+.jurisdictionGuide .tCont{word-break:keep-all;}
+.jurisdictionGuide .baseBtn:first-child{margin-right:5px;}
+.jurisdictionGuide .baseBtn.white>.base{background: url(../img/per/layout/ico_link_s.svg) no-repeat right 21px center;padding-right:40px;}
+
+/* 직무분야 도움말 */
+.helpPop.pop_searchItem .selectItemArea{max-height: 245px;padding-top:0;}
+.helpPop .whiteBox{padding:30px;margin-bottom:32px;}
+.helpPop .selectItemArea .schList{border-top:0;}
+.helpPop .selectItemArea .schList li span{display: inline-block;margin-right: 66px;}
+
+/* 상세 항목별 진단 결과-상세보기 팝업 */
+.itemArea{display: flex;}
+.itemArea p{width: auto;position: relative;padding-left: 20px;}
+.itemArea p:first-child{padding-left:0;}
+.itemArea p:first-child::before{width:0;}
+.itemArea p::before{content: '';width: 1px;height: 18px;background:#000;position: absolute;left: 10px;top: 5px;}
+.diagnosisResultPop .popLayout{width: 930px;}
+.diagnosisResultPop .c_Gray{margin:24px 0;}
+.diagnosisResultPop .inB{justify-content:center;}
+
+.autodiagProfessional .defaultSearchOptBox{margin:40px 0;}
+.autodiagProfessional .schList{border-top:1px solid #000;}
+.autodiagProfessional .schList li{border-bottom: 1px solid #D1D1D1;}
+.autodiagProfessional .schList li a{display:flex;padding:18px 20px;}
+.autodiagProfessional .schList li a span{flex-shrink:0;text-align:center;padding:0 40px 0 20px;}
+.autodiagProfessional .schList li a:hover{background: #fff;}
+.autodiagProfessional .optSchArea .inpArea .btn_sch{width: 100px;}
+
+/* 학과선택하기 팝업 */
+.pop_searchItem.pop_abilityInfo .selectItemArea{max-height: 360px;}
+.pop_abilityInfo .directlyArea{margin:36px 0 40px;}
+.subjectSelect .txtBody1{margin-bottom: 32px;}
+.pop_searchItem .popLayout.padNo{padding-bottom:40px;}
+
+
+/* 학력정보입력 */
+.optSchArea .inpArea .btn{margin-left:8px;}
+.optSchArea .inpArea .btn .baseBtn{margin-right:5px;}
+.optSchArea .inpArea .btn .baseBtn:last-child{margin-right:0;}
+.ability .optSchArea .inputBox{margin-left:20px;}
+
+/* 경력정보입력 */
+.period{margin-right:40px;display:flex;align-items:center;flex:1;}
+.period:last-child{margin-right:0;}
+.period .txtBody1{margin-left:8px;}
+
+.hasBtn .selectBase{max-width: 100% !important;}
+.hasBtn .contArea_next{flex-wrap: nowrap;}
+.hasBtn .baseBtn{flex-shrink: 0;margin-right:0;}
+.contArea_next.idChk .baseBtn.white>span {background:#666;color:#fff;}
+.contArea_next.idChk .baseBtn.white:active>span {background:#666 !important;color:#fff !important;}
+.contArea_next.idChk .baseBtn.white:hover>span {background:#666 !important;color:#fff !important;}
+
+/* 외국학력서류 제출안내 */
+.txtList.dot>li .whiteBox{margin:17px 0 16px;padding:40px;}
+.processBox{}
+.processBox ul{display:flex;align-items:center;}
+.processBox ul li{flex:1; background: #E5F1FB;border-radius:10px;text-align:center;padding:14px 0;margin-left: 40px;position: relative;}
+.processBox ul li::after{content: '';width: 9px;height: 16px;background: url(../img/per/layout/process_arr.svg) no-repeat center top;position: absolute;left: -24px;top: 50%;transform: translateY(-50%);}
+.processBox ul li:first-child{margin-left:0;}
+.processBox ul li:first-child::after{width:0;}
+.processBox ol{display:flex;align-items:center;}
+.processBox ol li{flex:1; background: #E5F1FB;border-radius:10px;text-align:center;padding:14px 0;margin-left: 40px;position: relative;}
+.processBox ol li::after{content: '';width: 9px;height: 16px;background: url(../img/per/layout/process_arr.svg) no-repeat center top;position: absolute;left: -24px;top: 50%;transform: translateY(-50%);}
+.processBox ol li:first-child{margin-left:0;}
+.processBox ol li:first-child::after{width:0;}
+.foreignDocument .groupCont .division .contTit1{margin-top: 40px;}
+
+/* 외국학력서류 절차안내 */
+.china{display:flex;max-width:920px;margin:0 auto;justify-content:space-between;align-items: stretch;}
+.confirmWay{width: 41%;}
+.confirmWay .tit{background: #0075D2;border-radius: 10px 10px 0 0;}
+.confirmWay .tit .contTit2{color:#fff;padding:14px 0;text-align:center;}
+.confirmWay .cont{background: #E5F1FB;border-radius: 0 0 10px 10px;padding:20px 30px;min-height: 126px;}
+.china p{width: 18%;background:url(../img/common/per/nationalExam/bg_foreignDocument_arrow.svg) no-repeat center;background-size: 100% 17px;}
+
+/* 응시자격안내-군 병과 경력인정 범위 */
+.militaryRange .list{border-top:1px solid #000;}
+.militaryRange .list ul{display:flex;flex-wrap: wrap;align-items: center;}
+.militaryRange .list ul li{width: 50%;box-sizing: border-box;background: #fff;border-bottom:1px solid #D1D1D1;padding:14px 32px;}
+.militaryRange .list ul li:nth-child(2n){border-left:1px solid #D1D1D1;}
+
+/* 응시자격안내-응시자격 서류제출 안내 */
+.documentGuide .contTable{margin:24px 0 16px;}
+.radioSelect .inputBox{margin: 6px 40px 6px 0;}
+
+/* 통합검색 */
+.totalSch .popularCont>ul>li>a span{display:inline-block;margin-left:8px;font-size:16px;}
+.totalSch .popularCont>ul>li>a span.up{background: url(../img/per/layout/ico_ranking_up.svg) no-repeat center;width: 8px;text-indent: -9999px;display:inline-block;}
+.totalSch .popularCont>ul>li>a span.down{background: url(../img/per/layout/ico_ranking_down.svg) no-repeat center;width: 8px;text-indent: -9999px;display:inline-block;}
+.totalSch .popularCont>ul>li>a span.new{font-weight:600;}
+.totalSch .schDetailArea .opt_area{padding: 10px 0;}
+.totalSch .schDetailArea .opt_area .optWrap{flex-wrap: wrap;}
+.totalSch .schDetailArea .opt_area .optWrap .inputBox{margin: 8px 40px 8px 0;}
+.totalSch .schDetailArea .opt_area .optWrap .spcliod {margin-right: 10px;}
+.totalSch .schDetailArea{max-width: 955px;}
+.totalSch .resultInfo .txtBody1{margin-top:20px;}
+
+/* 합격자발표 */
+.techPassInqiry .no_article .txtBody1{margin-top: 20px;font-weight: 500;}
+
+/* 국가자격시험-필기관할구역안내 */
+.jurisdictionGuide .btnArea a span{background: url(../img/common/ico_new_link_blue.svg) no-repeat right 30px center;padding-right: 55px;}
+
+.pop_supplies .optSchArea .opt_tit{margin-right:20px;}
+
+/* 자격검정 관련문의 */
+.relatedInquire .noLineArticle{padding:0 40px;}
+.relatedInquire .txtList{max-width: 970px;margin: 24px auto 0;}
+
+/* 자격검정 인정현황 */
+.recognizeState .contTable table tbody tr.priority td{background: #E5F1FB;}
+.recognizeState .marks{margin-top: 24px;display: flex;align-items: center;}
+.recognizeState .marks p:first-child{background: #E5F1FB;border-right:0;}
+.recognizeState .marks p{width: 180px;height: 56px;border:1px solid #D1D1D1;background: #fff;line-height: 56px;text-align: center;}
+
+/* 자격검정실시규정 예시 및 운영사례 */
+.ruleExample .groupCont .division .contTit1:first-child{margin-top: 25px;}
+.ruleExample .groupCont .division .contTit1{margin-top: 40px;}
+.ruleExample .groupCont .division .headLine3+.contTit1{margin-top: 25px;}
+.ruleExample .contTable+.txtBody1{margin-top: 20px;}
+.txtList.dot>li .txtList.bullet{margin-top: 7px;}
+.txtList.bullet>li .txtList.bullet{margin-top: 7px;}
+
+/* 자격증진위확인 */
+.truthIdentify .documentNum .inpArea span{padding: 0 8px;}
+.truthIdentify .optSchArea .inpArea .inputBase{margin-right: 0;}
+.truthIdentify .txtList.small>li{font-size:16px;color:#666666;line-height:26px;margin-top: 0;}
+.truthIdentify .groupCont .division .headLine3:nth-of-type(n+2){margin-top: 56px;}
+.truthIdentify .division.imgHas{position: relative;padding-right: 230px;}
+.truthIdentify .imgExample{position: absolute;right: 0;top: 85px;}
+
+/* 자격정보 입력 및 진위여부 안내-팝업 */
+.licenseNumberPop .popLayout{max-width:600px;}
+.licenseNumberPop .headLine4{margin-bottom:10px;}
+.licenseNumberPop .headLine4:nth-of-type(n+2){margin-top:20px;}
+.licenseNumberPop .img{border:1px solid #D1D1D1;border-radius: 10px;padding:0 20px;}
+.licenseNumberEx{width:100%;display:flex;justify-content:space-between;align-items:center;margin-top:18px;}
+.licenseNumberEx p{width:31px;height:48px;line-height:48px;border-radius:8px;background-color:#DFE3EC;font-weight:bold;font-size:18px;text-align:center;}
+.licenseNumberEx p:nth-of-type(n+2){margin-left:8px;}
+.licenseNumberEx p.point{width:48px;background-color:var(--primary);color:#fff;}
+.licenseNumberEx span{font-size:18px;display:inline-block;margin-left:8px;font-weight:bold;}
+
+/* 자격증 발급 / 자격증 발급처 */
+.licenseIssue .txtBody3{margin-top: 5px;}
+.licenseInquiry .txt_arrR[target="_blank"]>span{padding-right: 46px !important;background-position: right 22px center !important;}
+.newIssue .txtBody3{margin-top: 5px;}
+
+/* 기능사보기능사자격부여 */
+.qualInvest .list{display:flex;}
+.qualInvest .groupCont .division .contTable+.contTable{margin-top:0;border-left:1px solid #D1D1D1;box-sizing: border-box;}
+.qualInvest .whiteBox{padding:30px 40px;}
+
+.licenseList .contTable table tbody tr td:nth-child(n+3){vertical-align: top;}
+
+.registerRepeal .groupCont .division .txtBody1+.headLine3{margin-top: 56px;}
+
+.chargePayment .receiptComplete>div{margin-top: 40px;}
+.groupCont .division .headLine2 .headLine3{color:var(--black);width:auto;display:inline-block;padding-left: 33px;position: relative;margin-bottom:0;}
+.groupCont .division .headLine2 .headLine3::before{content: '';width: 1px;height: 24px;background: var(--black);position: absolute;left: 16px;top: 50%;margin-top: -12px;}
+
+/* 자격증발급신청(수첩)_신청취소 */
+.cancelSuccess .noLineArticle{background: #fff;margin-bottom:30px;}
+.cancelSuccess .cancelTxt .headLine3{color:var(--black);margin-bottom:34px;}
+
+/* 자격증발급신청내역_수정 */
+.certificateWrite .arrange .txtBody3{min-width: auto;}
+.certificateWrite .arrange .txtSide+.txtSide{margin-top: 0;}
+.txtPrice{display: flex;align-items: center;}
+.txtPrice span{display: inline-block;margin-left:8px;}
+
+/* 기술·전문자격환불안내 */
+.refundGuide .groupCont .topNotice{padding:30px 32px 24px 100px;}
+.refundGuide .refundSelect{margin-bottom: 56px;}
+.refundGuide .refundSelect .txtBody1{margin-bottom: 20px;}
+
+
+/*실명인증*/
+.IDcardNumber{display:flex;width:100%;align-items:center;}
+.IDcardNumber .inputBase{flex:1;max-width:100% !important;}
+.IDcardNumber .hyphen{margin:0 8px;}
+
+.settingPW .finishBox .finishForm {max-width: 618px;margin:0 auto;margin-top:37px;}
+.settingPW .finishBox .finishForm .btnArea {margin-top:33px;}
+.settingPW .finishBox .finishForm .baseBtn>.base {min-width: 180px;}
+.settingPW .finishBox .finishForm .formInput .guide {align-items: center;}
+.settingPW .finishBox .finishForm .formInput .guide .inputBase,
+.settingPW .finishBox .finishForm .formInput .guide .inputWrap {flex:1;}
+.settingPW .finishBox .finishForm .formInput .guide .tit {width:168px;}
+.settingPW .finishBox .finishForm .formInput .alert {margin-left:168px;}
+
+.settingPW .finishBox .half{margin-left:-50px;font-size:0;width:calc(100% + 100px);}
+.settingPW .finishBox .half .finishForm{position:relative;display:inline-block;width:50%;vertical-align:top;padding:0 50px;}
+.settingPW .finishBox .half .finishForm::before{content:"";display:block;width:1px;height:100%;background-color:#d1d1d1;position:absolute;right:0;top:0;}
+.settingPW .finishBox .half .finishForm:nth-of-type(n+2)::before{display:none;}
+
+.authenticationBox{width:100%;font-size:0;border-radius:10px;background-color:#fff;padding:50px 0 ;margin-bottom:20px;}
+.authenticationBox .item{position:relative;display:inline-block;width:50%;vertical-align:top;padding:0 50px;}
+.authenticationBox .item::before{content:"";display:block;width:1px;height:100%;background-color:#D1D1D1;position:absolute;right:0;top:0;}
+.authenticationBox .item:nth-of-type(n+2)::before{display:none;}
+.authenticationBox .item .headLine3{margin-bottom:10px;}
+.authenticationBox .item .radioGroup{margin-top:18px;margin-bottom:-5px;}
+.authenticationBox .item .radioGroup .inputBox{margin-bottom:5px;}
+
+.authenticationArea.settingPW .finishBox{margin-bottom:20px;}
+.authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit{width:131px;}
+.authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213{width:213px;}
+.authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213 br{display:none;}
+
+.niceInfoArea{width:100%;border-radius:10px;background-color:#DFE3EC;padding:30px;display:flex;margin-top:40px;}
+.niceInfoArea img{width:44px;height:44px;margin-right:30px;}
+.niceInfoArea b.txtBody1{font-weight:bold;margin-bottom:4px;}
+.niceInfoArea p{word-break:keep-all;}
+
+.authenticationArea .headLine3 span{padding:0;}
+
+/*국가검색*/
+.pop_searchItem .selectItemArea.countryListArea{max-height:590px;}
+.pop_searchItem .selectItemArea.countryListArea .contTit1{margin-bottom:15px;}
+.countryList {font-size:0;margin-bottom:-7px;}
+.countryList li{display:inline-block;width:33.333%;vertical-align:top;font-size:0;margin:7px 0;}
+
+/* 공인인증서 등록 */
+.register .finishBox > .txtBody3{text-align: center;}
+.registerPW .guideTxt{margin-left: 168px;}
+.registerPW .contArea_next{max-width: 577px;margin:0 auto;}
+.registerPW .contArea_next .txtBody1{margin-right: 20px;}
+.registerPW .txtList{margin-bottom: 30px;}
+.registerPW .finishBox .telForm{max-width: 700px;margin:40px auto 0;}
+.registerPW .finishBox .telForm .guide{flex-wrap:nowrap;align-items: center;}
+.registerPW .finishBox .telForm .formInput .guide .tit{width:100px;}
+.registerPW .finishBox .telForm .formInput .w_tel{margin-right: 20px;}
+.registerPW .finishBox .telForm .formInput .optSchArea .btn_sch{width: 157px !important}
+.registerPW .finishBox .telForm .formInput .optSchArea .selectBase{width:33.33%;}
+
+/*개인정보처리방침*/
+/*개인정보처리방침*/
+.infoStep{width:calc(100% + 20px);font-size:0;margin-left:-10px;margin-bottom:-20px;}
+.infoStep li{display:inline-block;width:calc(25% - 20px);margin:0 10px 20px 10px;background-color:#fff;border-radius:10px;border:1px solid #d1d1d1;text-align:center;padding:50px 20px 20px 20px;vertical-align:top;font-size:0;min-height:247px;}
+.infoStep li img{margin-bottom:14px;}
+.infoStep li .contTit1{font-weight:bold;margin-bottom:10px !important;} 
+.personalInformationArea .whiteBox{padding:30px 40px;font-size:0;}
+.personalInformationArea .whiteBox .txtList{display:inline-block;width:calc(50% - 10px);vertical-align:top;margin-right:10px;}
+.personalInformationArea .whiteBox .txtList a:hover{color:var(--primary);text-decoration:underline;}
+.personalInformationArea *{word-break:keep-all !important;}
+.personalInformationArea .headLine4{margin-top:40px;}
+.personalInformationArea .headLine2 + .headLine4{margin-top:0;}
+.personalInformationArea  .c_Point.underline {color:#000 !important;}
+.personalInformationArea  .c_Point.underline:hover {color:var(--primary) !important;}
+.personalInformationArea  .grayArrow.c_Point.underline {color:#000 !important;background-image: url(../images/common/ico_arr_black.svg);background-position:right 0 top 3px;}
+.personalInformationArea  .grayArrow.c_Point.underline:hover {color:var(--primary) !important;background-image: url(../images/common/ico_arr_green.svg)}
+.personalInformationArea .grayArrow.c_Point.underline {background-size: 8px auto;}
+.personalInformationArea .txtBody3 .grayArrow.c_Point.underline {background-size: 6.5px auto;}
+
+.personalInformationArea .txt_arrR:hover>span{background: url(../img/common/ico_link_arrR_blue.svg) no-repeat right 0 top 4px;background-size: auto 13px;}
+.txtBody3 .link_s_arrR[target='_blank']>span{background: url(../img/common/ico_link_arrR_blue.svg) no-repeat top 0px right 0;}
+.txtAlert .link_s_arrR[target='_blank']>span{background: url(../img/common/ico_link_arrR_blue.svg) no-repeat top 0px right 0;}
+.personalInformationArea .contTable{margin: 16px 0;}
+.personalInformationArea .infoBlueBox{margin:24px 0;}
+.personalInformationArea .txt_arrR:hover{color: var(--primary);}
+
+/* 개인정보처리방침(14.8.7~14.12.31) 팝업 */
+.pop_privacy .popLayout{width: 1406px;}
+.pop_privacy .txtBody1 span+span{display:block;margin-top: 16px;}
+.pop_privacy .division{margin-bottom: 32px;}
+.pop_privacy .contTit2{margin-bottom: 16px;}
+.pop_privacy .contTable{margin:16px 0;}
+.pop_privacy .infoBlueBox{margin: 16px 0;}
+.pop_privacy .txtList>li>.txtList.hyphen{margin-top: 7px;}
+
+/* 국가기술자격 제도정보-자격 검정 절차 안내 */
+.processGuide ul{display:flex;align-items: end;}
+.processGuide ul li:first-child{margin-left: 0;}
+.processGuide ul li{width: calc(25% - 39px);margin-left: 39px;}
+.processGuide ul li p{background: #E5F1FB;border-radius: 10px;text-align: center;padding:15px 10px;position: relative;}
+.processGuide ul li p.blue{background: var(--primary);color:#fff;}
+.processGuide ul li:first-child p::before{width: 0;}
+.processGuide ul li p::before{content: '';width: 9px;height: 16px;background: url(../img/per/layout/process_arr.svg) no-repeat center top;position: absolute;left: -24px;top: 50%;transform: translateY(-50%);}
+.processGuide ul li p.blue::before{content: '';width: 16px;height: 9px;background: url(../img/common/ico_btn_arrDown_blue.svg) no-repeat center top;position: absolute;left:50%;bottom:-25px;top:auto;transform: translate(-50%,0);}
+.processGuide ul li p+p{margin-top: 38px;}
+
+.mobile .processGuide{display: none;justify-content: space-between;}
+.mobile .processGuide ul{width:calc(50% - 15px);display: block;}
+.mobile .processGuide ul li{width: 100%;margin-left: 0;margin-bottom: 20px;position: relative;}
+.mobile .processGuide ul li p+p{margin-top: 38px;}
+.mobile .processGuide ul li p::before{content: '';width: 16px;height: 9px;background: url(../img/per/layout/process_arr2.svg) no-repeat center top;position: absolute;left:50%;bottom:-14px;top:auto;transform: translate(-50%,0);}
+.mobile .processGuide ul li p.blue::before{content: '';width: 9px;height: 16px;background: url(../img/common/ico_btn_arrDown_blue2.svg) no-repeat center top;position: absolute;right:-20px;top:50%;left:auto;transform: translate(0,-50%);}
+.mobile .processGuide:last-child ul:last-child li:last-child p::before{width: 0;}
+
+.stepProcess ul{display: flex;justify-content: space-between;}
+.stepProcess ul+ul{margin-top: 50px;}
+.stepProcess ul li{width: 16%;text-align: center;position: relative;}
+.stepProcess ul li:first-child{width: 10%;text-align: left;}
+.stepProcess ul li:last-child{width: 10%;text-align: right;}
+.stepProcess ul li:before{content: '';width:100%;height:1px;background: #D1D1D1;position: absolute;left:0;top:20px;}
+.stepProcess ul li span{display:inline-block;width:40px;height:40px;line-height:40px;background:#E5F1FB;border-radius:50%;text-align:center;z-index: 1;position: relative;}
+.stepProcess ul li.blue span{background: var(--primary);color:#fff;}
+.stepProcess ul li.navy span{background: var(--navy);color:#fff;}
+.examProcess{display:flex;}
+.examProcess>ul>li{display:flex;padding-bottom: 60px;position: relative;}
+.examProcess>ul>li:last-child::before{width: 0;}
+.examProcess>ul>li::before{content: '';width: 1px;height: 100%;background: #D1D1D1; position: absolute;left: 40px;top: 0;}
+.examProcess>ul>li .ico{flex-shrink: 0;width: 80px;height:80px;background: #fff;border-radius: 50%;text-align: center;position: relative;z-index: 1;}
+.examProcess>ul>li .ico img{position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
+.examProcess>ul>li .cont{margin-left: 16px;}
+
+/* 국가기술자격 제도정보-국가기술자격 운영체계 */
+.box{width: 100%;margin:0 auto;text-align: center;position: relative;}
+.box.navy .tit{background: var(--navy);}
+.box .tit{background: var(--primary);border-radius: 10px 10px 0 0;color: #fff;padding:14px 0;}
+.box .cont{background: #E5F1FB;border-radius: 0 0 10px 10px;padding: 16px 0;}
+.systemProcess{}
+.systemProcess .box{max-width: 358px;}
+.systemProcess .box.navy::before{content: '';width: 1px;height: 50px;background: #C6C6C6;position: absolute;left: 50%;bottom: -50px;top: auto;}
+.systemProcess .box::before{content: '';width: 16px;height: 50px;background: url(../img/common/per/qualInfo/ico_systemProcess_arrow.svg) no-repeat;position: absolute;left: 50%;top: -50px;margin-left: -8px;}
+.systemProcess .boxWrap{display: flex;padding-top:102px;position: relative;}
+.systemProcess .boxWrap::before{content: '';width: 50%;height: 1px;background: #C6C6C6;position: absolute;left: 0;right:0;top: 51px;margin:0 auto;}
+
+.qualSystem .box{max-width: 380px;padding-top: 50px;}
+.qualSystem .box.arrowT::before{content: '';width: 16px;height: 50px;background: url(../img/common/per/qualInfo/ico_qualSystem_arrow.svg) no-repeat;position: absolute;left: 50%;top: 0;margin-left: -8px;}
+.qualSystem .box .cont{padding:20px 30px;height: calc(100% - 55px);}
+.qualSystem .boxWrap{}
+.qualSystem .boxWrap .in{display: flex;justify-content: space-between;}
+.qualSystem .boxWrap .in.reverse{flex-direction: row-reverse;}
+.qualSystem .box.noCont .tit{border-radius: 10px;}
+.qualSystem .box.arrowL::after{content: '';width: 162px;height: 16px;background: url(../img/common/per/qualInfo/ico_qualSystem_arrowL.svg) no-repeat;position: absolute;right: -180px;top: 50%;}
+.qualSystem .box .cont.box03 {height: calc(100% + 30px);}
+.qualSystem .box .cont.box04 {height: calc(100% - 75px);}
+.qualSystem .box .cont.box04 {height: calc(100% - 90px);}
+.qualSystem .boxWrap .in.reverse {margin-top:-20px;}
+.qualSystem .boxWrap .in.reverse .box {visibility: hidden;}
+.qualSystem .boxWrap .in.reverse .arrowT {visibility: visible;}
+
+/* 국가기술자격 면제정보-기사·산업기사 면제과목 */
+.exemptionInfo .defaultSearchOptBox.typeBtn .optList{padding-right: 170px;}
+.exemptionInfo .defaultSearchOptBox.typeBtn .btnSch{background: #0075D2;width: 150px;}
+.exemptionInfo .diagram{margin:40px 0;}
+.exemptionInfo .diagram ul{display: flex;justify-content: space-between;position: relative;}
+.exemptionInfo .diagram ul li{border-radius: 54px;text-align: center;}
+.exemptionInfo .diagram ul li span{display: inline-block;color: #fff;font-size:18px;padding:18px 0 17px;}
+.exemptionInfo .diagram ul li.diagram01{background: var(--primary);width: 50%;padding-right: 128px;}
+.exemptionInfo .diagram ul li.diagram02{background: #005293;border:2px solid #fff;position: absolute;left: 0;top: 0;right: 0;z-index: 1;width: 256px;box-sizing: border-box;margin:0 auto;}
+.exemptionInfo .diagram ul li.diagram02 span{padding:16px 0;}
+.exemptionInfo .diagram ul li.diagram03{background: var(--navy);width: 50%;padding-left: 128px;}
+.exemptionInfo .groupCont .division .contTable ~ .txtAlert ~ .contTable{margin-top: 19px;}
+
+/* 240503 수정 */
+.statusByRegion .regionSchWrap .defaultSearchOptBox.typeBtn .optList{padding-right: 0;}
+.statusByRegion .regionSchWrap .periodArea{width: 200px;}
+.infoBlueBox .download .btn_downBox{margin-top: 7px;}
+
+/* 지역별현황_종목상세팝업 */
+/* .pop_region_details .chart_warp{display:flex;flex-wrap: wrap;justify-content: space-between;}
+.pop_region_details .chart_area{width: calc(50% - 20px);margin-top: 40px;}
+.pop_region_details .chart_area:first-child{margin-top: 0;}
+.pop_region_details .chart_area:nth-child(2){margin-top: 0;}
+.pop_region_details .popLayout{width: 1264px;}
+.pop_region_details .chart_warp{padding:24px 0}
+.pop_region_details .chart_inner{border:1px solid #D0D2D6;border-radius: 10px;box-sizing: border-box;padding:40px 24px;} */
+
+.pop_region_details .chart_warp{padding:0;}
+.pop_region_details .chart_area{padding-bottom:43.764705%;}
+.pop_region_details .popLayout{width: 1264px;}
+.pop_region_details .chart_warp{display:flex;flex-wrap: wrap;justify-content: space-between;}
+.pop_region_details .chart_cont{width: calc(50% - 20px);margin-top: 40px;}
+.pop_region_details .chart_cont:first-child{margin-top: 0;}
+.pop_region_details .chart_cont:nth-child(2){margin-top: 0;}
+.pop_region_details .chart_cont .cont{border:1px solid #D0D2D6;border-radius: 10px;box-sizing: border-box;padding:40px 24px;}
+.pop_region_details .chart_cont .contTit2{margin-bottom: 16px;}
+
+/* CBT체험하기 */
+.experienceTop{background: url(../img/common/per/hidden/bg_cbt.png) no-repeat center top;background-size: cover; text-align: center;padding: 43px 0;border-radius: 16px;}
+.experienceTop .headLine2{margin-bottom: 19px;font-weight: 600;}
+
+.experienceTop .btnArea{margin-top: 0;}
+.experienceTop .baseBtn{height: 45px;}
+.experienceTop .baseBtn>.base{padding:0 24px 0 50px;background-repeat: no-repeat;font-weight: 600;}
+.experienceTop .baseBtn.btn01.on>.base{background-color: var(--second);background-image: url(../img/common/per/hidden/ico_cbt01.svg);color:#fff;}
+.experienceTop .baseBtn.btn01>.base{background-color: #fff;background-image: url(../img/common/per/hidden/ico_cbt01_off.svg);background-position: left 20px center;color:#000;}
+.experienceTop .baseBtn.btn02>.base{background-color: #fff;color:#000;background-image: url(../img/common/per/hidden/ico_cbt02.svg);background-position: left 25px center;}
+.experienceTop .baseBtn.btn02.on>.base{background-color: var(--second);background-image: url(../img/common/per/hidden/ico_cbt02_on.svg);color:#fff;}
+
+.cbtExperience .cont{}
+.cbtExperience .cont .headLine2{margin-bottom: 40px;}
+.cbtExperience .cont .headLine3{font-weight: 600;color:var(--black);}
+.cbtExperience .cont .division{display: flex;}
+.cbtExperience .cont .division .txt{flex-shrink: 0;width: 356px;}
+.cbtExperience .cont .division .txt ul{}
+.cbtExperience .cont .division .txt ul li{margin-bottom: 16px;display: inline-flex;width: 100%;}
+.cbtExperience .cont .division .txt .num{display: inline-block; width: 21px;height: 28px;background: #333333;border-radius: 11px;text-align: center;color: #fff;font-size: 12px;line-height: 28px;margin-right: 12px;}
+.cbtExperience .cont .division .txt p{}
+.cbtExperience .cont .division .img{padding-right: 39px;}
+
+.cbtExperience .cont .division .img > div{margin-bottom: 20px;}
+.cbtExperience .cont .division .img .fullImg{width: 100%;}
+.cbtExperience .cont .division .img .halfImg{display:flex;justify-content: space-between;width: 100%;}
+.cbtExperience .cont .division .img .halfImg>*{width: calc(50% - 10px);}
+
+.cbtExperience .cont .division .txt ul li .exTit {display:block;margin-bottom: 3px;}
+
+.contWrap{display: flex;justify-content: space-between;margin-top: 70px;flex-direction:row-reverse;}
+.contWrap .cont{}
+.contWrap .contTab{flex-shrink: 0;width: 185px; border-left:1px solid #DFE0E3;padding-left: 32px;}
+.contWrap .contTab ul li{margin-top: 24px;}
+.contWrap .contTab ul li a{color:#666666;font-size:16px;line-height:22px;}
+.contWrap .contTab ul li a.on{font-size: 24px;font-weight: bold;letter-spacing: 0;line-height: 150%;color:#000000;}
+
+/* 240528 수정 */
+.acquisitionInquery .contTable .contArea_next{justify-content: center;}
+
+/* 240529 시험장소변경 팝업 */
+.placeChangePop .popLayout{width: 1300px;}
+.placeChangePop .inlineTit{display: flex;align-items: center;}
+.placeChangePop .inlineTit .contTit1{width: auto;margin-bottom: 0;}
+.placeChangePop .inlineTit .txtBody1{margin:0;width: auto;padding-left: 20px;position: relative;}
+.placeChangePop .inlineTit .txtBody1:after{content: '';width: 1px;height: 18px;background: #000;position: absolute;left: 10px;top: 5px;}
+.placeChangePop .txtBody1{margin: 24px 0;}
+.placeChangePop .division{margin-bottom: 32px;}
+.placeChangePop .btnArea{margin-bottom: 40px;}
+.placeChangePop .contTable .contArea_next{justify-content:center;}
+.placeChangePop .contTable .txtL .contArea_next{justify-content:inherit;}
+.placeChangePop .contTable .contArea_next .baseBtn{margin-left: 8px;}
+.placeChangePop .contTable .contArea_next .txtBody1{margin:0;}
+
+/* DID 공통인증_0531 */
+.didCreatePop{}
+.didCreatePop .topArea{display:flex;justify-content: space-between;margin-bottom: 14px;}
+.didCreatePop .topArea .txt{margin-right: 8px;}
+.didCreatePop .topArea .txtBody1 img{vertical-align: middle;}
+.didCreatePop .qrArea{text-align: center;border:1px solid #D1D1D1;border-radius: 10px;padding:30px;}
+
+/* 체크리스트 수정 (링크) */
+.txt_arrR {text-decoration: underline !important;text-underline-offset: 3px;}
+.txt_arrR:hover {color:var(--primary)}
+.txt_arrR:hover>span {background-image: url(../img/common/link_arrR_blue.svg);}
+.link_s_arrR {text-decoration: underline !important;text-underline-offset: 3px;font-weight: 500;color:#000;}
+.link_s_arrR:hover {color:var(--primary);}
+.link_s_arrR>span {background-image: url(../img/common/link_arrR.svg);}
+.link_s_arrR>span:hover {background-image: url(../img/common/link_arrR_blue.svg);}
+.realtiveDepApplication .txt_arrR.blue>span {background-image: url(../img/common/link_arrR.svg);color:#000;}
+.realtiveDepApplication .txt_arrR.blue:hover>span {background-image: url(../img/common/link_arrR_blue.svg);color:var(--primary);}
+.txtAlert>a>span {text-decoration: underline;}
+.link_s_arrR[target="_blank"]>span,
+.link_s_arrR[target='_blank']>span {background-image: url(../img/common/ico_new_link_black.svg) !important;}
+.link_s_arrR[target="_blank"]:hover>span,
+.link_s_arrR[target='_blank']:hover>span {background-image: url(../img/common/ico_new_link_blue.svg) !important;}
+.private_detailInfo .txtList.dot>li>a:hover  {background-image: url(../img/common/ico_new_link_blue.svg);color:var(--primary)} 
+.typeState .resultGrp .resultArea>ul>li a {background: url(../img/common/link_arrR.svg) no-repeat right 0 top 7px;padding-right: 15px;color:#000 !important;font-weight: 500;text-underline-offset: 3px;}
+.typeState .resultGrp .resultArea>ul>li a:hover {color:var(--primary) !important;background-image: url(../img/common/link_arrR_blue.svg);}
+
+.certificate_register .txtBody1 .link_s_arrR {font-weight: 700;color:var(--primary)}
+.certificate_register .txtBody1 .link_s_arrR>span {background-image: url(../img/common/link_arrR_blue.svg);}
+
+.examResultView .link_s_arrR.wM>span {font-weight: 500 !important;}
+.afterRefundInfo .link_s_arrR.wM>span {font-weight: 500 !important;}
+.afterRefundInfo .contTable.mbRow.typeRow .selectBase {max-width: 100%;}
+.covidRefund .txtList.dot .link_s_arrR.underline {color:inherit}
+.covidRefund .txtList.dot .link_s_arrR.underline:hover {color:var(--primary)}
+.pop_identifiSlip .underLink {text-underline-offset: 3px;padding-right: 12px;background:url(../img/common/link_arrR.svg) no-repeat top 5px right 0;}
+.pop_identifiSlip .underLink:hover {background-image: url(../img/common/link_arrR_blue.svg);color:var(--primary)}
+.pop_identifiSlip .underLink[target="_blank"] {background-image: url(../img/common/ico_new_link_black.svg);background-position: top 3px right 0;background-size: 16px auto;padding-right: 22px;}
+.pop_identifiSlip .underLink[target="_blank"]:hover {background-image: url(../img/common/ico_new_link_blue.svg);color:var(--primary)} 
+.exemptionInfo .c_Point.underline {text-underline-offset: 3px;padding-right: 12px;background:url(../img/common/link_arrR.svg) no-repeat top 5px right 0;color:#000 !important;}
+.exemptionInfo .c_Point.underline:hover {background-image: url(../img/common/link_arrR_blue.svg);color:var(--primary) !important}
+
+/* 사전입력기간 안내 추가_240619 */
+.beforePeriodPop .division{padding-top: 40px;}
+.beforePeriodPop .division:first-child{padding-top: 0;}
+.pcChoicePop .division{padding-top: 40px;}
+.pcChoicePop .selectArea{padding-bottom: 20px;}
+.pcChoicePop .groupCont.typeAgree .division:first-child{border-top: 1px solid #D1D1D1;}
+
+/* 240621 */
+.examResultView .contTable table tbody td .tCont .inB{justify-content:center;}
+.examResultView .contTable table tbody td.moView{display: none;}
+.scoreDetail{display: none;margin-top: 40px;}
+.scoreDetail.on{display: block;}
+.contTable table tbody td.passTxt{border-left:0 !important;}
+
+/* 240625 추가 */
+.virtualAccount .refundBox {padding:40px;border:1px solid #D1D1D1;border-radius: 10px;margin:24px 0;background: #fff;}
+.virtualAccount .inputSide .tit{width: 150px;}
+.virtualAccount .explainBox{margin-bottom: 20px;display: none;}
+
+/* 240626 추가_수험표 출력 */
+.testSlip .contTable span.tit{display: inline-block;padding-right: 5px;}
+.testSlip .contTable p.cont{display:inline-block;vertical-align: top;}
+
+.intSecDiagram {width:530px;height:334px;background:url(../img/common/per/qualInfo/bg_intersection.svg) no-repeat center;margin:40px auto;display:flex;align-items: center;justify-content: center;;}
+.intSecDiagram .txtWrap {display:flex;width: 370px;justify-content: space-between;align-items: center;}
+.intSecDiagram .txtWrap p {font-size: 24px;color:#fff;text-align: center;line-height: 32px;}
+
+/* 240830추가 */
+.pop_examImg .popLayout{width: 570px;}
+.halfArea ul{display: flex;justify-content: space-between;}
+.halfArea ul li{width: calc(50% - 8px);}
+.halfArea ul li .txtBody1{margin-bottom: 8px;}
+
+/* 240930 - 시행계획 팝업 스크롤 */
+.examPlanpop .popLayout .popConts .popInner{overflow-y: initial;}
+.examPlanpop .contTable {max-height: 594px;overflow-y: auto;}
+.examPlanpop .contTable thead{position: sticky;top: 0;}
+
+
+
+
+
+@media (hover: hover) { 
+    .selectItemArea .schList>li.no_hover:hover {background:none;}
+    .selectItemArea .schList>li.no_hover:hover:before {display:none;}
+    .selectItemArea .schList>li.no_hover:hover:after {display:none;}
+
+    .pop_statisticsAdd .selectItemArea .schList>li:hover {background:#fff;}
+    .pop_statisticsAdd .selectItemArea .schList>li:hover:before {display:block;}
+    .pop_statisticsAdd .selectItemArea .schList>li:hover:after {display:block;}
+    .pop_statisticsAdd .scheduleAdd>ul>li>a:hover{color:#0075D2;text-decoration:underline;}
+
+    .pop_statisticsChange .selectItemArea .schList>li:hover {background:#fff;}
+    .pop_statisticsChange .selectItemArea .schList>li:hover:before {display:block;}
+    .pop_statisticsChange .selectItemArea .schList>li:hover:after {display:block;}
+
+}
+
+@media all and (max-width:1600px){
+    .testeeGuide .linkBox>div {padding:0 15px}
+
+    .job {display:block;}
+    .job span {display:block;margin:5px 0;}
+    .job .selectBase {display:block;margin:5px 0;}
+    .job .inputBox {display:inline-block;margin:3px 0;}
+    .job .inputBox~.inputBox {margin-left:20px;}
+
+    .join_over_uncertified .groupCont .topNotice .btn {position:relative;top:0;right:auto;margin-top:15px;}
+
+    /* 240925 */
+    .certificateGuide01{background-size: 200px auto;background-position: right 10px top 34px;}
+}
+
+@media all and (max-width:1400px){
+    .groupCont .topNotice .btn{position:static;margin-top:10px;}
+    .testeeGuide .linkBtn>ul>li{width:calc(50% - 5px);}
+    .testeeGuide .linkBtn>ul>li:nth-child(n+3) {margin-top:5px;}
+    .join_over_uncertified .groupCont .topNotice .txtBody1 br {display:none;}
+
+    .abilityModify .contArea_next .inputBox {display:block;margin-left:0;width:100%;margin-top: 10px;}
+    .refundGuide .defaultSearchOptBox .optList>li{width: 100%;}
+
+    
+    /*실명인증*/
+    .authenticationBox{padding:30px 0;}
+    .authenticationBox .item{padding:0 30px;}
+
+    .settingPW .finishBox .half{margin-left:0;width:100%;}
+    .settingPW .finishBox .half .finishForm{width:auto;padding:0 0 37px 0;display:block;}
+    .settingPW .finishBox .half .finishForm::before{width:100%;height:1px;bottom:0;left:0;top:auto;}
+    .settingPW .finishBox .half .finishForm:nth-of-type(n+2){padding-bottom:0;}
+    .authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213{width:131px;}
+    .authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213 br{display:block;}
+
+    /* CBT 자격시험 가이드 */
+    .cbtExperience .cont .division{display: block;}
+    .cbtExperience .cont .division .txt{width: calc(100% - 40px);}
+    .cbtExperience .cont .division .txt p br{display: none;}
+    .cbtExperience .cont .division .img .halfImg{max-width: 672px;}
+
+    .autodiagProfessional .defaultSearchOptBox .optList>li {width:100%;margin-right: 0;}
+
+    /* 240925 */
+    .certificateGuide01{background-size: auto 180px;}
+}
+
+@media all and (max-width:1281px){
+    .pop_address .schArea ul li {margin-right: 15px;}
+    .pop_address .optSchArea .selectBase{width: 160px;}
+    .pop_address .selectBase{font-size:16px;}
+    .certificate ul li{padding:30px;background-position:right 30px bottom 36px;background-size: auto 90px;}
+    /* 240925 주석처리 */
+    /* .certificateGuide01{background-size: auto 230px;background-position:right 30px top 24px;} */
+    .certificateGuide02{background-size: auto 140px;background-position:right 30px top 24px;}
+    .certificateGuide .example_list ul li {margin-right: 17px;}
+    .certificateGuide .example_list ul li .exImg{height: 150px;}
+    .certificateGuide .example_list ul li .exImg img{height:100px}
+    .certificateGuide .example_list ul li:nth-child(5) .exImg{padding-top:20px;}
+    .whiteBox{padding:30px;}
+
+    .personalInfor_home .loginApp{width: 100%;margin-left:0;margin-top:10px;}
+
+    .testeeGuide .linkBox>div{width:50%;margin-bottom:50px;}
+    .testeeGuide .linkBox>div:nth-child(2n-1){border-left:0;padding-left:0;}
+    .testeeGuide .linkBox>div:nth-child(2n){padding-right:0;}
+
+    .confirmationView .item .headLine3{padding:0 30px;}
+    .confirmationView .item .linkItem>li{padding:0 20px;}
+
+    .period{margin-right:20px;}
+
+    .infoStep li{padding:30px 20px;}
+    .qualSystem .boxWrap .box{margin: 0 25px;}
+
+    .exemptionInfo .defaultSearchOptBox .optList{display: block;}
+    .exemptionInfo .defaultSearchOptBox .optList>li{width: 100%;}
+    .exemptionInfo .defaultSearchOptBox .optList>li+li{margin-top: 8px;}
+    
+}
+
+@media all and (max-width:1041px){
+    .contTit1{font-size:16px;}
+
+    .contF .inputBase~.txtBody3 {margin-left:0;;margin-top:8px;margin-bottom: 0;}
+    .contF .selectBase~.txtBody3 {margin-left:0;margin-top:8px;margin-bottom: 0;}
+
+    .profileTb .contTable .profileLine .tCont{display:block;}
+
+    .certificateWrite .profileTb .contTable{padding-top:293px;}
+    .certificateWrite .profileTb .contTable .profileLine{top:-293px;}
+
+
+    .certificatePrint_c .profileTb .contTable{padding-top:312px;}
+    .certificatePrint_c .profileTb .contTable .profileLine{top:-312px;}
+
+
+    .pop_filingReceipt .headLine3{margin-bottom:20px;}
+    .pop_filingReceipt .profileTb .contTable{padding-top:273px;}
+    .pop_filingReceipt .profileTb .contTable .profileLine{top:-273px;}
+    .pop_filingReceipt .contTable.mbRow>table>tbody>tr>td .mSort{width:105px;}
+
+    .etcList{width:calc(100% + 48px);margin-left:-24px;}
+    .etcList::before{height: 30px;}
+    .etcList .txtBody2{position:static;text-align:left;margin-bottom: 10px;}
+
+    .pop_address .schArea ul {flex-wrap: wrap;}
+    .pop_address .schArea ul li {flex:1;}
+    .pop_address .schArea ul li:nth-of-type(3) {flex:auto;}
+    .pop_address .txtBody3 {font-size: 16px;}
+    .pop_address .formInput {width:auto;flex:1;}
+    .pop_address .schArea ul li:last-of-type {margin-top:10px;width:100%;}
+    .pop_address .schArea ul li .optSchArea .selectBase{margin-right: 8px;}
+    .pop_address .formInput .selectBase {width:100% !important;}
+
+    .certificateGuide01 .whiteBox .division:first-child .contF{flex-direction: column;align-items: center;}
+    .certificateGuide01 .bg_B1{width: 306px;}
+    .certificateGuide .whiteBox .division+.division{margin-top:40px;}
+    .certificateGuide .whiteBox .bg_both{background-image: url(../img/common/per/certificate/bg_arrow_both_m.svg);background-size:auto;height: 94px;width:100%;}
+    .certificateGuide .whiteBox .c_Red{padding-top: 35px;margin-left: 120px;top:0;}
+    .certificateGuide {background:none !important}
+    .certificateGuide .mbImg {display:block;margin-bottom: 25px;} 
+    .certificateGuide .mbImg img {height:150px;}
+    .certificateGuide .contF .half {width:calc(50% - 10px);}
+    .certificateGuide .contF .half~.half {margin-left:20px;}
+
+    .certificateWrite .txtSide{display:block;}
+    .certificateWrite .txtSide .txtBody3{margin-bottom: 8px;}
+    .certificateWrite .arrange{flex-flow:column wrap;}
+    .arrange .txtSide~.txtSide {margin-top:15px;}
+    .certificateWrite .photoChange {margin-top:5px;}
+    .certificateWrite .photoChange{text-align:center;justify-content: center;}
+    .certificateWrite .contTable colgroup col:nth-child(1) {width:90px !important}
+    .help .help_cont.mSize{left: auto;right:0;}
+    .help .help_cont.mSize::before{left:auto;right:12px;}
+    .certificateWrite .formInput.devided .contF .baseBtn.gray {width:calc(100% - 40px)}
+    /* 접근성 2차 수정 */
+    .certificateWrite .formInput .help .help_cont{left:auto; right:-5px;}
+    /* .certificateWrite .formInput .help {position:relative;left:0;right:auto;}
+    .certificateWrite .formInput .help .help_cont {max-width:100%;width:auto;} */
+
+    .job {width:100%;}
+
+    .rename_request .agreeCont .middle_box{top:-60px;}
+    .rename_request .agreeCont ul li{padding:18px 20px;}
+    .rename_request .agreeCont ul li .txtBody1{margin-left:20px;}
+
+    .personalInfor_modify .contTable.mbRow>table>tbody>tr>td .tCont{display:block;}
+    .personalInfor_modify .contF{flex-wrap:wrap;width:100%;}
+    .personalInfor_modify .tCont .txtBody3.c_Gray{width:100%;margin-top: 8px;}
+    .personalInfor_modify .optionSelect{display:inline-block;}
+    .personalInfor_modify .help{display:inline-block;line-height: 28px;vertical-align: middle;}
+    .personalInfor_modify .contArea_next .inputBase {flex:1;}
+
+    .appliList_pending .profileLine .profile{height: 175px;}
+    .appliList_pending .profileTb .contTable{padding-top: 196px;}
+    .appliList_pending .profileTb .contTable .profileLine{top:-196px;}
+
+    .linebox{padding:40px;}
+    .join_certify_ipin .baseBtn{margin-top:20px;}
+
+    .contF.colu{flex-direction: column;align-items:normal;width: 100%;}
+    .contTable.mbRow>table>tbody>tr.birth>td .tCont{display:block;}
+
+    .testeeGuide .linkBox .linklist span{font-size:16px;}
+    .testeeGuide .linkBtn>ul>li>a{font-size:14px;}
+
+    .certificateWrite .large img {width:110px;}
+    .certificateWrite .small img {width:97px;}
+    .profileRow .profileLine .large {margin-right: 10px;}
+
+    /* 테이블 내 사진 이미지영역 */
+    .large img {width:110px;}
+    .small img {width:97px;}
+    /* .certificatePrint_c .profileTb .contTable .profileLine {top:-230px}
+    .certificatePrint_c .profileTb .contTable {padding-top:230px;} */
+
+    .arrange>div {min-width: inherit;}
+    .help .help_cont {top:50px;}
+
+    .downloadArea .ico_down_s{top:-9px;}
+    .downloadArea+.downloadArea .ico_down_s{top:8px}
+    .downloadArea .headLine3{padding-right:160px;}
+    .sideSearch>.inputBtnArea{bottom:-12px;}
+
+    .delArea{height: auto;min-height: 45px;padding:10px;}
+    .btnDel{font-size:16px;}
+
+    .confirmationView .item{padding:30px;}
+    .confirmationView .item .headLine3{line-height:150%;padding:0;}
+    .confirmationView .item .headLine3 span{font-size:inherit;}
+    .confirmationView .item .linkItem{flex-direction:column;width:100%;margin:30px 0 0 0;}
+    .confirmationView .item .linkItem>li{border-right:none;padding:0;}
+    .confirmationView .item .linkItem>li .txtBody1{margin-bottom:5px;}
+    .confirmationView .item .linkItem>li a{background-size:7px auto;background-position:top 7px right;}
+
+    .infoSelect .selectArea li{margin-right:14px;}
+    .infoSelect .selectArea li .formInput {margin-top:5px;}
+    .infoSelect .optSchArea{display:block;width:100%;}
+    .infoSelect .optSchArea .selectBase{width:100%;margin-left:0;margin-top: 8px;}
+
+    .headLine3 span::before{height:16px;top:8px;}
+    
+    .useAgreeList .optList{width:100%;}
+    .useAgreeList .optList .opt .tit{flex-basis:55px;}
+    .useAgreeList .optList li{margin-bottom:8px;}
+    .areaSelect .area .inputBox {padding-right: 10px;}
+
+    .jurisdictionGuide .baseBtn.white>.base{padding-right:35px;background-position: right 17px center;}
+
+    .itemArea{display:block;}
+    .itemArea p{padding-left:0;}
+    .itemArea p::before{display:none;}
+
+    .hasBtn{width: 100%;}
+
+
+    /* 국가자격시험-외국학력서류제출 */
+    .txtList.dot>li .whiteBox{padding:30px 25px;}
+    .processBox ul{flex-direction: column;flex-wrap: wrap;}
+    .processBox ul li{flex: none;width: 100%;margin-left: 0;margin-bottom:40px;}
+    .processBox ul li br{display: none;}
+    .processBox ul li::after{background: url(../img/per/layout/lnb_arrB_gray.svg) no-repeat;width:16px;height:9px;top: -20px;left: 50%;margin-left: -8px;}
+    .processBox ol{flex-direction: column;flex-wrap: wrap;}
+    .processBox ol li{flex: none;width: 100%;margin-left: 0;margin-bottom:40px;}
+    .processBox ol li br{display: none;}
+    .processBox ol li::after{background: url(../img/per/layout/lnb_arrB_gray.svg) no-repeat;width:16px;height:9px;top: -20px;left: 50%;margin-left: -8px;}
+
+    .confirmationView .item .linkItem>li{margin-bottom: 8px;}
+
+    .truthIdentify .division.imgHas{padding-right: 170px;}
+    .truthIdentify .imgExample img{width:140px;}
+
+    .qualInvest .list{display:block;}
+    .qualInvest .groupCont .division .contTable+.contTable{margin-top: 20px;border-left: 0;}
+
+    .registerRepeal .groupCont .division .txtBody1+.headLine3{margin-top: 40px;}
+
+    .arrange .txtSide{margin-right: 0;}
+    .certificateWrite .arrange .txtBody3{margin-top: 8px;}
+
+    /*실명인증*/
+    .authenticationBox{padding:0 20px;}
+    .authenticationBox .item{padding:20px 0;width:100%;}
+    .authenticationBox .item::before{width:100%;height:1px;bottom:0;left:0;top:auto;}
+
+    /*개인정보처리방침*/
+    .infoStep li{width:calc(50% - 20px);}
+    .personalInformationArea .headLine4{margin-top:20px;}
+    .organizationAppraisalDtl .mT30{margin-top:20px !important;}
+    
+    .personalInformationArea .txtBody3 .link_s_arrR[target='_blank']>span{background-position: top 0 right 0 !important;}
+    .qualSystem .box.arrowL::after{right: -160px;}
+
+    /* 지역별자격취득현황 - 종목상세 팝업 */
+    .pop_region_details .chart_cont{width: 100%;}
+    .pop_region_details .chart_cont{margin-top: 0;margin-bottom: 20px;}
+    .pop_region_details .chart_cont .cont{padding: 20px 10px;}
+
+    /* 240528 수정 */
+    .acquisitionInquery .contTable .contArea_next{justify-content: normal;}
+    .placeChangePop .contTable .contArea_next{justify-content: inherit;}
+
+    /* 240621 */
+    .examResultView .contTable table tbody tr.moNone{display: none;}
+    .examResultView .contTable table tbody td.moView{display: flex;}
+
+    .intSecDiagram {background-size: 400px auto;height:252px;width:400px;}
+    .intSecDiagram .txtWrap {width:265px;}
+    .intSecDiagram .txtWrap p {font-size: 20px;line-height: 27px;}
+}
+
+@media all and (max-width:900px){
+    .pop_searchItem .selectItemArea .schList>li:before{width: 24px;left:-24px;}
+    .pop_searchItem .selectItemArea .schList>li:hover:after{width: 24px;right: -24px;}
+    .helpPop .selectItemArea .schList li span{margin-right: 24px;}
+
+    .registerPW .finishBox .telForm .formInput .guide .optSchArea .selectBase{margin-bottom: 0;}
+    .boxWrap .box{margin: 0 10px;}
+    .optSchArea .opt_tit{margin-right: 20px;}
+
+    .stepProcess{display: flex;justify-content:space-between;}
+    .stepProcess ul{display: block;width:calc(50% - 10px);position: relative;}
+    .stepProcess ul::before{content: '';width: 1px;height: 100%;background: #D1D1D1;position: absolute;left: 20px;top: 0;}
+    .stepProcess ul li:first-child{width: 100%;}
+    .stepProcess ul li{width: 100%;display: flex;align-items:center;padding-bottom: 30px;}
+    .stepProcess ul li:last-child{width: 100%;padding-bottom: 0;}
+    .stepProcess ul li:before{display: none;}
+    .stepProcess ul li span{flex-shrink: 0;}
+    .stepProcess ul li .txtBody1{text-align: left;padding-left: 15px;}
+    .stepProcess ul li:last-child::before{width: 0;}
+    .stepProcess ul+ul{margin-top: 0;}
+
+    .examProcess{display: block;}
+    .examProcess>ul{position: relative;}
+    .examProcess>ul::before{content: '';width: 1px;height:100%;background: #D1D1D1;position: absolute;left: 30px;top: 0;}
+    .examProcess>ul:last-child::before{height:calc(100% - 60px);}
+    .examProcess>ul>li::before{display: none;}
+    .examProcess>ul>li:last-child{padding-bottom: 0;}
+    .examProcess>ul>li .ico{width: 60px;height: 60px;}
+    .examProcess>ul>li .ico img{height: 30px;}
+
+    .pc .processGuide{display: none;}
+    .mobile .processGuide{display: flex;}
+    
+}
+
+@media all and (max-width:768px){
+    .exemption .radioSelect .inputBox {margin-right: 0;width:100%;} 
+
+    /* 접근성 2차 수정 */
+    .help .help_cont{top:40px;border:1px solid #d1d1d1;}
+    .help button::before{top:26px;}
+    .help .help_cont p{font-size:14px;}
+    
+
+    .personalInfor_modify .contArea_next .inputBase {flex:auto;width:100%;margin-bottom: 10px;}
+
+    .abilityModify .contArea_next .selectBase {margin-right: 0;}
+    .abilityModify .contArea_next .selectBase~.baseBtn {width:100% !important;margin-top:10px;}
+    
+    .hasBtn .contArea_next{flex-wrap: wrap;}
+    .hasBtn .selectBase{margin-right:0;}
+    .hasBtn .baseBtn{width: 100%;margin-top:8px;}
+
+    .truthIdentify .division.imgHas{padding-right: 0;}
+    .truthIdentify .imgExample{position: static;margin-top: 16px;text-align: center;}
+    .truthIdentify .imgExample img{width: auto;}
+    .formInput .hasBtn .inputBase{max-width: 100% !important;margin-right: 0;}
+
+    /* 국가검색 */
+    .pop_searchItem .selectItemArea.countryListArea{max-height:35vh;max-height:35dvh;}
+    .pop_searchItem .selectItemArea.countryListArea .contTit1{margin-bottom:10px;}
+    .countryList{margin-bottom:0px;}
+    .countryList li{width:50%;padding-right:10px;}
+
+    /* 숨김메뉴-비밀번호 변경 안내  */
+    .registerPW .finishBox .finishForm .formInput .guide{display:block;}
+    .registerPW .finishBox .finishForm .formInput .guide .tit{margin-bottom:8px;}
+    .registerPW .guideTxt{margin-left:0;}
+    .registerPW .contArea_next{display:block;text-align:center;}
+    .registerPW .contArea_next .txtBody1{margin-right:0;margin-bottom:8px;}
+    .registerPW .finishBox .telForm{margin-top: 20px;}
+    .registerPW .finishBox .telForm .guide{display: block;}
+    .registerPW .finishBox .telForm .formInput .guide .tit{margin-bottom:8px;}
+    .registerPW .finishBox .telForm .formInput .w_tel{margin-right: 0;max-width: 100%;}
+    .registerPW .finishBox .telForm .formInput .inpArea{display: block;}
+    .registerPW .finishBox .telForm .formInput .optSchArea .btn_sch{width: 100% !important;margin-top: 8px;}
+    
+    /*개인정보처리방침*/
+    .infoStep{display:block;width:100%;margin-left:0;margin-bottom:-10px;}
+    .infoStep li{width:100%;min-height:auto;padding:20px;margin:0 0 10px 0;}
+    .infoStep li img{width:40px;}
+    .infoStep .txtAlert{display: inline-block;width: auto;}
+    .personalInformationArea .whiteBox{padding:20px;}
+    .personalInformationArea .whiteBox .txtList{width:100%;margin-right:0;}
+    .personalInformationArea .whiteBox .txtList:nth-of-type(n+2){margin-top:7px;}
+    .personalInformationArea .txtList.halfType li{width: 100%;}
+    .personalInformationArea .txtList.halfType li:nth-of-type(2){margin-top: 7px;}
+
+    .pop_privacy .txtList.halfType li{width: 100%;}
+    .pop_privacy .txtList.halfType li:nth-of-type(2){margin-top: 7px;}
+
+    
+    .qualSystem .boxWrap .in{flex-direction: column;align-items: center;}
+    .qualSystem .boxWrap .in.reverse{flex-direction: column;}
+    .qualSystem .box{padding-top: 20px;}
+    .qualSystem .box .tit{padding: 14px 15px;}   
+    .qualSystem .whiteBox{padding:30px 50px;}
+    .qualSystem .box .cont{padding: 15px 16px;}
+    .qualSystem .boxWrap .box .cont{position: relative;}
+    .qualSystem .boxWrap .box .box01::before{content: '';width: 24px;height: 16px;background: url(../img/common/per/qualInfo/ico_box01_arrow.svg) no-repeat;position: absolute;left: -24px;top: 50%;margin-top: -8px;}
+    .qualSystem .boxWrap .box .box02::before{content: '';width: 24px;height: 16px;background: url(../img/common/per/qualInfo/ico_box02_arrow.svg) no-repeat;position: absolute;right: -24px;top: 50%;margin-top: -8px;}
+    .qualSystem .boxWrap .box .box03::before{content: '';width: 24px;height: 16px;background: url(../img/common/per/qualInfo/ico_box01_arrow.svg) no-repeat;position: absolute;left: -24px;top: 50%;margin-left: 0;}
+    .qualSystem .boxWrap .box .box03::after{content: '';width: 24px;height: 1px;background: #0075D2;position: absolute;left: -24px;top: calc(50% - 17px);margin-left: 0;}
+    .qualSystem .boxWrap .box .box04::before{content: '';width: 24px;height: 1px;background: #0075D2;position: absolute;right: -24px;top: 50%;left: auto;margin-left: 0;}
+    .qualSystem .boxWrap .box .box04::after{content: '';width: 24px;height: 1px;background: #0075D2;position: absolute;left: -24px;top: 50%;}
+    /* .qualSystem .box.arrowT::before{width: 0;} */
+    .qualSystem .reverse .box.arrowT::before{width: 16px !important;height:35px;background: url(../img/common/per/qualInfo/ico_arrowT.svg) no-repeat;margin-left: -8px;}
+
+    /* .qualSystem .boxWrap .box:nth-child(1):after{content: '';width: 1px;height: 223%;background: #0075D2;position: absolute;left: -25px;top: calc(50% + 36px);}
+    .qualSystem .boxWrap .line .box:nth-child(1):after{content: '';width: 1px;height: 90%;background: #0075D2;position: absolute;left: -25px;top:calc(50% + 44px);} */
+
+    .qualSystem .box.arrowL::after{width: 0;}
+    /* .qualSystem .boxWrap .box .box01::after{content: '';width: 1px;height: 614px;background: #0075D2;position: absolute;left: -25px;top: 50%;}
+    .qualSystem .boxWrap .box .box02::after{content: '';width: 1px;height: 662px;background: #0075D2;position: absolute;right: -25px;top: 50%;}*/
+    .qualSystem .box.arrowL::after{width: 0;}
+    /* .qualSystem .boxWrap .box .box01::after{content: '';width: 1px;height: 614px;background: #0075D2;position: absolute;left: -25px;top: 50%;}
+    .qualSystem .boxWrap .box .box02::after{content: '';width: 1px;height: 662px;background: #0075D2;position: absolute;right: -25px;top: 50%;}*/
+    .qualSystem .boxWrap .in.reverse {margin-top:0}
+    .qualSystem .boxWrap .in.reverse .box {display:none;}
+    .qualSystem .boxWrap .in.reverse .arrowT {display:block;}
+    .qualSystem .txtBody1.mT40 {text-align: center !important;}
+
+    .exemptionInfo .diagram ul li span{font-size: 16px;padding:10px 0 9px;}
+    .exemptionInfo .diagram ul li.diagram01{padding-right: 64px;}
+    .exemptionInfo .diagram ul li.diagram02{width: 128px;}
+    .exemptionInfo .diagram ul li.diagram02 span{padding: 9px 0 8px;}
+    .exemptionInfo .diagram ul li.diagram03{padding-left: 64px;}
+    
+    /* CBT 체험하기 */
+    .experienceTop .headLine2{font-size:24px;}
+    .cbtExperience .cont .headLine2{margin-bottom: 24px;}
+    .contWrap{display: block;}
+    .contWrap .contTab{border-left: 0;border-bottom: 1px solid #DFE0E3;padding-left: 0;width: 100%;margin-bottom: 24px;padding-bottom: 14px;}
+    .contWrap .contTab ul{display: flex;align-items: center;flex-wrap: wrap;}
+    .contWrap .contTab ul li{margin-right: 10px;margin-top: 0;margin-bottom: 10px;}
+    .cbtExperience .cont .division .txt{width: 100%;}
+    .cbtExperience .cont .division .img{padding-right: 0;}
+
+}
+
+@media all and (max-width:780px){
+    .certificate ul{display:block;}
+    .certificate ul li:first-child {margin-right: 0;}
+    .certificate ul li{background-size:auto 80px;width:100%;}
+    .certificate ul li .txtBody1 br {display:none;}
+    .certificate ul li+li {margin-top:18px}
+    .whiteBox{padding:30px;}
+    .contF .half{width: calc(50% - 8px);}
+    .certificateGuide .example_list ul{flex-wrap:wrap;margin-right: -10px;}
+    .certificateGuide .example_list ul li{width:calc(33% - 10px);flex:none;margin-right:10px}
+    .certificateGuide .example_list ul li:nth-child(n+4) {margin-top:15px;}
+    .certificateGuide02 .deliver_process ul{flex-flow:column wrap;}
+    .certificateGuide02 .deliver_process ul li{width:100%;flex:none;margin-right: 0;}
+    .certificateGuide02 .deliver_process ul li~li {margin-top:40px;}
+    .certificateGuide02 .deliver_process ul li::before{width:18px;height:10px;right:auto;top:auto;margin-top:0;bottom:-26px;background: url(../img/common/per/certificate/ico_arrow_processB2.svg) no-repeat;}
+    .certificateGuide02 .deliver_process ul li:nth-child(2)::before,
+    .certificateGuide02 .deliver_process ul li:nth-child(3)::before{background: url(../img/common/per/certificate/ico_arrow_processG2.svg) no-repeat;}
+    .whiteBox.linkList .txtList li{width:50%;}
+
+    .ability .optSchArea .inpArea{flex-wrap:wrap;}
+    .ability .optSchArea .inpArea .btn{margin-left:0;width:100%;margin-top:8px;}
+    .ability .optSchArea .inputBox{margin-left:0;width:100%;margin-top:8px;}
+
+    .china{flex-direction:column;}
+    .confirmWay{width:100%;}
+    .china p{width:100%;height:55px;background: url(../img/common/per/nationalExam/bg_mforeignDocument_arrow.svg) no-repeat center top;background-size: auto;}
+
+    .militaryRange .list ul li{width: 100%;padding:14px 16px;}
+    .militaryRange .list ul li:nth-child(2n){border-left: 0;}
+    .militaryRange .btnArea_side{flex-direction: row;align-items: center;}
+
+    .groupCont .division .headLine2 .headLine3{display:block;width: 100%;padding-left: 0;}
+    .groupCont .division .headLine2 .headLine3::before{display:none;}
+
+    .qualSystem .box{position: relative;}
+    .qualSystem .box.line01::before{content: '';width: 1px;height: 50%;background: #0075D2;position: absolute;left: -25px;top: calc(50% + 36px);}
+    .qualSystem .box.line02::before{content: '';width: 1px;height: calc(100% + 20px);background: #0075D2;position: absolute;left: -25px;top: 0;}
+    .qualSystem .box.line03::before{content: '';width: 1px;height: 50%;background: #0075D2;position: absolute;left: -17px;top: 20px;}
+    .qualSystem .box.line03::after{content: '';width: 1px;height: 50%;background: #0075D2;position: absolute;left: -25px;bottom:-44px;top:auto;}
+    .qualSystem .box.line04::before{content: '';width: 1px;height: calc(50% + 37px);background: #0075D2;position: absolute;left: -17px;top:0;}
+    .qualSystem .box.line04::after{content: '';width: 1px;height: calc(50% + 37px);background: #0075D2;position: absolute;right: -25px;top:0;}
+    .qualSystem .box.line02::after{content: '';width: 1px;height: 180%;background: #0075D2;position: absolute;right: -25px;top: calc(50% + 36px);}
+
+}
+@media all and (max-width:600px){
+    /* 접근성 2차 수정 */
+    .help .help_cont{left:0;width:calc(100vw - 44px) !important;right:auto !important;}
+
+    .grayBox{padding:20px;}
+    .surveyChk .inputBox{margin:5px 20px 5px 0;}
+    
+    .refundGuide .groupCont .topNotice {padding:60px 20px 20px}
+    .refundGuide .groupCont .topNotice .contTit2 {text-align: center;}
+
+    .banner ul li p{font-size:18px;}
+    .banner ul li.banner02 p{line-height:150%;}
+    .banner ul li a{height:auto;padding:33px 30px;}
+    .banner ul li.banner02 a{background-position: right 30px center;background-size: 50% 100%;}
+
+    .join_over_uncertified .groupCont .topNotice .btn .baseBtn {min-width: inherit;}
+
+    .certificatePrint_c .contTable.mbRow>table>tbody>tr>td .mSort{width:100px;}
+    .certificatePrint_c .txtAlert{font-size:16px;}
+    .certificateWrite_n .contTable.mbRow>table>tbody>tr>td .mSort{width:100px;}
+    .selectIdentify .contTable.mbRow>table>tbody>tr>td .mSort{width:140px;}
+    .pop_address .contTable.mbRow>table>tbody>tr>td .mSort{width:100px;}
+    .pop_address .schArea ul li{width:100%;}
+    .pop_address .txtSide{display:block;}
+    .pop_address .txtBody3{margin-bottom: 8px;}
+    .pop_address .formInput{width:100%;}
+    .pop_address .schArea ul li .selectBase{width:100% !important;}
+    .pop_address .optSchArea .selectBase{margin:0;width:100%;margin-bottom:8px;}
+    .pop_address .grayBox .txtList.dot>li{padding-left:10px;}
+    .pop_address .grayBox .txtList.dot>li>b{position:static;padding-left:0;display:block;}
+    .pop_address .resultArea .emp{position:static;}
+
+    .personalInfor_home .method button {margin-right: 0;}
+    .personalInfor_home .method button+button {margin-top:8px;}
+    .personalInfor_home .method .baseBtn.middle_box {width:100%;}
+    .personalInfor_home .method .loginApp button {margin-right: 8px;}
+
+    /* .contF{display:block;} */
+    .contF .half{width: 100%;}
+    .contF .half+.half{margin-top:20px;}
+    .certificateGuide01 .bg_B1{width:100%;}
+    .certificateGuide .whiteBox .bg_both{width:100%;}
+    .certificateGuide .example_list ul li{width:calc(50% - 10px);}
+    .certificateGuide .example_list ul li:nth-child(n+3) {margin-top:15px;}
+
+    .certificateGuide .division:last-of-type .contF {display:block;}
+    .certificateGuide .whiteBox {padding:20px;}
+    .certificateGuide .contF .half {width:100%;}
+    .certificateGuide .contF .half~.half {margin-left:0;margin-top:20px;}
+
+    
+    .certificateWrite .profileTb .contTable{padding-top:315px;}
+    .certificateWrite .profileTb .contTable .profileLine{top:-315px;}
+    .profileTb .contTable .profileLine .txtAlert {max-width: 290px;margin:0 auto;margin-top:5px;}
+
+
+    .pop_renameInfo .agreeArea>div+div{margin-top:20px;}
+    .pop_renameInfo .contTit2{margin-bottom:8px;}
+
+    .mark_need{width: 4px;height: 4px;flex:none;}
+    .personalInfor_modify .contTable.mbRow>table>tbody>tr>td .mSort{width: 123px;}
+    .formInput+.formInput{margin-top:8px;}
+
+    .help .help_cont{width:calc(100vw - 34px) !important;}
+    /* 접근성 2차 수정 */
+    .help button::before{display: none;}
+
+    .personalInfor_modify .help .help_cont{width: 260px;right:-10px}
+    .personalInfor_modify .help .help_cont::before{right:13px;}
+    
+    .join_certify_ipin .help .help_cont{width:260px;left:auto;right:-50px;}
+    .join_certify_ipin .help .help_cont::before{right:52px;left:auto;}
+    .join_certify_ipin .txtBody1{padding-bottom:150px;}
+
+    .complete{background-size:auto 60px;padding-top:80px;}
+
+    .testeeGuide .division{padding:22px 20px;border-radius:10px;}
+    .testeeGuide .linkBox{flex-direction:column;}
+    .testeeGuide .linkBox>div{width:100%;padding:15px 0;border-left:0;margin-bottom:0;border-bottom:1px solid #ddd;}
+    .testeeGuide .linkBox>div:last-child{border-bottom:0;padding-bottom:0;}
+    .testeeGuide .linkBtn>ul>li{width:100%;}
+    .testeeGuide .linkBtn>ul>li+li {margin-top:5px;}
+
+    .personalInfor_modify .formInput.devided .inputWrap {width:100%;}
+    .personalInfor_modify .formInput.devided .inputWrap+.inputWrap {margin-left:0;}
+    .personalInfor_modify .contF {margin-top:5px;}
+    .personalInfor_modify .formInput.devided .inputWrap .baseBtn {width:calc(100% - 40px)}
+    .personalInfor_modify .contF.birth {display:flex;flex-wrap: wrap;font-size: 0;}
+    .personalInfor_modify .contF.birth .txtBody3  {width:100%;}
+    .contTable.mbRow.typeRow .birth .selectBase{max-width:100%;flex:auto;}
+    .contTable.mbRow.typeRow .birth .selectBase+.selectBase {margin-top:10px;}
+
+    .downloadArea .ico_down_s{position:static;margin-bottom: 20px;}
+    .downloadArea .headLine3{padding-right:0;}
+    .sideSearch{margin-bottom:0;}
+    .sideSearch>.inputBtnArea{position:static;margin-bottom: 20px;}
+
+    .abilityModify .contTable.mbRow>table>tbody>tr>td .mSort{width:120px;}
+    .abilityModify .btn{margin-bottom: 8px;}
+    .abilityModify .txtAlert{font-size:16px;}
+
+    .confirmationView{flex-direction:column;margin-top:20px;}
+    .confirmationView .item{width:100%;border-radius:20px;padding:20px;}
+    .confirmationView .item:nth-of-type(2){margin:20px 0 0 0;}
+    .confirmationView .item .linkItem{margin-top:20px;}
+    .confirmationView .item .linkItem>li .txtBody3{padding-right:15px;}
+    .confirmation .contTable.mbRow>table>tbody>tr>td .mSort{width:100px;}
+
+    .truth .contTable.mbRow>table>tbody>tr>td .mSort{width: 60px;}
+    .truth .optSchArea .inpArea .btn_sch{width: 60px;}
+    .truth .inpArea p{font-size:14px;padding-right: 4px;}
+    .truth .optSchArea .inpArea .inputBase{margin-right:4px;}
+    .documentNum span{padding: 0 4px 0 0;}
+
+    .careerCard .tCont .btn{display:block;width:100%;margin-left:0;margin-top:8px;}
+    .placeSelect .btn{display:block;width:100%;margin-left:0;margin-top:8px;}
+    .placeSelect .contTable.mbRow2 td .mSort{width: 80px;}
+
+    .areaSelect{display:block;}
+    .areaSelect .tit{margin-bottom:7px;margin-right:0;}
+    .areaSelect .area .inputBox{margin-right:0;width:calc(50% - 8px);}
+
+    .interestList .contTable.mbRow>table>tbody>tr>td .mSort{width: 108px;}
+    .pop_statistics .optSchArea{display:block;}
+    .pop_statistics .optSchArea .inpArea{margin-left:0;margin-top:8px;}
+    .pop_statistics .contTable.mbRow>table>tbody>tr>td .mSort{width:120px;}
+
+    .whiteBox.linkList .txtList li{width:100%;}
+    .autodiagnosis .btn{margin-bottom: 8px;}
+
+    .personalInfor_modify .contArea_next .middle_box {width:100%;}
+
+    .autodiagProfessional .schList li a span{padding:0 20px 0 0;}
+
+    .ability .optSchArea .inpArea .btn{margin-top:0;}
+    .ability .optSchArea .inpArea .btn .baseBtn{width:100%;margin-top:8px;margin-right:0;}
+    .period{margin-right: 8px;}
+
+    .relatedInquire .noLineArticle{padding:0;}
+
+    .licenseNumberEx p{height: 40px;line-height: 40px;}
+    .licenseNumberEx p:nth-of-type(n+2){margin-left: 4px;}
+    .licenseNumberPop .img{padding:0 10px;}
+
+    .licenseList .contTable.mbRow>table>tbody>tr>td .mSort{width: 90px;}
+
+    /*실명인증*/
+    .niceInfoArea{flex-wrap:wrap;}
+    .niceInfoArea img{margin-bottom:20px;}
+
+    .settingPW .finishBox {padding:30px 20px}
+    .settingPW .finishBox .finishForm{margin-top:20px;}
+    .settingPW .finishBox .finishForm .formInput .guide .tit {font-size: 16px;margin-bottom: 5px;}
+    .settingPW .finishBox .finishForm .formInput .guide {display:block;}
+    .settingPW .finishBox .finishForm .formInput .alert {margin-left:0;}
+    .settingPW .finishBox .finishForm .btnArea {margin-top:20px;}
+    .settingPW .listBox{margin-top:25px;}
+    .settingPW .finishBox .half .finishForm{padding-bottom:20px;}
+    .authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213{width:100%;}
+    .authenticationArea.settingPW .finishBox .finishForm .formInput .guide .tit.w213 br{display:none;}
+
+    .systemProcess .boxWrap{flex-direction: column;padding-top: 30px;align-items:center;}
+    .systemProcess .boxWrap .box{margin-top: 20px;}
+    .systemProcess .boxWrap .box::before{display: none;}
+    .systemProcess .boxWrap::before{display: none;}
+    .systemProcess .box.navy::before{background: url(../img/common/per/qualInfo/ico_systemProcess_arrow.svg) no-repeat;width: 17px;height: 50px;}
+
+    .exemptionInfo .defaultSearchOptBox.typeBtn .optList{padding-right: 0;}
+    .exemptionInfo .defaultSearchOptBox.typeBtn .btnSch{width: 100%;}
+
+    
+    .stepProcess ul{width: calc(50% - 5px);}
+    .stepProcess ul::before{left: 15px;}
+    .stepProcess ul li span{width: 30px;height: 30px;line-height: 30px;}
+    .stepProcess ul li .txtBody1{padding-left: 10px;}
+
+    /* 240529 */
+    .placeChangePop .inlineTit{display: block;}
+    .placeChangePop .inlineTit .txtBody1{padding-left: 0;}
+    .placeChangePop .inlineTit .txtBody1:after{display: none;}
+    .placeChangePop .txtBody1{margin:8px 0;}
+
+    /* 240531 */
+    .didCreatePop .popLayout .popConts .popBtnArea{flex-wrap: wrap;}
+    .didCreatePop .popBtnArea.mHalf .baseBtn{min-width:100%;margin-bottom: 8px;}
+
+    /* 241010 - 확인서 발급 신청 반응형 수정 / 241015 위치수정 */
+    .certificate_selectType .contTable.mbRow>table>tbody>tr>td .mSort{width: 105px;}
+    .certificate_selectType .typeRow.contTable colgroup col:nth-child(1){width: 40% !important;}
+}
+
+
+
+@media all and (max-width:480px){
+    .pop_address .schArea ul li .optSchArea .selectBase {margin-right: 0;}
+
+    .pop_statisticsAdd .optSchArea p.wB {display:block;width:100%;margin-bottom: 8px;}
+
+    .writtenExamCharge .whiteBox {display:block;}
+    .writtenExamCharge .whiteBox .searchItem {width:100%;margin-left:0;margin-top:8px;}
+    .registerPW .finishBox .telForm .formInput .guide .optSchArea .selectBase{margin-right: 0;}
+
+    .exemptionInfo .diagram ul li span{font-size: 14px;}
+    .exemptionInfo .diagram ul li.diagram01{padding-right: 50px;}
+    .exemptionInfo .diagram ul li.diagram02{width: 100px;}
+    .exemptionInfo .diagram ul li.diagram03{padding-left: 50px;}
+
+    .intSecDiagram .txtWrap p {font-size: 17px;line-height: 23px;}
+    .intSecDiagram .txtWrap {width:215px;}
+    .intSecDiagram {background-size: 300px auto;width:300px;height:191px;}
+
+    .contentCbt .experienceTop {padding-left:10px;padding-right: 10px;}
+    .contentCbt .experienceTop .baseBtn>.base {font-size: 13px;}
+    .experienceTop .headLine2 {word-break: keep-all;}
+
+    /* 240925 */
+    .halfArea ul{flex-wrap: wrap;}
+    .halfArea ul li{width: 100%;margin-bottom: 16px;}
+
+
+}
+
+@media all and (max-width:380px){
+    .join_over_uncertified .groupCont .topNotice .btn .baseBtn {width:100%;}
+    .join_over_uncertified .groupCont .topNotice .btn .baseBtn+.baseBtn {margin-left:0;margin-top:8px;}
+    
+    
+    
+}

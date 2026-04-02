@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+/* zipcode */
+.area_post p:first-child {
+	font-size: 22px;
+	padding-top: 18px;
+	color: #506489;
+	font-weight: bold;
+}
+.zip_content {
+	padding-left: 23px;
+
+}
+.inp_height {
+	height: 20px;
+}
+
+.add_post li a{
+	background: #eeeeee none repeat scroll 0 0;
+    display: block;
+    height: 20px;
+    padding: 10px 15px 0;
+}
+.on {
+	background: #506489!important;
+	font-weight: bold;
+	color: #fff;
+}
+
+.zip_wrap_on {
+	height: 150px!important;
+}
+
+.zipcode-wrap {width:500px;height:500px;overflow-y:scroll;}
+.area_post {background: #e0e0e0; height:55px;margin-bottom:20px;padding:0 22px;border-bottom: 1px solid #e0e0e0;}
+.add_post {border-bottom: 2px solid #c0c0ff; height:30px;width: 440px;}
+.area_post span {
+	font-size: 13px;
+	font-weight: bold;
+}
+.area_post p {
+	padding-bottom: 4px;
+}
+.add_post:after {content:""; display:block; clear:both;}
+.add_post li {float:left; padding-right:3px;}
+.zip_wrap {
+	border:1px solid #d3d3f2;width: 438px;background:#f8f8f8;height:115px;
+}
+.add_bun {line-height: 1.5; width:430px;padding:10px;}
+.area_search:after {content:""; display:block; clear:both;}
+.area_search li {padding-right:10px;min-width: 45px; display: inline-block; font-weight:bold;vertical-align:middle;}
+.area_search {
+	width: 410px;
+	padding-left: 10px;
+}
+.zipcode-result {padding-top:10px;}
+
+/* --------------------- 占쎄퀬�よ린�딆깈筌≪뼐由�占쎈뗀��------------------------------------------- */
+
+table.brd_list28 {width:440px;}
+table.brd_list28 th {padding:5px 10px 6px 10px; height:20px;background-color:#f3f3f3;border:1px solid #cbcbcb;font-weight:bold;text-align:center;border-left:none;border-right:none;vertical-align:middle;}
+table.brd_list28 td {padding:5px 10px 6px 10px; height:20px; border:1px solid #cbcbcb;text-align:left;border-left:none;border-right:none;vertical-align:middle;}
+table.brd_list28 td.ta-center {text-align:center;}
+#con_table tr.gry td {background:#f9f9f9;}
+
+
+/* file upload */
+.file-box {float:left;width:420px;}
+.file-text {float:left;width:292px;height:16px;line-height:16px;padding:3px;margin-right:5px;border:1px solid #d1ceca;}
+.file-div {position:relative;width:89px;height:24px;overflow:hidden;}
+
+.file-div .file-button {position:absolute;width:89px;height:24px;top:0px;border:0;background:url(/common/image/btn_file.gif) no-repeat 0 0;}
+.file-div .file-hidden {position:absolute;font-size:24px;top:0px;right:0;opacity:0;filter:alpha(opacity=0);-ms-filter:"alpha(opacity=0)";-khtml-opacity:0;-moz-opacity:0;width: 256px; height: 24px;}
+
+.add-file {float:left;line-height:24px;}
+  
+#sign {
+	display: block;
+	float: right;
+	padding-top: 50px;}
+#license_info03 {
+	width: 730px !important;
+}
+.certification {
+/*	background : url(/common/examHome/image/petition/certification.jpg) no-repeat;
+*/  	display: block;
+    height: 700px;
+    position: relative;
+    width: 1000px;
+    z-index:111; 
+}
+.ceti_bgimg {
+	position: absolute;
+	top: 0;
+	z-index:-1;
+}
+.certification ul {
+	left: 75px;
+    position: absolute;
+    top: 90px;
+}
+.certi_no {
+	position: absolute;
+	top: 50px;
+	right: 45px;
+	font-size: 13px;
+
+}
+.certi_no img {
+	margin-bottom: -5px;
+}
+.certi_date {
+	position: absolute;
+	bottom: 180px;
+	margin: 0 auto;
+	font-size: 21px;
+	width: 100%;
+	text-align: center;
+}
+.certification ul li {
+
+}
+
+
+li {
+	list-style: none;
+
+}
+.certification ul li img {
+		margin-bottom: -7px;
+}
+
+
+.cetification_no {
+    display: block;
+    position: absolute;
+    right: 140px;
+    top: 46px;
+}
+
+.popup_body {
+	position: relative;
+	width: 1000px;
+}
+.cetification img {
+	width: 130px;
+}
+.popup_text {
+	display: inline-block;
+	height: 26px;
+	margin: 4px;
+}

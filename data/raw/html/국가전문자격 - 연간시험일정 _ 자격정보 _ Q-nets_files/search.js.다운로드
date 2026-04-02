@@ -1,0 +1,588 @@
+//다이퀘스트 검색Script
+
+//메인페이지 헤더검색창
+function goSearch(){
+	var cookieNm = "qnetSearch";
+	var search = $("#searchQuery").val();
+		  search = search.replace(/</g,"").replace(/>/g,"");
+	      search = search.replace(/\"/g,"").replace(/\'/g,""); 
+	
+	$("#totalQuery").val(search);
+	if(search == "검색어를 입력하세요") {
+		search = "";
+	}
+	
+	if(search==""){
+		alert("검색어를 입력하세요");
+		return false;
+	}else if(search!=""){
+		if(search.length < 2){ 
+			alert('검색어는 1자리 이상 입력하셔야 합니다.');
+			return false;
+		}
+		var pattern = /<script|alert\(|onmouseover=|click=|console.log\(|\"|\'|\%/gi;
+		if(pattern.test(search)){
+			alert('검색할 수 없는 단어 또는 문자가 포함되어 있습니다.');
+			return;
+		}
+		
+		setSearchCookie(search, cookieNm);	
+		$("#searchForm").submit();
+	}
+}
+
+//메인페이지 헤더검색 엔터검색
+function goSearchEnter(){
+	var cookieNm = "qnetSearch";
+	var search = $("#searchQuery").val();
+        search = search.replace(/</g,"").replace(/>/g,"");
+        search = search.replace(/\"/g,"").replace(/\'/g,"");
+	$("#totalQuery").val(search);
+	if(search == "검색어를 입력하세요") {
+		search = "";
+	}
+	
+	if(search==""){
+		alert("검색어를 입력하세요");
+		return false;
+	}else if(search!=""){
+		if(search.length < 2){
+			alert('검색어는 1자리 이상 입력하셔야 합니다.');
+			return false;
+		}
+		var pattern = /<script|alert\(|onmouseover=|click=|console.log\(|\"|\'|\%/gi;
+		if(pattern.test(search)){
+			alert('검색할 수 없는 단어 또는 문자가 포함되어 있습니다.');
+			return;
+		}
+		setSearchCookie(search, cookieNm);	
+		$("#searchForm").submit();
+	}
+}
+
+//검색결과 검색창
+function middleSearch(){
+	var cookieNm = "qnetSearch";
+	var search = $("#searchQuery2").val();
+        search = search.replace(/</g,"").replace(/>/g,"");
+        search = search.replace(/\"/g,"").replace(/\'/g,"");
+	var totalKey = $("#totalQuery2").val();
+    var reSearchCh = ($("#resFlagDetail").is(':checked'));
+    if(reSearchCh == true){
+    	$("#resFlagDetail").val('Y');
+    	$("#totalQuery2").val(totalKey + " " + search);
+    }else{
+    	$("#resFlagDetail").val('N');
+    	 $("#totalQuery2").val(search);
+    }
+	
+	if(search == "검색어를 입력하세요") {
+		search = "";
+	}
+	
+	if(search==""){
+		alert("검색어를 입력하세요");
+		return false;
+	}else if(search!=""){
+		if(search.length < 2){
+			alert('검색어는 1자리 이상 입력하셔야 합니다.');
+			return false;
+		}
+		
+		var pattern = /<script|alert\(|onmouseover=|click=|console.log\(|\"|\'|\%/gi;
+		if(pattern.test(search)){
+			alert('검색할 수 없는 단어 또는 문자가 포함되어 있습니다.');
+			return;
+		}
+		
+		setSearchCookie(search, cookieNm);	
+		$("#searchForm2").submit();
+	}
+}
+
+//검색결과 검색창 엔터검색
+function middleSearchEnter(){
+	var cookieNm = "qnetSearch";
+	var search = $("#searchQuery").val();
+        search = search.replace(/</g,"").replace(/>/g,"");
+        search = search.replace(/\"/g,"").replace(/\'/g,"");
+	$("#totalQuery").val(search);
+    
+	if(search == "검색어를 입력하세요") {
+		search = "";
+	}
+	
+	if(search==""){
+		alert("검색어를 입력하세요");
+		return false;
+	}else if(search!=""){
+		if(search.length < 2){
+			alert('검색어는 1자리 이상 입력하셔야 합니다.');
+			return false;
+		}
+		
+		var pattern = /<script|alert\(|onmouseover=|click=|console.log\(|\"|\'|\%/gi;
+		if(pattern.test(search)){
+			alert('검색할 수 없는 단어 또는 문자가 포함되어 있습니다.');
+			return;
+		}
+		setSearchCookie(search, cookieNm);	
+		$("#searchForm2").submit();
+	}
+}
+
+//상세검색
+function goDetailSearch(){
+	var search = $("#searchQuery2").val();
+	var cookieNm = "qnetSearch";
+//        search = search.replace(/</g,"").replace(/>/g,"");
+//        search = search.replace(/\"/g,"").replace(/\'/g,"");
+	$("#detailSearchQuery").val(search);
+	$("#detailChk").val('on');
+	var totalKey = $("#detailTotalQuery").val();
+    var reSearchCh = ($("#resFlagDetail").is(':checked'));
+    if(reSearchCh == true){
+    	$("#resFlagDetail").val('Y');
+    	$("#detailTotalQuery").val(totalKey + " " + search);
+    }else{
+    	$("#resFlagDetail").val('N');
+    	 $("#detailTotalQuery").val(search);
+    }
+	
+	if(search==""){
+		alert("검색어를 입력하세요");
+		return false;
+	}else if(search!=""){
+		if($("#searchEndDate").val() < $("#searchStartDate").val()) {
+			alert('검색기간을 확인하세요.');
+			return false;
+		}
+		if(search.length < 2){
+			alert('검색어는 1자리 이상 입력하셔야 합니다.');
+			return false;
+		}
+		setSearchCookie(search, cookieNm);	
+		$("#searchDetail").submit();
+	}
+}
+
+/**
+ * 상세검색 초기화
+ */
+function setReset(){
+	var frm = document.searchDetail;
+	var count = 0;
+	var count2 = 0; 
+	for(var i = 0; i < frm.elements.length; i++) {
+	  if (frm.elements[i].type =="checkbox" && frm.elements[i].name =="searchArea") {
+		  if(count == 0){
+			  frm.elements[i].checked=true;
+		  }else{
+			  frm.elements[i].checked=false;
+		  }
+		  count ++;
+	  }
+	}
+	
+	for(var i = 0; i < frm.elements.length; i++) {
+		  if (frm.elements[i].type =="checkbox" && frm.elements[i].name =="searchTarget") {
+			  if(count2 == 0){
+				  frm.elements[i].checked=true;
+			  }else{
+				  frm.elements[i].checked=false;
+			  }
+			  count2 ++;
+		  }
+		}	
+	
+	//frm.resFlag.checked=false;
+	frm.searchQuery.value="";
+	frm.searchStartDate.value="";
+	frm.searchEndDate.value="";
+}
+
+//카테고리메뉴&&더보기 검색
+function goMenu(val){
+	$("#searchMenuParam").val(val);
+	$("#searchSortParam").val('weight');
+	$("#pageNumParam").val('1');
+	$("#searchMove").submit();
+}
+
+//정렬누르면서 더보기 기능
+function goSort(menu, sort){
+	$("#searchMenuParam").val(menu);
+	$("#searchSortParam").val(sort);
+	$("#pageNumParam").val('1');
+	$("#searchMove").submit();
+}
+
+function goQnetSort(menu){
+	var sort = $("#schSort"+menu).val();	
+	$("#searchMenuParam").val(menu);
+	$("#searchSortParam").val(sort);
+	$("#pageNumParam").val('1');
+	$("#searchMove").submit();
+}
+
+//인기검색어 검색
+function goHotSearch(keyword){
+	var cookieNm = "qnetSearch";
+	$("#searchQuery").val(keyword);
+	$("#totalQuery").val(keyword);
+	$("#resFlag").val('N');
+	$("#searchMenu").val('total');
+	$("#searchSort").val('weight');
+	$("#pageNum").val('1');
+	setSearchCookie(keyword, cookieNm);
+	$("#searchForm").submit();
+}
+
+//페이지네비
+function movePage(val){
+	$("#pageNumParam").val(val);
+	$("#searchMove").submit();
+}
+
+//결과내 재검색 체크클릭시 검색창초기화
+function inputReset(){
+	 var reSearchCh = ($("#resFlagDetail").is(':checked'));
+	if(reSearchCh == true){
+		$("#searchQuery2").val('');
+		$("#searchQuery2").focus();
+	}
+}
+
+/**
+ * 검색 범위 셋팅
+ */
+function setArea(type){
+	var frm = document.searchDetail;
+	var checkCount = 0;
+	if(type == "all"){
+		if(document.getElementById("scale_all").checked==true){
+			for(var i = 0; i < frm.elements.length; i++) {
+			  if (frm.elements[i].type =="checkbox" && frm.elements[i].name =="searchArea") {
+				frm.elements[i].checked=true;
+			  }
+			}
+		}else{
+			for(var i = 0; i < frm.elements.length; i++) {
+			  if (frm.elements[i].type =="checkbox" && frm.elements[i].name =="searchArea") {
+				frm.elements[i].checked=false;
+			  }
+			}
+		}
+	}else{
+		document.getElementById("scale_all").checked=false;
+		for(var i = 0; i < frm.elements.length; i++) {
+		  if (frm.elements[i].type =="checkbox" && frm.elements[i].name =="searchArea" && frm.elements[i].checked == true) {
+			checkCount++;
+		  }
+		}
+		var num = 3;
+		if(checkCount == num){
+			document.getElementById("scale_all").checked=true;
+		}
+	}
+}
+
+/**
+ * 검색 기간 셋팅
+ */
+function setPeriod(type){
+	var now = new Date();
+    var nowDate = now.getFullYear();
+	var setDate = "";
+	var frm = document.searchDetail;
+
+	if((now.getMonth() + 1) > 9){
+		nowDate += "-" + (now.getMonth() + 1);
+	}else{
+		nowDate += "-0" + (now.getMonth() + 1);
+	}
+	if((now.getDate()) > 9){
+		nowDate += "-" + now.getDate();
+	}else{
+		nowDate += "-0" + now.getDate();
+	}
+
+	if(type == "all"){
+		frm.searchStartDate.value = "";
+		frm.searchEndDate.value = "";
+	}else if(type == "week"){
+		now.setDate(now.getDate()-7);
+		setDate = now.getFullYear();
+		if((now.getMonth() + 1) > 9){
+			setDate += "-" + (now.getMonth() + 1);
+		}else{
+			setDate += "-0" + (now.getMonth() + 1);
+		}
+		if((now.getDate()) > 9){
+			setDate += "-" + now.getDate();
+		}else{
+			setDate += "-0" + now.getDate();
+		}
+		frm.searchStartDate.value = setDate;
+		//frm.searchEndDate.value = "";
+		frm.searchEndDate.value = nowDate;
+	}else if(type == "3month"){
+		now.setMonth(now.getMonth()-1);
+		setDate = now.getFullYear();
+		if((now.getMonth() + 1) > 9){
+			setDate += "-" + (now.getMonth() + 1);
+		}else{
+			setDate += "-0" + (now.getMonth() + 1);
+		}
+		if((now.getDate()) > 9){
+			setDate += "-" + now.getDate();
+		}else{
+			setDate += "-0" + now.getDate();
+		}
+		frm.searchStartDate.value = setDate;
+		//frm.searchEndDate.value = "";
+		frm.searchEndDate.value = nowDate;
+	}else if(type == "6month"){
+		now.setMonth(now.getMonth()-6);
+		setDate = now.getFullYear();
+		if((now.getMonth() + 1) > 9){
+			setDate += "-" + (now.getMonth() + 1);
+		}else{
+			setDate += "-0" + (now.getMonth() + 1);
+		}
+		if((now.getDate()) > 9){
+			setDate += "-" + now.getDate();
+		}else{
+			setDate += "-0" + now.getDate();
+		}
+		frm.searchStartDate.value = setDate;
+		//frm.searchEndDate.value = "";
+		frm.searchEndDate.value = nowDate;
+	}else if(type == "choice"){
+		frm.searchStartDate.value = "";
+		frm.searchEndDate.value = "";
+	}
+}
+
+/**
+ * 내가 찾은 검색어 쿠키 셋팅
+ */
+function setSearchCookie(searchQuery, c_name){
+	var cookieValue = searchQuery ;
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	
+	for (i=0;i<ARRcookies.length;i++)
+	  {
+	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+	  x=x.replaceAll(/^\s+|\s+$/gi,"");
+	
+	  if (x==c_name)
+	  {
+	    var tempValue = unescape(y);
+		if(tempValue != ""){
+			var tempArr = tempValue.split(":&");
+
+			for(var j=0; j<tempArr.length; j++){
+				if(tempArr[j] == searchQuery){
+					tempValue = tempValue.replace(":&"+searchQuery + ":&", ":&");
+					if(tempValue == searchQuery){
+						tempValue = "";
+					}
+					if(tempValue.indexOf(searchQuery + ":&") == 0){
+						tempValue = tempValue.substr(searchQuery.length+2, tempValue.length);
+					}
+					
+					if( (tempValue.length - tempValue.lastIndexOf(":&"+searchQuery) ) == (searchQuery.length+2) ){
+
+						tempValue = tempValue.substr(0, tempValue.lastIndexOf(":&"+searchQuery) );
+					}
+					
+				 }
+			}
+			cookieValue = cookieValue+ ":&" + tempValue;
+		}
+	  }
+	}
+	setCookie(c_name, cookieValue,"1");
+}
+
+/**
+ * 내가 찾은 검색어 쿠키 생성/삭제
+ */
+function setCookie(c_name,value,exdays)
+{
+	var type = true;
+	if(exdays < 0) {
+		var str = "모두 삭제하시겠습니까?";
+		type = confirm(str);
+	}
+	
+	if(type == true){
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value=escape((value)) + "; path=/; " +((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	
+		document.cookie=c_name + "=" + c_value;
+		if(exdays < 0) {
+			$(".right_recent").hide();
+		}
+	}
+}
+
+/**
+ * 내가 찾은 검색어 쿠키 확인
+ */
+function getCookie(cName) {
+	cName = cName + '=';
+    var cookieData = document.cookie;
+    var start = cookieData.indexOf(cName);
+    var cValue = '';
+    if(start != -1){
+         start += cName.length;
+         var end = cookieData.indexOf(';', start);
+        if(end == -1)end = cookieData.length;
+         cValue = cookieData.substring(start, end);
+    }
+    return unescape(cValue);
+}
+
+/**
+ * 내가 찾은 검색어 쿠키 개별 삭제
+ */
+function goDeleteCookie(num, c_name){
+	var delkeyword = "";
+	var cookieValue = "" ;
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	
+	for (i=0;i<ARRcookies.length;i++)
+	  {
+	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+	  x=x.replace(/^\s+|\s+$/g,"");
+	
+	  if (x==c_name)
+	  {
+	    var tempValue = unescape(y);
+		if(tempValue != ""){
+			var tempArr = tempValue.split(":&");
+			var tempVal = "";
+
+			for(var j=0; j<tempArr.length; j++){
+				if(j != num){
+					tempVal = tempArr[j];
+					if(cookieValue !=""){
+						cookieValue = cookieValue+ ":&" + tempVal;
+					}else{
+						cookieValue = tempVal;
+					}
+				}else{
+					delkeyword = tempArr[j];
+				}
+			}
+		}
+	  }
+	}
+	
+	var type = true;
+	var str = "'"+delkeyword+"' 검색어를 삭제하시겠습니까?";
+	type = confirm(str);
+	if(type ==true){
+		setCookie(c_name, cookieValue,"1");
+		displayCookie(c_name);
+	}
+}
+
+/**
+ * 내가 찾은 검색어 노출
+ */
+function displayCookie(c_name){
+	var cookieData = getCookie(c_name);
+	var cookieDiv = document.getElementById("my_sch");
+	var cookieArr = cookieData.split(":&");
+	var cookieKey = "";
+	var text = "";
+	var tempCount = cookieArr.length;
+	if(tempCount > 5){ tempCount = 5;}
+	if(cookieData == "") { tempCount = 0;}
+	
+	var cookieNm = "qnetSearch";
+	
+		if(tempCount > 0){
+			text +="<b class=\"contTit1\">내가 찾은 검색어</b>";
+			text +="<div class=\"tagArea\">";
+			for(var i=0; i <tempCount; i++ ){
+				cookieKey = cookieArr[i].replace(/"/g, "&#34;").replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+				if(cookieArr[i] != ''){
+			text +="			<p title=\""+cookieKey+"\" >";
+			text +="               <span onclick=\"goHotSearch('"+cookieKey+"');\" >"+_xssReplace(cookieArr[i]) + "</span>";
+			text +="			   <button type=\"button\" onclick=\"goDeleteCookie('"+ i +"','"+ c_name +"');\" class=\"btn_close\"><span class=\"scHdn\">지우기</span></button>";
+			text +="            </p>";
+				}
+			}
+			text +="</div>"
+			text +=" <button type=\"button\" class=\"btnDel\"  onclick=\"goAllDeleteCookie('"+ c_name +"');\">전체삭제</button>";
+			
+		}
+	
+	cookieDiv.innerHTML = text;
+	
+}
+
+/**
+ * 내가 찾은 검색어 쿠키 전체 삭제
+ */
+function goAllDeleteCookie(c_name){
+	var type = true;
+	var str = "내가 찾은 검색어를 전체 삭제하시겠습니까?";
+	type = confirm(str);
+	if(type ==true){
+		setCookie(c_name, "","1");
+		displayCookie(c_name);
+	}
+}
+
+function _xssReplace(str){
+	
+	var _str = str;
+	
+		_str = _str.replace(/&/ig, "&amp;");
+		_str = _str.replace(/</ig, "&lt;");
+		_str = _str.replace(/>/ig, "&gt;");
+		_str = _str.replace(/\(/ig, "&#40;");
+		_str = _str.replace(/\)/ig, "&#41;");
+		_str = _str.replace(/"/ig, "&quot;");
+		_str = _str.replace(/'/ig, "&#x27;");
+		_str = _str.replace(/\//ig, "&#x2f;");
+	
+	return _str;
+	
+}
+
+function XSSCheck(str) {
+	var _str = str;
+	
+	_str = _str.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+	_str = _str.replace(/</ig, "&lt;");
+	_str = _str.replace(/>/ig, "&gt;");
+	
+	return _str;
+}
+
+/*
+function setTarget(target){
+	$(".target").prop("checked", false);
+	alert($(this).prop("checked"));
+	$(this).prop("checked", true);
+	$(this).attr("checked", true);
+	alert($(this).prop("checked"));
+	$("#detailSearchMenu").val(target);
+}
+*/
+$(document).ready(function(){
+	$(".target").click(function(){
+		$(".target").prop("checked", false);
+		$(this).prop("checked", true);
+		$("#detailSearchMenu").val($(this).val());
+	});
+});

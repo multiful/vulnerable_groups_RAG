@@ -4,7 +4,7 @@
 > **최종 수정일**: 2026-04-03  
 > **문서 역할**: 루트 문서 사용 가이드 / 문서 탐색 안내 문서  
 > **문서 우선순위**: reference  
-> **연관 문서**: README.md, CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md, DEV_LOG.md  
+> **연관 문서**: README.md, PROJECT_SUMMARY.md, CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md, DEV_LOG.md  
 > **참조 규칙**: 어떤 문서를 먼저 열어야 할지 헷갈릴 때 이 문서를 먼저 확인한다.
 
 ---
@@ -45,6 +45,7 @@
 | 문서명 | 역할 한 줄 요약 | 언제 여는가 |
 |---|---|---|
 | `README.md` | 프로젝트 입구 문서 | 프로젝트를 처음 열었을 때 |
+| `PROJECT_SUMMARY.md` | 전체 요약·청킹 개요·긴 기법 문서 위치 | 한 페이지로 구조를 잡고 싶을 때 |
 | `CHANGE_CONTROL.md` | 문서 수정 규칙과 작업 절차 | 구현 전에, 문서 수정 전에 |
 | `PRD.md` | 현재 해결해야 하는 제품 문제와 범위 | 무엇을 만들지 확인할 때 |
 | `SYSTEM_ARCHITECTURE.md` | 시스템 계층, 책임, 온라인/오프라인 흐름 | 어떻게 나눠서 만들지 볼 때 |
@@ -69,8 +70,9 @@
 먼저 아래 순서로 연다.
 
 1. `README.md`
-2. `PRD.md`
-3. `SYSTEM_ARCHITECTURE.md`
+2. `PROJECT_SUMMARY.md` (한 페이지 요약)
+3. `PRD.md`
+4. `SYSTEM_ARCHITECTURE.md`
 
 ---
 

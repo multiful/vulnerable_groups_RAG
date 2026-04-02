@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+
+body{fost-size:12px;}
+p, .second_02, .please_con, .con_left, .con_right, .left1_all, .under2_list, .first1_list{line-height:1.6; font-size:12px;}
+table, thead, tbody, tr, th, td{font-size:12px;}
+#sub_tab h3{font-size:14px;}
+#sub_tab .tab_bg { padding-top:30px; border-bottom: 1px solid #f4301e; }
+
+/*text_list_01 종목안내(국가공인회계관리자격시험)*/
+.red_bold{
+	font-size:14px; 
+	padding-bottom:2px;
+	color:#000;
+	font-weight:bold;
+}				
+
+
+.sub1_con{padding-left:5px;}
+#subContent{
+			border-left:1px solid #E2E1DD;
+			width:800px;
+			overflow:hidden;
+			position:relative;
+			font-size:12px;
+}
+
+.con_list{
+			width:781px; 
+			height:431px; 
+			background-color:#fff3f1;
+}
+		
+.con_left{	
+			width:270px;
+			float:left;
+			margin-left:10px;
+			margin-bottom:25px;
+}
+.con_left li{
+			margin-top:20px;
+			display:block;
+}
+
+
+
+.con_right{
+			float:left;
+			margin-left:90px;
+}
+
+.con_right li{
+			margin-top:19px;
+			display:block;
+}
+.pricec{padding-top:29px;}
+.prob_num{padding-top:2px;}
+.pass_line{padding-top:1px;}
+
+
+
+.price2{padding-top:1px;}
+.prob_2{padding-top:14px;}
+.pass_line2{padding-top:2px;}
+
+
+.right_marginn{padding-top:0px;}
+
+.text_name{
+		font-size:14px;
+		font-weight:bold;
+}
+
+.con_under{
+			clear:both;
+			margin-top:5px;
+			display:block;
+			overflow:hidden;
+}
+.con_under li{float:left;}
+.con_under li:first-child{margin-left:10px;}
+.con_under li:last-child{padding-left:6px;}
+.clicka{font-weight:bold;}
+.con_under .num_rhd{
+					display:block; 
+					margin-left:215px;
+}
+
+.font_s{font-size:11px; font-weight:bold;}
+
+
+#last_tablee1 tr td{text-align:left;}
+#last_tablee1 tr td:first-child{text-align:center;}
+
+#last_tablee2 tr td{text-align:left;}
+#last_tablee2 tr td:first-child{text-align:center;}
+
+
+/*test_date 시험일정*/
+
+.first{
+	padding:0 0 25px 0;
+}
+
+.middle{margin-top:5px;}
+.middle_name{margin-top:18px;}
+.middle table th{background:#FEEBED;}
+.prev{
+	position:absolute;
+	bottom:175px; left:54px;
+	display:inline;
+}
+.last ul{float:left;}
+.last ul li{float:left;}
+.more{margin-left:15px;}
+.last_two{margin-left:110px;}
+.table_color{}
+.2015_ca{padding-bottom:10px; border:1px solid red;}
+.add_fonts{
+			padding-bottom:10px;
+			padding-top:7px;
+			display:inline-block;
+			font-size:11px;}
+.middle_2{padding-top:10px;}
+.2016_1{padding-top:10px; border:1px solid red;}
+
+/*edu_place 교육기관*/
+
+.rocal_btn li{
+				float:left;
+				padding-left:5px;
+}
+.rocal_btn li:first-child{padding-left:0px;}
+.rocal_btn{
+			margin-top:15px;
+			padding-top:15px;
+			border-top:1px solid #e2e1dd;
+}
+.edu_sub{margin-bottom:15px;}
+.edu_table{margin-top:10px;}
+
+
+
+/*rule 응시규정*/
+
+.rull_list{
+			overflow:hidden;
+			background-color:#f2f2f2;
+			padding-top:9px;
+			padding-left:10px;
+			height:86px;
+}
+.rull_list li{
+			float:left;
+			padding-left:10px;
+			padding-right:10px;
+}
+.rull_first_list{margin-left:10px;}			
+.rull_list li:first-child{padding:0;}
+.bar:before{
+			content:"|";
+			padding-right:10px;
+}
+.br{clear:both;}
+.rull_big{
+		clear:both;
+		padding-top:18px;
+		padding-left:18px;
+}
+
+.rull_01_con{
+			padding-left:18px;
+			font-size:12px;
+			padding-top:13px;
+}
+
+
+
+
+/*book_info 교재안내*/
+
+.bold{font-weight:bold;}
+.book_total{
+			margin-top:10px; 
+			overflow:hidden;
+			display:block;
+}
+.book_total > li{
+				overflow:hidden;
+				padding:35px 10px;
+}
+.book_total > li img{
+					float:left; 
+					height:133px; 
+					padding-right:10px;
+					display:block;
+}
+
+.book_total li ul{
+				float:right; 
+				width:560px;			
+				padding-left:35px; 
+				display:block;
+}
+
+.books_con_name{
+				margin-top:25px;
+				padding:2px 0 0 15px;
+				width:213px;
+				height:30px;
+				font-size:14px;
+}
+.books_con{
+			padding-left:5px;
+			padding-bottom:30px;
+}
+.book_btn{
+		clear:both;
+		text-align:center;
+		font-size:11px;
+		padding-top:50px;
+}
+.book_btn img{padding-bottom:10px;}
+
+
+
+
+/*first_list 우대사항*/
+
+
+.first_list_con{
+				text-align:left;
+				padding-bottom:25px;
+				padding-top:20px;
+				height:280px;
+}
+
+
+.first_piclist1{position:absolute;
+				top:375px; left:60px;
+				line-height:1.6;}
+.first_piclist2{position:absolute;
+				top:375px; right:215px;
+				line-height:1.6;}
+.first_name_list span{padding-left:6px;}
+.first_name_list span:last-child{padding-left:158px;}
+.school_accept{
+				padding-top:17px;
+				padding-left:5px;
+}
+.school_first{
+				padding-bottom:10px;
+				padding-top:20px;
+}
+.school_first span{font-size:11px;}
+.school_second{padding-top:5px;}
+.school_second ul{
+					margin-bottom:20px;
+				   border:1px solid red;
+}
+.school_second ul li{float:left;}
+.school_last{
+			padding-top:17px;
+			margin-top:30px;
+			clear:both;
+			padding-left:5px;
+}
+.please{margin-bottom:20px;}
+.please_con span{font-size:11px;}
+.please_con{margin-top:10px;}
+.second_01{
+			float:left;
+			padding-right:10px;
+}
+.second_02{padding-bottom:95px;}
+.second_02 span{font-size:11px;}
+
+
+.center_align{
+	text-align:left !important;
+	padding-left:10px !important;
+}
+
+.red{
+	color:red;
+	margin-top:30px;
+}
+
+.blue_color{color:blue;}
+
+.cancel_rule{
+			text-align:left !important;
+			padding-left:10px !important;
+}
+
+/*guide(수험자 가이드)*/
+
+.guide_list{
+			text-align:center;	
+			position:relative;
+}
+.guide_btn{
+			position:absolute;
+			bottom:385px; 
+			right:270px;
+}
+
+.1_list ul > li{border:1px solid red;}
+
+
+/*text_list_02 회계전문가자격시험*/
+
+.text_first1{padding-bottom:20px;}
+
+.left1_list{
+			width:310px;
+			float:left; 
+			padding-top:20px;
+			padding-left:5px;
+			margin-bottom:30px;
+}
+
+.right2_list li{padding-bottom:15px;}
+.right2_list li:first-child{padding-bottom:39px;}
+.right2_list li:last-child{padding-bottom:0;}
+
+.left1_list li{padding-bottom:20px;}
+.left1_list li:first-child{padding-bottom:20px;}
+.left2_list li:last-child{padding-bottom:0;}
+
+.right2_list{
+			float:left;
+			padding-top:20px;
+			padding-left:90px;
+}
+.under2_list{
+			padding-top:10px;
+}			
+			
+.under2_list{clear:both;}
+.under2_list li{
+	float:left;
+}
+.under2_1{padding-left:5px;}
+.under2_2{padding-left:183px;}
+
+.center_align{
+			text-align:center;
+			 padding-left:200px;
+}
+.center_all{
+	text-align:center;
+	margin-bottom:20px;
+}
+
+

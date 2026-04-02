@@ -1,0 +1,234 @@
+function popReturn() {
+  return true;
+}
+
+var layerPop = {	
+	focus : function(layerId) {
+		var layer = $('#' + layerId);
+		//레이어 팝업 포커스 및 웹접근성 처리(레리어 안의 포커스 처리위한 사전작업) : 내부사이트이기 때문에 필요 없을 수도 있는 소스
+		if(!layer.find('.popup').hasClass('pop_focus')){
+			
+			//layer.find('.popup').prepend('<a href="javascript:;" class="pop_focus waTxt start">팝업 컨텐츠 시작</a>');
+			//layer.find('.popup').append('<a href="javascript:;" class="pop_focus waTxt last">팝업 컨텐츠 끝</a>');
+						
+		}
+		layer.find('.popup').attr('tabindex', '0');
+
+		var elCont = layer.children('.popup');
+		var elContTabbable = elCont.find("button:not([disabled]), input:not([type='hidden'], [disabled]), select:not([disabled]), iframe, textarea:not([disabled]), [href], [tabindex]:not([tabindex='-1'])");
+		var elContTabbableFirst = elContTabbable && elContTabbable.first();
+		var elContTabbableLast = elContTabbable && elContTabbable.last();
+
+		if (elContTabbable.length > 0) {
+			elContTabbableFirst.focus().on('keydown', function(event) {
+			    // 레이어 열리자마자 초점 받을 수 있는 첫번째 요소로 초점 이동
+			    if (event.shiftKey && (event.keyCode || event.which) === 9) {
+			        // Shift + Tab키 : 초점 받을 수 있는 첫번째 요소에서 마지막 요소로 초점 이동
+			        event.preventDefault();
+			        elContTabbableLast.focus();
+			    }
+			});
+		} else {
+			elCont.attr('tabindex', '0').focus().on('keydown', function(event){
+			    if ((event.keyCode || event.which) === 9) event.preventDefault();
+			    // Tab키 / Shift + Tab키 : 초점 받을 수 있는 요소가 없을 경우 레이어 밖으로 초점 이동 안되게
+			});
+		}
+
+		elContTabbableLast.on('keydown', function(event) {
+		    if (!event.shiftKey && (event.keyCode || event.which) === 9) {
+		        // Tab키 : 초점 받을 수 있는 마지막 요소에서 첫번째 요소으로 초점 이동
+		        event.preventDefault();
+		        elContTabbableFirst.focus();
+		    }
+		});
+	}
+};
+
+
+const uiInfo = {
+	mo : {
+		alert : function(contents, callback){
+			this.alertOpen(contents, callback);
+		},
+		confirm : function(contents, yesCallback, noCallback){
+			this.confirmOpen('confirm1', contents, yesCallback, noCallback);
+		},
+		confirm2 : function(contents, yesCallback, noCallback){
+			this.confirmOpen('confirm2', contents, yesCallback, noCallback);
+		},
+		bottom : function(contents1, contents2, yesCallback, noCallback) {
+			this.bottomOpen('1', '', contents1, contents2, yesCallback, noCallback);
+		},
+		bottom2 : function(title, contents1, contents2, yesCallback, noCallback) {
+			this.bottomOpen('2', title, contents1, contents2, yesCallback, noCallback);
+		},
+		/**
+		 * confirm
+		 *
+		 * @date 2022.07.18
+		 * @param1 : type : 1 : 버튼 [확인][취소], 2: 버튼 [예][아니오]
+		 * @param2 : contents : confirm의 내용 : 경로메세지(ex. 이름은 필수값 입니다.)
+		 * @param3 : yesCallback : 함수 : confirm의 '예' 버튼 클릭 후 전달되는 콜백
+		 * @param4 : noCallback : 함수 : confirm의 '아니오' 버튼 클릭 후 전달되는 콜백
+		 */
+		confirmOpen : function(type, contents, yesCallback, noCallback){
+			if (contents.indexOf('\n') >= 0) {
+				contents = contents.replace(/\n/gi, '<br>');
+			} else if (!contents) {
+				contents = "";
+			}
+
+			let shownLength = $(`[data-Type="moAlert"]`).length;
+			let html = this.alertHtml(type, 'globalConfirm' + shownLength, contents);
+			let drawAlertId = $(html).attr('id');
+
+			/**
+			 *  2중 팝업시 마지막 팝업 상위 지정
+			 **/
+			var layerWrapCnt = 0;
+			var zIdx = 57001;
+			if (!!event) {
+				layerWrapCnt = $(event.target).parents('div.popWrap').length;
+				if (layerWrapCnt > 0) {
+					zIdx = zIdx + 1;
+				}
+			}
+
+			$('body').append(html);
+			//$('html, body').addClass('popOn');	//전체레이아웃(부모창) 스크롤 막기
+			//$(`#${drawAlertId}`).css('z-index', zIdx ).attr({'data-idx': zIdx, 'tabindex': -1}).fadeIn().addClass('nowOpen').focus();	//레이어 팝업 show
+
+			//'아니오', '취소' 버튼 이벤트
+			$(`#${drawAlertId}`).find('.globalConfirmNoBtn').off('click').on('click', function(e){
+				e.preventDefault();
+				uiInfo.mo.close(drawAlertId, noCallback);
+				return false;
+			});
+			//'예', '확인' 버튼 이벤트
+			$(`#${drawAlertId}`).find('.globalConfirmYesBtn').off('click').on('click', function(e){			
+				e.preventDefault();
+				uiInfo.mo.close(drawAlertId, yesCallback);
+				return false;
+			});
+
+			layerPop.focus(drawAlertId);
+			return false;
+		},
+		/**
+		 * alert
+		 *
+		 * @date 2022.07.18
+		 * @param1 : title : alert의 제목 : 없을 경우 ''
+		 * @param2 : contents : alert의 내용 : 경로메세지(ex. 이름은 필수값 입니다.)
+		 * @param3 : callback함수 : alert의 '확인' 버튼 클릭 후 전달되는 콜백
+		 */
+		alertOpen : function(contents, callback){
+			if (!!contents && contents.indexOf('\n') >= 0) {
+				contents = contents.replace(/\n/gi, '<br>');
+			} else if (!contents) {
+				contents = "";
+			}
+
+			let shownLength = $(`[data-Type="moAlert"]`).length;		
+			
+			let html = this.alertHtml('alert', 'globalAlert' + shownLength, contents);
+			let drawAlertId = $(html).attr('id');
+			
+			/**
+			 *  2중 팝업시 마지막 팝업 상위 지정
+			 **/
+			var layerWrapCnt = 0;
+			var zIdx = 57001;
+			if (!!event) {
+				layerWrapCnt = $(event.target).parents('div.popWrap').length;
+				if (layerWrapCnt > 0) {
+					zIdx = zIdx + 1;
+				}
+			}
+
+			$('body').append(html);
+
+			//확인버튼 이벤트
+			$(`#${drawAlertId} .globalAlertBtn`).off('click').on('click', function(e){			
+				e.preventDefault();
+				uiInfo.mo.close(drawAlertId, callback);
+				return false;
+			});
+
+			//'아니오', '취소' 버튼 이벤트
+			$(`#${drawAlertId} .globalBottomNoBtn`).off('click').on('click', function(e){
+				e.preventDefault();
+				uiInfo.mo.bottomClose(drawAlertId, noCallback);
+				return false;
+			});
+			//'예', '확인' 버튼 이벤트
+			$(`#${drawAlertId} .globalBottomYesBtn`).off('click').on('click', function(e){
+				e.preventDefault();
+				uiInfo.mo.bottomClose(drawAlertId, yesCallback);
+				return false;
+			});
+			layerPop.focus(drawAlertId);
+			return false;
+		},
+		alertHtml : function(type, id, contents){		
+			var html = "";
+				html += '<div class="layer_pop" id="'+id+'" data-type="moAlert">\n';
+				html += '	<div class="dim"></div>\n';
+				html += '		<div class="layer_wrap">\n';
+				html += '			<div class="cont">\n';
+				html += '			<p>'+contents+'</p>\n';
+				html += '			</div>\n';
+				
+				html += '			<div class="btn_area">\n';
+				
+				if (type == 'alert') {
+					html += '				<a href="#" class="btn_blue globalAlertBtn">확인</a>\n';
+				} else if (type == 'confirm1') {
+					html += '				<a href="#" class="btn_gray globalConfirmNoBtn">취소</a>\n';
+					html += '				<a href="#" class="btn_blue globalConfirmYesBtn">확인</a>\n';
+				} else if (type == 'confirm2') {
+					html += '				<button type="button" class="btn_g globalConfirmNoBtn">아니오</button>\n';
+					html += '				<button type="button" class="btn_p globalConfirmYesBtn">예</button>\n';
+				}
+				html += '			</div>\n';
+				html += '			</div>\n';
+				html += '		</div>';
+			return html;
+		},
+		close : function(layerId, callback){
+			$('#' + layerId).remove();
+			var popLength = $('body .popWrap.nowOpen').length;
+			if (popLength < 1) {
+				$('html, body').removeClass('popOn');
+			}
+			if($(event.target).get(0).nodeName.toLowerCase() != "button"){
+				$(event.target).get(0).parentNode.focus();
+			} else {
+				$(event.target).focus();
+			}
+			
+			if(typeof callback === "function") {
+				callback();
+			}else{
+				popReturn();
+			}
+		}
+	}
+}; 
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};

@@ -1,0 +1,263 @@
+if(typeof NetFunnel == "object"){
+
+	//blockSkin
+	NetFunnel.SkinUtil.add('blockSkin',{
+		prepareCallback:function(){
+		},
+		updateCallback:function(percent,nwait,totwait,timeleft){
+		},
+		htmlStr:'<div id="NetFunnel_Skin_Top" style="background-color:white;border:1px solid black; width:300px"> \
+			<div style="text-align:right;padding-top:5px;padding-right:5px;;text-align:center;"> \
+				<div style="text-align:center;font-size:9pt;color:black"><b><span style="color:black"> 해당 상품은 조기 소진되었습니다. </span> \
+				<div style="text-align:center;font-size:9pt;color:black"><b><span style="color:black"> 10:00 부터 서비스 가능합니다. </span> \
+					<br><br><br><span onclick="NetFunnel_sendStop();" style="cursor:pointer">[닫기]</span> </b><br><br> \
+				</div> \
+			</div>'
+	},'normal');
+
+	//ipBlockSkin
+	NetFunnel.SkinUtil.add('ipBlockSkin',{
+		prepareCallback:function(){
+		},
+		updateCallback:function(percent,nwait,totwait,timeleft){
+		},
+		htmlStr:'<div id="NetFunnel_Skin_Top" style="background-color:white;border:1px solid black; width:300px"> \
+			<div style="text-align:right;padding-top:5px;padding-right:5px;;text-align:center;"> \
+				<div style="text-align:center;font-size:9pt;color:black"><b><span style="color:black"> 비정상적인 시도가 감지되어 접근을 차단합니다!!! </span> \
+					<br><br><br><span onclick="NetFunnel_sendStop();" style="cursor:pointer">[닫기]</span> </b><br><br> \
+				</div> \
+			</div>'
+	},'normal');
+
+	//skin1
+	NetFunnel.SkinUtil.add('skin1',{
+		prepareCallback:function(){
+			var progress_print = document.getElementById("Progress_Print");
+			progress_print.innerHTML="0 % (0/0) - 0 sec";
+		},
+		updateCallback:function(percent,nwait,totwait,timeleft){
+			var progress_print = document.getElementById("Progress_Print");
+			var prog=totwait - nwait;
+			progress_print.innerHTML=percent+" % ("+prog+"/"+totwait+") - "+timeleft+" sec";
+		},
+		/*htmlStr:'<div id="NetFunnel_Skin_Top" style="background-color:#ffffff;border:1px solid #9ab6c4;width:300px;height:218px"> \
+					<div style="text-align:right;padding-top:5px;padding-right:5px;;text-align:center;"> \
+						<img style="height:16px;color:black;font-size:11px;" border=0 src="data:image/png;base64,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">  \
+						<div style="text-align:left;font-size:9pt;color:#001f6c;padding-left:10px;"> \
+							<h2>skin1</h2> \
+							<b><span style="color:#013dc1">접속대기 중!!!!</span>..</b><br> \
+							- 본인 앞 대기자수 : <span id="NetFunnel_Loading_Popup_Count"></span>명<br> \
+							- 본인 뒤 대기자수 : <span id="NetFunnel_Loading_Popup_NextCnt"></span>명<br> \
+							- 대기시간 : <span id="NetFunnel_Loading_Popup_TimeLeft"></span><br> \
+							<div id="Progress_Print" \
+								style="text-align:center;padding:5px;font:bold 20px Trebuchet MS,굴림,Gulim;color:gray"></div> \
+						</div> \
+						<div style="padding:10px;;vertical-align:center;width:280px" id="NetFunnel_Loading_Popup_Progressbar"> \
+						</div> \
+						<span onclick="NetFunnel.countdown_stop()" style="cursor:pointer">[중지]</span> \
+					</div> \
+				</div>'*/
+		htmlStr:'<div id="NetFunnel_Loading_Popup" style="display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); visibility: visible; z-index: 32002; border: 1px solid #ddd;box-shadow: 2px 3px 10px rgba(0,0,0,0.15);"> \
+			<div id="NetFunnel_Skin_Top" style="position:relative;width:420px;overflow-y: auto;overflow-x:hidden;padding:60px 0 0 0;font-family:Nanum Gothic;background-color:#ffffff;"> \
+		    <div style="padding-top:10px;"> \
+		      <strong style="position:absolute;left:0;top:0;display:block;width:100%;height:60px;padding: 0 20px; font-weight:normal;"> \
+		        <p style="display:flex;align-items: center; justify-content: space-between; height:100%;text-align:center;font-size:20px;color:#333;border-bottom: 1px solid #ddd;"> \
+					<span><img src="/resource/kpc/img/common/kpc_q_logo.png" alt="kpc" style="width:80px;padding-top: 10px;"></span>	 \
+					<span><img id="NetFunnel_Countdown_Stop" src="/resource/kpc/img/popup/close.svg" alt="close-icon" style="padding-top: 10px; width: 24px;cursor: pointer;"></span> \
+				</p> \
+		      </strong> \
+			  <div><img src="/resource/kpc/img/popup/waiting-img.png" width=100 height=100 alt="waiting-img" style="display:block;margin:30px auto;"></div> \
+			  <p style="text-align: center; font-size: 24px;">현재 접속량이 많아</p> \
+			  <p style="text-align: center; font-size: 24px; line-height: 38px;">잠시 <span style="font-weight:bold;font-size: 30px;color: #EE2C49;">대기중</span>입니다.</p> \
+			  <p style="padding: 15px 0 20px 0;text-align: center;font-size: 18px;">조금만 기다려주세요.</p> \
+		      <div id="Progress_Print" style="display:none;position:absolute;left:0;top:100px;width:100%;text-align:center;font-size:17px;color:gray">0 % (0/1) - 1 sec</div> \
+		    </div> \
+			<div style="padding: 5px 40px 5px 40px; visibility: visible;background: #F9F9F9;"> \
+			<p style="display: flex; align-items: center; justify-content: space-between;padding:6px 0;font-size:18px;"> \
+				<span style="font-size:17px;">예상 대기 시간</span> \
+				<span id="NetFunnel_Loading_Popup_TimeLeft" style="font-weight:bold;"></span> \
+			</p> \
+			<p style="display: flex; align-items: center; justify-content: space-between;padding-bottom:10px;font-size:18px;"> \
+				<span style="font-size:17px;">대기 인원</span> \
+				<span  id="NetFunnel_Loading_Popup_Count" style="font-weight:bold;">번</span>\
+			</p> \
+			</div> \
+			<div style="padding: 5px 40px 5px 40px; visibility: visible;background: #F9F9F9;" id="NetFunnel_Loading_Popup_Progressbar"> \
+			</div> \
+		  <div style="padding:15px 0;background: #F9F9F9;"> \
+			<p style="font-size:14px;text-align: center;font-weight: bold;">다시 접속하시면 대기시간이 늘어나니 유의해주세요.</p> \
+			<p style="font-size:16px;text-align: center;">잠시만 기다리시면 자동 접속 됩니다.</p> \
+		  </div> \
+		  </div> \
+	</div>'
+
+	},'normal');
+	
+	NetFunnel.tstr = '<div id="NetFunnel_Loading_Popup" style="display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); visibility: visible; z-index: 32002; border: 1px solid #ddd;box-shadow: 2px 3px 10px rgba(0,0,0,0.15);"> \
+						<div id="NetFunnel_Skin_Top" style="position:relative;width:380px;overflow-y: auto;overflow-x:hidden;padding:60px 0 0 0;font-family:Nanum Gothic;background-color:#ffffff;"> \
+					    <div style="padding-top:5px;"> \
+					      <strong style="position:absolute;left:0;top:0;display:block;width:100%;height:60px;padding: 0 20px; font-weight:normal;"> \
+					        <p style="display:flex;align-items: center; justify-content: space-between; height:100%;text-align:center;font-size:20px;color:#333;border-bottom: 1px solid #ddd;"> \
+								<span><img src="/resource/kpc/img/common/kpc_q_logo.png" alt="kpc" style="width:80px;padding-top: 10px;"></span>	 \
+								<span><img id="NetFunnel_Countdown_Stop" src="/resource/kpc/img/popup/close.svg" alt="close-icon" style="padding-top: 10px; width: 24px;cursor: pointer;"></span> \
+							</p> \
+					      </strong> \
+						  <div><img src="/resource/kpc/img/popup/waiting-img.png" width=100 height=100 alt="waiting-img" style="display:block;margin:30px auto;"></div> \
+						  <p style="text-align: center; font-size: 24px;">현재 접속량이 많아</p> \
+						  <p style="text-align: center; font-size: 24px; line-height: 38px;">잠시 <span style="font-weight:bold;font-size: 30px;color: #EE2C49;">대기중</span>입니다.</p> \
+						  <p style="padding: 5px 0 10px 0;text-align: center;font-size: 18px;">조금만 기다려주세요.</p> \
+					      <div id="Progress_Print" style="display:none;position:absolute;left:0;top:100px;width:100%;text-align:center;font-size:17px;color:gray">0 % (0/1) - 1 sec</div> \
+					    </div> \
+						<div style="padding: 5px 40px 5px 40px; visibility: visible;background: #F9F9F9;"> \
+						<p style="display: flex; align-items: center; justify-content: space-between;padding:6px 0;font-size:18px;"> \
+							<span style="font-size:17px;">예상 대기 시간</span> \
+							<span id="NetFunnel_Loading_Popup_TimeLeft" style="font-weight:bold;"></span> \
+						</p> \
+						<p style="display: flex; align-items: center; justify-content: space-between;padding-bottom:10px;font-size:18px;"> \
+							<span style="font-size:17px;">대기 인원</span> \
+							<span  id="NetFunnel_Loading_Popup_Count" style="font-weight:bold;"></span>번 \
+						</p> \
+						</div> \
+						<div style="padding: 5px 40px 5px 40px; visibility: visible;background: #F9F9F9;" id="NetFunnel_Loading_Popup_Progressbar"> \
+						</div> \
+					  <div style="padding:5px 0;background: #F9F9F9;"> \
+						<p style="font-size:14px;text-align: center;font-weight: bold;">다시 접속하시면 대기시간이 늘어나니 유의해주세요.</p> \
+						<p style="font-size:16px;text-align: center;">잠시만 기다리시면 자동 접속 됩니다.</p> \
+					  </div> \
+					  </div> \
+				</div>';
+	NetFunnel.SkinUtil.add('skin1',{htmlStr:NetFunnel.tstr},'mobile');
+	
+	//skin2
+    NetFunnel.SkinUtil.add('skin2',{ 
+        prepareCallback:function(){
+            var progress_print = document.getElementById("Progress_Print");
+            progress_print.innerHTML="0 % (0/0) - 0 sec";
+        },
+        updateCallback:function(percent,nwait,totwait,timeleft){
+            var progress_print = document.getElementById("Progress_Print");
+            var prog=totwait - nwait;
+            progress_print.innerHTML=percent+" % ("+prog+"/"+totwait+") - "+timeleft+" sec";
+        },
+        htmlStr:
+        	/*'<div id="NetFunnel_Skin_Top" class="modal" tabindex="-1" style="width:550px">' +
+			'<div class="modal-header">' +
+				'<h3>KPC자격 홈페이지 접속안내</h3>'+
+			'</div>' +
+			'<div class="modal-body">' +
+				'<p>대기 순서에 따라 <span style="color:#ff4a1a;">자동 접속</span>됩니다.</p> ' +
+				'<p>예상 대기 시간 : <span id="NetFunnel_Loading_Popup_TimeLeft" style="color:#ff4a1a;"></span>'
+					+ '&nbsp;/&nbsp;현재 대기순번 <span id="NetFunnel_Loading_Popup_Count" style="color:#ff4a1a;"></span>번째</p> '
+					+ '<p style="padding:25px 30px 0 30px;color:#455251;font-size:13px;line-height:20px;">- 새로고침, 뒤로가기 또는 재접속하시면 대기시간이 더 길어집니다.</p>'
+					+ '<div id="Progress_Print" style="display:none;position:absolute;left:0;top:100px;width:100%;text-align:center;font-size:17px;color:gray"></div> '
+					+ '<div style="padding:90px 0 0 30px;width:490px" id="NetFunnel_Loading_Popup_Progressbar"> </div>'+
+			'</div>'+
+			'<div class="modal-footer">' +
+				'<button id="NetFunnel_Countdown_Stop" >중지</button>' +
+			'</div>' +
+		'</div>'*/
+        
+        	'<div id="NetFunnel_Skin_Top" style="position:relative;width:550px;overflow-y: auto;overflow-x:hidden;padding:68px 0 72px 0;font-family:Nanum Gothic;background-color:#ffffff;border:2px solid #f63a58;"> '
+				+ '<div> '					
+					+ '<strong style="position:absolute;left:0;top:0;display:block;width:100%;height:68px;font-weight:normal;background:#f63a58;"> '
+					//+ '<h2 style="color:#ffffff;padding-left:10px;">KPC자격 홈페이지 접속안내</h2> '
+					+ '<p style="padding:24px 30px;margin:0 60px 0 0;text-align:left;font-size:20px;color:#fff;">KPC자격 홈페이지 접속안내</p></strong> '
+					+ '<p style="position:absolute;left:30px;width:100%;color:#333;font-size:20px">대기 순서에 따라 <span style="color:#ff4a1a;">자동 접속</span>됩니다.</p> '
+					+ '<p style="position:absolute;left:30px;top:100px;color:#333;font-size:17px">  예상 대기 시간 : <span id="NetFunnel_Loading_Popup_TimeLeft" style="color:#ff4a1a;"></span>'
+					+ '&nbsp;/&nbsp;현재 대기순번 <span id="NetFunnel_Loading_Popup_Count" style="color:#ff4a1a;"></span>번째</p> '
+					+ '<div style="position:absolute;left:0;bottom:0;width:100%;height:65px;background:#eff4f5;">'
+							+ '<div style="padding:25px 30px 0 30px;color:#455251;font-size:13px;line-height:20px;">- 새로고침, 뒤로가기 또는 재접속하시면 대기시간이 더 길어집니다.</div>'
+					+ '</div> '
+					+ '<div id="Progress_Print" style="display:none;position:absolute;left:0;top:100px;width:100%;text-align:center;font-size:17px;color:gray"></div> '
+				+ '</div> '
+				+ '<div style="padding:90px 0 0 30px;width:490px" id="NetFunnel_Loading_Popup_Progressbar"> </div>'
+				+ '<center><button id="NetFunnel_Countdown_Stop" style=" font-size: 15px;  padding: 5px 5px 5px 5px;color: #900; font-weight: bold;margin:15px;width:80px;">중지</button> </center>'
+			+ '</div>'
+			
+    },'normal'); 
+
+	//skin3 대기창에 동영상 추가
+	NetFunnel.tstr = ' \
+		<div id="NetFunnel_Skin_Top" style="background-color:#ffffff;border:1px solid #9ab6c4;width:620px;height:600px;-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px;"> \
+			<div style="background-color:#ffffff;border:6px solid #eaeff3;-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px;"> \
+				<div style="padding-top:0px;padding-left:25px;padding-right:25px"> \
+					<h2>skin3</h2> \
+					<div>  <iframe width="560" height="315" src="https://www.youtube.com/embed/6m4lR2oW_SI?rel=0;amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div> \
+					<div style="text-align:left;font-size:12pt;color:#001f6c;height:22px"><b>서비스 <span style="color:#013dc1">접속대기 중</span>입니다.</b></div> \
+					<div style="text-align:right;font-size:9pt;color:#4d4b4c;padding-top:4px;height:17px" ><b>PC 예상대기시간 : <span id="NetFunnel_Loading_Popup_TimeLeft" class="%H시간 %M분 %02S초^ ^false"></span></b></div> \
+					<div style="padding-top:6px;padding-bottom:6px;vertical-align:center;width:560px;height:20px" id="NetFunnel_Loading_Popup_Progressbar"></div> \
+					<div style="background-color:#ededed;width:560px;padding-bottom:8px;overflow:hidden"> \
+						<div style="padding-left:5px"> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;padding-top:10px;height:10px">고객님 앞에 <b><span style="color:#2a509b"><span id="NetFunnel_Loading_Popup_Count" class="'+NetFunnel.TS_LIMIT_TEXT+'"></span></span></b> 명, 뒤에 <b><span style="color:#2a509b"><span id="NetFunnel_Loading_Popup_NextCnt" class="'+NetFunnel.TS_LIMIT_TEXT+'"></span></span></b> 명의 대기자가 있습니다.  </div> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;height:10px">현재 접속 사용자가 많아 대기 중이며, 잠시만 기다리시면 </div> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;height:10px;">서비스로 자동 접속 됩니다.</div> \
+							<div style="text-align:center;font-size:9pt;color:#2a509b;padding-top:10px;"> \
+								<b>※ 재 접속하시면 대기시간이 더 길어집니다. <span id="NetFunnel_Countdown_Stop" style="cursor:pointer">[중지]</span> </b> \
+							</div> \
+						</div> \
+					</div> \
+					<div style="height:5px;"></div> \
+				</div> \
+			</div> \
+		</div>';
+	NetFunnel.SkinUtil.add('skin3',{htmlStr:NetFunnel.tstr},'normal');
+
+		//skin4
+    NetFunnel.SkinUtil.add('skin4',{ 
+        prepareCallback:function(){
+            var progress_print = document.getElementById("Progress_Print");
+            progress_print.innerHTML="0 % (0/0) - 0 sec";
+        },
+        updateCallback:function(percent,nwait,totwait,timeleft){
+            var progress_print = document.getElementById("Progress_Print");
+            var prog=totwait - nwait;
+            progress_print.innerHTML=percent+" % ("+prog+"/"+totwait+") - "+timeleft+" sec";
+        },
+        htmlStr:
+			'<div id="NetFunnel_Skin_Top" style="position:relative;width:550px;height:150px;padding:68px 0 72px 0;font-family:Nanum Gothic;background-color:#ffffff;border:2px solid #006fb7;"> '
+				+ '<div> '					
+					+ '<strong style="position:absolute;left:0;top:0;display:block;width:100%;height:68px;font-weight:normal;background:#006db8;"> '
+					+ '<h2>KPC자격 홈페이지 접속안내</h2>'
+					+ '<p style="padding:24px 30px;margin:0 60px 0 0;text-align:left;font-size:20px;color:#fff;">서비스 이용고객이 많아 <span style="font-weight:bold;">접속 대기중</span>입니다.</p></strong> '
+					+ '<p style="position:absolute;left:30px;top:60px;width:100%;color:#006db8;font-size:20px">대기 순서에 따라 <span style="color:#ff4a1a;">자동 접속</span>됩니다.</p> '
+					+ '<p style="position:absolute;left:30px;top:100px;color:#006db8;font-size:17px">  예상 대기 시간 : <span id="NetFunnel_Loading_Popup_TimeLeft" style="color:#ff4a1a;"></span>'
+					+ '&nbsp;/&nbsp;현재 대기순번 <span id="NetFunnel_Loading_Popup_Count" style="color:#ff4a1a;"></span>번째</p> '
+					+ '<div style="position:absolute;left:0;bottom:0;width:100%;height:65px;background:#eff4f5;">'
+							+ '<div style="padding:25px 30px 0 30px;color:#455251;font-size:13px;line-height:20px;">- 새로고침, 뒤로가기 또는 재접속하시면 대기시간이 더 길어집니다.</div>'
+					+ '</div> '
+					+ '<div id="Progress_Print" style="display:none;position:absolute;left:0;top:100px;width:100%;text-align:center;font-size:17px;color:gray"></div> '
+				+ '</div> '
+				+ '<div style="padding:90px 0 0 30px;width:490px" id="NetFunnel_Loading_Popup_Progressbar"> </div>'
+				+ '<center><button id="NetFunnel_Countdown_Stop" style=" font-size: 15px;  padding: 5px 5px 5px 5px;color: #900; font-weight: bold;margin:15px;width:80px;">중지</button> </center>'
+			+ '</div>'
+    },'normal'); 
+
+	//skin4
+	NetFunnel.tstr = ' \
+		<div id="NetFunnel_Skin_Top" style="background-color:#ffffff;border:1px solid #9ab6c4;width:580px;height:600px;-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px;"> \
+			<div style="background-color:#ffffff;border:6px solid #eaeff3;-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px;"> \
+				<div style="padding-top:0px;padding-left:25px;padding-right:25px"> \
+					<h2>skin3</h2> \
+					<div>  <iframe width="560" height="315" src="https://www.youtube.com/embed/6m4lR2oW_SI?rel=0;amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div> \
+					<div style="text-align:left;font-size:12pt;color:#001f6c;height:22px"><b>서비스 <span style="color:#013dc1">접속대기 중</span>입니다.</b></div> \
+					<div style="text-align:right;font-size:9pt;color:#4d4b4c;padding-top:4px;height:17px" ><b>mobile 예상대기시간 : <span id="NetFunnel_Loading_Popup_TimeLeft" class="%H시간 %M분 %02S초^ ^false"></span></b></div> \
+					<div style="padding-top:6px;padding-bottom:6px;vertical-align:center;width:400px;height:20px" id="NetFunnel_Loading_Popup_Progressbar"></div> \
+					<div style="background-color:#ededed;width:400px;padding-bottom:8px;overflow:hidden"> \
+						<div style="padding-left:5px"> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;padding-top:10px;height:10px">고객님 앞에 <b><span style="color:#2a509b"><span id="NetFunnel_Loading_Popup_Count" class="'+NetFunnel.TS_LIMIT_TEXT+'"></span></span></b> 명, 뒤에 <b><span style="color:#2a509b"><span id="NetFunnel_Loading_Popup_NextCnt" class="'+NetFunnel.TS_LIMIT_TEXT+'"></span></span></b> 명의 대기자가 있습니다.  </div> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;height:10px">현재 접속 사용자가 많아 대기 중이며, 잠시만 기다리시면 </div> \
+							<div style="text-align:left;font-size:8pt;color:#4d4b4c;padding:3px;height:10px;">서비스로 자동 접속 됩니다.</div> \
+							<div style="text-align:center;font-size:9pt;color:#2a509b;padding-top:10px;"> \
+								<b>※ 재 접속하시면 대기시간이 더 길어집니다. <span id="NetFunnel_Countdown_Stop" style="cursor:pointer">[중지]</span> </b> \
+							</div> \
+						</div> \
+					</div> \
+					<div style="height:5px;"></div> \
+				</div> \
+			</div> \
+		</div>';
+	NetFunnel.SkinUtil.add('skin4',{htmlStr:NetFunnel.tstr},'mobile');
+
+
+
+}

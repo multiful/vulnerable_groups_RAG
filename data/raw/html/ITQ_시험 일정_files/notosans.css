@@ -1,0 +1,32 @@
+﻿@charset "utf-8"; 
+
+/*
+ * Hangeul NotoSans Font
+ */
+@font-face {
+ font-family: 'NotoSansCJKkr';
+ font-style: normal;
+ font-weight: 400;
+ src: url(../fonts/NotoSansCJKkr-Regular.eot);
+ src: url(../fonts/NotoSansCJKkr-Regular.eot?#iefix) format('embedded-opentype'),
+url(../fonts/NotoSansCJKkr-Regular.woff) format('woff'),
+url(../fonts/NotoSansCJKkr-Regular.otf) format('opentype');
+}
+@font-face {
+ font-family: 'NotoSansCJKkr';
+ font-style: normal;
+ font-weight: 500;
+ src: url(../fonts/NotoSansCJKkr-Medium.eot);
+ src: url(../fonts/NotoSansCJKkr-Medium.eot?#iefix) format('embedded-opentype'),
+url(../fonts/NotoSansCJKkr-Medium.woff) format('woff'),
+url(../fonts/NotoSansCJKkr-Medium.otf) format('opentype');
+} 
+@font-face {
+ font-family: 'NotoSansCJKkr';
+ font-style: normal;
+ font-weight: 700;
+ src: url(../fonts/NotoSansCJKkr-Bold.eot);
+ src: url(../fonts/NotoSansCJKkr-Bold.eot?#iefix) format('embedded-opentype'),
+url(../fonts/NotoSansCJKkr-Bold.woff) format('woff'),
+url(../fonts/NotoSansCJKkr-Bold.otf) format('opentype');
+}

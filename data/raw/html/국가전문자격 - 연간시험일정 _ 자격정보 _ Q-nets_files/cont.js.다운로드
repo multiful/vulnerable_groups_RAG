@@ -1,0 +1,1562 @@
+$(function(){
+	ui.init();
+
+	$(window).on('message', function(event) {
+		// 수신한 메시지 확인
+		var receivedMessage = event.originalEvent.data;
+		
+		// "unlockScroll" 메시지인지 확인
+		if (receivedMessage === 'unlockScroll') {
+		  // 스크롤 잠금 해제 작업 수행
+		  ui.lockBody.unlock();
+		}
+	});
+
+	// 240830추가_체크박스 체크 시 팝업 호출
+	// 250221 접근성 수정(주석처리) 
+	// $('.join_select .lineList_arrR .inputBox>input').change(function() {
+		
+	// 	if ($(this).is(':checked')) {			
+	// 		var openPopTarget = $(this).attr("data-agree");
+	// 		ui.LayerPop.Show('#' + openPopTarget)
+	// 	}
+	// });
+
+	//250108 접근성 통합검색 연관검색어 포커스 이동 시 닫힘
+	$(".total_schArea .inpArea .btnSch").focus(function(){
+		$(".autoSechKeyword").css("display","none");
+	});
+
+	//250108 도움말 역할 이미지가 배경으로 들어갈 경우, 숨김 텍스트 적용
+	$('.txtAlert').prepend('<span class="scHdn">도움말 역할 아이콘</span>');
+})
+
+var ui = {
+	init : function() {
+		ui.LayerPop.init();
+		ui.Accordion.init();
+		ui.tabScroll.init();
+		ui.Tab.init();
+		ui.accessibility.GNB();
+		ui.contents();
+		//ui.touchDim(); 241015 주석처리
+		ui.help();
+		ui.password();
+		ui.tabBtn();
+
+		//25.02.10 접근성 2차 수정: 키보드 접근성 추가
+		// ui.labelFocus();
+
+		//25.02.11 접근성 2차 모바일 수정
+		ui.listCaption();
+	},
+	Accordion : {
+		init : function(){
+			$("body *").each(function(e){
+				if($(this).hasClass("AccordionBase")){
+					$(this).find("li").each(function(e){
+						if($(this).hasClass("on")){
+							$(this).find(".AccordionBtn").attr({"aria-expanded": true, "title":"확장됨"});
+						}else{
+							$(this).find(".AccordionBtn").attr("aria-expanded", false);
+							$(this).find(".AccordionBtn").removeAttr("title");
+						}
+					});
+
+					$(document).off("click").on('click', '.AccordionBase .AccordionBtn', function() {
+						ui.Accordion.click(this);
+						//ui.touchDim(); 241015 주석처리
+					});	
+				}
+			});
+		},
+		click : function(target){
+			if($(target).parents("li").hasClass("on")){
+				$(target).parents("li").removeClass("on").find(".AccordionCont").slideUp(300);
+				$(target).parents("li").find(".AccordionBtn").removeAttr("title").attr("aria-expanded", false);
+			}else{
+				$(target).parents("li").addClass("on").find(".AccordionCont").slideDown(300);
+				$(target).parents("li").find(".AccordionBtn").attr({"aria-expanded": true, "title":"확장됨"});
+			}
+		},
+	},
+	LayerPop : {
+		init : function(){
+			$(document).on('click', '.openLYpop', function() {
+				var popTarget = $(this).attr("data-LYID"),
+				    popSize   = $(this).attr("data-LYsize");
+
+				ui.LayerPop.Show(popTarget, popSize);
+			});
+		},
+		iframe : function(iframeID, PopID, PopSize){
+			if(event != undefined){
+				$(event.currentTarget).attr("data-retrunFocus","Y");
+			}
+			$(iframeID).addClass("on");
+			$(iframeID).on('load', function() {
+				$(iframeID).contents().find(PopID).attr("data-iframeID", iframeID);
+				$(iframeID)[0].contentWindow.ui.LayerPop.Show(PopID, PopSize);
+				ui.lockBody.lock();
+			});
+			
+		},
+		Show : function(PopID, PopSize, open_callbackfcn, open_Pram, closed_callbackfcn, closed_Pram){
+			//닫기 실행시 포커스 리턴값 셋팅
+			if(event != undefined){
+				$(event.currentTarget).attr("data-retrunFocus","Y");
+				// 250221 접근성 모바일 수정
+				$(event.currentTarget).addClass('dataFocus');
+				// 250326
+				// $('.dataFocus').attr('aria-live','assertive');
+			}
+
+			//팝업실행
+			$(PopID).find(".popLayout").css("max-width", PopSize + "px");
+			$('body').addClass('popPrint');
+			$(PopID).addClass('on')
+			// $(PopID).show();
+			$(PopID).find(".popLayout").css({"opacity" : "1"});
+			ui.lockBody.lock();
+
+			$.fn.hasHorizontalScrollBar = function () {
+				return this.get(0) ? Math.ceil(this.get(0).scrollWidth) > Math.ceil(this.innerWidth()) : false;
+			}
+			
+			// 241015 주석처리
+			// function handleResize() {
+			// 	$(".contTable, .limitX").each(function (index) {
+			// 		var $table = $(this);
+			// 		var $touchArea = $table.find(".tableTouchArea");
+		
+			// 		if ($table.hasHorizontalScrollBar()) {
+			// 			if ($touchArea.length !== 1) {
+			// 				var touchHtml = '<div class="tableTouchArea"><button type="button" class="tableScrollTouch"><span>좌,우로 이동 가능합니다.</span></button></div>';
+			// 				$table.addClass('typeScroll');
+			// 				$table.append(touchHtml);
+			// 			}
+			// 		} else {
+			// 			$table.removeClass('typeScroll');
+			// 			$touchArea.remove();
+			// 		}
+	
+			// 		$(this).on("scroll", function(e) {
+			// 			$(this).find(".tableTouchArea").hide();
+			// 		});
+			// 	});
+			// };
+		
+			//handleResize();
+		
+			// $(window).on("resize", function () {
+			// 	handleResize();
+			// });
+		
+			// $(".contTable, .limitX").on("scroll", function (e) {
+			// 	$(this).find(".tableTouchArea").hide();
+			// });
+			// 241015 주석처리 끝
+
+			// ui.LayerPop.centerAlign(PopID);
+
+			//팝업 높이 최대값 설정
+			// ui.LayerPop.MaxHeight(PopID);
+
+			//첫뻔재, 마지막 타겟 셋팅시 예외상태 추가
+			var TargetState = "[data-hidden=hidden], [style*='display:none'], [style*='display: none'], [style*='display :none'], [style*='display : none']";
+
+			//첫번째, 마지막 포커스 셋팅 전 css로 display:none 처리 되어있는 타겟 분리
+			$(PopID).find("a, button, input, select").not(TargetState).each(function(e){
+				if($(this).is(":visible") == false){
+					$(this).attr("data-hidden","hidden");
+				}
+			});
+			
+			
+			//팝업 내에 첫번째, 마지막 타겟 지정
+			$(PopID).find("a, button, input, select").not(TargetState).first().attr("data-pop-focus","first");
+			$(PopID).find("a, button, input, select").not(TargetState).last().attr("data-pop-focus","last");
+			
+			//팝업뒤 포커스 이동할 객제가 하나도 없을경우 브라우저 밖으로 포커스 이탈 방지를 위한 히든영역
+			// 250221 접근성 모바일 수정
+			// $(PopID).append("<div class='focuseouthidden' tabindex='0'></div>");
+
+			//팝업내 버튼이 없을경우 팝업영역을 첫번째 포커스로 잡음
+			// 250326
+			// if($(PopID).find("a, button, input, select").length == 1){
+			// 	$(PopID).find(".popLayout").attr({"tabindex" : "0", "data-pop-focus":"first"});	
+			// }
+
+			// 250331
+			// $(PopID).find('[data-pop-focus=first]').focus();
+			
+			$("body *").not(PopID).not(PopID + " *").attr({
+				"aria-hidden" : (PopID == '#cropImgPop' || PopID == '#pop_examImg')? false : true
+				,"data-hidden" : (PopID == '#cropImgPop' || PopID == '#pop_examImg')? "" : "hidden" 
+			});
+					
+			//html 깊이 구해서 aria-hidden 처리 삭제
+			var targetHtml = $(PopID);
+			var endClass = targetHtml.parent().prop('tagName');
+			
+			for(var i = 0; i<20; i++){
+				if(endClass != "BODY"){
+					targetHtml.removeAttr('data-hidden').removeAttr('aria-hidden');
+
+					targetHtml = targetHtml.parent();
+					endClass = targetHtml.parent().prop('tagName');
+
+					//console.log(endClass)
+					
+					targetHtml.removeAttr('data-hidden').removeAttr('aria-hidden');
+				}
+				else {
+					break;
+				}
+			}
+
+			//오픈 콜백
+			if(open_callbackfcn != undefined){
+				eval(open_callbackfcn)(open_Pram);
+			}
+
+			//팝업 닫기
+			$(PopID).find('.btn_popClose').on("click",function(e){
+				ui.lockBody.unlock();
+				ui.LayerPop.Closed(PopID, closed_callbackfcn, closed_Pram);
+			});
+
+			$(PopID).find('.btn_popClose_s').on("click", function (e) {
+				$('.pop_examImg').removeClass('on');
+				// 250221 접근성 모바일 수정
+				$(this).parents('.pop_wrap').find('*').removeAttr('aria-hidden').removeAttr('data-hidden');
+				$(this).parents('.pop_wrap').find("[data-retrunFocus=Y]").focus();
+				$(this).removeAttr('data-pop-focus');
+				// 250312
+				setTimeout(function(){
+					$(PopID).find('.dataFocus').focus();
+					$(PopID).find('*').removeClass("dataFocus");
+				},150)
+			});
+
+			//접근성 : 첫번째탭에서 shift + tab 경우 마지막버튼으로 (팝업내 포커스 루프)
+			$(PopID).find("[data-pop-focus=first]").on("keydown", function(e){
+				if(e.shiftKey == true && e.which == 9){
+					$(PopID).find("[data-pop-focus=last]").focus();
+					return false;
+				}
+			});
+			
+			//접근성 : 마지막탭에서 tab 경우 첫번째 버튼 (팝업내 포커스 루프)
+			$(PopID).find("[data-pop-focus=last]").on("keydown", function(e){
+				if(e.shiftKey == false && e.which == 9){
+					$(PopID).find("[data-pop-focus=first]").focus();
+					return false;
+				}
+			});
+
+			// 240925 약관동의 스크롤 후 버튼 활성화
+			$(PopID).find(".popLayout .popConts .popInner").scroll(function() {
+				//console.log(this);
+				var contHeight = $(this).height();
+				var totalHeight = $(this).find(".groupCont.typeAgree").height();
+				var contscrollTop= $(this).scrollTop();
+
+				if(contscrollTop + contHeight >= totalHeight) {
+					$(PopID).find(".popBtnArea .agree").removeAttr( "disabled" );
+				}
+			});
+
+			// 25.02.12 접근성 2차 수정
+			if($(PopID).find('.agreeChk').length > 0){
+				$(PopID).find(".inputBox input").first().on("keydown", function(e){
+					if(e.shiftKey == true && e.which == 9){
+						$(PopID).find(".popInner").focus();
+						return false;
+					}
+				});
+			}
+
+			//250108 접근성 수정 : 원서접수 팝업 제어
+			const popupId = $(PopID).attr('class');
+			const popupIdText = (typeof popupId === 'string' && popupId.includes("pop_agree"));
+			if(popupIdText){
+				$(PopID).find("a, button, input, select").removeAttr("data-pop-focus");
+				// 250221 접근성 모바일 수정
+				// $(PopID).find(".btn_popClose").attr("data-pop-focus","first");
+				// $(PopID).find(".popConts").find("a, button, input, select").last().attr("data-pop-focus","last");
+				$(PopID).find("[data-pop-focus=first]").focus();
+				$(PopID).find(".popInner").attr('tabindex', '0');
+
+				// 250312
+				setTimeout(function(){
+					$(PopID).find("[data-pop-focus=first]").focus();
+				},150);
+				
+				//tab click
+				// 250221 접근성 모바일 수정
+				// $(PopID).find("[data-pop-focus=first]").on("keydown", function(e){
+				// 	if(e.shiftKey == false && e.which == 9){
+				// 		$(PopID).find(".popInner").focus();
+				// 		return false;
+				// 	}
+				// });
+
+				// 25.02.12 접근성 2차 수정
+				$(PopID).find(".popInner").on("keydown", function(e){
+					if(e.shiftKey == false && e.which == 9){
+						if($(PopID).find(".inputBox input").first().prop('disabled')){
+							$(PopID).find(".inputBox input").focus();
+						}
+						$(PopID).find(".inputBox input").first().focus();
+						return false;
+					}
+				});
+
+				// 25.02.12 접근성 2차 수정 : 주석처리
+				// $(PopID).find(".inputBox input").first().on("keydown", function(e){
+				// 	if(e.shiftKey == false && e.which == 9){
+				// 		if($(this).parent().siblings('.inputBox').length > 0){
+				// 			$(PopID).find(".inputBox input").last().focus();
+				// 			return false;
+				// 		}
+				// 	}
+				// });
+
+				//shift tab click
+				// 25.02.12 접근성 2차 수정 : 주석처리
+				// $(PopID).find("[data-pop-focus=last]").on("keydown", function(e){
+				// 	if(e.shiftKey == true && e.which == 9){
+				// 		if($(PopID).find('.inputBox').length > 0){
+				// 			$(PopID).find(".inputBox input").last().focus();
+				// 			return false;
+				// 		}
+				// 	}
+				// });
+
+				$(PopID).find(".inputBox input").last().on("keydown", function(e){
+					if(e.shiftKey == true && e.which == 9){
+						// 25.02.12 접근성 2차 수정
+						if($(this).siblings('.inputBox').length > 0){
+							$(PopID).find(".inputBox input").first().focus();
+							return false;
+						}
+					}
+				});
+				$(PopID).find(".inputBox input").first().on("keydown", function(e){
+					if(e.shiftKey == true && e.which == 9){
+						$(PopID).find(".popInner").focus();
+						return false;
+					}
+				});
+				// 250221 접근성 모바일 수정
+				// $(PopID).find(".popInner").on("keydown", function(e){
+				// 	if(e.shiftKey == true && e.which == 9){
+				// 		$(PopID).find("[data-pop-focus=first]").focus();
+				// 		return false;
+				// 	}
+				// });
+				$(PopID).find("[data-pop-focus=first]").on("keydown", function(e){
+					if(e.shiftKey == true && e.which == 9){
+						$(PopID).find(".inputBox input").last().focus();
+						$(PopID).find("[data-pop-focus=last]").focus();
+						return false;
+					}
+				});
+			}
+
+			// 250108 접근성 수정 : 팝업 키보드 접근
+			$(PopID).find("a, button, input, select").removeAttr("data-pop-focus");
+			// 250221 접근성 모바일 수정
+			// $(PopID).find(".popLayout>.btn_popClose").attr("data-pop-focus","first");
+			$(PopID).find(".popLayout>.btn_popClose").attr("data-pop-focus","last");
+			// 25.02.12 접근성 2차 수정
+			// 250221 접근성 모바일 수정
+			// $(PopID).find(".popConts").find("a, button, input, select").not("[data-hidden='hidden']").last().attr("data-pop-focus","last");
+			// 250221 접근성 모바일 수정
+			$(PopID).children('.popLayout').children('.popTit').attr("data-pop-focus","first"); 
+			$(PopID).children('.popLayout').children('.popTit').attr('tabindex', '0');
+			$(PopID).find("[data-pop-focus=first]").focus();
+			// 250314
+			$(PopID).children('.popLayout').children('.popTit').addClass('firstFocus');
+
+			// 250312
+			setTimeout(function(){
+				$(PopID).find("[data-pop-focus=first]").focus();
+				// 250314
+				$(PopID).find('.firstFocus').focus();
+			},400);
+			// 250331
+			requestAnimationFrame(function() {
+				requestAnimationFrame(function() {
+					$(PopID).find("[data-pop-focus=first]").focus();
+					$(PopID).find('.firstFocus').focus();
+				});
+			});
+			
+
+			$(PopID).find(".popInner").attr('tabindex', '0');
+			// 250221 접근성 모바일 수정
+			// if($(PopID).find(".popConts").find("a, button, input, select").length === 0){
+			// 	$(PopID).find(".popInner").attr("data-pop-focus","last");
+			// }
+
+			// 250221 접근성 모바일 수정
+			// $(PopID).find("[data-pop-focus=first]").on("keydown", function(e){
+			// 	if(e.shiftKey == false && e.which == 9){
+			// 		$(PopID).find(".popInner").focus();
+			// 		return false;
+			// 	}
+			// });
+			$(PopID).find("[data-pop-focus=last]").on("keydown", function(e){
+				if(e.shiftKey == false && e.which == 9){
+					$(PopID).find("[data-pop-focus=first]").focus();
+					return false;
+				}
+			});
+			// 250221 접근성 모바일 수정
+			// $(PopID).find(".popInner").on("keydown", function(e){
+			// 	if(e.shiftKey == true && e.which == 9){
+			// 		$(PopID).find("[data-pop-focus=first]").focus();
+			// 		return false;
+			// 	}
+			// });
+			$(PopID).find("[data-pop-focus=first]").on("keydown", function(e){
+				if(e.shiftKey == true && e.which == 9){
+					$(PopID).find("[data-pop-focus=last]").focus();
+					return false;
+				}
+			});
+
+			//25.02.11 접근성 2차 수정
+			$('#contents').removeAttr('tabindex');
+		},
+		Closed : function(PopID, closed_callbackfcn, closed_Pram){
+			$('body').removeClass('popPrint');
+			$(PopID).removeClass('on')
+			$(PopID).find(".focuseouthidden").remove();
+			$("[data-retrunFocus=Y]").focus();
+			
+
+			//아이프레임체크
+			if ( self !== top ) {
+				// 부모 창으로 메시지 전송
+				window.parent.postMessage('unlockScroll', '*');
+
+				$("[data-retrunFocus=Y]", parent.document).focus().removeAttr("data-retrunFocus");
+				$($(PopID).attr("data-iframeid"), parent.document).removeClass("on").remove();
+			}
+
+
+			$("body *").removeAttr("data-retrunFocus");
+			$("[data-hidden=hidden]").removeAttr("data-hidden").removeAttr("aria-hidden");
+
+			$(".pop_wrap.addHtmlPop").remove();
+			
+			/* 닫기 콜백 */
+			if(closed_callbackfcn != undefined){
+				eval(closed_callbackfcn)(closed_Pram);
+			}
+
+			ui.lockBody.unlock();
+
+			//25.02.11 접근성 2차 수정
+			$('#contents').attr('tabindex', '-1');
+
+			// 250221 접근성 모바일 수정
+			$('body *').removeAttr("data-pop-focus");
+			setTimeout(function(){
+				$('.dataFocus').focus();
+				$("body *").removeClass("dataFocus");
+				$('.popTit').removeAttr('tabindex');
+				// 250312
+				$('.popTit').removeClass('firstFocus');
+			},150)
+		},
+		MaxHeight : function(PopID){
+			var bottomHeight = $(PopID).find(".popBtnArea").innerHeight();
+			if(bottomHeight == undefined){bottomHeight = 0}
+			//팝업 높이 최대값 설정
+			$(PopID).find(".popInner").css({
+				"max-height": $(window).height() * 0.9 - $(PopID).find(".popTit").innerHeight() - bottomHeight
+			});
+			//console.log(bottomHeight);
+			//리사이즈 팝업 높이 최대값 설정
+			$(window).bind('resize load', function () {
+				$(PopID).find(".popInner").css({
+					"max-height": $(window).height() * 0.9 - $(PopID).find(".popTit").innerHeight() - bottomHeight
+				});
+			});
+		},
+		centerAlign : function(PopID){
+			//팝업 센터정렬(transform 정렬할경우 흐릿하게 나오는 케이스 발생)
+			setTimeout(function(){
+				$(PopID).find(".popLayout").css({
+					"left" : "calc(50% - " + $(PopID).find(".popLayout").innerWidth() / 2 +"px)",
+					"top"  : "calc(50% - " + $(PopID).find(".popLayout").innerHeight() / 2 +"px)",
+					"opacity" : "1"
+				});
+			},100)
+		
+			//리사이즈
+			$(window).bind('resize load', function () {
+				$(PopID).find(".popLayout").css({
+					"left" : "calc(50% - " + $(PopID).find(".popLayout").innerWidth() / 2 +"px)",
+					"top"  : "calc(50% - " + $(PopID).find(".popLayout").innerHeight() / 2 +"px)"
+				})
+			});
+		},
+		draw : function(conthtml, title, size){
+			var popID = "popupDraw" + Math.round( Math.random()*100 );
+			var PopHtml = "";
+			PopHtml += '<div class="pop_wrap addHtmlPop" id="'+popID+'">';
+			PopHtml += '	<section class="popLayout popLayer">';
+			PopHtml += '		<h1 class="popTit">'+title+'</h1>';
+			PopHtml += '		<div class="popConts">';
+			PopHtml += '			<div class="popInner limit">';
+			PopHtml += $(conthtml).html();
+			PopHtml += '			</div>';
+			PopHtml += '		</div>';
+			PopHtml += '		<button type="button" class="btn_popClose"><span class="hidden">창닫기</span></button>';
+			PopHtml += '	</section>';
+			PopHtml += '</div>';
+
+			$("body").append(PopHtml);
+			ui.LayerPop.Show('#'+popID, size);
+		}
+	},
+	// W3C 관련 수정 (role 속성을 data-role 속성으로 변경)
+	Tab : {
+		init : function() {
+			$("body *").each(function(e){
+				if($(this).attr("role") == "tabEl"){
+					$(this).find("li").each(function(e){
+						if($(this).is(":visible") == true){
+							$(this).attr("role", "presentation");	
+							if($(window).width() < 768){
+								$(this).find("a").attr("role", "tab");
+							}
+						}	
+
+						if($(this).hasClass("on")){
+							$(this).find("a").attr({"aria-selected": true, "title":"선택됨"});
+						}else{
+							$(this).find("a").attr("aria-selected", false);
+							$(this).find("a").removeAttr("title");
+						}
+					});
+
+					$(this).find("ul a").on("click", function(e){
+						ui.Tab.click(this);
+					});
+				};
+			});
+			
+			$("body *").each(function(e){
+				if($(this).attr("data-role") == "tabEl"){
+					$(this).find("li").each(function(e){
+						if($(this).is(":visible") == true){
+							$(this).attr("data-role", "presentation");	
+							if($(window).width() < 768){
+								$(this).find("a").attr("data-role", "tab");
+							}
+						}	
+
+						if($(this).hasClass("on")){
+							$(this).find("a").attr({"aria-selected": true, "title":"선택됨"});
+						}else{
+							$(this).find("a").attr("aria-selected", false);
+							$(this).find("a").removeAttr("title");
+						}
+					});
+
+					$(this).find("ul a").on("click", function(e){
+						ui.Tab.click2(this);
+					});
+				};
+			});
+		},
+		click :function(target){
+			$(target).parents("[role=tabEl]").find("li").removeClass("on").find("a").attr("aria-selected", false).removeAttr("title");
+			$(target).parents("li").addClass("on").find("a").attr({"aria-selected": true, "title":"선택됨"});
+
+			//초기화활 탭 ID 추출
+			var hideID = [];
+			$(target).parents("[role=tabEl]").find("a").each(function(e){
+				hideID.push($(this).attr("data-tabID"));
+			});
+			for(i=0;i<hideID.length;i++){
+				$("#" + hideID[i]).removeClass("on");
+			}
+			$("#"+$(target).attr("data-tabID")).addClass("on");
+		},
+		click2 :function(target){
+			$(target).parents("[data-role=tabEl]").find("li").removeClass("on").find("a").attr("aria-selected", false).removeAttr("title");
+			$(target).parents("li").addClass("on").find("a").attr({"aria-selected": true, "title":"선택됨"});
+
+			//초기화활 탭 ID 추출
+			var hideID = [];
+			$(target).parents("[data-role=tabEl]").find("a").each(function(e){
+				hideID.push($(this).attr("data-tabID"));
+			});
+			for(i=0;i<hideID.length;i++){
+				$("#" + hideID[i]).removeClass("on");
+			}
+			$("#"+$(target).attr("data-tabID")).addClass("on");
+		}
+	},
+	// W3C 관련 수정 끝 (role 속성을 data-role 속성으로 변경)
+	tabScroll : {
+		init : function(){
+			ui.tabScroll.flexble();
+			ui.tabScroll.flexble2();
+		},
+		flexble : function(){
+			if($('#pageTab').length == 0){return false}
+			
+			var scrollTab = undefined;
+
+			tabScrollLoc();
+
+			function tabScrollLoc(){
+				if (scrollTab == undefined) {
+					var myScrollPos = $('#pageTab>ul>li.on').position().left + $('#pageTab>ul>li.on').outerWidth(true) / 2 + $('#pageTab>ul').scrollLeft() - $('#pageTab>ul').width() / 2;
+					$("#pageTab>ul").scrollLeft(myScrollPos);
+				}
+			}
+
+		},
+		flexble2 : function(){
+			if($('#contTab').length == 0){return false}
+			
+			var scrollTab2 = undefined;
+
+			function tabScrollLoc2(){
+				if (scrollTab2 == undefined) {
+					var myScrollPos2 = $('#contTab>ul>li.on').position().left + $('#contTab>ul>li.on').outerWidth(true) / 2 + $('#contTab>ul').scrollLeft() - $('#contTab>ul').width() / 2;
+					$("#contTab>ul").scrollLeft(myScrollPos2);
+				}
+			}
+			tabScrollLoc2();
+			
+			$('#contTab[role="tabEl"] li>a').click(function() {
+				tabScrollLoc2();
+			});
+			
+
+		},
+	},
+	contAutoHeight : function(target, point){
+		//테블릿, 모바일 분기점 디폴트
+		var tabletPoint = "1024",
+			mobilePoint = "768";
+
+		if(point[0][1] != undefined){tabletPoint = point[0][1]}
+		if(point[1][1] != undefined){mobilePoint = point[1][1]}
+
+		// console.log(tabletPoint);
+		// console.log(mobilePoint);
+
+        $(window).bind('load resize', function () {
+			//pc
+            if(window.innerWidth >= tabletPoint){
+                ui.contAutoSetion(target, point[0][0]);
+            } 
+			//테블릿
+            else if(window.innerWidth >= mobilePoint){
+                ui.contAutoSetion(target, point[1][0]);
+            } 
+			//모바일
+            else{
+				if(point[2][0] == 1){
+					//console.log("1개");
+					$(target).removeAttr("style");
+				}
+				else{
+					ui.contAutoSetion(target, point[2][0]);
+				}
+            }
+        });
+	},
+	contAutoSetion : function(target, length){
+		$(target).removeAttr("style");
+        var listLine = $(target).length;
+        var arry = [];
+        for (i = 0; i < listLine; i++) {
+            var p_list = $(target).eq(i).innerHeight();
+            arry.push(p_list);
+        }
+        for (i = 0; i < listLine; i++) {
+            if (i < length * 1) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(0, length)));
+            }
+            else if (i < length * 2) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length, length * 2)));
+            }
+            else if (i < length * 3) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 2, length * 3)));
+            }
+            else if (i < length * 4) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 3, length * 4)));
+            }
+            else if (i < length * 5) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 4, length * 5)));
+            }
+            else if (i < length * 6) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 5, length * 6)));
+            }
+            else if (i < length * 7) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 6, length * 7)));
+            }
+            else if (i < length * 8) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 7, length * 8)));
+            }
+            else if (i < length * 9) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 8, length * 9)));
+            }
+            else if (i < length * 10) {
+                $(target).eq(i).css("height", Math.max.apply(null, arry.slice(length * 9, length * 10)));
+            }
+        }
+	},
+	contents : function(){
+		// 상단공지 컨텐츠 모바일 물음표 아이콘으로 변경
+		$('.ico_tglNoti').on("click", function (e) {
+			if ($(this).siblings('.icoBoxNotice').hasClass('on')) {
+				$(this).siblings('.icoBoxNotice').removeClass('on')
+			} else {
+				$(this).siblings('.icoBoxNotice').addClass('on')
+			}
+		});
+
+		// 모바일 테이블 tr 내 체크박스가 checked일 경우 border 처리
+		$('.mbRow2 tr').each(function(){
+			// 각 tr의 input 요소에 대한 이벤트 핸들러 추가
+			$(this).find('input[type="checkbox"], input[type="radio"]').change(function(){
+				// 체크박스 또는 라디오 버튼이 체크되었는지 확인
+				if($(this).prop('checked')){
+					// 체크박스 또는 라디오 버튼이 체크된 경우 tr에 클래스 추가
+					$(this).closest('tr').addClass('checked');
+				} else {
+					// 체크박스 또는 라디오 버튼이 체크 해제된 경우 tr에서 클래스 제거
+					$(this).closest('tr').removeClass('checked');
+				}
+			});
+			// 페이지 로드 시 각 input 요소의 상태 확인 및 클래스 추가
+			$(this).find('input[type="checkbox"], input[type="radio"]').each(function(){
+				if($(this).prop('checked')){
+					$(this).closest('tr').addClass('checked');
+				}
+			});
+		});
+
+		// 프로필 사진이 있는 Table 영역 여백 지정
+		function adjustProfileLine() {
+			var screenWidth = $(window).innerWidth() ;
+			var $profileLine = $('.profileLine');
+			var $contTable = $profileLine.closest('.contTable');
+	
+			if ($profileLine.length > 0) {
+				var $profileRow = $profileLine.closest('tr');
+	
+				if ($(window).innerWidth()  <= 1024) {
+					// 25.02.11 접근성 모바일 수정
+					// console.log(screenWidth);
+					var profileLineHeight = $profileLine.outerHeight();
+					$profileLine.css('top', -profileLineHeight + 'px'); 
+					$profileRow.css('position', 'relative');
+	
+					if ($contTable.length > 0) {
+						$contTable.css('padding-top', profileLineHeight + 'px');
+					}
+				} else {
+					// Reset
+					$profileLine.css('top', '');
+					$profileRow.css('position', '');
+					$contTable.css('padding-top', '');
+				}
+			}
+		}
+	
+		adjustProfileLine();
+		// 250221 접근성 모바일 수정
+		$(window).bind('load resize', function(){
+			adjustProfileLine();
+		});
+
+		// numberPagination
+		$('.numberPagination').each(function(){
+			$(this).attr('role','navigation');
+
+			// 25.02.11 접근성 2차 수정
+			// 250221 접근성 모바일 수정
+			$('.numberPagination button').not('.popLayout .numberPagination button').on('click', function(){
+				$('#skip_menu').attr('tabindex', '0');
+				$('#skip_menu').focus();
+			});
+			// 250221 접근성 모바일 수정
+			$('.popLayout .numberPagination button').on('click',function(){
+				$(this).parents('.popLayout').find('[data-pop-focus=first]').focus();
+			});
+
+			// 25.02.11 접근성 2차 수정
+			$('.numberPagination>.paging>li>button.on').attr('aria-current', 'page');
+			// 250312 
+			setTimeout(function(){
+				$('.numberPagination>.paging>li>button.on').attr('aria-current', 'page');
+			},200);
+		});
+
+		// 25.02.11 접근성 2차 수정
+		$(".prevNnext li>.article>a").on('click', function(){
+			$('#skip_menu').attr('tabindex', '0');
+			$('#skip_menu').focus();
+		});
+
+		// 25.02.12 접근성 2차 수정
+		$('.inputBox.only').each(function(){
+			var thisTit = $(this).find('input');
+			var thisData = $(this).find('.data');
+			if (thisData.text().trim() === '') {
+				// 250221 접근성 수정(종목명 구분 필요 00선택하기)
+				//thisTit.attr('title','선택하기');
+				thisData.addClass("scHdn").text("선택하기");
+			}
+		});
+
+	},
+	//접근성 개별 코드
+	accessibility : {
+		//레이어 영역내 포커스 루프 이벤트
+		focusloop : function(area){
+
+			//console.log(event);
+			if(event != undefined){
+				$(event.currentTarget).attr("data-retrunFocus","Y");
+			} else {
+				$("#skip_menu a").eq(0).attr("data-retrunFocus","Y");
+			}
+
+			//첫뻔재, 마지막 타겟 셋팅시 예외상태 추가
+			var TargetState = "[data-hidden=hidden], [style*='display:none'], [style*='display: none'], [style*='display :none'], [style*='display : none']";
+
+			//첫번째, 마지막 포커스 셋팅 전 css로 display:none 처리 되어있는 타겟 분리
+			$(area).find("a, button, input, select").not(TargetState).each(function(e){
+				if($(this).is(":visible") == false){
+					$(this).attr("data-hidden","hidden");
+				}
+			});
+			
+			//팝업 내에 첫번째, 마지막 타겟 지정
+			$(area).find("a, button, input, select").not(TargetState).first().attr("data-pop-focus","first");
+			$(area).find("a, button, input, select").not(TargetState).last().attr("data-pop-focus","last");
+			
+			// 25.02.11 접근성 2차 모바일 수정
+			$("body *").not(area).not(area + " *").not("option").attr({
+				"aria-hidden" : true,
+				"data-hidden" : "hidden"
+			});
+			
+			//html 깊이 구해서 aria-hidden 처리 삭제
+			var targetHtml = $(area);
+			var endClass = targetHtml.parent().prop('tagName');
+			
+			for(var i = 0; i<20; i++){
+				if(endClass != "BODY"){
+					targetHtml.removeAttr('data-hidden').removeAttr('aria-hidden');
+
+					targetHtml = targetHtml.parent();
+					endClass = targetHtml.parent().prop('tagName');
+					
+					//console.log(endClass)
+					
+					targetHtml.removeAttr('data-hidden').removeAttr('aria-hidden');
+				}
+				else {
+					break
+				}
+			}
+
+			//팝업내 버튼이 없을경우 팝업영역을 첫번째 포커스로 잡음
+			if($(area).find("[data-pop-focus=first]").length == "0"){
+				$(area).attr({"tabindex" : "0", "data-pop-focus":"first"});	
+				$(area).focus();
+			} else{
+				$(area).find('[data-pop-focus=first]').focus();
+			}
+			
+			//접근성 : 첫번째탭에서 shift + tab 경우 마지막버튼으로 (팝업내 포커스 루프)
+			$(area).find("[data-pop-focus=first]").on("keydown", function(e){
+				if(e.shiftKey == true && e.which == 9){
+					$(area).find("[data-pop-focus=last]").focus();
+					return false;
+				}
+			});
+			
+			//접근성 : 마지막탭에서 tab 경우 첫번째 버튼 (팝업내 포커스 루프)
+			$(area).find("[data-pop-focus=last]").on("keydown", function(e){
+				if(e.shiftKey == false && e.which == 9){
+					$(area).find("[data-pop-focus=first]").focus();
+					return false;
+				}
+			});
+		},
+		focusloopClose : function(){
+			$("[data-retrunFocus=Y]").focus();
+			// 250221 접근성 모바일 수정
+			$(".dataFocus").focus();
+			$("[data-hidden=hidden]").removeAttr("data-hidden").removeAttr("aria-hidden");
+			$("body *").removeAttr("data-retrunFocus");
+			// 250221 접근성 모바일 수정
+			setTimeout(function(){
+				$('.dataFocus').focus();
+				$("body *").removeClass("dataFocus");
+				// 250314
+				$('.popTit').removeClass('firstFocus');
+			},150)
+		},
+		//GNB 키보드 운용
+		GNB : function() {
+			var TargetState = "[class*='hidden'], [style*='display:none'], [style*='display: none'], [style*='display :none'], [style*='display : none']";
+			
+			//GNB ON
+			$("#header nav>ul>li>a").on('focusin', function(e){
+				$(this).trigger('mouseover');
+			});
+
+			//GNB OFF
+			$("header>nav #gnb>li").not(TargetState).last().on('focusout', function(e){
+				if(!$(this).hasClass("child")){
+					$(this).trigger('mouseleave');	
+				}	
+			});
+			
+			$("header>nav #gnb>li").not(TargetState).last().find(".menuM>li").not(TargetState).last().find(".menuS>li").not(TargetState).last().on('focusout', function(e){
+				$(this).trigger('mouseleave');
+			});
+			
+			$("header>nav #gnb>li").not(TargetState).last().find(".menuM>li").not(TargetState).last().on('focusout', function(e){
+				if(!$(this).hasClass("child")){
+					$(this).trigger('mouseleave');
+				}
+			});
+			
+			$("header>nav #gnb>li>a").on('keydown', function(e){				
+				if (e.shiftKey == true && e.which == 9) {
+					var TargetParentIndex = $(this).parent("li").index()-1;
+					if(!$("header>nav #gnb>li").eq(TargetParentIndex).find("li").not(TargetState).last().hasClass("child")){
+						setTimeout(function() {
+							$("header>nav #gnb>li").eq(TargetParentIndex).find("li").not(TargetState).last().find("a").focus();
+						}, 1); 
+					} else{
+						setTimeout(function() {
+							$("header>nav #gnb>li").eq(TargetParentIndex).find("li").not(TargetState).last().find(".menuS li").not(TargetState).last().find("a").focus();
+						}, 1);
+					}
+				}
+			});
+		},
+		SNB : {
+			init : function(){
+				//snb 포커스이벤트
+				$("#snb_nav .snb_area > button").on("keydown", function (e) {
+					var focusIndex = $(this).index();
+					// 25.02.11 접근성 모바일 수정
+					// console.log(focusIndex)
+					if (e.shiftKey == true && e.which == 9) {
+						ui.accessibility.SNB.SNBfocusout();
+					}
+
+					else if (e.shiftKey == false && e.which == 9) {
+						if($("#snb").css("display") == "block"){
+							//1뎁스
+							if(focusIndex == 1){
+								setTimeout(function(){
+									$("li[data-SnbfirstTargetD1=true] > a").focus();
+								},0);
+							}
+							//2뎁스
+							else if(focusIndex == 2){
+								setTimeout(function(){
+									$("li[data-SnbfirstTargetD2=true] > a").focus();
+								},0);
+							}
+							//3뎁스
+							else if(focusIndex == 3){
+								setTimeout(function(){
+									$("li[data-SnbfirstTargetD3=true] > a").focus();
+								},0);
+							}
+							//4뎁스
+							else if(focusIndex == 4){
+								setTimeout(function(){
+									$("li[data-SnbfirstTargetD4=true] > a").focus();
+								},0);
+							}
+						}
+					}
+				});
+				//SNB 첫번째 / 마지막 포커스 제어 이벤트
+				ui.accessibility.SNB.firstFocuseout();
+				ui.accessibility.SNB.lastFocuseout();
+			},
+			//SNB 첫번째 포커스 제어
+			firstFocuseout : function(){
+				//각 SNB중 CMS에서 display none 처리할경우 해당객체를 제외한 나머지 중 첫번째 타겟 셋팅
+				//CMS 에서 display:none << 띄어쓰기가 브라우져 별로 상이해서 2개 타입 추가
+				//1뎁스
+				$("#snb_nav #snb > li").not("[style*='display:none']").not("[style*='display: none']").first().attr('data-SnbfirstTargetD1',"true");
+				//2뎁스
+				$("#snb_nav #snb li.on .menuM > li").not("[style*='display:none']").not("[style*='display: none']").first().attr('data-SnbfirstTargetD2',"true");
+				//3뎁스
+				$("#snb_nav #snb li.on .menuM li.on .menuS > li").not("[style*='display:none']").not("[style*='display: none']").first().attr('data-SnbfirstTargetD3',"true");
+				//4뎁스
+				$("#snb_nav #snb li.on .menuM li.on .menuS li.on .menuSS > li").first("[style*='display:none']").not("[style*='display: none']").last().attr('data-SnbfirstTargetD4',"true");
+
+				//1뎁스 첫번째포커스 이벤트
+				$("li[data-SnbfirstTargetD1=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == true && e.which == 9) {
+						setTimeout(function () {
+							$("#snb_nav .snb_area > button:nth-of-type(1)").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(1);
+					}
+				});
+
+				//2뎁스 첫번째포커스 이벤트
+				$("li[data-SnbfirstTargetD2=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == true && e.which == 9) {
+						setTimeout(function () {
+							$("#snb_nav .snb_area > button:nth-of-type(2)").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(2);
+					}
+				});
+
+				//3뎁스 첫번째포커스 이벤트
+				$("li[data-SnbfirstTargetD3=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == true && e.which == 9) {
+						setTimeout(function () {
+							$("#snb_nav .snb_area > button:nth-of-type(3)").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(3);
+					}
+				});
+
+				//4뎁스 첫번째포커스 이벤트
+				$("li[data-SnbfirstTargetD4=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == true && e.which == 9) {
+						setTimeout(function () {
+							$("#snb_nav .snb_area > button:nth-of-type(4)").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(4);
+					}
+				});
+			},
+			//SNB 마지막 포커스 셋팅 후 이벤트 제어
+			lastFocuseout : function(){
+				//각 SNB중 CMS에서 display none 처리할경우 해당객체를 제외한 나머지 중 마지막 타겟 셋팅
+				//CMS 에서 display:none << 띄어쓰기가 브라우져 별로 상이해서 2개 타입 추가
+				//1뎁스
+				$("#snb_nav #snb > li").not("[style*='display:none']").not("[style*='display: none']").last().attr('data-SnbLastTargetD1',"true");
+				//2뎁스
+				$("#snb_nav #snb li.on .menuM > li").not("[style*='display:none']").not("[style*='display: none']").last().attr('data-SnbLastTargetD2',"true");
+				//3뎁스
+				$("#snb_nav #snb li.on .menuM li.on .menuS > li").not("[style*='display:none']").not("[style*='display: none']").last().attr('data-SnbLastTargetD3',"true");
+				//4뎁스
+				$("#snb_nav #snb li.on .menuM li.on .menuS li.on .menuSS > li").not("[style*='display:none']").not("[style*='display: none']").last().attr('data-SnbLastTargetD4',"true");
+
+				//1뎁스 마지막포커스 이벤트
+				$("li[data-SnbLastTargetD1=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == false && e.which == 9) {
+						setTimeout(function () {
+							$("#snb_nav .snb_area > button:nth-of-type(2)").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(1);
+					}
+				});
+
+				//2뎁스 마지막포커스 이벤트
+				$("li[data-SnbLastTargetD2=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == false && e.which == 9) {
+						if($("#snb_nav .snb_area > button:nth-of-type(3)").index() == "-1"){
+							setTimeout(function () {
+								$(".typeSub .pageUtil>.btn_print").focus();
+							}, 0);
+						} else{
+							setTimeout(function () {
+								$("#snb_nav .snb_area > button:nth-of-type(3)").focus();
+							}, 0);
+						}
+						ui.accessibility.SNB.SNBfocusout(2);
+					}
+				});
+
+				//3뎁스 마지막포커스 이벤트
+				$("li[data-SnbLastTargetD3=true] > a").on("keydown", function (e) {
+					// 25.02.11 접근성 모바일 수정
+					// console.log(111);
+					if (e.shiftKey == false && e.which == 9) {
+						if($("#snb_nav .snb_area > button:nth-of-type(4)").index() == "-1"){
+							setTimeout(function () {
+								$(".typeSub .pageUtil>.btn_print").focus();
+							}, 0);
+						} else{
+							setTimeout(function () {
+								$("#snb_nav .snb_area > button:nth-of-type(4)").focus();
+							}, 0);
+						}
+						ui.accessibility.SNB.SNBfocusout(3);
+					}
+				});
+
+				//4뎁스 마지막포커스 이벤트
+				$("li[data-SnbLastTargetD4=true] > a").on("keydown", function (e) {
+					if (e.shiftKey == false && e.which == 9) {
+						setTimeout(function () {
+							$(".typeSub .pageUtil>.btn_print").focus();
+						}, 0);
+						ui.accessibility.SNB.SNBfocusout(4);
+					}
+				});
+
+			},
+			SNBfocusout : function(index){
+				$("#snb_nav .snb_area>button").eq(index-1).trigger("click");
+			}
+		}
+	},
+	//모바일 본문 스크롤 방지
+	lockBody : {
+		val : {
+			mobileBodyLock : "N",						//모바일 body 스크롤 락 여부
+			LockEl : 'body',						//scroll 타겟
+			contWrap : '#container',					//컨텐츠 영역
+			LockScrollTop : "", 						//스크롤 락 시도시 현재 스크롤 값
+		},
+		//잠그기
+		lock : function(){
+			if(window.pageYOffset) {
+				ui.lockBody.val.LockScrollTop = window.pageYOffset;
+				// 25.02.12 접근성 2차 수정
+				// $(ui.lockBody.val.contWrap).css({
+				// 	top: - (ui.lockBody.val.LockScrollTop)
+				// });
+			}
+			$(ui.lockBody.val.LockEl).css({
+				height: "100%",
+				overflow: "hidden"
+			});
+
+			ui.lockBody.val.mobileBodyLock = "Y";
+		},
+		//해지
+		unlock : function(){
+			$(ui.lockBody.val.LockEl).css({
+				height: "",
+				overflow: ""
+			});
+
+			// 25.02.12 접근성 2차 수정
+			// $(ui.lockBody.val.contWrap).css({
+			// 	top: ""
+			// });
+
+			// 25.02.12 접근성 2차 수정
+			// window.scrollTo(0, ui.lockBody.val.LockScrollTop);
+			window.setTimeout(function () {
+				ui.lockBody.val.LockScrollTop = null;
+			}, 0);
+
+			ui.lockBody.val.mobileBodyLock = "N";
+		}
+	},
+	//SNB PC 뎁스별 최대 넓이값 구하기
+	snbDept : {
+		init  : function(breakPoint){
+
+			onePoint = "";
+			if(window.innerWidth <= breakPoint){
+				onePoint = "PC";
+			} else{
+				onePoint = "MOBIE";
+			}
+
+			ui.snbDept.set(breakPoint);
+			$(window).bind('resize', function(){
+				ui.snbDept.set(breakPoint);
+			});
+		},
+		set : function(breakPoint){
+			//SNB 각 뎁스별 최대 넓이 갑 구하기
+			//+58은 ul의 padding 값 + 보더 양끝 2 더한 값 / 30은 앞에 58값과 버튼 좌 우 패딩 값을 - 한 나머지 값을 + 해줘야 가장 넓은 뎁스가 활성화 되었을때 텍스트가 잘리지 않음
+			var margin = 58 + 30;
+			if(window.innerWidth <= breakPoint){
+				if(onePoint == "PC"){	
+					onePoint = "MOBIE";
+					$("#snb_nav .snb_area>button").removeAttr("style");
+					//console.log("모바일");
+				}
+			}else{
+				if(onePoint == "MOBIE"){
+					//1뎁스 			
+					$("#snb_nav").removeAttr("class").addClass("active1");
+					$("#snb").show().css({"width":"auto","visibility":"hidden"});
+					$("#snb_nav .snb_area>button.dep1").css("width", $("#snb>li.on").outerWidth() + margin+"px");
+
+					//2뎁스
+					$("#snb_nav").removeAttr("class").addClass("active2");
+					$("#snb").show().css("width","auto");
+				
+					$("#snb_nav .snb_area>button.dep2").css("width", $("#snb>li.on>.menuM").outerWidth() + margin + "px");
+
+					//3뎁스
+					$("#snb_nav").removeAttr("class").addClass("active3");
+					$("#snb").show().css("width","auto");
+					$("#snb_nav .snb_area>button.dep3").css("width", $("#snb>li.on>.menuM>li.on>.menuS").outerWidth() + margin + "px");
+
+					$("#snb_nav").removeAttr("class");
+					$("#snb").hide().removeAttr("style");
+					//console.log("PC");
+
+					onePoint = "PC";
+				}
+				
+			}
+		}
+	},
+
+	touchDim: function () {
+		$.fn.hasHorizontalScrollBar = function () {
+			return this.get(0) ? Math.ceil(this.get(0).scrollWidth) > Math.ceil(this.innerWidth()) : false;
+		}
+	
+		function handleResize() {
+			$(".contTable, .limitX").each(function (index) {
+				var $table = $(this);
+				var $touchArea = $table.find(".tableTouchArea");
+	
+				if ($table.hasHorizontalScrollBar()) {
+					if ($touchArea.length !== 1) {
+						var touchHtml = '<div class="tableTouchArea"><button type="button" class="tableScrollTouch"><span>좌,우로 이동 가능합니다.</span></button></div>';
+						$table.addClass('typeScroll');
+						$table.append(touchHtml);
+					}
+				} else {
+					$table.removeClass('typeScroll');
+					$touchArea.remove();
+				}
+
+				$(this).on("scroll", function(e) {
+					$(this).find(".tableTouchArea").hide();
+				});
+			});
+		};
+	
+		handleResize();
+	
+		$(window).on("resize", function () {
+			handleResize();
+		});
+	
+		$(".contTable, .limitX").on("scroll", function (e) {
+			$(this).find(".tableTouchArea").hide();
+		});
+
+		$(".contTabBase .tabList>li a").on("click", function (e) {
+			handleResize();
+		});
+	},
+	help : function () {
+		$("[data-id=help]").each(function(e){
+
+			//25.02.11 접근성 2차 수정
+			var $this = $(this);
+			$this.find('button').attr('aria-expanded','false');
+			var isKeyboard = false;
+			$(document).on('keydown', function (event) {
+				if (event.key === 'Tab') {
+					isKeyboard = true;
+				}
+			});
+			$('.help button').on('mousedown', function (event) {
+				if (event.keyCode !== 13) {
+					isKeyboard = false;
+				}
+			});
+			$(this).find("button").click(function(e){
+				if (isKeyboard === false){
+					if($(this).hasClass("on")){
+						$(this).removeClass("on");
+						$(this).next(".help_cont").fadeOut(300, function(e){
+							$(this).removeAttr("style");
+						});
+						$(this).attr('aria-expanded','false');
+					}else{
+						$(this).addClass("on");
+						$(this).next(".help_cont").fadeIn(300);
+						if($(window).innerWidth() <= 600 ){
+							$(this).next(".help_cont").css("left", -($(this).next(".help_cont").offset().left - $(".contentsWrap").css("padding-left").match(/\d+/)[0]) +"px");
+						}
+						$(this).attr('aria-expanded','true');
+					}
+					return false;
+				}else if(isKeyboard === true){
+					if (event.keyCode !== 13) {
+						if($(this).hasClass("on")){
+							$(this).removeClass("on");
+							$(this).next(".help_cont").fadeOut(300, function(e){
+								$(this).removeAttr("style");
+							});
+							$(this).attr('aria-expanded','false');
+						}else{
+							$(this).addClass("on");
+							$(this).next(".help_cont").fadeIn(300);
+							if($(window).innerWidth() <= 600 ){
+								$(this).next(".help_cont").css("left", -($(this).next(".help_cont").offset().left - $(".contentsWrap").css("padding-left").match(/\d+/)[0]) +"px");
+							}
+							$(this).attr('aria-expanded','true');
+						}
+					}
+				}
+			});
+
+			//25.02.11 접근성 2차 수정
+			$(window).bind('resize load', function () {
+				$("[data-id=help] button").removeClass("on");
+				$("[data-id=help] .help_cont").fadeOut(300, function(e){
+					$(this).removeAttr("style");
+				});
+				$("[data-id=help] button").attr('aria-expanded','false');
+			});
+
+			//25.02.11 접근성 2차 수정
+			//포커스 시
+			$(this).find("button").on("focus", function(){
+				if (isKeyboard){
+					$(this).addClass("on");
+					$(this).next(".help_cont").fadeIn(300);
+					if ($(window).innerWidth() <= 600) {
+						$(this).next(".help_cont").css("left", -($(this).next(".help_cont").offset().left - $(".contentsWrap").css("padding-left").match(/\d+/)[0]) + "px");
+					}
+					$(this).attr('aria-expanded','true');
+					return false;
+				}
+			});
+			//25.02.11 접근성 2차 수정
+			//포커스 벗어날 때
+			$(this).find("button").on("blur", function(){
+				if (isKeyboard){
+					$(this).removeClass("on");
+					$(this).next(".help_cont").fadeOut(300, function(e){
+						$(this).removeAttr("style");
+					});
+					$(this).attr('aria-expanded','false');
+					return false;
+				}else if(isKeyboard === false){
+					// $(document).on("click", function(event) {
+					// 	$("[data-id=help]").each(function() {
+					// 		var $help = $(this);
+					// 		if (!$(event.target).closest($help).length) {
+					// 			var $button = $help.find('button');
+					// 			$button.removeClass("on");
+					// 			$button.next(".help_cont").fadeOut(300, function(e){
+					// 				// $button.removeAttr("style");
+					// 			});
+					// 			$button.attr('aria-expanded','false');
+					// 		}
+					// 	});
+					// });
+				}
+			});
+			//25.02.11 접근성 2차 수정
+			// ESC 키를 눌렀을 때
+			$(document).on('keydown', function(e) {
+				if (e.key === "Escape") {
+					if (isKeyboard){
+						$("[data-id=help] button").removeClass("on");
+						$("[data-id=help] button").next(".help_cont").fadeOut(300, function(e){
+							$("[data-id=help]").next(".help_cont").removeAttr("style");
+						});	
+						$("[data-id=help] button").attr('aria-expanded','false');
+					}			
+				}
+			});
+
+		});
+	},
+	password : function () {
+		//비밀번호 보기
+		$("[data-id=typeEye]").each(function(e){
+			$(this).find(".scHdn").html("비밀번호 숨김 표시하기");
+			$(this).find(".btn_eye").on("click", function(e){
+				if($(this).hasClass("off")){
+					$(this).removeClass("off").find(".scHdn").html("비밀번호 숨김 표시하기");
+					$(this).prevAll(".inputBase").attr("type", "password");
+				} 
+				else{
+					$(this).addClass("off").find(".scHdn").html("비밀번호 끄기");
+					$(this).prevAll(".inputBase").attr("type", "text");
+				}
+			});
+		});
+	},
+
+	tabBtn : function () {
+		// 탭 title 부여
+		$('.pageTabBase').each(function() {
+			var tabBase = $(this);
+
+			tabBase.find('.tabList').attr('role', 'tablist');
+			tabBase.find('.tabList li a').attr('role', 'tab');
+			
+			// 250312
+			var tabOn = tabBase.find('.tabList li.on');
+			tabOn.find('a').attr('title', '선택됨');
+
+			// 25.02.12 접근성 2차 수정
+			// var tabOn = tabBase.find('.tabList li');
+			// if(tabOn.hasClass('on')){
+			// 	tabOn.find('a').attr('title','선택됨');
+			// }
+
+		});
+
+		$('.contTabBase').each(function() {
+			var tabContBase = $(this);
+
+			tabContBase.find('.tabList').attr('role', 'tablist');
+			tabContBase.find('.tabList li a').attr('role', 'tab');
+		});
+
+		$('.tabList').attr('role', 'tablist');
+		$('.tabList li a').attr('role', 'tab');
+
+		$.fn.hasHorizontalScrollBar = function () {
+			return this.get(0) ? Math.ceil(this.get(0).scrollWidth) > Math.ceil(this.innerWidth()) : false;
+		}
+	
+		function handleResize(tabName) {
+			var tableClassName = tabName;
+
+			$(`${tableClassName} .tabList`).each(function (index) {
+				var $table = $(this);
+				var $touchArea = $table.parents(tableClassName).find(".tabMove");
+	
+				if ($table.hasHorizontalScrollBar()) {
+					// 25.02.11 접근성 모바일 수정
+					// console.log($touchArea.length)
+					if ($touchArea.length == 0) {
+						$table.parents(tableClassName).append('<button type="button" class="tabNext tabMove" value="next"><span class="scHdn">다음</span></button>')
+						$table.parents(tableClassName).prepend('<button type="button" class="tabPrev tabMove" value="prev"><span class="scHdn">이전</span></button>')
+					}
+				} else {
+					$touchArea.remove();
+				}
+
+				//포지션 값 구하기
+				$table.find("li").each(function(index){
+					if(index == 0){
+						$(this).attr("data-scroll", Math.round($(this).position().left) - 1) // -1은 스타일에 들어간 마진-1값
+					} else{
+						$(this).attr("data-scroll", Math.round($(this).position().left) + 6) // 6은 스타일에 들어간 마진 -1값 + left 5값
+					}
+
+					if($(this).hasClass("on")){
+						$(this).addClass("active");
+					}
+				});
+
+				$table.scroll(function(e){
+					tabScroll($table);
+				});
+
+				function tabScroll(target){
+					var scrollLeft = target.scrollLeft();
+
+					target.find("li").removeClass("active");
+					$(target.find("li").get().reverse()).each(function(e){
+						var $node = $(this);
+						var offSetTopA = $node.attr("data-scroll");
+						if(scrollLeft >= offSetTopA){
+							$node.addClass("active");
+							return false
+						}
+					});
+				}
+
+				$(`${tableClassName} .tabMove`).off("click").on('click', function() {  
+
+					$(`${tableClassName} .tabMove`).attr("disabled", true);
+
+					var itemLeft = "";
+
+					if($(this).val() == "prev"){
+						if($(this).parents(tableClassName).find("li.active").index() == 0){
+							itemLeft = "0";
+						} else{
+							itemLeft = $(this).parents(tableClassName).find("li.active").prev().attr("data-scroll");
+						}
+					} 
+
+					else if($(this).val() == "next"){
+						itemLeft = $(this).parents(tableClassName).find("li.active").next().attr("data-scroll"); 
+					}
+
+					$(this).parents(tableClassName).find(".tabList").animate({
+						scrollLeft: itemLeft
+					}, 300, function(e){
+						$(`${tableClassName} .tabMove`).attr("disabled", false);
+					});
+				});
+			});
+		}
+	
+		handleResize(".pageTabBase");
+		handleResize(".contTabBase");
+	
+		$(window).on("resize", function () {
+			handleResize(".pageTabBase");
+			handleResize(".contTabBase");
+		});
+
+	},
+
+	//25.02.10 접근성 2차 수정: 키보드 접근성 추가
+	labelFocus : function(){
+		$(".baseBtn").each(function() {
+			var btn = $(this).find("input[type='file']");
+	
+			if (btn.length > 0) {
+				// $(this).attr('tabindex', '0');
+
+				// 250221 접근성 모바일 수정
+				btn.attr('aria-label', '사진 등록');
+
+				// $(this).on("keydown", function(e) {
+				// 	if (e.key == 'Enter' && !isClicked) {
+				// 		$(this).click();
+				// 		return false;
+				// 	}
+				// });
+			}
+		});
+	},
+
+	//25.02.11 접근성 2차 모바일 수정
+	listCaption : function(){
+		$(".BBSlist").each(function() {
+			var $this = $(this);
+			var removedElement = $this.find('caption');
+			$(window).bind('resize load', function () {
+				if($(window).width() < 1040) {
+					removedElement.detach();
+				}else if($(window).width() > 1040){
+					if (removedElement.length && !$('.BBSlist').has('caption').length) {
+						$('.BBSlist').prepend(removedElement);
+					}
+				}
+			});
+		});
+	}
+}

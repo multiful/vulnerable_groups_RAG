@@ -5,7 +5,7 @@
 > **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>  
 > **문서 역할**: 루트 문서 갱신 규칙 및 작업 절차 문서  
 > **문서 우선순위**: 1  
-> **연관 문서**: README.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, DEV_LOG.md, HASH_INCREMENTAL_BUILD_GUIDE.md  
+> **연관 문서**: README.md, PROJECT_SUMMARY.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, DEV_LOG.md, HASH_INCREMENTAL_BUILD_GUIDE.md  
 > **참조 규칙**: 기능 변경, 구조 변경, 문제 정의 수정, 구현 시작 전 반드시 먼저 확인한다.
 
 ---
@@ -48,6 +48,10 @@
 ### `README.md`
 프로젝트의 입구 문서  
 프로젝트 요약, 핵심 개념, 문서 안내, 읽는 순서를 담당한다.
+
+### `PROJECT_SUMMARY.md`
+저장소 전체 한 페이지 요약(두 레인·스택·청킹 개요·레퍼런스 문서 배치).  
+세부 계약·스키마는 각 전용 문서가 우선이며, 본 문서는 충돌 해결 기준으로 쓰지 않는다.
 
 ### `PRD.md`
 현재 해결해야 하는 문제, 타깃 사용자, 제품 목표, 범위/비범위를 담당한다.
@@ -146,6 +150,7 @@ Parse, Chunking, Metadata, Embedding, Retrieval 파이프라인을 담당한다.
 ### 5.1 예외 원칙
 - `DIRECTORY_SPEC.md`는 **디렉토리 구조 자체에 대해서는 기준 문서**로 간주한다.
 - `README.md`는 입구 문서이며, 상세 기준 충돌 해결 문서로 사용하지 않는다.
+- `PROJECT_SUMMARY.md`는 탐색·온보딩용 요약이며, 상세 기준 충돌 해결 문서로 사용하지 않는다.
 
 ### 5.2 메타데이터 정합성 원칙
 - 각 문서의 `문서 우선순위` 숫자는 **중복되면 안 된다.**

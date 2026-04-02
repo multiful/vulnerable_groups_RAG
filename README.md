@@ -5,7 +5,7 @@
 > **문서 해시**: SHA256:TBD  
 > **문서 역할**: 프로젝트 최상위 안내 문서 / 관문 문서  
 > **문서 우선순위**: 0  
-> **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, Indexing_Architecture.txt  
+> **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, PROJECT_SUMMARY.md, Indexing_Architecture.txt  
 > **참조 규칙**: 작업 시작 전 본 문서와 `CHANGE_CONTROL.md`를 먼저 읽고, 이후 관련 상세 문서를 확인한다.
 
 ---
@@ -109,6 +109,7 @@
 | 문서명 | 역할 |
 |---|---|
 | `README.md` | 프로젝트 입구 문서 |
+| `PROJECT_SUMMARY.md` | 저장소 한눈에 보기 — 목적·두 레인·스택·청킹 개요·긴 기법 문서 보관 위치 |
 | `CHANGE_CONTROL.md` | 문서 수정 규칙, 메타데이터 갱신 원칙, 작업 절차 |
 | `DIRECTORY_SPEC.md` | 디렉토리 구조와 파일/폴더 책임 |
 | `ROOT_DOC_GUIDE.md` | 루트 문서 탐색·읽기 순서 안내 |
@@ -118,6 +119,7 @@
 | `SYSTEM_ARCHITECTURE.md` | 시스템 계층, 책임, 데이터 흐름 |
 | `FEATURE_SPEC.md` | 기능별 입력/출력/예외처리 |
 | `DATA_SCHEMA.md` | 엔티티, 관계, candidate row, 메타데이터 구조 |
+| `CSV_CANONICALIZATION_TEAM_GUIDE.md` | CSV 레인 담당자(영민·유빈)용 수집·매핑·canonical 지침 |
 | `API_SPEC.md` | API 계약, request/response, 오류 형식 |
 | `PROMPT_DESIGN.md` | 프롬프트 역할, 입력 슬롯, 출력 계약 |
 | `RAG_PIPELINE.md` | Parse / Chunk / Embedding / Retrieval 파이프라인 |
@@ -157,6 +159,7 @@ Cursor IDE용 작업 규칙은 `.cursor/rules/`에 둔다. (루트에 동일 본
 project-root/
 ├─ .gitignore
 ├─ README.md
+├─ PROJECT_SUMMARY.md
 ├─ CHANGE_CONTROL.md
 ├─ DIRECTORY_SPEC.md
 ├─ ROOT_DOC_GUIDE.md
@@ -168,6 +171,7 @@ project-root/
 ├─ API_SPEC.md
 ├─ PROMPT_DESIGN.md
 ├─ DATA_SCHEMA.md
+├─ CSV_CANONICALIZATION_TEAM_GUIDE.md
 ├─ RAG_PIPELINE.md
 ├─ EVALUATION_GUIDELINE.md
 ├─ EVALUATION.md
