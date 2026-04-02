@@ -42,6 +42,10 @@ class Settings(BaseSettings):
 
     # --- 오프라인 산출물 경로 (저장소 루트 기준 상대 경로 권장) ---
     chunks_jsonl_relative: str = "data/index_ready/chunks/chunks.jsonl"
+    candidates_jsonl_relative: str = "data/canonical/candidates/candidates.jsonl"
+    taxonomy_domain_relative: str = "data/taxonomy/domain_v2.txt"
+    taxonomy_job_relative: str = "data/taxonomy/prefer_job.txt"
+    recommendation_max_results: int = Field(default=50, ge=1, le=200)
 
     @field_validator("supabase_url", "openai_api_key", mode="before")
     @classmethod

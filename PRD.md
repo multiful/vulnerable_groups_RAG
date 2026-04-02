@@ -2,7 +2,7 @@
 
 > **파일명**: PRD.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:e0d34e364c537eb2099da8840dd4256805ba10b2b8f877c3d52326f066d70819
 > **문서 역할**: 제품 요구사항 정의 문서  
 > **문서 우선순위**: 2  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, DATA_SCHEMA.md  

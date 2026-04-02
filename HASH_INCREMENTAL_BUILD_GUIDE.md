@@ -2,6 +2,7 @@
 
 > **파일명**: HASH_INCREMENTAL_BUILD_GUIDE.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:d61fce4efad10029e920cc45129bcd1acf7d95469da8701923d8214e766a37fa
 > **문서 역할**: 해시 라인, 증분 빌드, 선택적 재처리, 성능 최적화 규칙 가이드  
 > **문서 우선순위**: reference  
 > **연관 문서**: CHANGE_CONTROL.md, DATA_SCHEMA.md, RAG_PIPELINE.md, CURSOR_PROJECT_RULES.md  

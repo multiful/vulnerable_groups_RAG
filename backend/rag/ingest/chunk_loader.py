@@ -14,7 +14,10 @@ from langchain_core.documents import Document
 def iter_chunks_jsonl(path: Path) -> Iterator[Document]:
     """
     한 줄당 하나의 청크. 필수 키: chunk_id, doc_id, text
-    선택 metadata 객체는 그대로 합쳐진다 (cert_id 필터용으로 cert_id 권장).
+    metadata 객체는 LangChain Document.metadata로 합쳐진다.
+
+    Evidence API(`retrieval_service`)는 Supabase 메타 `@>` 필터로 cert_id를 쓰므로,
+    근거 검색을 쓰려면 metadata에 cert_id를 넣는 것이 사실상 필수다.
 
     예:
     {"chunk_id":"c1","doc_id":"d1","text":"본문...","metadata":{"cert_id":"cert_013","source_type":"pdf"}}

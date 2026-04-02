@@ -2,6 +2,7 @@
 
 > **파일명**: ROOT_DOC_GUIDE.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:5cbf4218532a6946b57cbeef3a98581e1cae35206712c0df1b581c77162cb1b2
 > **문서 역할**: 루트 문서 사용 가이드 / 문서 탐색 안내 문서  
 > **문서 우선순위**: reference  
 > **연관 문서**: README.md, PROJECT_SUMMARY.md, CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md, DEV_LOG.md  

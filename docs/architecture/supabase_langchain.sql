@@ -3,6 +3,9 @@
 -- HuggingFace all-MiniLM-L6-v2 → 384 (테이블·함수의 vector(N)을 함께 변경)
 --
 -- 팀 Supabase 프로젝트 SQL 에디터에서 실행 후 service_role 키를 백엔드 환경변수로만 사용.
+--
+-- 재인제스트: backend.rag.ingest.cli 는 멱등 upsert를 강제하지 않는다.
+-- 동일 chunk_id로 여러 번 add_texts 하면 중복 행이 생길 수 있으므로, 전량 재적재 전 정책(TRUNCATE 등)을 정한다.
 
 create extension if not exists vector;
 

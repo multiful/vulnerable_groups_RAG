@@ -2,6 +2,7 @@
 
 > **파일명**: API_SPEC.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:665faf6c5cc2f63c49a98d8deac8f5917f338c66eefc01b738d186fb65443268
 > **문서 역할**: API 계약, request/response, 오류 형식 정의 문서  
 > **문서 우선순위**: 6  
 > **연관 문서**: FEATURE_SPEC.md, DATA_SCHEMA.md, SYSTEM_ARCHITECTURE.md, PRD.md  
@@ -213,6 +214,12 @@ application/json
 - 자유 텍스트가 있더라도 내부적으로 taxonomy 정규화 결과를 우선 사용한다.
 - 추천 결과가 0건이어도 시스템 오류와 구분해야 한다.
 
+### 데이터 소스(현행 구현)
+
+- 후보 목록은 **canonical DB가 아니라** `CANDIDATES_JSONL_RELATIVE` 환경변수(기본: `data/canonical/candidates/candidates.jsonl`)의 **JSONL**에서 읽는다. 한 줄 = `DATA_SCHEMA.md` §9.1 `certificate_candidate_row` 1건.
+- `data/taxonomy/domain_v2.txt`, `prefer_job.txt`에서 추출한 라벨로 **요청** `interested_*` 및 **행**의 도메인·직무를 검증한다(파일이 비어 있으면 행 쪽 taxonomy 검증은 생략).
+- `query_text`는 현재 필터에 사용하지 않는다(reserved·후속).
+
 ### Response Body 예시
 ```json
 {
@@ -303,6 +310,11 @@ application/json
 - `MISSING_REQUIRED_FIELD`
 - `RETRIEVAL_EMPTY`
 - `NOT_FOUND`
+
+### 인제스트·메타데이터 전제 (준비)
+
+벡터 스토어에 적재된 각 청크의 `metadata`(JSONB)에 **요청 `cert_id`와 동일한 키 `cert_id`** 가 포함되어 있어야, 현행 구현의 메타 필터(`@>`)로 검색된다.  
+JSONL·인제스트 계약은 `DATA_SCHEMA.md` §10, `RAG_PIPELINE.md` §16.2, `data/index_ready/chunks/chunks.jsonl.example`를 본다.
 
 ---
 

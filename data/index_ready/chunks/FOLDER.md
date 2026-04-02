@@ -14,7 +14,8 @@
 
 ## 1. 용도
 
-RAG용 **청크 JSONL** 등(예: `chunks.jsonl`). 검색 단위 텍스트와 메타.
+RAG용 **청크 JSONL** 등(예: `chunks.jsonl`). 검색 단위 텍스트와 메타.  
+형식 참고용 **`chunks.jsonl.example`** (Git 추적, 더미 1줄).
 
 ## 2. 담지 않는 것
 

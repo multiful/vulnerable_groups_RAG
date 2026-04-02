@@ -2,7 +2,7 @@
 
 > **파일명**: EVALUATION_GUIDELINE.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:841c945cd38506dbf1aba14a04dc17299cbe00cc4f5aae3b53fdaf5ff89d0e13  
+> **문서 해시**: SHA256:841c945cd38506dbf1aba14a04dc17299cbe00cc4f5aae3b53fdaf5ff89d0e13
 > **문서 역할**: RAG·추천 평가 기준, metric 선택 이유, baseline·비교 원칙 정의  
 > **문서 우선순위**: 10  
 > **연관 문서**: CHANGE_CONTROL.md, RAG_PIPELINE.md, EVALUATION.md, EXPERIMENT_GUIDE.md, PRD.md  

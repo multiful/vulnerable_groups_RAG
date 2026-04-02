@@ -2,7 +2,7 @@
 
 > **파일명**: EVALUATION.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:ce5d2ebb59a0d483b1abca7179421b1a8a491874d2503a046ddc92c9d673c888
 > **문서 역할**: 실제 평가 실행 결과·실험 수치 기록  
 > **문서 우선순위**: 11  
 > **연관 문서**: EVALUATION_GUIDELINE.md, EXPERIMENT_GUIDE.md, RAG_PIPELINE.md, DEV_LOG.md  

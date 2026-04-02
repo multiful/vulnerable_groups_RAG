@@ -2,7 +2,7 @@
 
 > **파일명**: ERROR_ANALYSIS.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:78afe8e723091bf6be573811f53b71b9a066fe24cfb7828d52c1d79bf2313070
 > **문서 역할**: 오류·실패 사례, 패턴, 개선 방향 기록  
 > **문서 우선순위**: 13  
 > **연관 문서**: DEV_LOG.md, RAG_PIPELINE.md, FEATURE_SPEC.md, API_SPEC.md  

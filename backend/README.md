@@ -44,12 +44,14 @@ Supabase 테이블·`match_documents` RPC 는 [`docs/architecture/supabase_langc
 
 ## RAG 인제스트 (오프라인)
 
-`data/index_ready/chunks/chunks.jsonl` 이 있을 때(사용자 생성 산출물):
+`data/index_ready/chunks/chunks.jsonl` 이 있을 때(사용자 생성 산출물). 형식은 `chunks.jsonl.example` 참고.
 
 ```bash
 set PYTHONPATH=%CD%
 python -m backend.rag.ingest.cli
 ```
+
+**데이터만 모은 뒤 무엇이 더 필요한지**(청크 형식·cert_id·DB 차원·스텁 여부)는 루트 `PROJECT_SUMMARY.md` §8·§9를 본다.
 
 ## Evidence API
 

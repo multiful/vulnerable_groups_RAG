@@ -2,7 +2,7 @@
 
 > **파일명**: CSV_CANONICALIZATION_TEAM_GUIDE.md  
 > **최종 수정일**: 2026-04-04  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:c96bd84a195221dcae492e861f825cafe5817fc8104c5c4f4cb585ef010dd1e2
 > **문서 역할**: 영민,유빈용 — CSV 넣기·전처리·canonical까지 (청킹 제외)  
 > **문서 우선순위**: reference (필드 정의는 `DATA_SCHEMA.md`가 더 위)  
 > **연관 문서**: DATA_SCHEMA.md, DIRECTORY_SPEC.md, RAG_PIPELINE.md — CSV 정규화 시 참고 파일 전체 목록은 §9  

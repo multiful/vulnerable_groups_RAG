@@ -2,7 +2,7 @@
 
 > **파일명**: CHANGE_CONTROL.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>  
+> **문서 해시**: SHA256:c02910a26b7bc0102384837febdfd6aadfe3304eb6b9df7a1cc2e7b6f20c2f49
 > **문서 역할**: 루트 문서 갱신 규칙 및 작업 절차 문서  
 > **문서 우선순위**: 1  
 > **연관 문서**: README.md, PROJECT_SUMMARY.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, DEV_LOG.md, HASH_INCREMENTAL_BUILD_GUIDE.md  

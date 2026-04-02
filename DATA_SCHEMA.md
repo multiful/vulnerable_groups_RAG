@@ -2,7 +2,7 @@
 
 > **파일명**: DATA_SCHEMA.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:dc30de11f4c4d890c44ebda26a085e15b3c6e191127a8c1a9456000313de2ab3  
+> **문서 해시**: SHA256:927b08ead3052a466d5b4bd07e7dbf94750946f201859d0eced5812f38f0097b
 > **문서 역할**: 데이터 구조, 엔티티, 관계, 공통 필드, 제약조건 정의 문서  
 > **문서 우선순위**: 5  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, API_SPEC.md, RAG_PIPELINE.md  
@@ -477,6 +477,11 @@ PDF / HTML 지식 검색용 chunk 구조다.
 - `risk_stage_id`
 - `roadmap_stage`
 - `agency`
+
+### 현행 런타임 주의 (`cert_id`)
+
+스키마상 `cert_id`는 optional 메타에 속하지만, **현재 구현**의 Evidence 검색(`API_SPEC.md` §7.3, `backend/app/services/retrieval_service.py`)은 벡터 행 `metadata`에 `cert_id`가 있다고 가정하고 필터한다.  
+인제스트·JSONL 작성 시 **해당 청크가 귀속될 자격증 ID를 `metadata.cert_id`에 넣는 것을 준비 완료 조건으로 본다.**
 
 ### 원칙
 - 문서형 chunk는 설명 근거 검색용이다.

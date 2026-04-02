@@ -2,7 +2,7 @@
 
 > **파일명**: README.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:bd6321cf76d5c9730e3880526d36e6adc9616055605f66829e0f0f32e4bd919a
 > **문서 역할**: 프로젝트 최상위 안내 문서 / 관문 문서  
 > **문서 우선순위**: 0  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, PROJECT_SUMMARY.md, RAG_PIPELINE.md, Indexing_Architecture.txt  

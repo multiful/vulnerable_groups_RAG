@@ -2,6 +2,7 @@
 
 > **파일명**: PROMPT_DESIGN.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:326b003bd5fac9bdd373cc8b48cd75de1fb68eadc3430c016d8e75cfe28c712e
 > **문서 역할**: 시스템 프롬프트, 프롬프트 전략, 출력 계약 정의 문서  
 > **문서 우선순위**: 7  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, RAG_PIPELINE.md, API_SPEC.md, DATA_SCHEMA.md  

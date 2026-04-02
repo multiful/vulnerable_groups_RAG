@@ -2,7 +2,7 @@
 
 > **파일명**: DEV_LOG.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:657997bccfb2aa996420723b6fd1624934d43686da25f0041cf15f43c88484eb  
+> **문서 해시**: SHA256:3dd5a57fd253a5072c4d01747949b7b8218c7a0ec43adb2a37fa50c587511076
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, DIRECTORY_SPEC.md, ERROR_ANALYSIS.md  
@@ -13,6 +13,31 @@
 ## 1. 문서 목적
 
 구현과 문서 정렬 작업의 **타임라인**을 남겨, 이후 기여자가 맥락을 잃지 않게 한다.
+
+---
+
+## 2026-04-03 — 파이프라인 준비 전제(데이터 수집 후) 명시
+
+### 수행
+
+- **`PROJECT_SUMMARY.md`**: §8 레인별 준비 표·§9 구현 성숙도·§10 결론 번호 정리. “수집만으로 전 레인 자동 완주”가 아님을 명시.
+- **`SYSTEM_ARCHITECTURE.md`**: §13.4 `PROJECT_SUMMARY` §8·§9 단일 참조.
+- **`RAG_PIPELINE.md`**: §16.2 인제스트·Evidence 직전 체크리스트(cert_id·차원·재인제스트·증분).
+- **`DATA_SCHEMA.md`**, **`API_SPEC.md`**: 현행 Evidence 필터와 `metadata.cert_id` 정합.
+- **`chunk_loader.py`**: docstring 정합.
+- **`data/index_ready/chunks/chunks.jsonl.example`**: JSONL 1줄 샘플.
+- **`docs/architecture/supabase_langchain.sql`**: 재인제스트 중복 주석.
+- **`data/index_ready/chunks/FOLDER.md`**, **`backend/README.md`**: 예시·요약 링크.
+
+---
+
+## 2026-04-03 — 아키텍처 문서 정렬·루트 md 문서 해시
+
+### 수행
+
+- **`SYSTEM_ARCHITECTURE.md`**: §3.4는 §14·`RAG_PIPELINE.md` §15로 위임(중복 목록 제거), §9에 parse IR(`RAG_PIPELINE.md` §6.7)·문서형 chunk(`DATA_SCHEMA.md`) 교차 참조.
+- **누락 메타**: `API_SPEC.md`, `PROMPT_DESIGN.md`, `ROOT_DOC_GUIDE.md`, `HASH_INCREMENTAL_BUILD_GUIDE.md`에 `문서 해시` 줄 추가.
+- **루트 `*.md`**: 메타데이터 영역(첫 `## ` 이전)에서 `문서 해시`·`최종 수정일` 줄을 제외한 본문 기준으로 SHA256 재계산 → `scripts/maintenance/update_root_md_hashes.py`로 일괄 반영(하위 `FOLDER.md`는 제외).
 
 ---
 

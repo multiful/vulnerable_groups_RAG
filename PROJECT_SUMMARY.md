@@ -2,7 +2,7 @@
 
 > **파일명**: PROJECT_SUMMARY.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:b015f7cd4a3caac4e4abcb1d209585f6b471cdc89e5c3524f1a7d35323623c0a
 > **문서 역할**: 저장소 한눈에 보기 — 목적·구조·문서 지도·청킹 개요  
 > **문서 우선순위**: reference (세부 계약·스키마는 각 전용 문서가 우선)  
 > **연관 문서**: README.md, PRD.md, SYSTEM_ARCHITECTURE.md, RAG_PIPELINE.md, DATA_SCHEMA.md, DIRECTORY_SPEC.md  
@@ -134,15 +134,54 @@
 
 ---
 
-## 8. 현재 구현 단계 (요약)
+## 8. 데이터 수집이 끝난 뒤 — 레인별 “준비 완료”와 실행 전제
 
-- FastAPI 헬스·evidence API 스켈, LangChain→Supabase 인제스트 CLI 존재.  
-- **Parse→Chunk 자동 파이프라인**은 스크립트 수준에서 **후속 구현** (HTML DOM / PDF 라우터 등은 `RAG_PIPELINE.md`·슬라이드와 맞춰 확장).  
-- 추천 본체 API·canonical 빌드는 문서·스키마 대비 **단계적 구현**.
+**목표**: 원본만 올바른 위치·형식으로 두었다고 해서 **저장소 안의 모든 자동화가 한 번에 끝나는 상태는 아니다.** 아래를 구분한다.
+
+- **준비(계약·폴더·환경·DB·산출물 형식)**: 문서·스키마·예시 파일로 고정 가능한 것.  
+- **실행(코드 경로)**: 레인마다 **이미 연결된 CLI/API**가 있는지 여부가 다르다.
+
+### 8.1 문서 레인 (PDF/HTML → Evidence 검색)
+
+| # | 준비 항목 | 비고 |
+|---|-----------|------|
+| 1 | 원본 위치 | `data/raw/pdf/`, `data/raw/html/` (또는 팀 규칙과 동일한 수집 경로). |
+| 2 | Parse → Chunk 산출 | `RAG_PIPELINE.md` §6·§7·§6.7(IR 계약). 저장소의 `scripts/parse/run.py`는 **진입 스텁**이므로, **실제 Parse·청크 빌드는 오프라인 도구/후속 스크립트로 산출**해야 한다. |
+| 3 | 청크 JSONL | `data/index_ready/chunks/chunks.jsonl` (또는 `CHUNKS_JSONL_RELATIVE`). **한 줄 = JSON 1건.** 필수 키·예시는 `chunks.jsonl.example`·`chunk_loader.py` 주석. |
+| 4 | Evidence API 필터 정합 | 현행 `retrieval_service`는 벡터 메타에 `cert_id`가 있다고 가정하고 `@>` 필터한다. **JSONL의 `metadata` 안에 `cert_id`를 넣는 것이 사실상 필수** (없으면 검색 결과 0건). |
+| 5 | 임베딩 ↔ DB 차원 | `EMBEDDING_PROVIDER`에 맞춰 `docs/architecture/supabase_langchain.sql`의 `vector(N)`·`match_documents` 시그니처를 맞출 것 (OpenAI 기본 1536, HF MiniLM 384 등). |
+| 6 | 환경 변수 | `infra/env/.env.example` → 루트 또는 `backend/.env`에 복사. `SUPABASE_*`, 인제스트·검색에 쓰는 키·모델명. |
+| 7 | 인제스트 | 저장소 루트에서 `PYTHONPATH=. python -m backend.rag.ingest.cli`. **재실행 시 행 중복·벡터 중복 가능** — 운영 전 `RAG_PIPELINE.md` §16.2·`HASH_INCREMENTAL_BUILD_GUIDE.md` 참고. |
+
+위 1~7이 갖춰지면 **Evidence API 경로는 실행 가능**하다 (Supabase·키·JSONL이 유효할 때).
+
+### 8.2 구조 레인 (CSV → 추천 후보)
+
+| # | 준비 항목 | 비고 |
+|---|-----------|------|
+| 1 | 원본 위치 | `data/raw/csv/` 및 팀 CSV 가이드 (`CSV_CANONICALIZATION_TEAM_GUIDE.md`). |
+| 2 | Taxonomy | `data/taxonomy/` 허용 라벨과 수집 데이터가 **충돌 없이** 맞아야 한다 (`DATA_SCHEMA.md` taxonomy 제약). |
+| 3 | 산출물 위치 | `data/canonical/entities/`, `relations/`, `candidates/`, `validation/` 등 (`DIRECTORY_SPEC.md`). |
+| 4 | 실행 순서(설계상) | canonicalize → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
+| 5 | API | `POST /api/v1/recommendations`는 **`CANDIDATES_JSONL_RELATIVE`(기본 `data/canonical/candidates/candidates.jsonl`)** 의 certificate_candidate 행을 읽어 필터·정렬한다. DB 연동·배치 재생성은 후속이다. |
+
+### 8.3 한 줄 정리
+
+- **문서 + 청크 JSONL + Supabase + 환경**까지 맞추면 **근거 검색 파이프라인**은 돌릴 수 있다.  
+- **추천 후보 API**는 **candidate JSONL**이 준비되면 동작한다. **CSV→canonical 배치**로 그 JSONL을 자동 생성하는 부분은 여전히 후속 구현이다.
 
 ---
 
-## 9. 한 페이지 결론
+## 9. 현재 구현 단계 (요약)
+
+- FastAPI 헬스·**Evidence API**, LangChain→Supabase **인제스트 CLI**는 연결되어 있다.  
+- **Parse→Chunk 자동 배치**·**CSV canonical 배치**는 문서·스키마 대비 **단계적 구현(스텁 포함)** 이다.  
+- **POST /recommendations**는 **candidate JSONL 파일** 기준으로 동작한다.  
+- “데이터만 완벽”의 의미는 **§8 준비 표**와 **이 절**을 함께 본다.
+
+---
+
+## 10. 한 페이지 결론
 
 1. **CSV** → canonical까지 (청킹 없음).  
 2. **PDF/HTML** → Parse → **Chunk(`RAG_PIPELINE` §7)** → JSONL → Embed → Store.  

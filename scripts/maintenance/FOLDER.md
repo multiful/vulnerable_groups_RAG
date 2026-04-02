@@ -14,7 +14,7 @@
 
 ## 1. 용도
 
-일관성 점검, **FOLDER.md 생성기** 등 유지보수 스크립트.
+일관성 점검, **FOLDER.md 생성기**(`generate_folder_md.py`), 루트 md **문서 해시** 일괄 갱신(`update_root_md_hashes.py`) 등 유지보수 스크립트.
 
 ## 2. 담지 않는 것
 

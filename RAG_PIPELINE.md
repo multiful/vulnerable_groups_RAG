@@ -2,7 +2,7 @@
 
 > **파일명**: RAG_PIPELINE.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:f51b2bc0ca79426ed3f10a3b68e0ff4c35dcdd35c2917528b066973a4262ea22  
+> **문서 해시**: SHA256:974f5ca1682900ecbb235b078fa26d7c03b04195cc8805fef639c7933c2d9326
 > **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
@@ -587,6 +587,15 @@ RAG 파이프라인 산출물에는 최소 아래 버전 정보를 유지하는 
 | Evidence API | `POST /api/v1/recommendations/evidence` → `backend/app/services/retrieval_service.py` |
 
 **LlamaIndex** 기반 대안은 `backend/rag/llamaindex/` 에 자리만 두었으며, 전환 시 본 절과 `SYSTEM_ARCHITECTURE.md`를 먼저 갱신한다.
+
+### 16.2 데이터·런타임 준비 체크리스트 (인제스트·Evidence 직전)
+
+1. **`chunks.jsonl`**: 한 줄당 1청크 JSON. `text`(또는 `content`), `chunk_id`, `doc_id` 필수.  
+2. **`metadata.cert_id`**: 현행 `retrieval_service`·Supabase `@>` 필터 기준으로 **Evidence 검색에 필요** (요청 `cert_id`와 동일 값이 메타에 있어야 후보가 잡힌다).  
+3. **임베딩 차원**: `embedding_provider`·모델과 `docs/architecture/supabase_langchain.sql`의 `vector(N)`·RPC 인자 차원이 일치할 것.  
+4. **환경 변수**: `infra/env/.env.example` 기준 — `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, (OpenAI 경로면) `OPENAI_API_KEY` 등.  
+5. **재인제스트**: `ingest.cli`는 동일 `chunk_id`에 대한 **삭제·멱등 업서트를 강제하지 않는다.** 전량 갱신 시 테이블 정리 정책을 운영 규칙으로 정한 뒤 실행한다.  
+6. **증분·버전**: 장기 운영 시 `HASH_INCREMENTAL_BUILD_GUIDE.md`의 `file_hash` / `chunk_hash` / `embedding_version` 조합으로 재처리 범위를 줄인다.
 
 ---
 

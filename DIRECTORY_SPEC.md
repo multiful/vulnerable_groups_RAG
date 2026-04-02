@@ -2,7 +2,7 @@
 
 > **파일명**: DIRECTORY_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:c9b842c1e3b14bf9bf75a33d8626d137b1938e50ed8f23756c49ade3b8adf12b
 > **문서 역할**: 프로젝트 디렉토리 구조와 파일/폴더 책임 정의 문서  
 > **문서 우선순위**: 9  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  
@@ -351,6 +351,8 @@ scripts/
 - `build_candidates/`: candidate row 생성
 - `evaluation/`: 평가 실행
 - `maintenance/`: 문서/데이터 일관성 점검
+  - `generate_folder_md.py`: 리프 `FOLDER.md` 일괄 생성
+  - `update_root_md_hashes.py`: 루트 `*.md` 상단 `문서 해시` 재계산·반영
 
 ---
 
