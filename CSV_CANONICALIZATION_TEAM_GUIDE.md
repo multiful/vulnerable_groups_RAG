@@ -1,11 +1,11 @@
 # CSV_CANONICALIZATION_TEAM_GUIDE.md
 
 > **파일명**: CSV_CANONICALIZATION_TEAM_GUIDE.md  
-> **최종 수정일**: 2026-04-03  
+> **최종 수정일**: 2026-04-04  
 > **문서 해시**: SHA256:TBD  
 > **문서 역할**: 영민,유빈용 — CSV 넣기·전처리·canonical까지 (청킹 제외)  
 > **문서 우선순위**: reference (필드 정의는 `DATA_SCHEMA.md`가 더 위)  
-> **연관 문서**: DATA_SCHEMA.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md  
+> **연관 문서**: DATA_SCHEMA.md, DIRECTORY_SPEC.md, RAG_PIPELINE.md — CSV 정규화 시 참고 파일 전체 목록은 §9  
 > **참조 규칙**: 컬럼·필드 정의를 바꾸면 먼저 `DATA_SCHEMA.md`를 고치고, 이 문서 설명을 맞춘다.
 
 ---
@@ -58,7 +58,9 @@
 
 ### 3.3 둘 다 공통
 
-- 도메인·직무 **문자열**은 **`data/taxonomy/domain_v2.txt`**, **`data/taxonomy/prefer_job.txt`** 안에 있는 것만 쓴다. **새 이름을 임의로 만들지 않는다.**  
+- 도메인·직무 **세부 라벨(표시명)** 은 **`data/taxonomy/domain_v2.txt`**, **`data/taxonomy/prefer_job.txt`** 에 나온 것만 쓴다. **새 이름을 임의로 만들지 않는다.**  
+- `DATA_SCHEMA.md`는 엔티티에 **`domain_sub_label_id`**, **`job_role_id`** 같은 **안정 ID**를 요구한다. 위 txt는 **허용 라벨 목록**이고, 실제 작업에서는 영민이 만든 **`domain_master` / `job_master`** 행에 **ID + 라벨 + (가능하면) 상위 그룹명**을 같이 둔다. **라벨만 있고 ID가 없으면** canonical에 넣지 말고 스키마·팀에 먼저 맞춘다.  
+- 외부에서 받은 원본 CSV(통합학과·세부전공·자격증 통계 등)는 **`DATA_SCHEMA.md` §18(초기 원천 CSV 적재 범위와 한계)** 를 읽고, 어떤 필드가 **마스터/매핑/파이프라인 생성** 중 어디에 들어가는지 구분한 뒤 전처리한다.  
 - **더미 데이터**(가짜 자격증 대량, 가짜 시험일정)는 넣지 않는다.  
 - 막히면 코드 짜기 전에 **`DATA_SCHEMA.md`를 고쳐 달라고** 요청한다.
 
@@ -91,7 +93,7 @@
 
 ## 5. 어떤 CSV가 있는지 (참고 표)
 
-기획 슬라이드·`Indexing_Architecture.txt`와 맞춘 이름이다. **영민=마스터 쪽**, **유빈=매핑 쪽**으로 대략 갈린다.
+기획 슬라이드·`Indexing_Architecture.txt`와 맞춘 **논리적 dataset_type** 이름이다. 실제 수령 파일명(`integrated_major1.csv` 등)과 다를 수 있으니, §3·§4대로 전처리한 뒤 아래 **역할**에 편입하면 된다. **영민=마스터 쪽**, **유빈=매핑 쪽**으로 대략 갈린다.
 
 | 구분 | dataset_type (파일 이름에 써도 됨) | 담당(기본) |
 |------|-------------------------------------|------------|
@@ -122,3 +124,57 @@
 ## 8. 더 자세한 필드 정의가 필요하면
 
 항상 **`DATA_SCHEMA.md`** 를 연다. 이 문서는 **일하는 방법**만 적고, **컬럼 하나하나의 법적 정의**는 스키마 문서에 있다.
+
+---
+
+## 9. CSV 정규화 시 참고할 파일·경로
+
+CSV를 **정규화(canonicalization)** 할 때 아래를 참고한다. **필드 정의·제약의 단일 기준**은 `DATA_SCHEMA.md`이고, 문서 간 충돌이 있으면 `CHANGE_CONTROL.md`의 우선순위에 따른다.
+
+### 9.1 반드시 볼 것 (계약·절차)
+
+| 참고 | 용도 |
+|------|------|
+| **`DATA_SCHEMA.md`** | 엔티티·관계·`certificate_candidate_row` 필드명, 필수/선택, taxonomy 제약, §18 원천 CSV 적재 범위·한계 |
+| **`CSV_CANONICALIZATION_TEAM_GUIDE.md`** (본 문서) | raw 넣는 위치, 역할 분담, 실행 순서, 임무 끝선 |
+| **`DIRECTORY_SPEC.md`** | `data/raw/csv/`, `data/canonical/entities`, `relations`, `candidates`, `validation`, `data/taxonomy/` 구조 |
+| **`data/taxonomy/domain_v2.txt`** | 허용 **도메인** 세부 라벨(표시명 후보) |
+| **`data/taxonomy/prefer_job.txt`** | 허용 **희망 직무** 세부 라벨(표시명 후보) |
+| **`data/taxonomy/risk_stage_master.csv`** | 위험군 마스터. **아직 없으면** `DATA_SCHEMA.md`·`DIRECTORY_SPEC.md`에 맞춰 영민이 생성해 `data/taxonomy/`에 둔다(더미 행 금지). |
+
+### 9.2 맥락·규칙 맞출 때
+
+| 참고 | 용도 |
+|------|------|
+| **`CHANGE_CONTROL.md`** | 문서 우선순위, 갱신 절차, 해시·메타데이터 규칙 |
+| **`README.md`** | CSV는 structured no-parse, 문서(PDF/HTML) 레인과 분리 |
+| **`PRD.md`** | 현재 범위·비범위(reserved 일정·링크 등) |
+| **`FEATURE_SPEC.md`** | 입력 정규화, taxonomy 밖 값 처리, validation 관점 |
+| **`RAG_PIPELINE.md`** | CSV는 Parse IR을 만들지 않는다는 점 |
+
+### 9.3 아키텍처·산출물이 어디로 가는지
+
+| 참고 | 용도 |
+|------|------|
+| **`SYSTEM_ARCHITECTURE.md`** | canonical 데이터 → 추천·RAG 흐름 |
+| **`API_SPEC.md`** | (정의되어 있으면) 응답 필드와 스키마 정합 |
+
+### 9.4 보조·탐색용 (필수는 아님)
+
+| 참고 | 용도 |
+|------|------|
+| **`PROJECT_SUMMARY.md`** | 저장소 한 장 요약, 문서 지도 |
+| **`ROOT_DOC_GUIDE.md`** | 상황별로 어떤 루트 md를 열지 |
+| **`Indexing_Architecture.txt`** | §5 dataset_type 이름과 맞춘 기획 참고 |
+| **`HASH_INCREMENTAL_BUILD_GUIDE.md`** | 증분·해시·재처리 설계(스크립트·빌드 단계에서) |
+| **`DEV_LOG.md`** | 최근 합의·주의(임의 더미 등) |
+
+### 9.5 작업 폴더 (파일이 아님)
+
+- **`data/raw/csv/`** — 넣는 원본 CSV  
+- **`data/canonical/entities/`** — 마스터·엔티티 정리본  
+- **`data/canonical/relations/`** — 관계(매핑) 정리본  
+- **`data/canonical/candidates/`** — (필요 시) 추천 후보 행  
+- **`data/canonical/validation/`** — 검증 메모·리포트  
+
+**한 줄 요약**: 정규화의 **법적 기준**은 **`DATA_SCHEMA.md`**, **일하는 방법·경로**는 **본 문서 + `DIRECTORY_SPEC.md`**, **라벨 허용 범위**는 **`domain_v2.txt` / `prefer_job.txt`** (+ 위험군는 **`risk_stage_master.csv`** 또는 동급 마스터)이다.
