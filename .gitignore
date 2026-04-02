@@ -79,5 +79,5 @@ temp/
 # Keep project markdown docs tracked
 !*.md
 
-
-*.advanced_rag_indexing_guide.md
+# Reference-only / large local copy (must be after !*.md so this rule wins)
+docs/references/advanced_rag_indexing_guide.md

@@ -57,7 +57,8 @@
 | `scripts/` | parse / canonicalize / build_* 등 배치 진입 |
 | `experiments/`, `infra/`, `shared/` | 실험·배포·공용 타입 |
 
-상세는 `DIRECTORY_SPEC.md`.
+상세는 `DIRECTORY_SPEC.md`.  
+리프 스캐폴드 폴더마다 역할 요약은 해당 디렉터리의 **`FOLDER.md`** (`DIRECTORY_SPEC.md` §7 원칙 8).
 
 ---
 

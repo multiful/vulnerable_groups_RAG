@@ -476,12 +476,14 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 5. `related_jobs`는 희망 직무 taxonomy 세부 직무만 허용한다.
 6. 위험군은 1단계 ~ 5단계 구조로 관리한다.
 7. API 일정/링크는 후속 스프린트에서 canonical target schema에 병합한다.
+8. 스캐폴드용 **리프 폴더**(`docs/*`, `data/*` 리프, `frontend/src/*` 리프, `scripts/*`, `experiments/*`, `infra/*`, `shared/*`)에는 역할 설명용 **`FOLDER.md`** 를 둔다. 상단 메타데이터·`문서 해시: SHA256:TBD` 형식은 루트 md와 동일 계열을 따르며, 용도 변경 시 본 파일과 본 `DIRECTORY_SPEC.md`를 함께 갱신한다. 일괄 생성·재생성은 `python scripts/maintenance/generate_folder_md.py` (저장소 루트에서 실행).
 
 ---
 
 ## 8. 최종 요약
 
-이 문서의 핵심은 아래 두 가지다.
+이 문서의 핵심은 아래 세 가지다.
 
 1. 프로젝트의 최종 루트 디렉토리 구조를 고정한다.
 2. 각 파일/폴더의 책임을 분리하여 구조 충돌 없이 확장할 수 있게 한다.
+3. 리프 폴더의 `FOLDER.md`로 스캐폴드 의도를 코드와 동시에 읽을 수 있게 한다.

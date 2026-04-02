@@ -16,6 +16,16 @@
 
 ---
 
+## 2026-04-03 — 리프 폴더 `FOLDER.md` 스캐폴드 명시서
+
+### 수행
+
+- **`FOLDER.md`**: `docs/`, `data/`(리프), `frontend/src/`(리프), `scripts/*`, `experiments/*`, `infra/*`, `shared/*`, `data/taxonomy` 등 **63개** 리프 경로에 동일 메타데이터 양식(루트 md와 계열)으로 용도·금지·연계·비고 기술.
+- **`scripts/maintenance/generate_folder_md.py`**: 위 경로 일괄 생성기. 저장소 루트는 `DIRECTORY_SPEC.md` 존재로 탐색.
+- **`DIRECTORY_SPEC.md`**: §7 원칙 8번·§8 요약에 `FOLDER.md` 규칙 반영.
+
+---
+
 ## 2026-04-03 — PROJECT_SUMMARY 및 청킹·레퍼런스 문서 위치 안내
 
 ### 수행
