@@ -2,6 +2,7 @@
 
 > **파일명**: RAG_PIPELINE.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:TBD  
 > **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
@@ -510,6 +511,23 @@ RAG 파이프라인 산출물에는 최소 아래 버전 정보를 유지하는 
 4. exact miss가 문제로 재현되기 전까지 sparse를 강제하지 않는다.
 5. reserved 기능은 문서 갱신 후 활성화한다.
 6. retrieval 품질 평가는 `EVALUATION_GUIDELINE.md` 기준과 연결해 관리한다.
+
+---
+
+## 16.1 구현 스택 매핑 (코드·데이터 경로)
+
+아래는 **문서 파이프라인 개념**과 저장소 내 **실행 경로**를 연결한 참조다. 상세 계약은 `API_SPEC.md`를 따른다.
+
+| 단계 | 경로 / 진입점 |
+|------|----------------|
+| 청크 산출물 (오프라인) | `data/index_ready/chunks/chunks.jsonl` — 한 줄당 1청크, 스키마는 `backend/rag/ingest/chunk_loader.py` 주석 |
+| 임베딩 | LangChain: `backend/rag/embeddings/factory.py` — `openai` 또는 `huggingface` |
+| 벡터 저장·검색 | Supabase pgvector + `langchain_community.vectorstores.SupabaseVectorStore` (`backend/rag/store/supabase_vector.py`) |
+| DB 함수·테이블 템플릿 | `docs/architecture/supabase_langchain.sql` |
+| 인제스트 CLI | 저장소 루트에서 `PYTHONPATH=. python -m backend.rag.ingest.cli` |
+| Evidence API | `POST /api/v1/recommendations/evidence` → `backend/app/services/retrieval_service.py` |
+
+**LlamaIndex** 기반 대안은 `backend/rag/llamaindex/` 에 자리만 두었으며, 전환 시 본 절과 `SYSTEM_ARCHITECTURE.md`를 먼저 갱신한다.
 
 ---
 

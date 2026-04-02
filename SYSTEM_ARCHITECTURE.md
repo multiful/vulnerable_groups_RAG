@@ -2,6 +2,7 @@
 
 > **파일명**: SYSTEM_ARCHITECTURE.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:TBD  
 > **문서 역할**: 시스템 구성, 계층, 책임, 데이터 흐름 정의 문서  
 > **문서 우선순위**: 3  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, PRD.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md  
@@ -50,6 +51,8 @@
 - Recommendation Core
 - Evidence Retrieval
 - Storage Access
+
+**현재 구현 참고 (스택)**: 프론트는 React + Vite(`frontend/`). 백엔드는 FastAPI(`backend/`). Evidence retrieval 런타임은 **LangChain** 임베딩(OpenAI 또는 HuggingFace)과 **Supabase pgvector**(`backend/rag/`)를 사용한다. 벡터 DB는 팀·테넌트 Supabase 프로젝트 URL·service_role 키로만 연결한다. 배포 가정: 프론트 Vercel, API Railway 또는 Render — CORS·`VITE_API_BASE_URL` 등 환경변수로 출처를 맞춘다. **LlamaIndex** 전환 시 `backend/rag/llamaindex/` 및 `RAG_PIPELINE.md`를 선행 갱신한다.
 
 ### 2.2 Offline Build
 추천과 검색이 가능하도록 데이터를 구축·정규화·인덱싱하는 배치 계층

@@ -2,6 +2,7 @@
 
 > **파일명**: README.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:TBD  
 > **문서 역할**: 프로젝트 최상위 안내 문서 / 관문 문서  
 > **문서 우선순위**: 0  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, Indexing_Architecture.txt  
@@ -110,6 +111,8 @@
 | `README.md` | 프로젝트 입구 문서 |
 | `CHANGE_CONTROL.md` | 문서 수정 규칙, 메타데이터 갱신 원칙, 작업 절차 |
 | `DIRECTORY_SPEC.md` | 디렉토리 구조와 파일/폴더 책임 |
+| `ROOT_DOC_GUIDE.md` | 루트 문서 탐색·읽기 순서 안내 |
+| `HASH_INCREMENTAL_BUILD_GUIDE.md` | 해시 키·증분 재처리 원칙 |
 | `Indexing_Architecture.txt` | 인덱싱/지식 파이프라인 참고 구조 문서 |
 | `PRD.md` | 문제 정의, 타깃 사용자, 제품 범위 |
 | `SYSTEM_ARCHITECTURE.md` | 시스템 계층, 책임, 데이터 흐름 |
@@ -123,6 +126,8 @@
 | `EXPERIMENT_GUIDE.md` | 실험 세팅과 재현 방법 |
 | `ERROR_ANALYSIS.md` | 실패 사례와 개선 방향 |
 | `DEV_LOG.md` | 진행 로그와 변경 이력 |
+
+Cursor IDE용 작업 규칙은 `.cursor/rules/`에 둔다. (루트에 동일 본문 md를 두지 않는 것을 권장한다.)
 
 ---
 
@@ -154,6 +159,8 @@ project-root/
 ├─ README.md
 ├─ CHANGE_CONTROL.md
 ├─ DIRECTORY_SPEC.md
+├─ ROOT_DOC_GUIDE.md
+├─ HASH_INCREMENTAL_BUILD_GUIDE.md
 ├─ Indexing_Architecture.txt
 ├─ PRD.md
 ├─ SYSTEM_ARCHITECTURE.md
@@ -206,3 +213,18 @@ project-root/
 즉, 현재 단계의 핵심은  
 완성형 일정 연동 서비스가 아니라  
 **위험군 맞춤 추천 + 로드맵 제안 + 설명 근거 결합이 가능한 기준 구조를 만드는 것**이다.
+
+---
+
+## 10. 기술 스택 (개발 중)
+
+| 영역 | 선택 |
+|------|------|
+| 프론트 | React 19 + Vite 6 (`frontend/`) |
+| API | FastAPI (`backend/`) |
+| RAG 런타임 | LangChain (LlamaIndex 대안은 `backend/rag/llamaindex/` 자리만) |
+| 벡터 DB | Supabase pgvector (URL·키는 환경변수, `docs/architecture/supabase_langchain.sql` 참고) |
+| 임베딩 | OpenAI 또는 HuggingFace (`EMBEDDING_PROVIDER`) |
+| 배포 | 프론트 Vercel / API Railway·Render (예시) |
+
+로컬 실행 요약은 `backend/README.md`, `frontend/README.md`, `infra/env/.env.example` 를 본다.

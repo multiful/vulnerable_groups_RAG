@@ -2,6 +2,7 @@
 
 > **파일명**: DIRECTORY_SPEC.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:TBD  
 > **문서 역할**: 프로젝트 디렉토리 구조와 파일/폴더 책임 정의 문서  
 > **문서 우선순위**: 9  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  
@@ -45,6 +46,8 @@ project-root/
 ├─ README.md
 ├─ CHANGE_CONTROL.md
 ├─ DIRECTORY_SPEC.md
+├─ ROOT_DOC_GUIDE.md
+├─ HASH_INCREMENTAL_BUILD_GUIDE.md
 ├─ Indexing_Architecture.txt
 ├─ PRD.md
 ├─ SYSTEM_ARCHITECTURE.md
@@ -85,6 +88,15 @@ Git 추적 제외 대상 정의
 
 ### `DIRECTORY_SPEC.md`
 프로젝트 디렉토리 구조와 파일/폴더 책임 정의를 담당한다.
+
+### `ROOT_DOC_GUIDE.md`
+루트 md 문서 탐색 순서와 상황별 참조 안내를 담당한다.
+
+### `HASH_INCREMENTAL_BUILD_GUIDE.md`
+입력·단계별 해시 키와 증분 재처리 원칙을 담당한다.
+
+### Cursor 프로젝트 규칙
+저장소 루트가 아니라 **`.cursor/rules/`** 아래에 둔다. (예: `CURSOR-PROJECT-RULES-md.mdc`.) 동일 본문을 루트 md로 중복하지 않는 것을 권장한다.
 
 ### `Indexing_Architecture.txt`
 인덱싱/지식 파이프라인 관련 참고 구조 문서 또는 아키텍처 초안이다.  
@@ -391,6 +403,8 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 - `README.md`
 - `CHANGE_CONTROL.md`
 - `DIRECTORY_SPEC.md`
+- `ROOT_DOC_GUIDE.md`
+- `HASH_INCREMENTAL_BUILD_GUIDE.md`
 - `Indexing_Architecture.txt`
 - `PRD.md`
 - `SYSTEM_ARCHITECTURE.md`
