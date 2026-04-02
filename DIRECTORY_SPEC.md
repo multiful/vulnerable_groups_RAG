@@ -1,27 +1,39 @@
 # DIRECTORY_SPEC.md
 
-## 1. 문서 목적
-
-이 문서는 프로젝트의 **최종 디렉토리 기준선**을 정의한다.  
-앞으로 새로운 파일이나 폴더를 추가할 때는 이 문서를 먼저 확인하고, 기존 구조와 역할 충돌이 없는지 점검한 뒤 반영한다.
-
-이 프로젝트는 다음 원칙으로 운영한다.
-
-- 루트 md 문서가 프로젝트의 기준선이다.
-- 기능 변경이나 구조 변경은 먼저 루트 문서를 수정한 뒤 구현에 반영한다.
-- 현재는 MVP 단계이므로, 최종 구조를 먼저 고정하되 실제 활성화는 단계적으로 진행한다.
-- `infra`, `shared`, 일정 API 관련 영역은 필요 시점까지 reserved 상태로 둘 수 있다.
+> **파일명**: DIRECTORY_SPEC.md  
+> **최종 수정일**: 2026-04-03  
+> **문서 역할**: 프로젝트 디렉토리 구조 기준 문서  
+> **문서 우선순위**: 2  
+> **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  
+> **참조 규칙**: 디렉토리 구조를 수정하거나 새 파일/폴더를 추가하기 전에 먼저 이 문서를 확인한다.
 
 ---
 
-## 2. 최종 결론
+## 1. 문서 목적
 
-현재 프로젝트의 **최종 루트 디렉토리 구조는 아래와 같다.**
+이 문서는 프로젝트의 **최종 디렉토리 구조**와 각 파일/폴더의 역할을 정의한다.  
+이 문서의 목적은 다음과 같다.
+
+- 루트 문서와 하위 디렉토리의 책임을 명확히 구분한다.
+- 새 파일이나 폴더를 추가할 때 기준선을 제공한다.
+- 서비스 코드, 데이터, 문서, 실험, 배치 스크립트의 경계를 분리한다.
+- 프로젝트가 커져도 구조적 일관성을 유지하도록 돕는다.
+
+이 문서는 **구조 정의 문서**이며, 문서 수정 절차나 작업 운영 규칙은 `CHANGE_CONTROL.md`에서 담당한다.
+
+---
+
+## 2. 최종 루트 디렉토리
+
+프로젝트의 최종 루트 디렉토리는 아래를 기준으로 한다.
 
 ```text
 project-root/
 ├─ .gitignore
 ├─ README.md
+├─ CHANGE_CONTROL.md
+├─ DIRECTORY_SPEC.md
+├─ Indexing_Architecture.txt
 ├─ PRD.md
 ├─ SYSTEM_ARCHITECTURE.md
 ├─ FEATURE_SPEC.md
@@ -47,80 +59,67 @@ project-root/
 
 ---
 
-## 3. 이 구조가 맞는 이유
-
-이 프로젝트는 다음 흐름을 가진다.
-
-1. **루트 문서**
-   - 제품 요구사항, 시스템 구조, 기능 정의, 데이터 스키마, RAG 구조, 평가 기준을 관리
-
-2. **데이터 파이프라인**
-   - PDF / HTML / CSV / API를 source_type 기준으로 분리
-   - PDF / HTML은 Parse 기반
-   - CSV / API는 structured no-parse 기반
-
-3. **서비스 구현**
-   - frontend: 사용자 화면
-   - backend: API / 추천 / 로드맵 / retrieval / canonicalization
-
-4. **배치 및 실험**
-   - scripts: 일회성 실행
-   - experiments: 재현성과 로그 관리
-
-즉, 이 구조는 **문서 / 데이터 / 서비스 / 실험 / 배포**를 분리한 최종 운영 구조로 적절하다.
-
----
-
-## 4. 최종 루트 폴더 설명
+## 3. 루트 파일 역할
 
 ### `.gitignore`
 Git 추적 제외 대상 정의
 
 ### `README.md`
-프로젝트 개요, 범위, 기능 요약, 기술 스택, 시작 가이드
+프로젝트 최상위 안내 문서  
+프로젝트 목적, 핵심 개념, 범위, 연관 문서 안내를 담당한다.
+
+### `CHANGE_CONTROL.md`
+문서 갱신 규칙, 문서 우선 작업 절차, 작업 전/후 체크리스트를 담당한다.
+
+### `DIRECTORY_SPEC.md`
+프로젝트 디렉토리 구조 기준 문서  
+각 폴더/파일의 역할과 생성 기준을 정의한다.
+
+### `Indexing_Architecture.txt`
+인덱싱/지식 파이프라인의 원본 구조 메모 또는 아키텍처 초안 문서  
+루트 문서 설계의 참고 기준으로 사용한다.
 
 ### `PRD.md`
-문제 정의, 타깃 사용자, 핵심 기능, 제품 범위
+문제 정의, 타깃 사용자, 제품 목표, 범위/비범위를 정의한다.
 
 ### `SYSTEM_ARCHITECTURE.md`
-전체 시스템 흐름, 데이터 흐름, 프론트/백엔드/AI 역할
+시스템 구성 요소, 책임 분리, 데이터 흐름, 계층 구조를 정의한다.
 
 ### `FEATURE_SPEC.md`
-기능별 입력 / 출력 / 예외처리 명세
+기능별 입력/출력/예외처리를 정의한다.
 
 ### `API_SPEC.md`
-백엔드 API endpoint 명세
+API endpoint, request/response 구조를 정의한다.
 
 ### `PROMPT_DESIGN.md`
-시스템 프롬프트, few-shot, 프롬프트 전략, 체인/RAG 전략
+시스템 프롬프트, 프롬프트 전략, few-shot, RAG 응답 전략을 정의한다.
 
 ### `DATA_SCHEMA.md`
-DB 구조, canonical schema, 주요 테이블 및 컬럼 정의
+DB / canonical schema / 주요 필드 구조를 정의한다.
 
 ### `RAG_PIPELINE.md`
-Parse / Chunk / Embedding / Store와 retrieval 구조 명세
+RAG, indexing, retrieval, fusion, reranker 범위를 정의한다.
 
 ### `EVALUATION_GUIDELINE.md`
-평가 기준 정의 문서  
-예: baseline, metric 선택 이유, 비교 기준
+평가 기준, metric 선택 이유, baseline 정의, 비교 기준을 정의한다.
 
 ### `EVALUATION.md`
-실제 평가 결과와 실험 결과 기록
+실제 평가 결과와 비교 실험 결과를 기록한다.
 
 ### `EXPERIMENT_GUIDE.md`
-실험 세팅, 파라미터, 재현 절차, 로그 기록 방식
+실험 세팅, 파라미터, 재현 방식, 로그 기록 방법을 정의한다.
 
 ### `ERROR_ANALYSIS.md`
-실패 사례, 공통 오류 패턴, 개선 방향
+오류 사례, 실패 패턴, 개선 방향을 기록한다.
 
 ### `DEV_LOG.md`
-날짜별 진행 로그, 문제 및 해결 기록
+진행 로그, 이슈, 해결 이력을 기록한다.
 
 ---
 
-## 5. 최종 하위 디렉토리 구조
+## 4. 하위 디렉토리 구조
 
-### 5.1 docs/
+## 4.1 docs/
 
 ```text
 docs/
@@ -130,15 +129,15 @@ docs/
 └─ meeting_notes/
 ```
 
-#### 역할
+### 역할
 - `slides/`: 발표 자료
-- `references/`: 참고문헌, 논문, 기준 문서
-- `architecture/`: 구조도, 설계도, 플로우차트
+- `references/`: 논문, 참고문헌, 기준 자료
+- `architecture/`: 구조도, 설계도, 흐름도
 - `meeting_notes/`: 회의 기록, 의사결정 메모
 
 ---
 
-### 5.2 data/
+## 4.2 data/
 
 ```text
 data/
@@ -171,21 +170,21 @@ data/
    └─ snapshots/
 ```
 
-#### 역할
+### 역할
 - `raw/`: 원본 수집 데이터
-- `taxonomy/`: 도메인/직무/위험군 기준 taxonomy
+- `taxonomy/`: 허용 taxonomy 기준 파일
 - `canonical/`: CSV canonicalization 결과
-- `index_ready/`: RAG / retrieval 입력용 산출물
-- `processed/`: 중간 병합본 및 스냅샷
+- `index_ready/`: 검색/추천 입력용 중간 산출물
+- `processed/`: 병합본과 버전 스냅샷
 
-#### 원칙
-- PDF / HTML은 Parse IR 생성 가능
-- CSV는 Parse IR이 아니라 canonicalization 대상
-- API는 후속 스프린트에서 연결 예정
+### 원칙
+- PDF / HTML은 Parse 및 indexing 대상이다.
+- CSV는 Parse IR 대상이 아니라 structured no-parse canonicalization 대상이다.
+- API는 현재 reserved이며 후속 스프린트에서 연결한다.
 
 ---
 
-### 5.3 frontend/
+## 4.3 frontend/
 
 ```text
 frontend/
@@ -227,25 +226,22 @@ frontend/
 └─ package.json
 ```
 
-#### 역할
-- 위험군 입력
-- 추천 결과 표시
-- 로드맵 결과 표시
-- 추후 일정/링크 화면 제공
+### 역할
+사용자 입력, 위험군 결과, 추천 결과, 로드맵 결과, 추후 일정 화면을 담당한다.
 
-#### 현재 활성화 우선순위
+### 현재 핵심 페이지
 - `Home`
 - `RiskAssessment`
 - `Recommendation`
 - `Roadmap`
 
-#### reserved 가능
+### reserved 가능
 - `Schedule`
 - `Admin`
 
 ---
 
-### 5.4 backend/
+## 4.4 backend/
 
 ```text
 backend/
@@ -293,86 +289,14 @@ backend/
 └─ requirements.txt
 ```
 
-#### 역할
-- API 제공
-- 위험군 분류 / 추천 / 로드맵 로직
-- PDF/HTML RAG 처리
-- CSV canonicalization 처리
-
-#### backend/app/
-사용자 기능과 API 담당
-
-- `risk.py`: 위험군 관련 API
-- `recommendation.py`: 추천 결과 API
-- `roadmap.py`: 로드맵 API
-- `schedule.py`: 후속 일정 API
-- `admin.py`: 점검/운영 API
-
-#### backend/rag/
-PDF / HTML 기반 Parse / Chunk / Embedding / Retrieval 담당
-
-```text
-backend/rag/
-├─ ingest/
-│  ├─ source_router.py
-│  ├─ parse_pdf.py
-│  ├─ parse_html.py
-│  ├─ table_assist.py
-│  ├─ ocr_queue.py
-│  ├─ fallback_docling.py
-│  ├─ boilerplate_cleaner.py
-│  ├─ reading_order.py
-│  ├─ chunk_builder.py
-│  ├─ metadata_tagger.py
-│  └─ embedding_builder.py
-│
-├─ retrieval/
-│  ├─ dense_retriever.py
-│  ├─ sparse_retriever.py
-│  ├─ fusion.py
-│  ├─ filters.py
-│  └─ reranker.py
-│
-├─ prompts/
-└─ evaluation/
-```
-
-#### backend/canonical/
-CSV structured no-parse 처리 전용
-
-```text
-backend/canonical/
-├─ registry/
-│  ├─ dataset_registry.yaml
-│  ├─ schema_mapping_registry.yaml
-│  ├─ domain_taxonomy_master.csv
-│  └─ job_taxonomy_master.csv
-│
-├─ pipeline/
-│  ├─ detect_dataset_type.py
-│  ├─ schema_mapper.py
-│  ├─ canonicalizer.py
-│  ├─ entity_builder.py
-│  ├─ relation_builder.py
-│  ├─ candidate_builder.py
-│  └─ validator.py
-│
-├─ schemas/
-│  ├─ entity_schema.py
-│  ├─ relation_schema.py
-│  ├─ candidate_schema.py
-│  └─ validation_schema.py
-│
-└─ outputs/
-   ├─ canonical_entity_table.csv
-   ├─ canonical_relation_table.csv
-   ├─ certificate_candidate_row.csv
-   └─ validation_report.csv
-```
+### 역할
+- `backend/app/`: 사용자 요청 처리, API, 서비스 로직
+- `backend/rag/`: PDF / HTML parse, chunk, retrieval, evidence search
+- `backend/canonical/`: CSV canonicalization, entity/relation/candidate row 생성
 
 ---
 
-### 5.5 scripts/
+## 4.5 scripts/
 
 ```text
 scripts/
@@ -385,20 +309,20 @@ scripts/
 └─ maintenance/
 ```
 
-#### 역할
-일회성 실행, 배치, 점검 스크립트
+### 역할
+일회성 실행, 배치, 점검, 재처리 스크립트를 담당한다.
 
-- `parse/`: PDF/HTML parse 실행
+- `parse/`: PDF / HTML parse 실행
 - `canonicalize/`: CSV canonicalization 실행
 - `build_entities/`: entity 생성
 - `build_relations/`: relation 생성
-- `build_candidates/`: 추천 candidate row 생성
+- `build_candidates/`: candidate row 생성
 - `evaluation/`: 평가 실행
 - `maintenance/`: 문서/데이터 일관성 점검
 
 ---
 
-### 5.6 experiments/
+## 4.6 experiments/
 
 ```text
 experiments/
@@ -409,16 +333,12 @@ experiments/
 └─ notebooks/
 ```
 
-#### 역할
-- 실험 설정 관리
-- 로그 저장
-- baseline 비교
-- 재현성 확보
-- 분석 노트북 관리
+### 역할
+실험 설정, 로그, 결과 보고서, baseline 비교, 분석 노트북을 관리한다.
 
 ---
 
-### 5.7 infra/
+## 4.7 infra/
 
 ```text
 infra/
@@ -427,16 +347,15 @@ infra/
 └─ env/
 ```
 
-#### 역할
-배포/실행 환경 관련 설정
+### 역할
+배포 및 실행 환경 설정을 담당한다.
 
-#### 현재 상태
-reserved 가능  
-MVP 단계에서는 최소만 유지해도 된다.
+### 상태
+현재는 reserved 가능
 
 ---
 
-### 5.8 shared/
+## 4.8 shared/
 
 ```text
 shared/
@@ -445,22 +364,23 @@ shared/
 └─ types/
 ```
 
-#### 역할
-frontend / backend 공용 상수, schema, 타입 정의
+### 역할
+frontend / backend 공용 상수, schema, 타입을 저장한다.
 
-#### 현재 상태
-필수는 아님  
-공용 구조가 많아질 때 활성화해도 된다.
+### 상태
+현재는 필수 아님  
+공용 구조가 많아질 때 활성화한다.
 
 ---
 
-## 6. 지금 바로 생성할 것
+## 5. 즉시 생성 권장 영역
 
-아래는 **즉시 생성 권장** 영역이다.
-
-### 루트 문서
+### 루트 파일
 - `.gitignore`
 - `README.md`
+- `CHANGE_CONTROL.md`
+- `DIRECTORY_SPEC.md`
+- `Indexing_Architecture.txt`
 - `PRD.md`
 - `SYSTEM_ARCHITECTURE.md`
 - `FEATURE_SPEC.md`
@@ -474,7 +394,7 @@ frontend / backend 공용 상수, schema, 타입 정의
 - `ERROR_ANALYSIS.md`
 - `DEV_LOG.md`
 
-### 핵심 폴더
+### 핵심 디렉토리
 - `docs/slides`
 - `docs/references`
 - `docs/architecture`
@@ -495,9 +415,7 @@ frontend / backend 공용 상수, schema, 타입 정의
 
 ---
 
-## 7. 나중에 생성해도 되는 것
-
-아래는 **reserved 가능** 영역이다.
+## 6. reserved 가능 영역
 
 - `data/raw/api`
 - `frontend/src/pages/Schedule`
@@ -513,44 +431,21 @@ frontend / backend 공용 상수, schema, 타입 정의
 
 ---
 
-## 8. 운영 규칙
+## 7. 디렉토리 운영 원칙
 
-1. 구조 변경은 먼저 이 문서를 수정한다.
-2. 기능 변경은 먼저 루트 md 문서를 수정한다.
+1. 구조 변경 시 먼저 `DIRECTORY_SPEC.md`를 수정한다.
+2. 새 파일 추가 전 기존 역할과 충돌이 없는지 확인한다.
 3. CSV는 Parse IR 대상으로 처리하지 않는다.
 4. `related_domains`는 도메인 taxonomy 세부 라벨만 허용한다.
 5. `related_jobs`는 희망 직무 taxonomy 세부 직무만 허용한다.
 6. 위험군은 1단계 ~ 5단계 구조로 관리한다.
-7. 일정/링크 API는 후속 스프린트에서 canonical target schema에 병합한다.
-8. 구현보다 문서가 먼저이며, 문서는 프로젝트의 단일 기준선 역할을 한다.
+7. API 일정/링크는 후속 스프린트에서 canonical target schema에 병합한다.
 
 ---
 
-## 9. 최종 디렉토리
+## 8. 최종 요약
 
-```text
-project-root/
-├─ .gitignore
-├─ README.md
-├─ PRD.md
-├─ SYSTEM_ARCHITECTURE.md
-├─ FEATURE_SPEC.md
-├─ API_SPEC.md
-├─ PROMPT_DESIGN.md
-├─ DATA_SCHEMA.md
-├─ RAG_PIPELINE.md
-├─ EVALUATION_GUIDELINE.md
-├─ EVALUATION.md
-├─ EXPERIMENT_GUIDE.md
-├─ ERROR_ANALYSIS.md
-├─ DEV_LOG.md
-│
-├─ docs/
-├─ data/
-├─ frontend/
-├─ backend/
-├─ scripts/
-├─ experiments/
-├─ infra/
-└─ shared/
-```
+이 문서의 핵심은 아래 두 가지다.
+
+1. 프로젝트의 최종 루트 디렉토리 구조를 고정한다.
+2. 각 파일/폴더의 책임을 분리하여 구조 충돌 없이 확장할 수 있게 한다.
