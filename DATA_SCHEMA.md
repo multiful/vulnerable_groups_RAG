@@ -2,6 +2,7 @@
 
 > **파일명**: DATA_SCHEMA.md  
 > **최종 수정일**: 2026-04-03  
+> **문서 해시**: SHA256:dc30de11f4c4d890c44ebda26a085e15b3c6e191127a8c1a9456000313de2ab3  
 > **문서 역할**: 데이터 구조, 엔티티, 관계, 공통 필드, 제약조건 정의 문서  
 > **문서 우선순위**: 5  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, API_SPEC.md, RAG_PIPELINE.md  
@@ -261,10 +262,13 @@
 | `valid_to` | string(date) | N | Y | 유효 종료일 |
 | `freshness_level` | string | N | Y | 신선도 레벨 |
 | `exact_sensitivity` | string | N | Y | exact match 민감도 |
+| `file_hash` | string | N | Y | 원본 바이트 해시(동일 파일 재파싱 스킵 등 증분 키; 계산 규칙은 `HASH_INCREMENTAL_BUILD_GUIDE.md`) |
+| `fetched_at` | string(datetime) | N | Y | 수집 시각(HTTP/HTML 등에서 사용 가능할 때) |
 
 ### 제약
 - `source_type`은 정의된 enum만 허용한다.
 - 현재 문서형 지식 엔티티는 주로 `pdf`, `html`에 사용한다.
+- Parse 단계 **블록 단위 IR**의 필드 계약은 `RAG_PIPELINE.md` §6.7이 정의하고, 본 엔티티는 문서·출처 단위 카탈로그에 집중한다.
 
 ---
 
@@ -497,6 +501,8 @@ PDF / HTML 지식 검색용 chunk 구조다.
 - parse 결과 품질 점검
 - provenance 유지
 - retrieval 결과 해석 보조
+
+블록 수준 중간 표현(parse IR)의 **최소 필드 계약**은 `RAG_PIPELINE.md` §6.7을 따른다.
 
 ---
 

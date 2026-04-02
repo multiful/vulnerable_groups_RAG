@@ -5,7 +5,7 @@
 > **문서 해시**: SHA256:TBD  
 > **문서 역할**: 프로젝트 최상위 안내 문서 / 관문 문서  
 > **문서 우선순위**: 0  
-> **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, PROJECT_SUMMARY.md, Indexing_Architecture.txt  
+> **연관 문서**: CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, PROJECT_SUMMARY.md, RAG_PIPELINE.md, Indexing_Architecture.txt  
 > **참조 규칙**: 작업 시작 전 본 문서와 `CHANGE_CONTROL.md`를 먼저 읽고, 이후 관련 상세 문서를 확인한다.
 
 ---
@@ -130,6 +130,8 @@
 | `DEV_LOG.md` | 진행 로그와 변경 이력 |
 
 Cursor IDE용 작업 규칙은 `.cursor/rules/`에 둔다. (루트에 동일 본문 md를 두지 않는 것을 권장한다.)
+
+**심화 참고(인덱싱·질의)**: 이 저장소의 **파이프라인 계약**은 `RAG_PIPELINE.md`가 우선한다. 인덱싱(Parse→Chunk→Embed·Store)과 evidence 검색 **질의·Pre-retrieval**을 실무 수준으로 정리한 **외부 장문 기준서**가 있다면 로컬에서만 참고하고, 설계 반영 시에는 루트 문서와 `PRD.md`·reserved 규칙을 따른다. 팀 공유가 필요 없는 자료는 `docs/references/_private/`에 두며 해당 경로는 Git에서 제외한다.
 
 ---
 

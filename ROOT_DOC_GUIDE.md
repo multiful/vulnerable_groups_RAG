@@ -61,6 +61,7 @@
 | `ERROR_ANALYSIS.md` | 실패 사례와 개선 방향 | 왜 틀렸는지 분석할 때 |
 | `DEV_LOG.md` | 날짜별 진행 로그와 변경 이력 | 무엇을 바꿨는지 기록/복기할 때 |
 | `Indexing_Architecture.txt` | 초기/참고용 인덱싱 구조 메모 | 기존 구조 출발점을 확인할 때 |
+| (로컬) `docs/references/_private/` | 팀 미공유 심화·개인 참고 자료 | 인덱싱·질의 장문 기준서 등; Git 추적 제외. 계약은 `RAG_PIPELINE.md` 우선 |
 
 ---
 

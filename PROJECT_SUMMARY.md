@@ -111,9 +111,9 @@
 
 ### 6.6 심화 기법 문서와의 관계
 
-아래 §7에 두는 **Indexing 고도화 가이드**처럼 긴 글에는 토큰·overlap·semantic chunking·Parent-Child·운영 런북 등이 실무 수준으로 나온다.  
-**이 프로젝트에서 우선할 것**: `RAG_PIPELINE.md` + `CHANGE_CONTROL`의 reserved 규칙(BM25 상시·reranker 등).  
-심화 문서는 **참고·실험 설계**용이며, 제품 기준선을 바꿀 때는 `RAG_PIPELINE.md`를 먼저 고친다.
+인덱싱(Parse~Store) **조건별 기본안**·확장 순서·운영 판단, 그리고 **Retriever 입력 직전**까지의 질의 처리(정책·캐시·rewrite·예산 등)는 외부 **장문 RAG 기준서**에 흔히 정리되어 있다. 본 제품에서 RAG는 **evidence 검색**이므로 질의 축은 **품질·비용** 관점에서만 선택적으로 참고한다. 그런 자료는 **로컬 전용**으로 두고(`docs/references/_private/` 등, Git 제외), 팀 저장소에는 파일을 올리지 않는다.
+
+**이 프로젝트에서 우선할 것**: `RAG_PIPELINE.md` + 루트 reserved 규칙(BM25 상시·reranker 등). 기준선을 바꿀 때는 `RAG_PIPELINE.md`(및 필요 시 `PROMPT_DESIGN.md`)를 먼저 고친다.
 
 ---
 
@@ -123,7 +123,7 @@
 
 | 위치 | 넣기 좋은 것 |
 |------|----------------|
-| **`docs/references/`** | 논문·블로그·**엔터프라이즈 RAG Indexing 가이드**처럼 **일반론·레퍼런스**가 긴 Markdown. 붙여넣은 *Advanced RAG: Indexing 고도화…* 같은 문서 전체는 여기 파일명 예: `docs/references/advanced_rag_indexing_guide.md` |
+| **`docs/references/`** | 논문·블로그·**일반론 레퍼런스** Markdown. 팀 공유가 아닌 심화 자료는 `_private/` 등 Git 제외 경로에 둔다. 제품 계약은 루트 `RAG_PIPELINE.md` 우선 |
 | **`docs/architecture/`** | **이 저장소 전용** 다이어그램·시퀀스·“우리 파이프라인 결정” 요약 (슬라이드 PNG와 짝지은 짧은 설명 등) |
 | **`docs/slides/`** | 발표용 원본 |
 | **`docs/meeting_notes/`** | 회의·의사결정 |

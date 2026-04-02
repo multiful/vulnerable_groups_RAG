@@ -2,7 +2,7 @@
 
 > **파일명**: RAG_PIPELINE.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:f51b2bc0ca79426ed3f10a3b68e0ff4c35dcdd35c2917528b066973a4262ea22  
 > **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
@@ -35,6 +35,17 @@
 - 평가 지표의 최종 채택 기준
 
 위 항목은 각각 `PRD.md`, `FEATURE_SPEC.md`, `API_SPEC.md`, `DATA_SCHEMA.md`, `PROMPT_DESIGN.md`, `EVALUATION_GUIDELINE.md`에서 담당한다.
+
+### 1.1 참고: 심화 기준서(로컬)
+
+인덱싱(Parse~Store)과 Pre-retrieval(질의)을 실무 수준으로 정리한 **외부 장문 기준서**를 개인 워크스페이스에 둘 수 있다. 팀 저장소에는 **파일명·경로를 두지 않으며**, 내용만 설계 판단에 반영한다. 자료는 `docs/references/_private/` 등 **Git 제외 경로**에 두는 것을 권장한다.
+
+| 축 | 다루는 범위 | 이 프로젝트에 적용할 때 |
+|------|-------------|-------------------------|
+| **인덱싱** | Parse·Chunking·Embedding·Store 조건별 기본안, 확장 순서, 운영·스토어 | 공식 PDF/HTML·표·스캔 혼합 등 **인제스트 품질**과 **재색인 비용**을 설계할 때 참고한다. **계약·버전·증분 규칙**은 본 문서(`RAG_PIPELINE.md`)와 `HASH_INCREMENTAL_BUILD_GUIDE.md`가 우선한다. |
+| **질의(Pre-retrieval)** | Retriever 직전까지의 질의 처리(정책·캐시·rewrite·라우팅·예산 등) | RAG가 **추천 엔진이 아니라 evidence 검색**인 점은 유지한 채, 질의 품질·지연·비용을 다룰 때 참고한다. Hybrid·RRF **튜닝·reranker** 등은 루트 규칙상 reserved면 **읽기만** 하고 범위를 임의 확장하지 않는다. |
+
+위 축은 **범용 기준서**에서 흔히 나뉘는 틀이다. 제품 범위·reserved 여부는 `PRD.md`, `FEATURE_SPEC.md`, `.cursor/rules`와 충돌 시 **루트 문서**를 따른다.
 
 ---
 
@@ -187,6 +198,18 @@ RAG 파이프라인은 수집 직후 모든 문서를 동일하게 처리하지 
 
 ## 6. Parse Layer
 
+Parse 레이어는 **청크 빌더가 의존하는 중간 표현(parse IR)**을 만든다.  
+아래 순서는 구현체가 달라도 **결과 계약**을 맞추기 위한 권장 실행 흐름이다.
+
+### 6.0 실행 순서 (권장)
+
+1. **소스 단위 식별·무결성**: 원본 파일(또는 HTML 응답)의 `file_hash`·수집 시각 등 증분 키 후보를 확보한다. 상세는 `HASH_INCREMENTAL_BUILD_GUIDE.md`·`DATA_SCHEMA.md` `SourceDocument`를 따른다.
+2. **라우팅·프로파일링**: §5에 따라 `source_type`·layout signals·OCR·table assist·fallback 필요성을 판정한다.
+3. **형식별 파싱**: HTML direct path, primary PDF, table assist, **페이지 단위** OCR, 문서 단위 fallback 중 해당 경로만 수행한다.
+4. **정리(후처리)**: boilerplate 제거, reading order 복원, 표·리스트 구조 보존이 필요한 블록만 최소 보강한다.
+5. **품질·계보**: `parse_quality_flags`(또는 §11 대응 구조)와 parse IR을 함께 산출한다.
+6. **청크 레이어 전달**: IR이 §6.7 최소 필드를 만족하면 §7 chunking으로 넘긴다.
+
 ### 6.1 HTML Direct Path
 HTML은 DOM / Main Content Parser 경로로 처리한다.
 
@@ -253,6 +276,28 @@ parse 이후 후처리를 수행한다.
 - parse IR
 - parse_quality_flags
 - optional provenance metadata
+
+### 6.7 Parse IR 최소 구조 (청크 빌더 입력 계약)
+
+청크 레이어는 **자유 형식 JSON**이 아니라, 아래를 만족하는 IR을 입력으로 받는다고 가정한다.  
+필드명은 구현체에서 camelCase·snake_case로 매핑할 수 있으나 **의미는 동일**해야 한다.
+
+| 구분 | 필드(또는 항목) | 필수 | 설명 |
+|------|------------------|------|------|
+| 문서 | `doc_id` | Y | `DATA_SCHEMA.md` 문서형 지식과 동일 식별자 체계 |
+| 문서 | `blocks` | Y | 순서가 있는 블록 배열(reading order는 배열 순서 또는 블록별 인덱스로 표현) |
+| 블록 | `block_id` | Y | 동일 `parse_hash` 내에서 안정적인 블록 식별자 |
+| 블록 | `block_type` | Y | 예: `heading`, `paragraph`, `list`, `table`, `other` (구현체 enum은 확장 가능, 청킹 규칙과 문서화할 것) |
+| 블록 | `text` | Y | 청킹 대상이 되는 정규화 텍스트(표는 markdown 또는 정규화된 텍스트 표현 중 하나로 통일) |
+| 블록 | `reading_order_index` | N | 다단·재배열 시 원문 순서 복원·디버깅용 |
+| 블록 | `heading_level` | N | 제목 단계(있을 경우) |
+| 블록 | `section_path` | N | 상위 제목 경로(있으면 메타데이터 전파에 사용) |
+| 블록 | `source_loc` | N | 페이지·오프셋 등 원문 위치(있을 경우) |
+
+**원칙**
+
+- IR은 **추천 후보 계산**에 쓰이지 않으며, 문서형 근거의 구조 보존과 청크 경계 결정에만 쓰인다.
+- 표·스캔 등 특수 경로에서만 추가 필드를 허용하되, **dense 검색에 불필요한 바이너리 대용량 필드**는 IR에 넣지 않는다.
 
 ---
 
@@ -377,6 +422,12 @@ exact retrieval 보강용 선택 저장소
 - optional이다.
 - 초기 MVP에서는 dense 중심 운영 가능하다.
 
+### 10.3 구현체와 계약의 구분
+
+벡터 저장소의 **제품명**(예: Supabase pgvector)은 배포·스택 선택이다.  
+**계약의 기준**은 본 문서의 메타·버전(§14), `DATA_SCHEMA.md`의 문서형 chunk 필드, 그리고 evidence 출력 필드(§12)다.  
+저장소에 대한 코드 경로 매핑은 §16.1을 따른다.
+
 ---
 
 ## 11. Retrieval Layer
@@ -462,6 +513,12 @@ retrieval 결과는 evidence bundle 형태로 후단에 전달한다.
 - 이후 RAG가 explanation/evidence를 보강한다.
 - 구조적 추천과 evidence는 별도 계층에서 만들어진다.
 
+### 13.3 질의 전처리·확장 (reserved)
+
+현재 제품 범위에서 evidence 검색은 **구조적 context**(예: `cert_id`, 필터) 중심으로 설계한다.  
+사용자 **자유 자연어 질의**를 1차 입력으로 받는 검색, HyDE, 다단계 쿼리 rewrite, 적응형 retrieval 예산 등은 **도입 시** `FEATURE_SPEC.md`·`API_SPEC.md`에서 활성 범위와 예외를 별도 정의하기 전까지 구현·문서에서 **완료된 기능처럼 다루지 않는다**.  
+RAG가 추천 엔진이 아니라는 원칙(§2)은 그대로 유지한다.
+
 ---
 
 ## 14. 인덱스 버전 관리
@@ -500,6 +557,8 @@ RAG 파이프라인 산출물에는 최소 아래 버전 정보를 유지하는 
 - reranker
 - parent-child 고도화
 - 일정/링크 문서 retrieval
+- 코퍼스 규모 확대 시 **중복·유사 문서·유사 청크** 감사 및 정리 절차(오프라인)
+- evidence·임베딩 API **rate limit·예산·쿼터** 정책(운영 정책으로 별도 정의 시 활성화)
 
 ---
 
