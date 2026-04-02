@@ -2,87 +2,105 @@
 
 > **파일명**: FEATURE_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 역할**: 기능별 입력, 출력, 예외처리, 상태 정의 문서  
+> **문서 역할**: 기능별 입력, 출력, 처리 규칙, 예외, 상태 정의 문서  
 > **문서 우선순위**: 4  
-> **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, API_SPEC.md, DATA_SCHEMA.md  
-> **참조 규칙**: 기능을 추가, 제거, 변경하거나 화면/API 동작을 바꿀 때 먼저 이 문서를 수정한다.
+> **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, API_SPEC.md, DATA_SCHEMA.md, RAG_PIPELINE.md  
+> **참조 규칙**: 기능을 추가, 제거, 변경하거나 사용자 흐름을 바꿀 때 먼저 이 문서를 수정한다.
 
 ---
 
 ## 1. 문서 목적
 
-이 문서는 시스템이 제공하는 기능을 **사용자 기능 단위**로 정의한다.  
-각 기능에 대해 아래 항목을 기준으로 명세한다.
+이 문서는 시스템이 제공하는 기능을 **사용자 기능 단위**와 **운영 기능 단위**로 정의한다.  
+각 기능은 아래 기준으로 명세한다.
 
 - 기능 목적
+- 주 사용자
 - 입력
 - 출력
 - 처리 규칙
 - 예외 상황
 - 현재 상태(활성 / reserved)
 
-이 문서는 기능 정의 문서이며, 아래 항목은 직접 다루지 않는다.
+이 문서는 기능 정의 문서이며, 다음 항목은 직접 다루지 않는다.
 
 - 제품 문제 정의와 사용자 가치
 - 시스템 계층 구조와 모듈 책임
-- DB 컬럼 단위 구조
 - API endpoint 상세 형식
+- 데이터 필드의 컬럼 단위 구조
 - retrieval 파이프라인 세부 전략
+- 프롬프트 세부 문구
 
-위 항목은 각각 `PRD.md`, `SYSTEM_ARCHITECTURE.md`, `DATA_SCHEMA.md`, `API_SPEC.md`, `RAG_PIPELINE.md`에서 담당한다.
+위 항목은 각각 `PRD.md`, `SYSTEM_ARCHITECTURE.md`, `API_SPEC.md`, `DATA_SCHEMA.md`, `RAG_PIPELINE.md`, `PROMPT_DESIGN.md`에서 담당한다.
 
 ---
 
-## 2. 기능 분류
+## 2. 기능 상태 정의
+
+### 활성
+현재 MVP 범위 안에서 실제 구현 및 연결 대상인 기능
+
+### reserved
+후속 스프린트에서 활성화할 예정인 기능  
+현재 단계에서는 미구현 또는 비활성 상태를 유지한다.
+
+---
+
+## 3. 기능 분류
 
 현재 기능은 아래 6개 그룹으로 나눈다.
 
-1. 사용자 입력 및 위험군 진입
+1. 사용자 입력 및 추천 진입
 2. 추천 결과 생성
 3. 로드맵 생성
-4. 설명 근거 조회
-5. 관리자/배치 갱신
-6. 후속 일정 기능(reserved)
+4. 설명 근거 제공
+5. 운영자/배치 갱신
+6. 일정/링크 기능(reserved)
 
 ---
 
-## 3. 기능 목록 요약
+## 4. 기능 목록 요약
 
 | 기능 ID | 기능명 | 현재 상태 | 주 사용자 |
 |---|---|---:|---|
 | F-01 | 위험군 기반 추천 진입 | 활성 | 사용자 |
 | F-02 | 관심 직무/도메인 기반 추천 요청 | 활성 | 사용자 |
 | F-03 | 자격증 후보 결과 조회 | 활성 | 사용자 |
-| F-04 | 추천 이유/설명 근거 조회 | 활성 | 사용자 |
+| F-04 | 추천 이유 / 설명 근거 조회 | 활성 | 사용자 |
 | F-05 | 위험군 맞춤 로드맵 조회 | 활성 | 사용자 |
 | F-06 | CSV canonicalization 실행 | 활성 | 운영자/배치 |
 | F-07 | entity / relation / candidate 재생성 | 활성 | 운영자/배치 |
 | F-08 | 시험 일정 조회 | reserved | 사용자 |
-| F-09 | 접수 일정 / 링크 조회 | reserved | 사용자 |
+| F-09 | 접수 일정 / 지원 링크 조회 | reserved | 사용자 |
 | F-10 | 관리자 점검 화면 | reserved | 운영자 |
 
 ---
 
-## 4. 기능 상세
+## 5. 기능 상세
 
 ## F-01. 위험군 기반 추천 진입
 
 ### 목적
-사용자의 현재 상태를 recommendation 흐름에 연결할 수 있도록 위험군 단계 기준 입력을 받는다.
+사용자의 현재 상태를 추천 흐름에 연결할 수 있도록 위험군 단계 기준을 받는다.
+
+### 주 사용자
+- 사용자
 
 ### 입력
 - 위험군 단계 입력값 또는 위험군 판정에 필요한 최소 입력
-- 선택 입력: 관심 직무, 관심 도메인, 자격증 탐색 의도
+- 선택 입력: 관심 직무
+- 선택 입력: 관심 도메인
+- 선택 입력: 자격증 탐색 의도
 
 ### 출력
-- 내부 추천 요청에 사용할 `risk_stage_id`
-- recommendation request context
+- 추천에 사용할 위험군 단계
+- 추천 요청에 필요한 기본 맥락
 
 ### 처리 규칙
 - 위험군은 1단계 ~ 5단계 구조를 따른다.
-- 2~4단계의 세부 의미가 확정되기 전까지는 단계 ID 기준으로만 처리할 수 있다.
 - 위험군 단계가 직접 주어지면 우선 사용한다.
-- 위험군 판단 로직이 분리되어 있으면 그 결과를 recommendation request에 포함한다.
+- 위험군 세부 정책이 확정되지 않은 상태에서는 단계 ID 기준으로만 처리할 수 있다.
+- 직무/도메인 추가 입력은 이후 추천 요청 기능으로 전달한다.
 
 ### 예외 상황
 - 위험군 입력 누락
@@ -97,18 +115,21 @@
 ## F-02. 관심 직무/도메인 기반 추천 요청
 
 ### 목적
-사용자가 관심 직무 또는 도메인을 기준으로 추천 흐름을 시작할 수 있도록 한다.
+사용자가 관심 직무 또는 관심 도메인을 기준으로 추천을 요청할 수 있도록 한다.
+
+### 주 사용자
+- 사용자
 
 ### 입력
-- `risk_stage_id`
+- 위험군 단계
 - 관심 직무(선택)
 - 관심 도메인(선택)
-- 자유 텍스트 입력(선택, 후단에서 taxonomy 매핑 필요)
+- 자유 텍스트 입력(선택)
 
 ### 출력
-- 정규화된 recommendation query context
-- taxonomy 매핑 결과
-- recommendation candidate search input
+- 정규화된 추천 요청 맥락
+- 직무/도메인 매핑 결과
+- 추천 후보 조회에 사용할 검색 입력
 
 ### 처리 규칙
 - `related_jobs`는 허용된 희망 직무 taxonomy 세부 직무만 사용한다.
@@ -129,31 +150,35 @@
 ## F-03. 자격증 후보 결과 조회
 
 ### 목적
-정규화된 recommendation context를 바탕으로 자격증 후보를 반환한다.
+정규화된 추천 맥락을 바탕으로 자격증 후보를 반환한다.
+
+### 주 사용자
+- 사용자
 
 ### 입력
-- `risk_stage_id`
-- 정규화된 `related_jobs`
-- 정규화된 `related_domains`
-- recommendation query context
+- 위험군 단계
+- 정규화된 관심 직무
+- 정규화된 관심 도메인
+- 추천 요청 맥락
 
 ### 출력
 추천 후보 리스트. 각 후보는 최소 아래 정보를 포함한다.
-- `cert_id`
-- `cert_name`
-- `related_jobs`
-- `related_domains`
-- `roadmap_stages`
-- `text_for_dense` 기반 요약 또는 추천 이유
+
+- 자격증 식별자
+- 자격증명
+- 관련 직무
+- 관련 도메인
+- 연결 가능한 로드맵 단계
+- 추천 요약
 
 ### 처리 규칙
-- 후보 검색은 canonical recommendation data를 우선 사용한다.
+- 후보 검색은 canonical recommendation 데이터를 우선 사용한다.
 - 추천 결과는 taxonomy 밖 라벨을 포함하지 않아야 한다.
 - 추천 결과가 다수일 경우 정렬 기준은 후속 상세 문서에서 고정한다.
 - 일정 정보는 현재 단계에서 기본 출력 필드가 아니다.
 
 ### 예외 상황
-- candidate row 미존재
+- 추천 후보 데이터 미존재
 - 추천 결과 0건
 - canonical store 연결 실패
 - 추천 결과에 taxonomy 밖 값 포함
@@ -168,21 +193,26 @@
 ### 목적
 추천 결과에 대해 공식 PDF / HTML 문서 기반 설명 근거를 제공한다.
 
+### 주 사용자
+- 사용자
+
 ### 입력
-- `cert_id`
-- optional: `doc_type`, `source_type`, `domain`, `job`
-- recommendation context
+- 자격증 식별자
+- 선택 입력: 위험군 단계
+- 선택 입력: 관련 도메인
+- 선택 입력: 관련 직무
+- 추천 맥락
 
 ### 출력
 - 근거 텍스트 snippet
 - 관련 문서 식별자
-- optional provenance metadata
+- 선택적 provenance 정보
 
 ### 처리 규칙
 - 근거 검색은 PDF / HTML 기반 retrieval 계층을 사용한다.
 - 구조적 추천 결과와 설명 근거는 분리된 계층에서 생성된다.
-- 근거는 추천 이유를 보완하는 용도로 제공한다.
 - 설명 근거가 없더라도 추천 결과 자체는 반환 가능해야 한다.
+- 근거는 추천 이유를 보완하는 용도로 제공한다.
 
 ### 예외 상황
 - retrieval 결과 0건
@@ -200,11 +230,14 @@
 ### 목적
 추천 결과 또는 위험군/도메인 기준으로 단계형 로드맵을 생성한다.
 
+### 주 사용자
+- 사용자
+
 ### 입력
-- `risk_stage_id`
-- optional: `cert_id`
-- optional: `related_domains`
-- optional: `related_jobs`
+- 위험군 단계
+- 선택 입력: 자격증 식별자
+- 선택 입력: 관련 도메인
+- 선택 입력: 관련 직무
 
 ### 출력
 - 로드맵 단계 리스트
@@ -218,7 +251,7 @@
 
 ### 예외 상황
 - roadmap stage 데이터 누락
-- risk stage와 roadmap 연결 관계 없음
+- 위험군과 로드맵 연결 관계 없음
 - 도메인/직무 기준 불충분
 
 ### 현재 상태
@@ -229,7 +262,11 @@
 ## F-06. CSV canonicalization 실행
 
 ### 목적
-원본 CSV를 canonical entity / relation / candidate 구조로 변환한다.
+원본 CSV를 정규화된 entity / relation / candidate 구조의 기반 데이터로 변환한다.
+
+### 주 사용자
+- 운영자
+- 배치 작업
 
 ### 입력
 - CSV 파일 세트
@@ -238,8 +275,8 @@
 - taxonomy 기준 파일
 
 ### 출력
-- canonical entity table
-- canonical relation table
+- canonical entity 결과
+- canonical relation 결과
 - validation report
 
 ### 처리 규칙
@@ -262,16 +299,20 @@
 ## F-07. entity / relation / candidate 재생성
 
 ### 목적
-정규화된 canonical data를 바탕으로 recommendation candidate row를 재생성한다.
+정규화된 데이터를 바탕으로 recommendation candidate row를 재생성한다.
+
+### 주 사용자
+- 운영자
+- 배치 작업
 
 ### 입력
-- canonical entity table
-- canonical relation table
+- canonical entity 결과
+- canonical relation 결과
 - risk stage master
 - roadmap stage master
 
 ### 출력
-- `certificate_candidate_row`
+- recommendation candidate row
 - candidate validation report
 
 ### 처리 규칙
@@ -296,15 +337,18 @@
 ### 목적
 추천된 자격증과 연결된 시험 일정을 보여준다.
 
+### 주 사용자
+- 사용자
+
 ### 입력
-- `cert_id`
+- 자격증 식별자
 
 ### 출력
 - 시험 일정 목록
 
 ### 처리 규칙
-- API 연동 후 활성화
-- canonical target schema에 병합된 일정 데이터 사용
+- API 연동 후 활성화한다.
+- canonical target schema에 병합된 일정 데이터를 사용한다.
 
 ### 예외 상황
 - API 미연동
@@ -316,13 +360,16 @@ reserved
 
 ---
 
-## F-09. 접수 일정 / 링크 조회
+## F-09. 접수 일정 / 지원 링크 조회
 
 ### 목적
-추천된 자격증과 연결된 접수 일정, 지원 링크를 보여준다.
+추천된 자격증과 연결된 접수 일정 및 지원 링크를 보여준다.
+
+### 주 사용자
+- 사용자
 
 ### 입력
-- `cert_id`
+- 자격증 식별자
 
 ### 출력
 - 접수 시작일 / 종료일
@@ -347,6 +394,9 @@ reserved
 ### 목적
 정규화 결과, candidate 생성 결과, validation 결과를 확인할 수 있는 관리 기능을 제공한다.
 
+### 주 사용자
+- 운영자
+
 ### 입력
 - 관리자 요청
 - validation result 조회 기준
@@ -369,21 +419,21 @@ reserved
 
 ---
 
-## 5. 기능 간 의존성
+## 6. 기능 간 의존성
 
 | 선행 기능 | 후행 기능 | 설명 |
 |---|---|---|
-| F-01 | F-02 | 위험군 기준이 recommendation context에 포함됨 |
-| F-02 | F-03 | 정규화된 직무/도메인 입력이 후보 검색으로 이어짐 |
-| F-03 | F-04 | 추천 결과가 있어야 설명 근거를 조회할 수 있음 |
-| F-03 | F-05 | 추천 결과 또는 context가 있어야 로드맵 생성 가능 |
-| F-06 | F-07 | canonicalization 결과가 있어야 candidate 생성 가능 |
-| F-07 | F-03 | candidate row가 recommendation core의 주요 입력 |
-| F-08/F-09 | F-03 | 후속 일정/링크 기능은 추천 결과와 결합됨 |
+| F-01 | F-02 | 위험군 기준이 추천 요청 맥락에 포함된다. |
+| F-02 | F-03 | 정규화된 직무/도메인 입력이 후보 검색으로 이어진다. |
+| F-03 | F-04 | 추천 결과가 있어야 설명 근거를 조회할 수 있다. |
+| F-03 | F-05 | 추천 결과 또는 추천 맥락이 있어야 로드맵 생성이 가능하다. |
+| F-06 | F-07 | canonicalization 결과가 있어야 candidate 생성이 가능하다. |
+| F-07 | F-03 | candidate row가 recommendation core의 주요 입력이 된다. |
+| F-08 / F-09 | F-03 | 후속 일정/링크 기능은 추천 결과와 결합된다. |
 
 ---
 
-## 6. 공통 예외처리 원칙
+## 7. 공통 예외처리 원칙
 
 모든 사용자 기능은 아래 공통 원칙을 따른다.
 
@@ -395,7 +445,7 @@ reserved
 
 ---
 
-## 7. 현재 MVP 활성 기능
+## 8. 현재 MVP 활성 기능
 
 현재 MVP에서 실제로 활성화해야 하는 기능은 아래와 같다.
 
@@ -409,18 +459,18 @@ reserved
 
 ---
 
-## 8. 후속 문서 연결
+## 9. 후속 문서 연결
 
 이 문서의 각 기능은 아래 문서와 연결된다.
 
 - API 요청/응답 형식 → `API_SPEC.md`
-- 데이터 필드 구조 → `DATA_SCHEMA.md`
+- 데이터 구조 → `DATA_SCHEMA.md`
 - retrieval 및 indexing 세부 → `RAG_PIPELINE.md`
 - 시스템 계층 책임 → `SYSTEM_ARCHITECTURE.md`
 
 ---
 
-## 9. 최종 요약
+## 10. 최종 요약
 
 이 문서는 시스템이 제공해야 하는 기능을 **사용자 기능 단위**로 정의한다.  
 핵심 기능은 추천 진입, 추천 결과 생성, 로드맵 생성, 설명 근거 제공, canonicalization 실행이며, 일정/링크 기능은 현재 reserved 상태다.
