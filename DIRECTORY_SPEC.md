@@ -2,8 +2,8 @@
 
 > **파일명**: DIRECTORY_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 역할**: 프로젝트 디렉토리 구조 기준 문서  
-> **문서 우선순위**: 9
+> **문서 역할**: 프로젝트 디렉토리 구조와 파일/폴더 책임 정의 문서  
+> **문서 우선순위**: 9  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  
 > **참조 규칙**: 디렉토리 구조를 수정하거나 새 파일/폴더를 추가하기 전에 먼저 이 문서를 확인한다.
 
@@ -12,14 +12,26 @@
 ## 1. 문서 목적
 
 이 문서는 프로젝트의 **최종 디렉토리 구조**와 각 파일/폴더의 역할을 정의한다.  
-이 문서의 목적은 다음과 같다.
+문서, 데이터, 서비스 코드, 실험, 배치 스크립트, 배포 관련 자산이 서로 충돌하지 않도록 구조적 기준선을 제공하는 것이 목적이다.
 
-- 루트 문서와 하위 디렉토리의 책임을 명확히 구분한다.
-- 새 파일이나 폴더를 추가할 때 기준선을 제공한다.
-- 서비스 코드, 데이터, 문서, 실험, 배치 스크립트의 경계를 분리한다.
-- 프로젝트가 커져도 구조적 일관성을 유지하도록 돕는다.
+이 문서는 다음을 정의한다.
 
-이 문서는 **구조 정의 문서**이며, 문서 수정 절차나 작업 운영 규칙은 `CHANGE_CONTROL.md`에서 담당한다.
+- 최종 루트 디렉토리 구조
+- 루트 파일 역할
+- 하위 폴더 역할
+- 즉시 생성 권장 영역
+- reserved 가능 영역
+- 디렉토리 운영 원칙
+
+이 문서는 다음을 직접 정의하지 않는다.
+
+- 문서 수정 절차
+- 제품 문제 정의
+- 시스템 계층 구조
+- 기능 입출력
+- 데이터 필드 상세
+
+위 항목은 각각 `CHANGE_CONTROL.md`, `PRD.md`, `SYSTEM_ARCHITECTURE.md`, `FEATURE_SPEC.md`, `DATA_SCHEMA.md`에서 담당한다.
 
 ---
 
@@ -69,42 +81,41 @@ Git 추적 제외 대상 정의
 프로젝트 목적, 핵심 개념, 범위, 연관 문서 안내를 담당한다.
 
 ### `CHANGE_CONTROL.md`
-문서 갱신 규칙, 문서 우선 작업 절차, 작업 전/후 체크리스트를 담당한다.
+문서 갱신 규칙, 작업 절차, 메타데이터 갱신 원칙을 담당한다.
 
 ### `DIRECTORY_SPEC.md`
-프로젝트 디렉토리 구조 기준 문서  
-각 폴더/파일의 역할과 생성 기준을 정의한다.
+프로젝트 디렉토리 구조와 파일/폴더 책임 정의를 담당한다.
 
 ### `Indexing_Architecture.txt`
-인덱싱/지식 파이프라인의 원본 구조 메모 또는 아키텍처 초안 문서  
-루트 문서 설계의 참고 기준으로 사용한다.
+인덱싱/지식 파이프라인 관련 참고 구조 문서 또는 아키텍처 초안이다.  
+루트 문서 설계 시 참고 기준으로 사용한다.
 
 ### `PRD.md`
 문제 정의, 타깃 사용자, 제품 목표, 범위/비범위를 정의한다.
 
 ### `SYSTEM_ARCHITECTURE.md`
-시스템 구성 요소, 책임 분리, 데이터 흐름, 계층 구조를 정의한다.
+계층 구조, 책임 분리, 데이터 흐름, 모듈 경계를 정의한다.
 
 ### `FEATURE_SPEC.md`
 기능별 입력/출력/예외처리를 정의한다.
 
 ### `API_SPEC.md`
-API endpoint, request/response 구조를 정의한다.
+API endpoint 계약과 request/response 구조를 정의한다.
 
 ### `PROMPT_DESIGN.md`
-시스템 프롬프트, 프롬프트 전략, few-shot, RAG 응답 전략을 정의한다.
+프롬프트 역할, 입력 슬롯, 출력 계약, 가드레일을 정의한다.
 
 ### `DATA_SCHEMA.md`
-DB / canonical schema / 주요 필드 구조를 정의한다.
+데이터 구조, canonical schema, 주요 엔티티/관계/필드를 정의한다.
 
 ### `RAG_PIPELINE.md`
-RAG, indexing, retrieval, fusion, reranker 범위를 정의한다.
+Parse, Chunking, Metadata, Embedding, Retrieval 구조를 정의한다.
 
 ### `EVALUATION_GUIDELINE.md`
 평가 기준, metric 선택 이유, baseline 정의, 비교 기준을 정의한다.
 
 ### `EVALUATION.md`
-실제 평가 결과와 비교 실험 결과를 기록한다.
+실제 평가 결과와 실험 결과를 기록한다.
 
 ### `EXPERIMENT_GUIDE.md`
 실험 세팅, 파라미터, 재현 방식, 로그 기록 방법을 정의한다.
@@ -113,13 +124,13 @@ RAG, indexing, retrieval, fusion, reranker 범위를 정의한다.
 오류 사례, 실패 패턴, 개선 방향을 기록한다.
 
 ### `DEV_LOG.md`
-진행 로그, 이슈, 해결 이력을 기록한다.
+날짜별 진행 로그, 문제 및 해결 이력을 기록한다.
 
 ---
 
 ## 4. 하위 디렉토리 구조
 
-## 4.1 docs/
+### 4.1 docs/
 
 ```text
 docs/
@@ -129,7 +140,7 @@ docs/
 └─ meeting_notes/
 ```
 
-### 역할
+#### 역할
 - `slides/`: 발표 자료
 - `references/`: 논문, 참고문헌, 기준 자료
 - `architecture/`: 구조도, 설계도, 흐름도
@@ -137,7 +148,7 @@ docs/
 
 ---
 
-## 4.2 data/
+### 4.2 data/
 
 ```text
 data/
@@ -170,21 +181,21 @@ data/
    └─ snapshots/
 ```
 
-### 역할
+#### 역할
 - `raw/`: 원본 수집 데이터
 - `taxonomy/`: 허용 taxonomy 기준 파일
 - `canonical/`: CSV canonicalization 결과
-- `index_ready/`: 검색/추천 입력용 중간 산출물
-- `processed/`: 병합본과 버전 스냅샷
+- `index_ready/`: 검색/추천 입력용 산출물
+- `processed/`: 병합본과 스냅샷
 
-### 원칙
+#### 원칙
 - PDF / HTML은 Parse 및 indexing 대상이다.
-- CSV는 Parse IR 대상이 아니라 structured no-parse canonicalization 대상이다.
+- CSV는 Parse IR 대상이 아니라 canonicalization 대상이다.
 - API는 현재 reserved이며 후속 스프린트에서 연결한다.
 
 ---
 
-## 4.3 frontend/
+### 4.3 frontend/
 
 ```text
 frontend/
@@ -226,22 +237,22 @@ frontend/
 └─ package.json
 ```
 
-### 역할
+#### 역할
 사용자 입력, 위험군 결과, 추천 결과, 로드맵 결과, 추후 일정 화면을 담당한다.
 
-### 현재 핵심 페이지
+#### 현재 핵심 페이지
 - `Home`
 - `RiskAssessment`
 - `Recommendation`
 - `Roadmap`
 
-### reserved 가능
+#### reserved 가능
 - `Schedule`
 - `Admin`
 
 ---
 
-## 4.4 backend/
+### 4.4 backend/
 
 ```text
 backend/
@@ -289,14 +300,14 @@ backend/
 └─ requirements.txt
 ```
 
-### 역할
-- `backend/app/`: 사용자 요청 처리, API, 서비스 로직
-- `backend/rag/`: PDF / HTML parse, chunk, retrieval, evidence search
-- `backend/canonical/`: CSV canonicalization, entity/relation/candidate row 생성
+#### 역할
+- `backend/app/`: API, 서비스 조정 계층
+- `backend/rag/`: PDF / HTML parse 및 retrieval 계층
+- `backend/canonical/`: CSV canonicalization 계층
 
 ---
 
-## 4.5 scripts/
+### 4.5 scripts/
 
 ```text
 scripts/
@@ -309,7 +320,7 @@ scripts/
 └─ maintenance/
 ```
 
-### 역할
+#### 역할
 일회성 실행, 배치, 점검, 재처리 스크립트를 담당한다.
 
 - `parse/`: PDF / HTML parse 실행
@@ -322,7 +333,7 @@ scripts/
 
 ---
 
-## 4.6 experiments/
+### 4.6 experiments/
 
 ```text
 experiments/
@@ -333,12 +344,12 @@ experiments/
 └─ notebooks/
 ```
 
-### 역할
+#### 역할
 실험 설정, 로그, 결과 보고서, baseline 비교, 분석 노트북을 관리한다.
 
 ---
 
-## 4.7 infra/
+### 4.7 infra/
 
 ```text
 infra/
@@ -347,15 +358,15 @@ infra/
 └─ env/
 ```
 
-### 역할
+#### 역할
 배포 및 실행 환경 설정을 담당한다.
 
-### 상태
+#### 상태
 현재는 reserved 가능
 
 ---
 
-## 4.8 shared/
+### 4.8 shared/
 
 ```text
 shared/
@@ -364,10 +375,10 @@ shared/
 └─ types/
 ```
 
-### 역할
+#### 역할
 frontend / backend 공용 상수, schema, 타입을 저장한다.
 
-### 상태
+#### 상태
 현재는 필수 아님  
 공용 구조가 많아질 때 활성화한다.
 

@@ -2,7 +2,7 @@
 
 > **파일명**: RAG_PIPELINE.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 역할**: RAG 인덱싱 및 리트리벌 파이프라인 정의 문서  
+> **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
 > **참조 규칙**: Parse, Chunking, Metadata, Embedding, Retrieval, Fusion, Sparse/Dense 사용 기준을 변경할 때 먼저 이 문서를 수정한다.
@@ -22,6 +22,7 @@
 - Dense / Sparse / Fusion의 사용 기준
 - 현재 활성 범위와 reserved 범위
 - 운영 및 품질 점검 포인트
+- 인덱스 버전 관리 기준
 
 이 문서는 다음을 직접 정의하지 않는다.
 
@@ -313,6 +314,7 @@ Chunk는 retrieval의 기본 검색 단위다.
 ### 원칙
 - recommendation candidate row와 같은 구조를 강제하지 않는다.
 - 문서 provenance와 filter 가능성을 우선한다.
+- metadata는 retrieval filter와 evidence trace에 모두 사용 가능해야 한다.
 
 ---
 
@@ -461,7 +463,23 @@ retrieval 결과는 evidence bundle 형태로 후단에 전달한다.
 
 ---
 
-## 14. 현재 활성 범위
+## 14. 인덱스 버전 관리
+
+RAG 파이프라인 산출물에는 최소 아래 버전 정보를 유지하는 것을 권장한다.
+
+- `ingest_version`
+- `chunk_version`
+- `metadata_version`
+- `embedding_version`
+
+### 원칙
+- Parse/Chunk 규칙이 바뀌면 `ingest_version` 또는 `chunk_version`을 갱신한다.
+- 임베딩 모델 또는 프롬프트가 바뀌면 `embedding_version`을 갱신한다.
+- 대규모 재색인이 필요한 변경은 `DEV_LOG.md`와 `EVALUATION.md`에도 반영한다.
+
+---
+
+## 15. 현재 활성 범위
 
 ### 활성화
 - HTML direct path
@@ -484,17 +502,18 @@ retrieval 결과는 evidence bundle 형태로 후단에 전달한다.
 
 ---
 
-## 15. 운영 원칙
+## 16. 운영 원칙
 
 1. born-digital PDF 전체에 OCR을 기본 적용하지 않는다.
 2. CSV는 RAG Parse 대상이 아니다.
 3. retrieval 결과가 0건이어도 추천 결과 자체는 실패로 간주하지 않는다.
 4. exact miss가 문제로 재현되기 전까지 sparse를 강제하지 않는다.
 5. reserved 기능은 문서 갱신 후 활성화한다.
+6. retrieval 품질 평가는 `EVALUATION_GUIDELINE.md` 기준과 연결해 관리한다.
 
 ---
 
-## 16. 문서 경계
+## 17. 문서 경계
 
 이 문서는 RAG 파이프라인만 정의하며 아래는 별도 문서에서 정의한다.
 
@@ -519,7 +538,7 @@ retrieval 결과는 evidence bundle 형태로 후단에 전달한다.
 
 ---
 
-## 17. 최종 요약
+## 18. 최종 요약
 
 본 시스템에서 RAG는 추천 엔진이 아니라 **설명 근거 검색 계층**이다.  
 현재 파이프라인의 중심은 아래 두 가지다.
