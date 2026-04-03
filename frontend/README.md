@@ -2,7 +2,7 @@
 
 > **파일명**: frontend/README.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:edf519fb6e94e7371b06aa9318857d5513e44e2ea2e01506547244572f5173c9  
 > **문서 역할**: 프론트엔드 디렉터리 안내  
 > **문서 우선순위**: reference  
 > **연관 문서**: DIRECTORY_SPEC.md, API_SPEC.md  
