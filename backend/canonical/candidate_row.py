@@ -1,4 +1,4 @@
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:ed064b94b0e09f8d2f91a5eb0f423b18e7ab2d0636dde9b915d52bb0bcaeeebf
 # Role: DATA_SCHEMA certificate_candidate_row 최소 검증 (Pydantic)
 from __future__ import annotations
 

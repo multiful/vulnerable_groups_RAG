@@ -1,4 +1,4 @@
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:34dec3db29277a2f47fac4c3130016aa6d6294bbb6a89a4d0b1d5ad0a039259e
 # Role: candidate JSONL 로드 + taxonomy 검증 + 필터·정렬 (추천 API용)
 from __future__ import annotations
 

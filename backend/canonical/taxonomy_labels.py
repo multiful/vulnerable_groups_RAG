@@ -1,4 +1,4 @@
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:d5517d8785ed05c3c42857d599fbdb6fd114c4a33a5dafeea70150a27c78503f
 # Role: domain_v2 / prefer_job 텍스트에서 세부 라벨(줄 시작 "- ") 추출
 from __future__ import annotations
 

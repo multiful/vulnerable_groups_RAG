@@ -2,7 +2,7 @@
 
 > **파일명**: PROJECT_SUMMARY.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:b015f7cd4a3caac4e4abcb1d209585f6b471cdc89e5c3524f1a7d35323623c0a
+> **문서 해시**: SHA256:0aeb538698211819ee3a56c50c62c87d8c90816822c00bb6c2e33f605ff97362
 > **문서 역할**: 저장소 한눈에 보기 — 목적·구조·문서 지도·청킹 개요  
 > **문서 우선순위**: reference (세부 계약·스키마는 각 전용 문서가 우선)  
 > **연관 문서**: README.md, PRD.md, SYSTEM_ARCHITECTURE.md, RAG_PIPELINE.md, DATA_SCHEMA.md, DIRECTORY_SPEC.md  

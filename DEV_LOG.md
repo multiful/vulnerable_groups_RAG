@@ -2,7 +2,7 @@
 
 > **파일명**: DEV_LOG.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:3dd5a57fd253a5072c4d01747949b7b8218c7a0ec43adb2a37fa50c587511076
+> **문서 해시**: SHA256:c577ab451cf12cce1b6109ffb0c6a273fd414e0290c796368b2965b778a83adb
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, DIRECTORY_SPEC.md, ERROR_ANALYSIS.md  
@@ -13,6 +13,22 @@
 ## 1. 문서 목적
 
 구현과 문서 정렬 작업의 **타임라인**을 남겨, 이후 기여자가 맥락을 잃지 않게 한다.
+
+---
+
+## 2026-04-03 — POST /recommendations: candidate JSONL 로더
+
+### 수행
+
+- **`backend/canonical/`**: taxonomy 라벨 추출, Pydantic 행 검증, JSONL 로드·필터·`API_SPEC` 응답 매핑.
+- **`recommendation_service` / 라우트**: `SettingsDep` 연동, `risk_stage_1`~`5`, 요청 taxonomy 검증, JSONL 경로(`CANDIDATES_JSONL_RELATIVE` 등).
+- **`data/canonical/candidates/candidates.jsonl.example`**, **`infra/env/.env.example`** 변수 추가.
+- **`backend/tests/test_recommendations.py`**, **`scripts/build_candidates/run.py`** 안내 갱신.
+- **`API_SPEC.md` §7.2**, **`FEATURE_SPEC.md` F-03**, **`PROJECT_SUMMARY.md` §8~§9** 정합.
+
+### 비범위(유지)
+
+- CSV→JSONL 배치 본구현, DB 저장소, `query_text` 필터 — 후속.
 
 ---
 

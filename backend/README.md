@@ -53,6 +53,10 @@ python -m backend.rag.ingest.cli
 
 **데이터만 모은 뒤 무엇이 더 필요한지**(청크 형식·cert_id·DB 차원·스텁 여부)는 루트 `PROJECT_SUMMARY.md` §8·§9를 본다.
 
+## 추천 후보 API
+
+`POST /api/v1/recommendations` — `DATA_SCHEMA.md` §9.1 형식의 **JSONL**(`CANDIDATES_JSONL_RELATIVE`, 기본 `data/canonical/candidates/candidates.jsonl`)을 읽는다. 예시는 `data/canonical/candidates/candidates.jsonl.example`.
+
 ## Evidence API
 
 `POST /api/v1/recommendations/evidence` — Supabase 미설정 시 `evidence: []` 로 성공 응답.

@@ -1,6 +1,6 @@
 # File: test_recommendations.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:3ac69b706179f6b3feb9a5ecbb56446e824cdfb94a6259cc474fde7bbcd0da69
 # Role: POST /recommendations — JSONL 로더·taxonomy·필터 스모크
 from __future__ import annotations
 

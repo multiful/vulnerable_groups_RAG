@@ -14,7 +14,8 @@
 
 ## 1. 용도
 
-**추천 candidate row** 등 구조적 추천 입력을 둔다. RAG chunk와 동일 구조로 취급하지 않는다.
+**추천 candidate row** 등 구조적 추천 입력을 둔다. RAG chunk와 동일 구조로 취급하지 않는다.  
+실제 서빙 시 기본 파일명은 `candidates.jsonl`(환경변수 `CANDIDATES_JSONL_RELATIVE`). 형식 참고용 **`candidates.jsonl.example`**.
 
 ## 2. 담지 않는 것
 

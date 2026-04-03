@@ -1,6 +1,6 @@
 # File: config.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:508be0e58ed433bf7b03e1568a930a5f6dc66568be356cba79bda19284cf438f
 # Role: Pydantic Settings — CORS, Supabase, 임베딩, RAG 경로
 from __future__ import annotations
 

@@ -2,7 +2,7 @@
 
 > **파일명**: API_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:665faf6c5cc2f63c49a98d8deac8f5917f338c66eefc01b738d186fb65443268
+> **문서 해시**: SHA256:36175d4a0a107ef9f3277c6ef59c804c8b506dfc865944b73980d9966045db5f
 > **문서 역할**: API 계약, request/response, 오류 형식 정의 문서  
 > **문서 우선순위**: 6  
 > **연관 문서**: FEATURE_SPEC.md, DATA_SCHEMA.md, SYSTEM_ARCHITECTURE.md, PRD.md  

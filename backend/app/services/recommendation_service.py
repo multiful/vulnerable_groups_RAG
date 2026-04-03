@@ -1,6 +1,6 @@
 # File: recommendation_service.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:674873d64ea307de57a3bbed86807b756d50441a0c06fbcf39580be310a7b2ea
 # Role: 추천 후보(JSONL canonical 대용) + evidence 위임
 from __future__ import annotations
 

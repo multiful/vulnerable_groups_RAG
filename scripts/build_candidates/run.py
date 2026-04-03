@@ -1,6 +1,6 @@
 # File: run.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:d1d2b48ca146d7d508b3c819bd2f64f58bf3c3a92525175ee331112f9d4e3fb6
 # Role: recommendation candidate row 빌드 진입 스텁
 from __future__ import annotations
 
