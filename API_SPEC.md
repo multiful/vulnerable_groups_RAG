@@ -2,7 +2,7 @@
 
 > **파일명**: API_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:36175d4a0a107ef9f3277c6ef59c804c8b506dfc865944b73980d9966045db5f
+> **문서 해시**: SHA256:6310374242f64d440ce4cc3ea3c3d26e659622571a39950fb4f3812426d2ec43
 > **문서 역할**: API 계약, request/response, 오류 형식 정의 문서  
 > **문서 우선순위**: 6  
 > **연관 문서**: FEATURE_SPEC.md, DATA_SCHEMA.md, SYSTEM_ARCHITECTURE.md, PRD.md  
@@ -147,7 +147,7 @@ application/json
 | 기능 ID | Method | Endpoint | 상태 | 용도 |
 |---|---|---|---|---|
 | - | GET | `/health` | 활성 | 서버 상태 확인 |
-| F-01/F-02/F-03 | POST | `/recommendations` | 활성 | 추천 후보 조회 |
+| F-01/F-02/F-03 | POST | `/recommendations` | 스텁(준비만) | 추천 후보 조회 — 계약·예시는 갖춤, 런타임 실행은 후속 |
 | F-04 | POST | `/recommendations/evidence` | 활성 | 설명 근거 조회 |
 | F-05 | POST | `/roadmaps` | 활성 | 로드맵 조회 |
 | F-06 | POST | `/admin/canonicalize` | 활성 | canonicalization 실행 |
@@ -214,11 +214,11 @@ application/json
 - 자유 텍스트가 있더라도 내부적으로 taxonomy 정규화 결과를 우선 사용한다.
 - 추천 결과가 0건이어도 시스템 오류와 구분해야 한다.
 
-### 데이터 소스(현행 구현)
+### 준비(실행 전 고정 사항)
 
-- 후보 목록은 **canonical DB가 아니라** `CANDIDATES_JSONL_RELATIVE` 환경변수(기본: `data/canonical/candidates/candidates.jsonl`)의 **JSONL**에서 읽는다. 한 줄 = `DATA_SCHEMA.md` §9.1 `certificate_candidate_row` 1건.
-- `data/taxonomy/domain_v2.txt`, `prefer_job.txt`에서 추출한 라벨로 **요청** `interested_*` 및 **행**의 도메인·직무를 검증한다(파일이 비어 있으면 행 쪽 taxonomy 검증은 생략).
-- `query_text`는 현재 필터에 사용하지 않는다(reserved·후속).
+- 현재 단계에서는 **실행하지 않는다**(`NOT_IMPLEMENTED`). 응답 계약·요청 필드는 본 절과 `FEATURE_SPEC.md`를 기준으로 유지한다.
+- **후속 실행** 시 후보 소스는 canonical 저장소 또는 `DATA_SCHEMA.md` §9.1 형식의 **JSONL** 등으로 정한다. 산출물 형식 참고: `data/canonical/candidates/candidates.jsonl.example`.
+- 요청 `interested_*`·행 데이터는 `data/taxonomy/` 허용 라벨과 맞출 것(`DATA_SCHEMA.md` taxonomy 제약).
 
 ### Response Body 예시
 ```json

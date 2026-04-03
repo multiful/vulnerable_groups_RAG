@@ -1,6 +1,6 @@
 # File: config.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:508be0e58ed433bf7b03e1568a930a5f6dc66568be356cba79bda19284cf438f
+# Content Hash: SHA256:d4e65f69b3ab34729a0a12bb99a0c336822916a50148284d4ceb443b3e1dc635
 # Role: Pydantic Settings — CORS, Supabase, 임베딩, RAG 경로
 from __future__ import annotations
 
@@ -42,10 +42,6 @@ class Settings(BaseSettings):
 
     # --- 오프라인 산출물 경로 (저장소 루트 기준 상대 경로 권장) ---
     chunks_jsonl_relative: str = "data/index_ready/chunks/chunks.jsonl"
-    candidates_jsonl_relative: str = "data/canonical/candidates/candidates.jsonl"
-    taxonomy_domain_relative: str = "data/taxonomy/domain_v2.txt"
-    taxonomy_job_relative: str = "data/taxonomy/prefer_job.txt"
-    recommendation_max_results: int = Field(default=50, ge=1, le=200)
 
     @field_validator("supabase_url", "openai_api_key", mode="before")
     @classmethod

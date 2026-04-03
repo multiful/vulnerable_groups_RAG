@@ -1,5 +1,5 @@
-# Content Hash: SHA256:34dec3db29277a2f47fac4c3130016aa6d6294bbb6a89a4d0b1d5ad0a039259e
-# Role: candidate JSONL 로드 + taxonomy 검증 + 필터·정렬 (추천 API용)
+# Content Hash: SHA256:TBD
+# Role: candidate JSONL 로드 + taxonomy 검증 + 필터·정렬 (추천 API)
 from __future__ import annotations
 
 import json
@@ -14,7 +14,7 @@ def iter_jsonl_objects(path: Path) -> Iterator[dict[str, Any]]:
     if not path.is_file():
         return
     with path.open(encoding="utf-8") as f:
-        for line_no, line in enumerate(f, 1):
+        for line in f:
             line = line.strip()
             if not line:
                 continue
@@ -31,7 +31,7 @@ def load_validated_candidates(
     domain_labels: set[str],
     job_labels: set[str],
 ) -> list[CertificateCandidateRow]:
-    """taxonomy 집합이 비어 있으면 도메인/직무 라벨 검증은 생략(파일 누락 시 개발 완화)."""
+    """taxonomy 집합이 비어 있으면 도메인/직무 라벨 검증은 생략(파일 없을 때)."""
     strict_domains = bool(domain_labels)
     strict_jobs = bool(job_labels)
     rows: list[CertificateCandidateRow] = []
@@ -89,8 +89,17 @@ def filter_and_rank(
             continue
         if not job_ok(r):
             continue
-        ds = len(set(domains) & set([r.primary_domain, *r.related_domains])) if domains else 0
-        js = len(set(jobs) & set(r.related_jobs)) if jobs and r.related_jobs else (1 if not jobs else 0)
+        ds = (
+            len(set(domains) & set([r.primary_domain, *r.related_domains]))
+            if domains
+            else 0
+        )
+        if jobs and r.related_jobs:
+            js = len(set(jobs) & set(r.related_jobs))
+        elif not jobs:
+            js = 1
+        else:
+            js = 0
         score = ds * 2 + js
         scored.append((score, r))
 

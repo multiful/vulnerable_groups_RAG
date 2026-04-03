@@ -1,6 +1,6 @@
 # File: recommendation.py
 # Last Updated: 2026-04-03
-# Content Hash: SHA256:be3209f3b66cd34aa9cde9dff19c9cfdf6444456f3f504113afbccc2a29aa180
+# Content Hash: SHA256:da6ae93f8d9533f69ac7197a4b2ff79ab713558cd77b828dc2362d2f8815afff
 # Role: POST /api/v1/recommendations, /recommendations/evidence
 from __future__ import annotations
 
@@ -15,11 +15,8 @@ router = APIRouter()
 
 
 @router.post("/recommendations")
-def post_recommendations(
-    body: dict[str, Any] | None,
-    settings: SettingsDep,
-) -> dict:
-    return recommendation_service.recommendations(body or {}, settings)
+def post_recommendations(body: dict[str, Any] | None = None) -> dict:
+    return recommendation_service.recommendations_placeholder(body or {})
 
 
 @router.post("/recommendations/evidence")

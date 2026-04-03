@@ -2,10 +2,10 @@
 
 > **파일명**: backend/README.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:TBD  
+> **문서 해시**: SHA256:7a00d4e14bf3c04826c5a2b1f0025068e2ac81438c7925dc2470f958d5e42e72  
 > **문서 역할**: 백엔드 실행·개발 안내  
 > **문서 우선순위**: reference  
-> **연관 문서**: DIRECTORY_SPEC.md, API_SPEC.md, DEV_LOG.md  
+> **연관 문서**: DIRECTORY_SPEC.md, API_SPEC.md, PROJECT_SUMMARY.md, DEV_LOG.md  
 > **참조 규칙**: 진입점은 `backend/app/main.py` 이다. import 경로는 저장소 루트를 `PYTHONPATH`에 둔 뒤 `backend.app` 패키지를 사용한다.
 
 ---
@@ -51,11 +51,9 @@ set PYTHONPATH=%CD%
 python -m backend.rag.ingest.cli
 ```
 
-**데이터만 모은 뒤 무엇이 더 필요한지**(청크 형식·cert_id·DB 차원·스텁 여부)는 루트 `PROJECT_SUMMARY.md` §8·§9를 본다.
+청크·Evidence·후보 데이터 계약은 루트 `PROJECT_SUMMARY.md` §8·§9, `DATA_SCHEMA.md`, `API_SPEC.md`를 본다.
 
-## 추천 후보 API
-
-`POST /api/v1/recommendations` — `DATA_SCHEMA.md` §9.1 형식의 **JSONL**(`CANDIDATES_JSONL_RELATIVE`, 기본 `data/canonical/candidates/candidates.jsonl`)을 읽는다. 예시는 `data/canonical/candidates/candidates.jsonl.example`.
+`POST /api/v1/recommendations`는 현재 `NOT_IMPLEMENTED` 스텁이다. 후보 행 형식은 `DATA_SCHEMA.md` §9.1·`data/canonical/candidates/candidates.jsonl.example` 참고.
 
 ## Evidence API
 

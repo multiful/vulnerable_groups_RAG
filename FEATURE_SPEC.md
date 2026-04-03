@@ -2,7 +2,7 @@
 
 > **파일명**: FEATURE_SPEC.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:4a59098eb606b913f1df676d215d4bbbd296a98ca634fdaaa0353d6d61a5732f
+> **문서 해시**: SHA256:7d412c2a05adda4325647ce120aabf8d82f55fa972050e07242ab981f1efebc1
 > **문서 역할**: 기능별 입력, 출력, 처리 규칙, 예외, 상태 정의 문서  
 > **문서 우선순위**: 4  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, API_SPEC.md, DATA_SCHEMA.md, RAG_PIPELINE.md  
@@ -173,7 +173,7 @@
 - 추천 요약
 
 ### 처리 규칙
-- 후보 검색은 **canonical recommendation 데이터**를 사용한다. 현재 구현은 **DB 대신** `certificate_candidate` 형식의 **JSONL 파일**(`API_SPEC.md` §7.2 데이터 소스)을 읽는다.
+- 후보 검색은 canonical recommendation 데이터(JSONL·DB 등 **실행 단계에서 확정**)를 사용한다. **현재는 준비만** — 스키마·예시 파일(`candidates.jsonl.example`)·문서 계약을 갖춘다.
 - 추천 결과는 taxonomy 밖 라벨을 포함하지 않아야 한다.
 - 추천 결과가 다수일 경우 정렬 기준은 후속 상세 문서에서 고정한다.
 - 일정 정보는 현재 단계에서 기본 출력 필드가 아니다.

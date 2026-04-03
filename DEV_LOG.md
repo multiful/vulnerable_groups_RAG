@@ -2,7 +2,7 @@
 
 > **파일명**: DEV_LOG.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:c577ab451cf12cce1b6109ffb0c6a273fd414e0290c796368b2965b778a83adb
+> **문서 해시**: SHA256:1fefb46e6b08cbfc6ad345cb7f889fa0c90f149114be552594a715652c0ebdae
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, DIRECTORY_SPEC.md, ERROR_ANALYSIS.md  
@@ -16,19 +16,22 @@
 
 ---
 
-## 2026-04-03 — POST /recommendations: candidate JSONL 로더
+## 2026-04-03 — 정책: 준비만·실행 비강제 (추천 API 스텁 복귀)
+
+### 배경
+
+제품 단계를 **파이프라인 실행이 아니라 준비(계약·예시·문서)** 로 둔다.
 
 ### 수행
 
-- **`backend/canonical/`**: taxonomy 라벨 추출, Pydantic 행 검증, JSONL 로드·필터·`API_SPEC` 응답 매핑.
-- **`recommendation_service` / 라우트**: `SettingsDep` 연동, `risk_stage_1`~`5`, 요청 taxonomy 검증, JSONL 경로(`CANDIDATES_JSONL_RELATIVE` 등).
-- **`data/canonical/candidates/candidates.jsonl.example`**, **`infra/env/.env.example`** 변수 추가.
-- **`backend/tests/test_recommendations.py`**, **`scripts/build_candidates/run.py`** 안내 갱신.
-- **`API_SPEC.md` §7.2**, **`FEATURE_SPEC.md` F-03**, **`PROJECT_SUMMARY.md` §8~§9** 정합.
+- **`POST /recommendations`**: JSONL 로더·`backend/canonical/*` 구현 **제거**, `NOT_IMPLEMENTED` 스텁 복귀(`details.prep`에 준비 참조 링크).
+- **설정**: `candidates_jsonl_relative` 등 추천 전용 필드 **제거**.
+- **문서**: `API_SPEC.md` §6·§7.2, `FEATURE_SPEC.md` F-03, `PROJECT_SUMMARY.md` §8~§9 — “실행 안 해도 됨”·스텁 명시.
+- **`candidates.jsonl.example`**, 스키마·§8 표는 **준비물로 유지**.
 
-### 비범위(유지)
+### 과거 시도(참고)
 
-- CSV→JSONL 배치 본구현, DB 저장소, `query_text` 필터 — 후속.
+- 동일 날짜에 잠시 JSONL 로더를 넣었으나 본 정책에 맞춰 되돌림.
 
 ---
 

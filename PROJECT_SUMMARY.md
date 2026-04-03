@@ -2,7 +2,7 @@
 
 > **파일명**: PROJECT_SUMMARY.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:0aeb538698211819ee3a56c50c62c87d8c90816822c00bb6c2e33f605ff97362
+> **문서 해시**: SHA256:93241166755c23aad4a4014af3623b53bbf7fbe7d1c557fd1b428b9ad32f8c1d
 > **문서 역할**: 저장소 한눈에 보기 — 목적·구조·문서 지도·청킹 개요  
 > **문서 우선순위**: reference (세부 계약·스키마는 각 전용 문서가 우선)  
 > **연관 문서**: README.md, PRD.md, SYSTEM_ARCHITECTURE.md, RAG_PIPELINE.md, DATA_SCHEMA.md, DIRECTORY_SPEC.md  
@@ -151,9 +151,9 @@
 | 4 | Evidence API 필터 정합 | 현행 `retrieval_service`는 벡터 메타에 `cert_id`가 있다고 가정하고 `@>` 필터한다. **JSONL의 `metadata` 안에 `cert_id`를 넣는 것이 사실상 필수** (없으면 검색 결과 0건). |
 | 5 | 임베딩 ↔ DB 차원 | `EMBEDDING_PROVIDER`에 맞춰 `docs/architecture/supabase_langchain.sql`의 `vector(N)`·`match_documents` 시그니처를 맞출 것 (OpenAI 기본 1536, HF MiniLM 384 등). |
 | 6 | 환경 변수 | `infra/env/.env.example` → 루트 또는 `backend/.env`에 복사. `SUPABASE_*`, 인제스트·검색에 쓰는 키·모델명. |
-| 7 | 인제스트 | 저장소 루트에서 `PYTHONPATH=. python -m backend.rag.ingest.cli`. **재실행 시 행 중복·벡터 중복 가능** — 운영 전 `RAG_PIPELINE.md` §16.2·`HASH_INCREMENTAL_BUILD_GUIDE.md` 참고. |
+| 7 | 인제스트(실행 단계) | **준비만 할 때는 실행하지 않아도 된다.** 실행 시 저장소 루트에서 `PYTHONPATH=. python -m backend.rag.ingest.cli`. 재실행 시 중복 가능 — `RAG_PIPELINE.md` §16.2·`HASH_INCREMENTAL_BUILD_GUIDE.md` 참고. |
 
-위 1~7이 갖춰지면 **Evidence API 경로는 실행 가능**하다 (Supabase·키·JSONL이 유효할 때).
+1~7은 **실행 직전에 갖출 준비 목록**이다. 준비 단계에서는 폴더·형식·문서 정합만 맞추면 된다.
 
 ### 8.2 구조 레인 (CSV → 추천 후보)
 
@@ -163,21 +163,21 @@
 | 2 | Taxonomy | `data/taxonomy/` 허용 라벨과 수집 데이터가 **충돌 없이** 맞아야 한다 (`DATA_SCHEMA.md` taxonomy 제약). |
 | 3 | 산출물 위치 | `data/canonical/entities/`, `relations/`, `candidates/`, `validation/` 등 (`DIRECTORY_SPEC.md`). |
 | 4 | 실행 순서(설계상) | canonicalize → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
-| 5 | API | `POST /api/v1/recommendations`는 **`CANDIDATES_JSONL_RELATIVE`(기본 `data/canonical/candidates/candidates.jsonl`)** 의 certificate_candidate 행을 읽어 필터·정렬한다. DB 연동·배치 재생성은 후속이다. |
+| 5 | API·산출 형식 | `POST /api/v1/recommendations`는 **현재 스텁**(실행 없음). 후보 데이터 형식은 `DATA_SCHEMA.md` §9.1·`candidates.jsonl.example`로 준비해 둔다. |
 
 ### 8.3 한 줄 정리
 
-- **문서 + 청크 JSONL + Supabase + 환경**까지 맞추면 **근거 검색 파이프라인**은 돌릴 수 있다.  
-- **추천 후보 API**는 **candidate JSONL**이 준비되면 동작한다. **CSV→canonical 배치**로 그 JSONL을 자동 생성하는 부분은 여전히 후속 구현이다.
+- **준비만** 할 때는 원본·taxonomy·스키마·예시 JSONL·문서(§8 표)만 갖추면 된다. **실행(인제스트·추천 API 연결)은 하지 않아도 된다.**  
+- **추천 후보**는 API 스텁을 유지하고, **데이터 형식·폴더**만 맞춰 둔다. CSV→canonical 배치는 후속.
 
 ---
 
 ## 9. 현재 구현 단계 (요약)
 
-- FastAPI 헬스·**Evidence API**, LangChain→Supabase **인제스트 CLI**는 연결되어 있다.  
-- **Parse→Chunk 자동 배치**·**CSV canonical 배치**는 문서·스키마 대비 **단계적 구현(스텁 포함)** 이다.  
-- **POST /recommendations**는 **candidate JSONL 파일** 기준으로 동작한다.  
-- “데이터만 완벽”의 의미는 **§8 준비 표**와 **이 절**을 함께 본다.
+- FastAPI 헬스·Evidence API·인제스트 CLI 코드는 있으나, **제품 목표가 준비 단계라면 실행을 강제하지 않는다.**  
+- **POST /recommendations**는 **스텁** — 계약·예시·문서만 유지.  
+- **Parse→Chunk·CSV canonical 배치**는 스텁·후속.  
+- “준비 완료”의 의미는 **§8 표**의 **형식·위치·문서** 정합이지, 파이프라인을 돌린 여부가 아니다.
 
 ---
 
