@@ -1,8 +1,8 @@
 # PROJECT_SUMMARY.md
 
 > **파일명**: PROJECT_SUMMARY.md  
-> **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:93241166755c23aad4a4014af3623b53bbf7fbe7d1c557fd1b428b9ad32f8c1d
+> **최종 수정일**: 2026-04-07  
+> **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>
 > **문서 역할**: 저장소 한눈에 보기 — 목적·구조·문서 지도·청킹 개요  
 > **문서 우선순위**: reference (세부 계약·스키마는 각 전용 문서가 우선)  
 > **연관 문서**: README.md, PRD.md, SYSTEM_ARCHITECTURE.md, RAG_PIPELINE.md, DATA_SCHEMA.md, DIRECTORY_SPEC.md  
@@ -51,6 +51,9 @@
 | `data/raw/` | 원본 (pdf/html/csv/api) |
 | `data/taxonomy/` | 허용 도메인·직무 라벨 (`domain_v2.txt`, `prefer_job.txt`) |
 | `data/canonical/` | 엔티티·관계·후보·검증 산출 |
+| `data/processed/mappings/` | raw 자유 텍스트를 master ID로 연결한 매핑 중간 산출 |
+| `data/processed/merged/` | canonical 기반 병합 중간 테이블/스냅 |
+| `data/processed/snapshots/` | 시점 고정 스냅샷(재현·감사·실험용) |
 | `data/index_ready/chunks/` | **RAG용 청크 JSONL** (한 줄 = 한 청크) |
 | `backend/` | FastAPI, RAG, canonical 코드 |
 | `frontend/` | UI |
@@ -162,8 +165,9 @@
 | 1 | 원본 위치 | `data/raw/csv/` 및 팀 CSV 가이드 (`CSV_CANONICALIZATION_TEAM_GUIDE.md`). |
 | 2 | Taxonomy | `data/taxonomy/` 허용 라벨과 수집 데이터가 **충돌 없이** 맞아야 한다 (`DATA_SCHEMA.md` taxonomy 제약). |
 | 3 | 산출물 위치 | `data/canonical/entities/`, `relations/`, `candidates/`, `validation/` 등 (`DIRECTORY_SPEC.md`). |
-| 4 | 실행 순서(설계상) | canonicalize → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
-| 5 | API·산출 형식 | `POST /api/v1/recommendations`는 **현재 스텁**(실행 없음). 후보 데이터 형식은 `DATA_SCHEMA.md` §9.1·`candidates.jsonl.example`로 준비해 둔다. |
+| 4 | 매핑 중간 산출 | alias/mapping 결과는 `data/processed/mappings/`에 두고, 검수 통과본만 `data/canonical/relations/` 생성에 사용. |
+| 5 | 실행 순서(설계상) | canonicalize(+mapping) → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
+| 6 | API·산출 형식 | `POST /api/v1/recommendations`는 **현재 스텁**(실행 없음). 후보 데이터 형식은 `DATA_SCHEMA.md` §9.1·`candidates.jsonl.example`로 준비해 둔다. |
 
 ### 8.3 한 줄 정리
 
