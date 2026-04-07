@@ -51,6 +51,7 @@
 | `data/raw/` | 원본 (pdf/html/csv/api) |
 | `data/taxonomy/` | 허용 도메인·직무 라벨 (`domain_v2.txt`, `prefer_job.txt`) |
 | `data/canonical/` | 엔티티·관계·후보·검증 산출 |
+| `data/processed/master/` | raw rows에서 정제된 master 중간 산출 |
 | `data/processed/mappings/` | raw 자유 텍스트를 master ID로 연결한 매핑 중간 산출 |
 | `data/processed/merged/` | canonical 기반 병합 중간 테이블/스냅 |
 | `data/processed/snapshots/` | 시점 고정 스냅샷(재현·감사·실험용) |
@@ -165,9 +166,10 @@
 | 1 | 원본 위치 | `data/raw/csv/` 및 팀 CSV 가이드 (`CSV_CANONICALIZATION_TEAM_GUIDE.md`). |
 | 2 | Taxonomy | `data/taxonomy/` 허용 라벨과 수집 데이터가 **충돌 없이** 맞아야 한다 (`DATA_SCHEMA.md` taxonomy 제약). |
 | 3 | 산출물 위치 | `data/canonical/entities/`, `relations/`, `candidates/`, `validation/` 등 (`DIRECTORY_SPEC.md`). |
-| 4 | 매핑 중간 산출 | alias/mapping 결과는 `data/processed/mappings/`에 두고, 검수 통과본만 `data/canonical/relations/` 생성에 사용. |
-| 5 | 실행 순서(설계상) | canonicalize(+mapping) → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
-| 6 | API·산출 형식 | `POST /api/v1/recommendations`는 **현재 스텁**(실행 없음). 후보 데이터 형식은 `DATA_SCHEMA.md` §9.1·`candidates.jsonl.example`로 준비해 둔다. |
+| 4 | master 중간 산출 | 정제된 master(`cert/domain/job/major`)는 `data/processed/master/`에 두고, 이후 매핑 단계 입력으로 사용. |
+| 5 | 매핑 중간 산출 | alias/mapping 결과는 `data/processed/mappings/`에 두고, 검수 통과본만 `data/canonical/relations/` 생성에 사용. |
+| 6 | 실행 순서(설계상) | canonicalize(master+mapping) → entity → relation → candidate 빌드 → 검증 → 추천 입력 소비. `scripts/*/run.py`는 현재 **스텁**이므로, **데이터만 쌓여서는 이 레인이 자동 완주하지 않는다.** |
+| 7 | API·산출 형식 | `POST /api/v1/recommendations`는 **현재 스텁**(실행 없음). 후보 데이터 형식은 `DATA_SCHEMA.md` §9.1·`candidates.jsonl.example`로 준비해 둔다. |
 
 ### 8.3 한 줄 정리
 

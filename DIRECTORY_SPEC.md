@@ -198,6 +198,7 @@ data/
 │  └─ sparse_input/
 │
 └─ processed/
+   ├─ master/
    ├─ mappings/
    ├─ merged/
    └─ snapshots/
@@ -208,6 +209,7 @@ data/
 - `taxonomy/`: 허용 taxonomy 기준 파일
 - `canonical/`: CSV canonicalization 결과
 - `index_ready/`: 검색/추천 입력용 산출물
+- `processed/master/`: raw rows에서 정제된 master 중간 산출물
 - `processed/mappings/`: raw 자유 텍스트를 master ID로 연결한 매핑 중간 산출물
 - `processed/merged/`: canonical 기반 병합 중간 테이블/스냅
 - `processed/snapshots/`: 시점 고정 데이터 스냅샷(재현/감사/실험용)
@@ -445,6 +447,7 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 - `data/taxonomy`
 - `data/canonical`
 - `data/index_ready`
+- `data/processed/master`
 - `data/processed/mappings`
 - `frontend/src`
 - `backend/app`
