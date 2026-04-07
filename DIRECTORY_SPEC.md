@@ -1,8 +1,8 @@
 # DIRECTORY_SPEC.md
 
 > **파일명**: DIRECTORY_SPEC.md  
-> **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:c9b842c1e3b14bf9bf75a33d8626d137b1938e50ed8f23756c49ade3b8adf12b
+> **최종 수정일**: 2026-04-07  
+> **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>
 > **문서 역할**: 프로젝트 디렉토리 구조와 파일/폴더 책임 정의 문서  
 > **문서 우선순위**: 9  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  
@@ -198,6 +198,7 @@ data/
 │  └─ sparse_input/
 │
 └─ processed/
+   ├─ mappings/
    ├─ merged/
    └─ snapshots/
 ```
@@ -207,7 +208,9 @@ data/
 - `taxonomy/`: 허용 taxonomy 기준 파일
 - `canonical/`: CSV canonicalization 결과
 - `index_ready/`: 검색/추천 입력용 산출물
-- `processed/`: 병합본과 스냅샷
+- `processed/mappings/`: raw 자유 텍스트를 master ID로 연결한 매핑 중간 산출물
+- `processed/merged/`: canonical 기반 병합 중간 테이블/스냅
+- `processed/snapshots/`: 시점 고정 데이터 스냅샷(재현/감사/실험용)
 
 #### 원칙
 - PDF / HTML은 Parse 및 indexing 대상이다.
@@ -442,6 +445,7 @@ frontend / backend 공용 상수, schema, 타입을 저장한다.
 - `data/taxonomy`
 - `data/canonical`
 - `data/index_ready`
+- `data/processed/mappings`
 - `frontend/src`
 - `backend/app`
 - `backend/rag`
