@@ -1,0 +1,6 @@
+﻿roadmap_stage_id,roadmap_stage_name,stage_order,description,is_active
+roadmap_stage_1,초기 관심,1,고립·은둔 관련 신호를 처음 인식하고 기본 정보를 확인하는 단계,True
+roadmap_stage_2,관계 회복 준비,2,생활 리듬과 정서 상태를 점검하고 대인관계 회복을 준비하는 단계,True
+roadmap_stage_3,생활 회복,3,"외출, 수면, 식사, 자기관리 등 일상 기능 회복에 집중하는 단계",True
+roadmap_stage_4,사회 연결 확장,4,대면 교류와 사회 참여를 늘리고 지원 자원과 연결을 확장하는 단계,True
+roadmap_stage_5,자립·유지,5,회복된 생활을 유지하고 학업·취업·진로 등 자립 기반을 강화하는 단계,True
