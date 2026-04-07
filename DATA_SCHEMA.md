@@ -103,6 +103,23 @@
 - source_type 특성상 존재하지 않는 필드
 - evidence/문서 provenance의 선택 메타 필드
 
+### 3.6 ID 포맷(패딩) 규칙
+식별자 컬럼은 타입 구분이 가능한 접두사 + 0패딩 숫자 형식을 권장한다.
+
+- 권장 형식: `<prefix>_<4자리 이상 0패딩 번호>`
+- 예시:
+  - `domain_sub_label_id`: `domain_0001`
+  - `job_role_id`: `job_0001`
+  - `risk_stage_id`: `risk_0001`
+  - `roadmap_stage_id`: `roadmap_0001`
+  - `major_id`: `major_0001`
+  - `cert_id`: `cert_0001` (외부 코드 기반일 경우 `cert_qnet_0011` 같은 혼합형 허용)
+
+운영 원칙:
+- 한 번 발급한 ID는 재번호하지 않는다.
+- 표시 순서가 필요하면 별도 `*_order` 또는 `*_seq` 컬럼을 사용한다.
+- 조인은 표시명보다 ID를 우선한다.
+
 ---
 
 ## 4. enum 허용값
