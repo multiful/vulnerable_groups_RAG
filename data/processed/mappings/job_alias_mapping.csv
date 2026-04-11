@@ -1,1551 +1,1551 @@
-﻿job_alias_id,raw_job_name,normalized_key,job_role_id,match_status,source_dataset,is_active
-ja_0001,가스ㆍ수도ㆍ전기 계기 검침원 및 안전점검원,가스_수도_전기_계기_검침원_및_안전점검원,,unmapped,data_jobs_rows,TRUE
-ja_0002,일기예보관,일기예보관,,unmapped,data_jobs_rows,TRUE
-ja_0003,기상연구원,기상연구원,,unmapped,data_jobs_rows,TRUE
-ja_0004,물리학연구원,물리학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0005,방사선사,방사선사,,unmapped,data_jobs_rows,TRUE
-ja_0006,생물학연구원,생물학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0007,수의사,수의사,,unmapped,data_jobs_rows,TRUE
-ja_0008,수학연구원,수학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0009,의료장비기사,의료장비기사,,unmapped,data_jobs_rows,TRUE
-ja_0010,심리학연구원,심리학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0011,안경사,안경사,,unmapped,data_jobs_rows,TRUE
-ja_0012,약사 및 한약사,약사_및_한약사,,unmapped,data_jobs_rows,TRUE
-ja_0013,유전공학연구원,유전공학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0014,지리학연구원,지리학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0015,지질학연구원,지질학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0016,천문학연구원,천문학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0017,측량사,측량사,,unmapped,data_jobs_rows,TRUE
-ja_0018,통계학연구원,통계학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0019,해부학연구원,해부학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0020,해양학연구원,해양학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0021,화학연구원,화학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0022,가전제품 설치 및 수리원,가전제품_설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0023,건설공사품질관리원,건설공사품질관리원,39,auto_partial,data_jobs_rows,TRUE
-ja_0024,건축공학기술자,건축공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0025,타이어 및 고무제품 생산직,타이어_및_고무제품_생산직,,unmapped,data_jobs_rows,TRUE
-ja_0026,공작기계조작원,공작기계조작원,,unmapped,data_jobs_rows,TRUE
-ja_0027,광원 및 채석원,광원_및_채석원,,unmapped,data_jobs_rows,TRUE
-ja_0028,제화원,제화원,,unmapped,data_jobs_rows,TRUE
-ja_0029,금속가공장치조작원,금속가공장치조작원,,unmapped,data_jobs_rows,TRUE
-ja_0030,금속공학기술자,금속공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0031,금형원,금형원,,unmapped,data_jobs_rows,TRUE
-ja_0032,기계공학 기술자ㆍ연구원,기계공학_기술자_연구원,,unmapped,data_jobs_rows,TRUE
-ja_0033,섬유공학기술자,섬유공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0034,냉동기사,냉동기사,,unmapped,data_jobs_rows,TRUE
-ja_0035,녹음기사,녹음기사,,unmapped,data_jobs_rows,TRUE
-ja_0036,대기환경기술자,대기환경기술자,,unmapped,data_jobs_rows,TRUE
-ja_0037,도배원,도배원,,unmapped,data_jobs_rows,TRUE
-ja_0038,도자기제조원,도자기제조원,,unmapped,data_jobs_rows,TRUE
-ja_0039,건물도장원,건물도장원,,unmapped,data_jobs_rows,TRUE
-ja_0040,로봇연구원,로봇연구원,,unmapped,data_jobs_rows,TRUE
-ja_0041,목공,목공,,unmapped,data_jobs_rows,TRUE
-ja_0042,목재가공관련조작원,목재가공관련조작원,,unmapped,data_jobs_rows,TRUE
-ja_0043,미장원,미장원,,unmapped,data_jobs_rows,TRUE
-ja_0044,방수원,방수원,,unmapped,data_jobs_rows,TRUE
-ja_0045,섬유제조원,섬유제조원,,unmapped,data_jobs_rows,TRUE
-ja_0046,배관원,배관원,,unmapped,data_jobs_rows,TRUE
-ja_0047,조적공,조적공,,unmapped,data_jobs_rows,TRUE
-ja_0048,보석감정사,보석감정사,,unmapped,data_jobs_rows,TRUE
-ja_0049,건설기계운전원,건설기계운전원,,unmapped,data_jobs_rows,TRUE
-ja_0050,비파괴검사원,비파괴검사원,40,auto_partial,data_jobs_rows,TRUE
-ja_0051,산업공학기술자,산업공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0052,산업안전관리원,산업안전관리원,41,auto_partial,data_jobs_rows,TRUE
-ja_0053,상ㆍ하수도 처리장치 조작원,상_하수도_처리장치_조작원,,unmapped,data_jobs_rows,TRUE
-ja_0054,생물공학연구원,생물공학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0055,석공,석공,,unmapped,data_jobs_rows,TRUE
-ja_0056,석유화학기술자,석유화학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0057,조선공학기술자,조선공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0058,선박정비원,선박정비원,,unmapped,data_jobs_rows,TRUE
-ja_0059,시멘트제조원,시멘트제조원,,unmapped,data_jobs_rows,TRUE
-ja_0060,신경회로망연구원,신경회로망연구원,,unmapped,data_jobs_rows,TRUE
-ja_0061,압연원,압연원,,unmapped,data_jobs_rows,TRUE
-ja_0062,영사기사,영사기사,,unmapped,data_jobs_rows,TRUE
-ja_0063,용접원,용접원,,unmapped,data_jobs_rows,TRUE
-ja_0064,원자력연구원,원자력연구원,,unmapped,data_jobs_rows,TRUE
-ja_0065,유리제품제조원,유리제품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0066,인공위성개발원,인공위성개발원,,unmapped,data_jobs_rows,TRUE
-ja_0067,인쇄기조작원,인쇄기조작원,,unmapped,data_jobs_rows,TRUE
-ja_0068,자동차정비원,자동차정비원,,unmapped,data_jobs_rows,TRUE
-ja_0069,자동차조립원,자동차조립원,,unmapped,data_jobs_rows,TRUE
-ja_0070,재료공학기술자,재료공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0071,전공,전공,,unmapped,data_jobs_rows,TRUE
-ja_0072,전기공학기술자,전기공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0073,전자공학기술자,전자공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0074,전자장비설치 및 수리원,전자장비설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0075,전화설치 및 수리원,전화설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0076,정밀기기제품제조원,정밀기기제품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0077,캐드원,캐드원,,unmapped,data_jobs_rows,TRUE
-ja_0078,단순노무자,단순노무자,,unmapped,data_jobs_rows,TRUE
-ja_0079,주조원,주조원,,unmapped,data_jobs_rows,TRUE
-ja_0080,직조원,직조원,,unmapped,data_jobs_rows,TRUE
-ja_0081,철골공,철골공,,unmapped,data_jobs_rows,TRUE
-ja_0082,철도 및 지하철기관사,철도_및_지하철기관사,,unmapped,data_jobs_rows,TRUE
-ja_0083,철도차량정비원,철도차량정비원,,unmapped,data_jobs_rows,TRUE
-ja_0084,토목공학기술자,토목공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0085,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,,unmapped,data_jobs_rows,TRUE
-ja_0086,통신케이블설치 및 수리원,통신케이블설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0087,통신장비기사,통신장비기사,,unmapped,data_jobs_rows,TRUE
-ja_0088,트럭운전기사,트럭운전기사,,unmapped,data_jobs_rows,TRUE
-ja_0089,판금원,판금원,,unmapped,data_jobs_rows,TRUE
-ja_0090,펄프 및 종이 생산직,펄프_및_종이_생산직,,unmapped,data_jobs_rows,TRUE
-ja_0091,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,,unmapped,data_jobs_rows,TRUE
-ja_0092,플라스틱제품제조원,플라스틱제품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0093,항공교통관제사,항공교통관제사,,unmapped,data_jobs_rows,TRUE
-ja_0094,항공기정비원,항공기정비원,,unmapped,data_jobs_rows,TRUE
-ja_0095,비행기조종사,비행기조종사,,unmapped,data_jobs_rows,TRUE
-ja_0096,항공우주공학기술자,항공우주공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0097,화학제품제조원,화학제품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0098,바닥재시공원,바닥재시공원,,unmapped,data_jobs_rows,TRUE
-ja_0099,반도체공학기술자,반도체공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0100,"가구제조,수리원","가구제조,수리원",,unmapped,data_jobs_rows,TRUE
-ja_0101,식품공학기술자,식품공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0102,도축원 및 육류가공원,도축원_및_육류가공원,,unmapped,data_jobs_rows,TRUE
-ja_0103,양장사 및 양복사,양장사_및_양복사,,unmapped,data_jobs_rows,TRUE
-ja_0104,설문조사원,설문조사원,,unmapped,data_jobs_rows,TRUE
-ja_0105,세탁원,세탁원,,unmapped,data_jobs_rows,TRUE
-ja_0106,소믈리에,소믈리에,,unmapped,data_jobs_rows,TRUE
-ja_0107,영양사,영양사,,unmapped,data_jobs_rows,TRUE
-ja_0108,전통식품제조원,전통식품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0109,제과사 및 제빵사,제과사_및_제빵사,,unmapped,data_jobs_rows,TRUE
-ja_0110,조리사 및 주방장,조리사_및_주방장,108,auto_partial,data_jobs_rows,TRUE
-ja_0111,가축사육자,가축사육자,,unmapped,data_jobs_rows,TRUE
-ja_0112,한복사,한복사,,unmapped,data_jobs_rows,TRUE
-ja_0113,선장 및 항해사,선장_및_항해사,,unmapped,data_jobs_rows,TRUE
-ja_0114,푸드스타일리스트,푸드스타일리스트,,unmapped,data_jobs_rows,TRUE
-ja_0115,쇼핑호스트,쇼핑호스트,,unmapped,data_jobs_rows,TRUE
-ja_0116,체형관리사,체형관리사,,unmapped,data_jobs_rows,TRUE
-ja_0117,바리스타,바리스타,110,auto_exact,data_jobs_rows,TRUE
-ja_0118,농업기술자,농업기술자,133,auto_partial,data_jobs_rows,TRUE
-ja_0119,곡식작물재배자,곡식작물재배자,,unmapped,data_jobs_rows,TRUE
-ja_0120,동물조련사,동물조련사,,unmapped,data_jobs_rows,TRUE
-ja_0121,양식원,양식원,,unmapped,data_jobs_rows,TRUE
-ja_0122,연근해 어부 및 해녀,연근해_어부_및_해녀,,unmapped,data_jobs_rows,TRUE
-ja_0123,유제품제조원,유제품제조원,,unmapped,data_jobs_rows,TRUE
-ja_0124,조경원,조경원,,unmapped,data_jobs_rows,TRUE
-ja_0125,조경기술자,조경기술자,,unmapped,data_jobs_rows,TRUE
-ja_0126,해양수산기술자,해양수산기술자,,unmapped,data_jobs_rows,TRUE
-ja_0127,감정평가사,감정평가사,86,auto_partial,data_jobs_rows,TRUE
-ja_0128,검사,검사,40,auto_partial,data_jobs_rows,TRUE
-ja_0129,상품중개인,상품중개인,,unmapped,data_jobs_rows,TRUE
-ja_0130,경영컨설턴트,경영컨설턴트,,unmapped,data_jobs_rows,TRUE
-ja_0131,경제학연구원,경제학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0132,노무사,노무사,,unmapped,data_jobs_rows,TRUE
-ja_0133,회계사,회계사,67,auto_partial,data_jobs_rows,TRUE
-ja_0134,관세사,관세사,,unmapped,data_jobs_rows,TRUE
-ja_0135,국제무역사무원,국제무역사무원,79,auto_partial,data_jobs_rows,TRUE
-ja_0136,국제회의전문가,국제회의전문가,,unmapped,data_jobs_rows,TRUE
-ja_0137,농수산물중개인,농수산물중개인,,unmapped,data_jobs_rows,TRUE
-ja_0138,도시 및 교통설계전문가,도시_및_교통설계전문가,,unmapped,data_jobs_rows,TRUE
-ja_0139,바이어(구매인),바이어(구매인),,unmapped,data_jobs_rows,TRUE
-ja_0140,물류관리사,물류관리사,80,auto_partial,data_jobs_rows,TRUE
-ja_0141,보험계리인,보험계리인,,unmapped,data_jobs_rows,TRUE
-ja_0142,부동산중개인,부동산중개인,,unmapped,data_jobs_rows,TRUE
-ja_0143,생활설계사,생활설계사,,unmapped,data_jobs_rows,TRUE
-ja_0144,선물중개인,선물중개인,,unmapped,data_jobs_rows,TRUE
-ja_0145,세무사,세무사,66,auto_partial,data_jobs_rows,TRUE
-ja_0146,손해사정사,손해사정사,,unmapped,data_jobs_rows,TRUE
-ja_0147,시장 및 여론조사전문가,시장_및_여론조사전문가,,unmapped,data_jobs_rows,TRUE
-ja_0148,신용조사원,신용조사원,,unmapped,data_jobs_rows,TRUE
-ja_0149,광고 및 홍보전문가,광고_및_홍보전문가,,unmapped,data_jobs_rows,TRUE
-ja_0150,외교관,외교관,,unmapped,data_jobs_rows,TRUE
-ja_0151,외환딜러,외환딜러,,unmapped,data_jobs_rows,TRUE
-ja_0152,자동차영업원,자동차영업원,,unmapped,data_jobs_rows,TRUE
-ja_0153,기업고위임원,기업고위임원,,unmapped,data_jobs_rows,TRUE
-ja_0154,증권분석가,증권분석가,,unmapped,data_jobs_rows,TRUE
-ja_0155,증권중개인,증권중개인,,unmapped,data_jobs_rows,TRUE
-ja_0156,텔레마케터,텔레마케터,,unmapped,data_jobs_rows,TRUE
-ja_0157,상점판매원,상점판매원,,unmapped,data_jobs_rows,TRUE
-ja_0158,금융자산운용가(펀드매니저),금융자산운용가(펀드매니저),,unmapped,data_jobs_rows,TRUE
-ja_0159,네이미스트,네이미스트,,unmapped,data_jobs_rows,TRUE
-ja_0160,법률사무원,법률사무원,,unmapped,data_jobs_rows,TRUE
-ja_0161,사무보조원,사무보조원,,unmapped,data_jobs_rows,TRUE
-ja_0162,은행출납사무원,은행출납사무원,,unmapped,data_jobs_rows,TRUE
-ja_0163,보건의료정보관리사,보건의료정보관리사,88,auto_partial,data_jobs_rows,TRUE
-ja_0164,회계사무원,회계사무원,67,auto_partial,data_jobs_rows,TRUE
-ja_0165,구성작가,구성작가,,unmapped,data_jobs_rows,TRUE
-ja_0166,극작가,극작가,,unmapped,data_jobs_rows,TRUE
-ja_0167,기자,기자,,unmapped,data_jobs_rows,TRUE
-ja_0168,통역가,통역가,,unmapped,data_jobs_rows,TRUE
-ja_0169,리포터,리포터,,unmapped,data_jobs_rows,TRUE
-ja_0170,드라마작가,드라마작가,,unmapped,data_jobs_rows,TRUE
-ja_0171,번역가,번역가,,unmapped,data_jobs_rows,TRUE
-ja_0172,사서,사서,,unmapped,data_jobs_rows,TRUE
-ja_0173,정치학연구원,정치학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0174,성우,성우,,unmapped,data_jobs_rows,TRUE
-ja_0175,아나운서,아나운서,,unmapped,data_jobs_rows,TRUE
-ja_0176,언어학연구원,언어학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0177,역사학연구원,역사학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0178,카피라이터,카피라이터,,unmapped,data_jobs_rows,TRUE
-ja_0179,가수,가수,,unmapped,data_jobs_rows,TRUE
-ja_0180,개그맨,개그맨,,unmapped,data_jobs_rows,TRUE
-ja_0181,광고기획자,광고기획자,,unmapped,data_jobs_rows,TRUE
-ja_0182,간판제작원,간판제작원,,unmapped,data_jobs_rows,TRUE
-ja_0183,광고디자이너,광고디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0184,국악인,국악인,,unmapped,data_jobs_rows,TRUE
-ja_0185,네일아티스트,네일아티스트,,unmapped,data_jobs_rows,TRUE
-ja_0186,만화가,만화가,,unmapped,data_jobs_rows,TRUE
-ja_0187,메이크업아티스트,메이크업아티스트,115,auto_partial,data_jobs_rows,TRUE
-ja_0188,모델,모델,,unmapped,data_jobs_rows,TRUE
-ja_0189,패턴사,패턴사,,unmapped,data_jobs_rows,TRUE
-ja_0190,무대감독,무대감독,,unmapped,data_jobs_rows,TRUE
-ja_0191,무용가,무용가,,unmapped,data_jobs_rows,TRUE
-ja_0192,문화재보존원,문화재보존원,,unmapped,data_jobs_rows,TRUE
-ja_0193,방송연출가,방송연출가,,unmapped,data_jobs_rows,TRUE
-ja_0194,연기자,연기자,,unmapped,data_jobs_rows,TRUE
-ja_0195,백댄서(백업댄서),백댄서(백업댄서),,unmapped,data_jobs_rows,TRUE
-ja_0196,보석디자이너,보석디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0197,분장사,분장사,,unmapped,data_jobs_rows,TRUE
-ja_0198,비디오저널리스트(VJ),비디오저널리스트(vj),,unmapped,data_jobs_rows,TRUE
-ja_0199,사진작가,사진작가,,unmapped,data_jobs_rows,TRUE
-ja_0200,사진인화 및 현상관련조작원,사진인화_및_현상관련조작원,,unmapped,data_jobs_rows,TRUE
-ja_0201,성악가,성악가,,unmapped,data_jobs_rows,TRUE
-ja_0202,스턴트맨,스턴트맨,,unmapped,data_jobs_rows,TRUE
-ja_0203,플로리스트,플로리스트,,unmapped,data_jobs_rows,TRUE
-ja_0204,연주가,연주가,,unmapped,data_jobs_rows,TRUE
-ja_0205,악기제조원,악기제조원,,unmapped,data_jobs_rows,TRUE
-ja_0206,애완동물미용사,애완동물미용사,,unmapped,data_jobs_rows,TRUE
-ja_0207,연극연출가,연극연출가,,unmapped,data_jobs_rows,TRUE
-ja_0208,연예인매니저,연예인매니저,,unmapped,data_jobs_rows,TRUE
-ja_0209,영화감독,영화감독,,unmapped,data_jobs_rows,TRUE
-ja_0210,영화기획자,영화기획자,,unmapped,data_jobs_rows,TRUE
-ja_0211,이미지컨설턴트,이미지컨설턴트,,unmapped,data_jobs_rows,TRUE
-ja_0212,인테리어디자이너,인테리어디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0213,일러스트레이터,일러스트레이터,,unmapped,data_jobs_rows,TRUE
-ja_0214,작곡가,작곡가,,unmapped,data_jobs_rows,TRUE
-ja_0215,제품디자이너,제품디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0216,조각가,조각가,,unmapped,data_jobs_rows,TRUE
-ja_0217,조향사,조향사,,unmapped,data_jobs_rows,TRUE
-ja_0218,지휘자,지휘자,,unmapped,data_jobs_rows,TRUE
-ja_0219,운동선수,운동선수,,unmapped,data_jobs_rows,TRUE
-ja_0220,촬영기사,촬영기사,,unmapped,data_jobs_rows,TRUE
-ja_0221,출판물기획전문가,출판물기획전문가,,unmapped,data_jobs_rows,TRUE
-ja_0222,캐릭터디자이너,캐릭터디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0223,컬러리스트,컬러리스트,,unmapped,data_jobs_rows,TRUE
-ja_0224,패션디자이너,패션디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0225,패션코디네이터,패션코디네이터,,unmapped,data_jobs_rows,TRUE
-ja_0226,편집기사,편집기사,,unmapped,data_jobs_rows,TRUE
-ja_0227,악기수리원 및 조율사,악기수리원_및_조율사,,unmapped,data_jobs_rows,TRUE
-ja_0228,학예사(큐레이터),학예사(큐레이터),,unmapped,data_jobs_rows,TRUE
-ja_0229,화가,화가,,unmapped,data_jobs_rows,TRUE
-ja_0230,가사도우미,가사도우미,,unmapped,data_jobs_rows,TRUE
-ja_0231,간병인,간병인,,unmapped,data_jobs_rows,TRUE
-ja_0232,간호조무사,간호조무사,,unmapped,data_jobs_rows,TRUE
-ja_0233,청소원,청소원,,unmapped,data_jobs_rows,TRUE
-ja_0234,경비원,경비원,,unmapped,data_jobs_rows,TRUE
-ja_0235,경찰관,경찰관,,unmapped,data_jobs_rows,TRUE
-ja_0236,경호원,경호원,,unmapped,data_jobs_rows,TRUE
-ja_0237,일반공무원,일반공무원,,unmapped,data_jobs_rows,TRUE
-ja_0238,교도관,교도관,,unmapped,data_jobs_rows,TRUE
-ja_0239,이공학계열교수,이공학계열교수,,unmapped,data_jobs_rows,TRUE
-ja_0240,독서지도사,독서지도사,,unmapped,data_jobs_rows,TRUE
-ja_0241,레크리에이션지도자,레크리에이션지도자,,unmapped,data_jobs_rows,TRUE
-ja_0242,물리치료사,물리치료사,,unmapped,data_jobs_rows,TRUE
-ja_0243,바텐더,바텐더,,unmapped,data_jobs_rows,TRUE
-ja_0244,택배원,택배원,,unmapped,data_jobs_rows,TRUE
-ja_0245,버스운전기사,버스운전기사,,unmapped,data_jobs_rows,TRUE
-ja_0246,법무사,법무사,84,auto_partial,data_jobs_rows,TRUE
-ja_0247,변리사,변리사,,unmapped,data_jobs_rows,TRUE
-ja_0248,변호사,변호사,,unmapped,data_jobs_rows,TRUE
-ja_0249,전문비서,전문비서,,unmapped,data_jobs_rows,TRUE
-ja_0250,사회복지사,사회복지사,94,auto_exact,data_jobs_rows,TRUE
-ja_0251,상담전문가,상담전문가,,unmapped,data_jobs_rows,TRUE
-ja_0252,우편물집배원,우편물집배원,,unmapped,data_jobs_rows,TRUE
-ja_0253,성직자,성직자,,unmapped,data_jobs_rows,TRUE
-ja_0254,소방관,소방관,,unmapped,data_jobs_rows,TRUE
-ja_0255,언어치료사,언어치료사,,unmapped,data_jobs_rows,TRUE
-ja_0256,여행안내원,여행안내원,,unmapped,data_jobs_rows,TRUE
-ja_0257,신호원 및 수송원,신호원_및_수송원,,unmapped,data_jobs_rows,TRUE
-ja_0258,운동경기심판,운동경기심판,,unmapped,data_jobs_rows,TRUE
-ja_0259,스포츠트레이너,스포츠트레이너,,unmapped,data_jobs_rows,TRUE
-ja_0260,유치원교사,유치원교사,,unmapped,data_jobs_rows,TRUE
-ja_0261,음악치료사,음악치료사,,unmapped,data_jobs_rows,TRUE
-ja_0262,응급구조사,응급구조사,93,auto_partial,data_jobs_rows,TRUE
-ja_0263,임상심리사,임상심리사,,unmapped,data_jobs_rows,TRUE
-ja_0264,운동감독,운동감독,,unmapped,data_jobs_rows,TRUE
-ja_0265,작업치료사,작업치료사,,unmapped,data_jobs_rows,TRUE
-ja_0266,장례지도사,장례지도사,,unmapped,data_jobs_rows,TRUE
-ja_0267,전화교환원,전화교환원,,unmapped,data_jobs_rows,TRUE
-ja_0268,주택관리사,주택관리사,,unmapped,data_jobs_rows,TRUE
-ja_0269,직업군인,직업군인,,unmapped,data_jobs_rows,TRUE
-ja_0270,직업상담 및 취업알선원,직업상담_및_취업알선원,97,auto_partial,data_jobs_rows,TRUE
-ja_0271,직업능력개발훈련교사,직업능력개발훈련교사,,unmapped,data_jobs_rows,TRUE
-ja_0272,치과위생사,치과위생사,,unmapped,data_jobs_rows,TRUE
-ja_0273,피부관리사,피부관리사,116,auto_partial,data_jobs_rows,TRUE
-ja_0274,학원강사,학원강사,,unmapped,data_jobs_rows,TRUE
-ja_0275,비행기승무원,비행기승무원,,unmapped,data_jobs_rows,TRUE
-ja_0276,스포츠강사,스포츠강사,,unmapped,data_jobs_rows,TRUE
-ja_0277,택시운전기사,택시운전기사,,unmapped,data_jobs_rows,TRUE
-ja_0278,웨딩플래너,웨딩플래너,,unmapped,data_jobs_rows,TRUE
-ja_0279,통신엔지니어,통신엔지니어,,unmapped,data_jobs_rows,TRUE
-ja_0280,네트워크엔지니어,네트워크엔지니어,,unmapped,data_jobs_rows,TRUE
-ja_0281,데이터베이스관리자,데이터베이스관리자,,unmapped,data_jobs_rows,TRUE
-ja_0282,정보보호전문가,정보보호전문가,,unmapped,data_jobs_rows,TRUE
-ja_0283,시스템엔지니어,시스템엔지니어,,unmapped,data_jobs_rows,TRUE
-ja_0284,애니메이터,애니메이터,,unmapped,data_jobs_rows,TRUE
-ja_0285,웹디자이너,웹디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0286,웹마스터,웹마스터,,unmapped,data_jobs_rows,TRUE
-ja_0287,IT컨설턴트,it컨설턴트,,unmapped,data_jobs_rows,TRUE
-ja_0288,정보중개인,정보중개인,,unmapped,data_jobs_rows,TRUE
-ja_0289,컴퓨터게임시나리오작가,컴퓨터게임시나리오작가,,unmapped,data_jobs_rows,TRUE
-ja_0290,컴퓨터그래픽디자이너,컴퓨터그래픽디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0291,속기사,속기사,,unmapped,data_jobs_rows,TRUE
-ja_0292,사이버교육운영자,사이버교육운영자,101,auto_partial,data_jobs_rows,TRUE
-ja_0293,통신망설계운영기술자,통신망설계운영기술자,,unmapped,data_jobs_rows,TRUE
-ja_0294,컴퓨터설치·수리원,컴퓨터설치_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0295,의료정보시스템개발자,의료정보시스템개발자,,unmapped,data_jobs_rows,TRUE
-ja_0296,고객관리시스템(CRM)전문가,고객관리시스템(crm)전문가,,unmapped,data_jobs_rows,TRUE
-ja_0297,전자상거래전문가,전자상거래전문가,,unmapped,data_jobs_rows,TRUE
-ja_0298,아이티(IT)기술영업원,아이티(it)기술영업원,,unmapped,data_jobs_rows,TRUE
-ja_0299,아이티(IT)교육강사,아이티(it)교육강사,101,auto_partial,data_jobs_rows,TRUE
-ja_0300,무선주파수(RF)엔지니어,무선주파수(rf)엔지니어,,unmapped,data_jobs_rows,TRUE
-ja_0301,교장,교장,,unmapped,data_jobs_rows,TRUE
-ja_0302,소음진동기술자,소음진동기술자,,unmapped,data_jobs_rows,TRUE
-ja_0303,크레인 및 호이스트운전원,크레인_및_호이스트운전원,,unmapped,data_jobs_rows,TRUE
-ja_0304,여행상품개발원,여행상품개발원,,unmapped,data_jobs_rows,TRUE
-ja_0305,귀금속 및 보석세공원,귀금속_및_보석세공원,,unmapped,data_jobs_rows,TRUE
-ja_0306,호텔지배인,호텔지배인,,unmapped,data_jobs_rows,TRUE
-ja_0307,시스템소프트웨어개발자,시스템소프트웨어개발자,,unmapped,data_jobs_rows,TRUE
-ja_0308,조명기사,조명기사,,unmapped,data_jobs_rows,TRUE
-ja_0309,영화시나리오작가,영화시나리오작가,,unmapped,data_jobs_rows,TRUE
-ja_0310,음향기사,음향기사,,unmapped,data_jobs_rows,TRUE
-ja_0311,특수효과기술자,특수효과기술자,,unmapped,data_jobs_rows,TRUE
-ja_0312,음반기획자,음반기획자,,unmapped,data_jobs_rows,TRUE
-ja_0313,애니메이션기획자,애니메이션기획자,,unmapped,data_jobs_rows,TRUE
-ja_0314,애니메이션작가,애니메이션작가,,unmapped,data_jobs_rows,TRUE
-ja_0315,게임기획자,게임기획자,,unmapped,data_jobs_rows,TRUE
-ja_0316,출판편집자,출판편집자,,unmapped,data_jobs_rows,TRUE
-ja_0317,북디자이너,북디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0318,영업원,영업원,,unmapped,data_jobs_rows,TRUE
-ja_0319,공예원,공예원,,unmapped,data_jobs_rows,TRUE
-ja_0320,사회학연구원,사회학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0321,사회단체활동가,사회단체활동가,,unmapped,data_jobs_rows,TRUE
-ja_0322,시각디자이너,시각디자이너,,unmapped,data_jobs_rows,TRUE
-ja_0323,시스템운영관리자,시스템운영관리자,,unmapped,data_jobs_rows,TRUE
-ja_0324,임상병리사,임상병리사,,unmapped,data_jobs_rows,TRUE
-ja_0325,카지노딜러,카지노딜러,,unmapped,data_jobs_rows,TRUE
-ja_0326,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,,unmapped,data_jobs_rows,TRUE
-ja_0327,투자분석가(애널리스트),투자분석가(애널리스트),,unmapped,data_jobs_rows,TRUE
-ja_0328,행사기획자,행사기획자,,unmapped,data_jobs_rows,TRUE
-ja_0329,화학공학기술자,화학공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0330,화훼재배기술자,화훼재배기술자,,unmapped,data_jobs_rows,TRUE
-ja_0331,평론가,평론가,,unmapped,data_jobs_rows,TRUE
-ja_0332,원예기술자,원예기술자,,unmapped,data_jobs_rows,TRUE
-ja_0333,안무가,안무가,,unmapped,data_jobs_rows,TRUE
-ja_0334,시인,시인,,unmapped,data_jobs_rows,TRUE
-ja_0335,소설가,소설가,,unmapped,data_jobs_rows,TRUE
-ja_0336,사진사,사진사,,unmapped,data_jobs_rows,TRUE
-ja_0337,사진기자,사진기자,,unmapped,data_jobs_rows,TRUE
-ja_0338,보일러공,보일러공,,unmapped,data_jobs_rows,TRUE
-ja_0339,공업기계설치 및 정비원,공업기계설치_및_정비원,,unmapped,data_jobs_rows,TRUE
-ja_0340,인문사회계열교수,인문사회계열교수,67,auto_partial,data_jobs_rows,TRUE
-ja_0341,환경컨설턴트,환경컨설턴트,,unmapped,data_jobs_rows,TRUE
-ja_0342,에너지공학기술자,에너지공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0343,토양환경기술자,토양환경기술자,,unmapped,data_jobs_rows,TRUE
-ja_0344,환경설비기술자,환경설비기술자,,unmapped,data_jobs_rows,TRUE
-ja_0345,해양환경기사,해양환경기사,,unmapped,data_jobs_rows,TRUE
-ja_0346,상수도기술자,상수도기술자,,unmapped,data_jobs_rows,TRUE
-ja_0347,환경위생검사원,환경위생검사원,,unmapped,data_jobs_rows,TRUE
-ja_0348,방사성폐기물관리원,방사성폐기물관리원,,unmapped,data_jobs_rows,TRUE
-ja_0349,국회의원,국회의원,,unmapped,data_jobs_rows,TRUE
-ja_0350,마케팅전문가,마케팅전문가,77,auto_partial,data_jobs_rows,TRUE
-ja_0351,자동차공학기술자,자동차공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0352,대형트럭 및 특수차운전원,대형트럭_및_특수차운전원,,unmapped,data_jobs_rows,TRUE
-ja_0353,환경공학기술자 및 연구원,환경공학기술자_및_연구원,,unmapped,data_jobs_rows,TRUE
-ja_0354,해양공학기술자,해양공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0355,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,,unmapped,data_jobs_rows,TRUE
-ja_0356,스포츠에이전트,스포츠에이전트,,unmapped,data_jobs_rows,TRUE
-ja_0357,콘크리트공,콘크리트공,,unmapped,data_jobs_rows,TRUE
-ja_0358,GIS전문가,gis전문가,,unmapped,data_jobs_rows,TRUE
-ja_0359,가상현실전문가,가상현실전문가,,unmapped,data_jobs_rows,TRUE
-ja_0360,웹프로듀서,웹프로듀서,,unmapped,data_jobs_rows,TRUE
-ja_0361,프로게이머,프로게이머,,unmapped,data_jobs_rows,TRUE
-ja_0362,군무원,군무원,,unmapped,data_jobs_rows,TRUE
-ja_0363,신용관련추심원,신용관련추심원,,unmapped,data_jobs_rows,TRUE
-ja_0364,교육학연구원,교육학연구원,101,auto_partial,data_jobs_rows,TRUE
-ja_0365,철학연구원,철학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0366,행정학연구원,행정학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0367,안마사,안마사,,unmapped,data_jobs_rows,TRUE
-ja_0368,위생사,위생사,,unmapped,data_jobs_rows,TRUE
-ja_0369,서예가,서예가,,unmapped,data_jobs_rows,TRUE
-ja_0370,도선사,도선사,,unmapped,data_jobs_rows,TRUE
-ja_0371,지게차운전원,지게차운전원,,unmapped,data_jobs_rows,TRUE
-ja_0372,선박갑판원,선박갑판원,,unmapped,data_jobs_rows,TRUE
-ja_0373,방문판매원,방문판매원,,unmapped,data_jobs_rows,TRUE
-ja_0374,상품대여원,상품대여원,,unmapped,data_jobs_rows,TRUE
-ja_0375,주유원,주유원,,unmapped,data_jobs_rows,TRUE
-ja_0376,계산원 및 매표원,계산원_및_매표원,,unmapped,data_jobs_rows,TRUE
-ja_0377,청원경찰,청원경찰,,unmapped,data_jobs_rows,TRUE
-ja_0378,무인경비시스템종사원,무인경비시스템종사원,,unmapped,data_jobs_rows,TRUE
-ja_0379,구두미화원 및 수선원,구두미화원_및_수선원,,unmapped,data_jobs_rows,TRUE
-ja_0380,주차관리원,주차관리원,,unmapped,data_jobs_rows,TRUE
-ja_0381,이용사,이용사,,unmapped,data_jobs_rows,TRUE
-ja_0382,미용사,미용사,,unmapped,data_jobs_rows,TRUE
-ja_0383,선박 및 열차객실승무원,선박_및_열차객실승무원,,unmapped,data_jobs_rows,TRUE
-ja_0384,접객원,접객원,,unmapped,data_jobs_rows,TRUE
-ja_0385,주방보조원,주방보조원,,unmapped,data_jobs_rows,TRUE
-ja_0386,요리배달원,요리배달원,,unmapped,data_jobs_rows,TRUE
-ja_0387,건설견적원,건설견적원,,unmapped,data_jobs_rows,TRUE
-ja_0388,전통건축원,전통건축원,,unmapped,data_jobs_rows,TRUE
-ja_0389,단열원,단열원,,unmapped,data_jobs_rows,TRUE
-ja_0390,유리부착원,유리부착원,,unmapped,data_jobs_rows,TRUE
-ja_0391,메카트로닉스공학기술자,메카트로닉스공학기술자,,unmapped,data_jobs_rows,TRUE
-ja_0392,공구제조원,공구제조원,,unmapped,data_jobs_rows,TRUE
-ja_0393,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,,unmapped,data_jobs_rows,TRUE
-ja_0394,제관원,제관원,,unmapped,data_jobs_rows,TRUE
-ja_0395,샷시원,샷시원,,unmapped,data_jobs_rows,TRUE
-ja_0396,단조원,단조원,,unmapped,data_jobs_rows,TRUE
-ja_0397,도장원,도장원,,unmapped,data_jobs_rows,TRUE
-ja_0398,도금원,도금원,,unmapped,data_jobs_rows,TRUE
-ja_0399,의복수선원,의복수선원,,unmapped,data_jobs_rows,TRUE
-ja_0400,발전장치조작원,발전장치조작원,,unmapped,data_jobs_rows,TRUE
-ja_0401,전기설비조작원,전기설비조작원,,unmapped,data_jobs_rows,TRUE
-ja_0402,전기 부품 및 제품 생산직,전기_부품_및_제품_생산직,,unmapped,data_jobs_rows,TRUE
-ja_0403,방송장비(H/W)설치 및 수리원,방송장비(h_w)설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0404,통신설비설치 및 수리원,통신설비설치_및_수리원,,unmapped,data_jobs_rows,TRUE
-ja_0405,음료제조관련조작원,음료제조관련조작원,,unmapped,data_jobs_rows,TRUE
-ja_0406,식품가공검사원,식품가공검사원,,unmapped,data_jobs_rows,TRUE
-ja_0407,종이제품생산직(기계조작),종이제품생산직(기계조작),,unmapped,data_jobs_rows,TRUE
-ja_0408,가구조립 및 검사원,가구조립_및_검사원,,unmapped,data_jobs_rows,TRUE
-ja_0409,채소 및 특용작물재배자,채소_및_특용작물재배자,,unmapped,data_jobs_rows,TRUE
-ja_0410,과수작물재배자,과수작물재배자,,unmapped,data_jobs_rows,TRUE
-ja_0411,조림 영림 및 벌목원,조림_영림_및_벌목원,,unmapped,data_jobs_rows,TRUE
-ja_0412,원양어부,원양어부,,unmapped,data_jobs_rows,TRUE
-ja_0413,자동조립라인 및 산업용로봇조작원,자동조립라인_및_산업용로봇조작원,,unmapped,data_jobs_rows,TRUE
-ja_0414,수질환경연구원,수질환경연구원,,unmapped,data_jobs_rows,TRUE
-ja_0415,커플매니저,커플매니저,,unmapped,data_jobs_rows,TRUE
-ja_0416,병원코디네이터,병원코디네이터,,unmapped,data_jobs_rows,TRUE
-ja_0417,마술사,마술사,,unmapped,data_jobs_rows,TRUE
-ja_0418,파티플래너,파티플래너,,unmapped,data_jobs_rows,TRUE
-ja_0419,건축사,건축사,,unmapped,data_jobs_rows,TRUE
-ja_0420,행정부고위공무원,행정부고위공무원,,unmapped,data_jobs_rows,TRUE
-ja_0421,헤드헌터,헤드헌터,,unmapped,data_jobs_rows,TRUE
-ja_0422,환경영향평가원,환경영향평가원,,unmapped,data_jobs_rows,TRUE
-ja_0423,대체에너지개발연구원,대체에너지개발연구원,,unmapped,data_jobs_rows,TRUE
-ja_0424,음악강사,음악강사,,unmapped,data_jobs_rows,TRUE
-ja_0425,베타테스터,베타테스터,,unmapped,data_jobs_rows,TRUE
-ja_0426,발명가,발명가,,unmapped,data_jobs_rows,TRUE
-ja_0427,신약개발연구원,신약개발연구원,,unmapped,data_jobs_rows,TRUE
-ja_0428,스포츠해설가,스포츠해설가,,unmapped,data_jobs_rows,TRUE
-ja_0429,카레이서,카레이서,,unmapped,data_jobs_rows,TRUE
-ja_0430,캐스팅디렉터,캐스팅디렉터,,unmapped,data_jobs_rows,TRUE
-ja_0431,작가,작가,,unmapped,data_jobs_rows,TRUE
-ja_0432,자연과학연구원,자연과학연구원,,unmapped,data_jobs_rows,TRUE
-ja_0433,가스검침원,가스검침원,,unmapped,job_info_rows,TRUE
-ja_0434,전기검침원,전기검침원,,unmapped,job_info_rows,TRUE
-ja_0435,수도계량원,수도계량원,,unmapped,job_info_rows,TRUE
-ja_0436,검침원,검침원,,unmapped,job_info_rows,TRUE
-ja_0437,기상관측요원,기상관측요원,,unmapped,job_info_rows,TRUE
-ja_0438,광물리학자,광물리학자,,unmapped,job_info_rows,TRUE
-ja_0439,원자물리학자,원자물리학자,,unmapped,job_info_rows,TRUE
-ja_0440,입자물리학자,입자물리학자,,unmapped,job_info_rows,TRUE
-ja_0441,고체물리학자,고체물리학자,,unmapped,job_info_rows,TRUE
-ja_0442,생체물리학자,생체물리학자,,unmapped,job_info_rows,TRUE
-ja_0443,물리학자,물리학자,,unmapped,job_info_rows,TRUE
-ja_0444,핵물리학자,핵물리학자,,unmapped,job_info_rows,TRUE
-ja_0445,생태학자,생태학자,,unmapped,job_info_rows,TRUE
-ja_0446,유전학자,유전학자,,unmapped,job_info_rows,TRUE
-ja_0447,생물학자,생물학자,,unmapped,job_info_rows,TRUE
-ja_0448,순수수학자,순수수학자,,unmapped,job_info_rows,TRUE
-ja_0449,응용수학자,응용수학자,,unmapped,job_info_rows,TRUE
-ja_0450,수학자,수학자,,unmapped,job_info_rows,TRUE
-ja_0451,심전도기사,심전도기사,,unmapped,job_info_rows,TRUE
-ja_0452,교육심리학자,교육심리학자,101,auto_partial,job_info_rows,TRUE
-ja_0453,발달심리학자,발달심리학자,,unmapped,job_info_rows,TRUE
-ja_0454,사회심리학자,사회심리학자,,unmapped,job_info_rows,TRUE
-ja_0455,산업심리학자,산업심리학자,,unmapped,job_info_rows,TRUE
-ja_0456,상담심리학자,상담심리학자,,unmapped,job_info_rows,TRUE
-ja_0457,실험심리학자,실험심리학자,,unmapped,job_info_rows,TRUE
-ja_0458,심리학자,심리학자,,unmapped,job_info_rows,TRUE
-ja_0459,유전공학자,유전공학자,,unmapped,job_info_rows,TRUE
-ja_0460,전문의사,전문의사,,unmapped,job_info_rows,TRUE
-ja_0461,의사,의사,,unmapped,job_info_rows,TRUE
-ja_0462,인문지리학자,인문지리학자,,unmapped,job_info_rows,TRUE
-ja_0463,자연지리학자,자연지리학자,,unmapped,job_info_rows,TRUE
-ja_0464,지리학자,지리학자,,unmapped,job_info_rows,TRUE
-ja_0465,지질학자,지질학자,,unmapped,job_info_rows,TRUE
-ja_0466,천문학자,천문학자,,unmapped,job_info_rows,TRUE
-ja_0467,측량기술자,측량기술자,,unmapped,job_info_rows,TRUE
-ja_0468,치과기공사,치과기공사,,unmapped,job_info_rows,TRUE
-ja_0469,치과의사,치과의사,,unmapped,job_info_rows,TRUE
-ja_0470,통계학자,통계학자,,unmapped,job_info_rows,TRUE
-ja_0471,분석통계학자,분석통계학자,,unmapped,job_info_rows,TRUE
-ja_0472,사회통계학자,사회통계학자,,unmapped,job_info_rows,TRUE
-ja_0473,인구통계학자,인구통계학자,,unmapped,job_info_rows,TRUE
-ja_0474,자연과학통계학자,자연과학통계학자,,unmapped,job_info_rows,TRUE
-ja_0475,수리통계학자,수리통계학자,,unmapped,job_info_rows,TRUE
-ja_0476,한의사,한의사,,unmapped,job_info_rows,TRUE
-ja_0477,해부학자,해부학자,,unmapped,job_info_rows,TRUE
-ja_0478,해양학자,해양학자,,unmapped,job_info_rows,TRUE
-ja_0479,화학자,화학자,,unmapped,job_info_rows,TRUE
-ja_0480,분석화학자,분석화학자,,unmapped,job_info_rows,TRUE
-ja_0481,유기화학자,유기화학자,,unmapped,job_info_rows,TRUE
-ja_0482,무기화학자,무기화학자,,unmapped,job_info_rows,TRUE
-ja_0483,물리화학자,물리화학자,,unmapped,job_info_rows,TRUE
-ja_0484,전기·전자제품수리원,전기_전자제품수리원,,unmapped,job_info_rows,TRUE
-ja_0485,전자기사,전자기사,,unmapped,job_info_rows,TRUE
-ja_0486,가전제품A/S기사,가전제품a_s기사,,unmapped,job_info_rows,TRUE
-ja_0487,건축설계기술자,건축설계기술자,,unmapped,job_info_rows,TRUE
-ja_0488,건축가,건축가,,unmapped,job_info_rows,TRUE
-ja_0489,건축기사,건축기사,,unmapped,job_info_rows,TRUE
-ja_0490,가류성형기조작원,가류성형기조작원,,unmapped,job_info_rows,TRUE
-ja_0491,고무압착기조작원,고무압착기조작원,,unmapped,job_info_rows,TRUE
-ja_0492,고무절단원,고무절단원,,unmapped,job_info_rows,TRUE
-ja_0493,고무제품마무리원,고무제품마무리원,,unmapped,job_info_rows,TRUE
-ja_0494,고무제품제조반장,고무제품제조반장,,unmapped,job_info_rows,TRUE
-ja_0495,고무제품수선원,고무제품수선원,,unmapped,job_info_rows,TRUE
-ja_0496,그라인딩기조작원,그라인딩기조작원,,unmapped,job_info_rows,TRUE
-ja_0497,롤러조작원,롤러조작원,,unmapped,job_info_rows,TRUE
-ja_0498,롤성형원,롤성형원,,unmapped,job_info_rows,TRUE
-ja_0499,바이어스절단원,바이어스절단원,,unmapped,job_info_rows,TRUE
-ja_0500,발포고무경화원,발포고무경화원,,unmapped,job_info_rows,TRUE
-ja_0501,밴드기계조작원,밴드기계조작원,,unmapped,job_info_rows,TRUE
-ja_0502,벨트성형원,벨트성형원,,unmapped,job_info_rows,TRUE
-ja_0503,비드제조원,비드제조원,,unmapped,job_info_rows,TRUE
-ja_0504,사열형압축롤조작원,사열형압축롤조작원,,unmapped,job_info_rows,TRUE
-ja_0505,엽상기조작원,엽상기조작원,,unmapped,job_info_rows,TRUE
-ja_0506,유압성형기조작원,유압성형기조작원,,unmapped,job_info_rows,TRUE
-ja_0507,재생타이어검사원,재생타이어검사원,,unmapped,job_info_rows,TRUE
-ja_0508,재생타이어성형원,재생타이어성형원,,unmapped,job_info_rows,TRUE
-ja_0509,침지기계조작원,침지기계조작원,,unmapped,job_info_rows,TRUE
-ja_0510,캘린더롤조작원,캘린더롤조작원,,unmapped,job_info_rows,TRUE
-ja_0511,타이어검사원,타이어검사원,,unmapped,job_info_rows,TRUE
-ja_0512,타이어경화원,타이어경화원,,unmapped,job_info_rows,TRUE
-ja_0513,타이어블래더제조원,타이어블래더제조원,,unmapped,job_info_rows,TRUE
-ja_0514,타이어사상원,타이어사상원,,unmapped,job_info_rows,TRUE
-ja_0515,타이어성형원,타이어성형원,,unmapped,job_info_rows,TRUE
-ja_0516,타이어수선원,타이어수선원,,unmapped,job_info_rows,TRUE
-ja_0517,타이어제조반장,타이어제조반장,,unmapped,job_info_rows,TRUE
-ja_0518,호스제조원,호스제조원,,unmapped,job_info_rows,TRUE
-ja_0519,공작기계운전원,공작기계운전원,,unmapped,job_info_rows,TRUE
-ja_0520,날수정원,날수정원,,unmapped,job_info_rows,TRUE
-ja_0521,롤러연마원,롤러연마원,,unmapped,job_info_rows,TRUE
-ja_0522,소면기마침원,소면기마침원,,unmapped,job_info_rows,TRUE
-ja_0523,연마반장,연마반장,,unmapped,job_info_rows,TRUE
-ja_0524,연마원,연마원,,unmapped,job_info_rows,TRUE
-ja_0525,강관조관기조작원,강관조관기조작원,,unmapped,job_info_rows,TRUE
-ja_0526,공구연삭기조작원,공구연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0527,공작반장,공작반장,,unmapped,job_info_rows,TRUE
-ja_0528,기계가공반장,기계가공반장,,unmapped,job_info_rows,TRUE
-ja_0529,기계프레스조작원,기계프레스조작원,,unmapped,job_info_rows,TRUE
-ja_0530,기어연삭기조작원,기어연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0531,기체연마원,기체연마원,,unmapped,job_info_rows,TRUE
-ja_0532,나사연삭기조작원,나사연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0533,도어록가공원,도어록가공원,,unmapped,job_info_rows,TRUE
-ja_0534,래핑기조작원,래핑기조작원,,unmapped,job_info_rows,TRUE
-ja_0535,레이디얼드릴링기조작원,레이디얼드릴링기조작원,,unmapped,job_info_rows,TRUE
-ja_0536,롤연마원,롤연마원,,unmapped,job_info_rows,TRUE
-ja_0537,루터조작원,루터조작원,,unmapped,job_info_rows,TRUE
-ja_0538,모방밀링조작원,모방밀링조작원,,unmapped,job_info_rows,TRUE
-ja_0539,밀링기조작원,밀링기조작원,,unmapped,job_info_rows,TRUE
-ja_0540,반도체칩절단원,반도체칩절단원,,unmapped,job_info_rows,TRUE
-ja_0541,반도체후면연마원,반도체후면연마원,,unmapped,job_info_rows,TRUE
-ja_0542,브로칭기조작원,브로칭기조작원,,unmapped,job_info_rows,TRUE
-ja_0543,사상반장,사상반장,,unmapped,job_info_rows,TRUE
-ja_0544,석고주형원,석고주형원,,unmapped,job_info_rows,TRUE
-ja_0545,선반원,선반원,,unmapped,job_info_rows,TRUE
-ja_0546,센터리스연삭기조작원,센터리스연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0547,셰이퍼조작원,셰이퍼조작원,,unmapped,job_info_rows,TRUE
-ja_0548,수직선반조작원,수직선반조작원,,unmapped,job_info_rows,TRUE
-ja_0549,수치제어드릴링기조작원,수치제어드릴링기조작원,,unmapped,job_info_rows,TRUE
-ja_0550,수치제어밀링기조작원,수치제어밀링기조작원,,unmapped,job_info_rows,TRUE
-ja_0551,수치제어보링기조작원,수치제어보링기조작원,,unmapped,job_info_rows,TRUE
-ja_0552,수치제어선반조작원,수치제어선반조작원,,unmapped,job_info_rows,TRUE
-ja_0553,수치제어프레스조작원,수치제어프레스조작원,,unmapped,job_info_rows,TRUE
-ja_0554,스크레이핑원,스크레이핑원,,unmapped,job_info_rows,TRUE
-ja_0555,스트레치포밍기조작원,스트레치포밍기조작원,,unmapped,job_info_rows,TRUE
-ja_0556,스파이럴강관조관원,스파이럴강관조관원,,unmapped,job_info_rows,TRUE
-ja_0557,슬로터조작원,슬로터조작원,,unmapped,job_info_rows,TRUE
-ja_0558,액압프레스조작원,액압프레스조작원,,unmapped,job_info_rows,TRUE
-ja_0559,연마기조작원,연마기조작원,,unmapped,job_info_rows,TRUE
-ja_0560,연삭원,연삭원,,unmapped,job_info_rows,TRUE
-ja_0561,원통연마원,원통연마원,,unmapped,job_info_rows,TRUE
-ja_0562,원통연삭기조작원,원통연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0563,자동선반조작원,자동선반조작원,,unmapped,job_info_rows,TRUE
-ja_0564,전용기계조작원,전용기계조작원,,unmapped,job_info_rows,TRUE
-ja_0565,절곡기조작원,절곡기조작원,,unmapped,job_info_rows,TRUE
-ja_0566,조형원<기계>,조형원<기계>,,unmapped,job_info_rows,TRUE
-ja_0567,주물사제조원,주물사제조원,,unmapped,job_info_rows,TRUE
-ja_0568,줄날성형원,줄날성형원,,unmapped,job_info_rows,TRUE
-ja_0569,중자제조원,중자제조원,,unmapped,job_info_rows,TRUE
-ja_0570,태핑기조작원,태핑기조작원,,unmapped,job_info_rows,TRUE
-ja_0571,터릿선반조작원,터릿선반조작원,,unmapped,job_info_rows,TRUE
-ja_0572,트랜스퍼기계조작원,트랜스퍼기계조작원,,unmapped,job_info_rows,TRUE
-ja_0573,편심연마원,편심연마원,,unmapped,job_info_rows,TRUE
-ja_0574,평면연삭기조작원,평면연삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0575,평삭기조작원,평삭기조작원,,unmapped,job_info_rows,TRUE
-ja_0576,프레스반장,프레스반장,,unmapped,job_info_rows,TRUE
-ja_0577,호닝기조작원,호닝기조작원,,unmapped,job_info_rows,TRUE
-ja_0578,드릴링기조작원,드릴링기조작원,,unmapped,job_info_rows,TRUE
-ja_0579,머시닝센터조작원,머시닝센터조작원,,unmapped,job_info_rows,TRUE
-ja_0580,방전가공기조작원,방전가공기조작원,,unmapped,job_info_rows,TRUE
-ja_0581,선반조작원,선반조작원,,unmapped,job_info_rows,TRUE
-ja_0582,보링기조작원,보링기조작원,,unmapped,job_info_rows,TRUE
-ja_0583,와이어커팅기조작원,와이어커팅기조작원,,unmapped,job_info_rows,TRUE
-ja_0584,굴진부,굴진부,,unmapped,job_info_rows,TRUE
-ja_0585,광산기계조작원,광산기계조작원,,unmapped,job_info_rows,TRUE
-ja_0586,궤도공,궤도공,,unmapped,job_info_rows,TRUE
-ja_0587,기전공,기전공,,unmapped,job_info_rows,TRUE
-ja_0588,화약취급원,화약취급원,,unmapped,job_info_rows,TRUE
-ja_0589,선탄작업원,선탄작업원,,unmapped,job_info_rows,TRUE
-ja_0590,배관공,배관공,,unmapped,job_info_rows,TRUE
-ja_0591,구두수선공,구두수선공,,unmapped,job_info_rows,TRUE
-ja_0592,구두 제조·수선원,구두_제조_수선원,,unmapped,job_info_rows,TRUE
-ja_0593,가죽혁대 제조·수리원,가죽혁대_제조_수리원,,unmapped,job_info_rows,TRUE
-ja_0594,구두골 수선원,구두골_수선원,,unmapped,job_info_rows,TRUE
-ja_0595,가죽가방 제조·수선원,가죽가방_제조_수선원,,unmapped,job_info_rows,TRUE
-ja_0596,고온고산용해원,고온고산용해원,,unmapped,job_info_rows,TRUE
-ja_0597,레이들원,레이들원,,unmapped,job_info_rows,TRUE
-ja_0598,용강주입보조원,용강주입보조원,,unmapped,job_info_rows,TRUE
-ja_0599,용강주입원,용강주입원,,unmapped,job_info_rows,TRUE
-ja_0600,용선로반장,용선로반장,,unmapped,job_info_rows,TRUE
-ja_0601,용압반장,용압반장,,unmapped,job_info_rows,TRUE
-ja_0602,유도로반장,유도로반장,,unmapped,job_info_rows,TRUE
-ja_0603,유도로조작원,유도로조작원,,unmapped,job_info_rows,TRUE
-ja_0604,이형관조형원,이형관조형원,,unmapped,job_info_rows,TRUE
-ja_0605,조산반장,조산반장,,unmapped,job_info_rows,TRUE
-ja_0606,고주파열처리원,고주파열처리원,,unmapped,job_info_rows,TRUE
-ja_0607,담금질원,담금질원,,unmapped,job_info_rows,TRUE
-ja_0608,뜨임원,뜨임원,,unmapped,job_info_rows,TRUE
-ja_0609,불림원,불림원,,unmapped,job_info_rows,TRUE
-ja_0610,소결원,소결원,,unmapped,job_info_rows,TRUE
-ja_0611,소결제어실운전원,소결제어실운전원,,unmapped,job_info_rows,TRUE
-ja_0612,시계경화원,시계경화원,,unmapped,job_info_rows,TRUE
-ja_0613,열처리반장,열처리반장,,unmapped,job_info_rows,TRUE
-ja_0614,열처리원,열처리원,,unmapped,job_info_rows,TRUE
-ja_0615,유도코일제작원,유도코일제작원,,unmapped,job_info_rows,TRUE
-ja_0616,질화처리원,질화처리원,,unmapped,job_info_rows,TRUE
-ja_0617,침탄담금질원,침탄담금질원,,unmapped,job_info_rows,TRUE
-ja_0618,풀림원,풀림원,,unmapped,job_info_rows,TRUE
-ja_0619,신선기조작원,신선기조작원,,unmapped,job_info_rows,TRUE
-ja_0620,신선반장,신선반장,,unmapped,job_info_rows,TRUE
-ja_0621,인발기조작원,인발기조작원,,unmapped,job_info_rows,TRUE
-ja_0622,조관기조작원,조관기조작원,,unmapped,job_info_rows,TRUE
-ja_0623,코일연결원,코일연결원,,unmapped,job_info_rows,TRUE
-ja_0624,금형제조원,금형제조원,,unmapped,job_info_rows,TRUE
-ja_0625,기계공학자,기계공학자,,unmapped,job_info_rows,TRUE
-ja_0626,기능성 섬유 연구원,기능성_섬유_연구원,,unmapped,job_info_rows,TRUE
-ja_0627,섬유소재개발기술자,섬유소재개발기술자,,unmapped,job_info_rows,TRUE
-ja_0628,염색공정개발기술자,염색공정개발기술자,,unmapped,job_info_rows,TRUE
-ja_0629,섬유공정개발기술자,섬유공정개발기술자,,unmapped,job_info_rows,TRUE
-ja_0630,염료개발기술자,염료개발기술자,,unmapped,job_info_rows,TRUE
-ja_0631,공조냉동기조작원,공조냉동기조작원,,unmapped,job_info_rows,TRUE
-ja_0632,냉동기조작원,냉동기조작원,,unmapped,job_info_rows,TRUE
-ja_0633,공기조화기 조작원,공기조화기_조작원,,unmapped,job_info_rows,TRUE
-ja_0634,냉동기조작공,냉동기조작공,,unmapped,job_info_rows,TRUE
-ja_0635,동시녹음기사,동시녹음기사,,unmapped,job_info_rows,TRUE
-ja_0636,음반녹음기사,음반녹음기사,,unmapped,job_info_rows,TRUE
-ja_0637,테이프 녹음기사,테이프_녹음기사,,unmapped,job_info_rows,TRUE
-ja_0638,더빙기사,더빙기사,,unmapped,job_info_rows,TRUE
-ja_0639,대기환경전문가,대기환경전문가,,unmapped,job_info_rows,TRUE
-ja_0640,도배공,도배공,,unmapped,job_info_rows,TRUE
-ja_0641,도공,도공,,unmapped,job_info_rows,TRUE
-ja_0642,페인트공,페인트공,,unmapped,job_info_rows,TRUE
-ja_0643,도장공,도장공,,unmapped,job_info_rows,TRUE
-ja_0644,대목공,대목공,,unmapped,job_info_rows,TRUE
-ja_0645,한식목공,한식목공,,unmapped,job_info_rows,TRUE
-ja_0646,형틀목공,형틀목공,,unmapped,job_info_rows,TRUE
-ja_0647,내장목공,내장목공,,unmapped,job_info_rows,TRUE
-ja_0648,창호목공,창호목공,,unmapped,job_info_rows,TRUE
-ja_0649,목재가공장치 운전원,목재가공장치_운전원,,unmapped,job_info_rows,TRUE
-ja_0650,제재가공장치 운전원,제재가공장치_운전원,,unmapped,job_info_rows,TRUE
-ja_0651,제재기 조작원,제재기_조작원,,unmapped,job_info_rows,TRUE
-ja_0652,단판전조기 조작원,단판전조기_조작원,,unmapped,job_info_rows,TRUE
-ja_0653,단판성형기 운전원,단판성형기_운전원,,unmapped,job_info_rows,TRUE
-ja_0654,둥근톱 조작원,둥근톱_조작원,,unmapped,job_info_rows,TRUE
-ja_0655,합판심삽입기 조작원,합판심삽입기_조작원,,unmapped,job_info_rows,TRUE
-ja_0656,베니어압착기 조작원,베니어압착기_조작원,,unmapped,job_info_rows,TRUE
-ja_0657,합판압착기 조작원,합판압착기_조작원,,unmapped,job_info_rows,TRUE
-ja_0658,박피기 조작원,박피기_조작원,,unmapped,job_info_rows,TRUE
-ja_0659,미장공,미장공,,unmapped,job_info_rows,TRUE
-ja_0660,방수공,방수공,,unmapped,job_info_rows,TRUE
-ja_0661,방적원,방적원,,unmapped,job_info_rows,TRUE
-ja_0662,래핑원,래핑원,,unmapped,job_info_rows,TRUE
-ja_0663,소면틀보기원,소면틀보기원,,unmapped,job_info_rows,TRUE
-ja_0664,합사기 조작원,합사기_조작원,,unmapped,job_info_rows,TRUE
-ja_0665,방사원,방사원,,unmapped,job_info_rows,TRUE
-ja_0666,섬유혼합기 조작원,섬유혼합기_조작원,,unmapped,job_info_rows,TRUE
-ja_0667,연사기 운전원,연사기_운전원,,unmapped,job_info_rows,TRUE
-ja_0668,정방틀보기원,정방틀보기원,,unmapped,job_info_rows,TRUE
-ja_0669,권사기 조작원,권사기_조작원,,unmapped,job_info_rows,TRUE
-ja_0670,건축배관공,건축배관공,,unmapped,job_info_rows,TRUE
-ja_0671,공업배관공,공업배관공,,unmapped,job_info_rows,TRUE
-ja_0672,벽돌공,벽돌공,,unmapped,job_info_rows,TRUE
-ja_0673,중장비기사,중장비기사,,unmapped,job_info_rows,TRUE
-ja_0674,비파괴검사기술자,비파괴검사기술자,40,auto_partial,job_info_rows,TRUE
-ja_0675,생산관리기술자,생산관리기술자,36,auto_partial,job_info_rows,TRUE
-ja_0676,OR(operation research) 전문가,or(operation_research)_전문가,,unmapped,job_info_rows,TRUE
-ja_0677,공장관리기술자,공장관리기술자,,unmapped,job_info_rows,TRUE
-ja_0678,물류전문가,물류전문가,,unmapped,job_info_rows,TRUE
-ja_0679,경영정보시스템전문가,경영정보시스템전문가,,unmapped,job_info_rows,TRUE
-ja_0680,인간공학자,인간공학자,,unmapped,job_info_rows,TRUE
-ja_0681,품질관리기술자,품질관리기술자,39,auto_partial,job_info_rows,TRUE
-ja_0682,산업안전기술자,산업안전기술자,,unmapped,job_info_rows,TRUE
-ja_0683,상하수처리설비 운전원,상하수처리설비_운전원,,unmapped,job_info_rows,TRUE
-ja_0684,상수처리설비운전원,상수처리설비운전원,,unmapped,job_info_rows,TRUE
-ja_0685,하수처리설비운전원,하수처리설비운전원,,unmapped,job_info_rows,TRUE
-ja_0686,폐수처리설비운전원,폐수처리설비운전원,,unmapped,job_info_rows,TRUE
-ja_0687,생명공학기술자,생명공학기술자,,unmapped,job_info_rows,TRUE
-ja_0688,생물공학기술자,생물공학기술자,,unmapped,job_info_rows,TRUE
-ja_0689,석유정제원,석유정제원,,unmapped,job_info_rows,TRUE
-ja_0690,석유및천연가스제조 관련 제어장치 조작원,석유및천연가스제조_관련_제어장치_조작원,,unmapped,job_info_rows,TRUE
-ja_0691,계기판 조작원,계기판_조작원,,unmapped,job_info_rows,TRUE
-ja_0692,보드 운전원,보드_운전원,,unmapped,job_info_rows,TRUE
-ja_0693,정유장치보드 운전원,정유장치보드_운전원,,unmapped,job_info_rows,TRUE
-ja_0694,정유장치제어판 운전원,정유장치제어판_운전원,,unmapped,job_info_rows,TRUE
-ja_0695,제어판 조작원,제어판_조작원,,unmapped,job_info_rows,TRUE
-ja_0696,조정실장치 원전원,조정실장치_원전원,,unmapped,job_info_rows,TRUE
-ja_0697,조정판 조작원,조정판_조작원,,unmapped,job_info_rows,TRUE
-ja_0698,선박건조기술자,선박건조기술자,,unmapped,job_info_rows,TRUE
-ja_0699,선박기계장치기술자,선박기계장치기술자,,unmapped,job_info_rows,TRUE
-ja_0700,선박전기기술자,선박전기기술자,,unmapped,job_info_rows,TRUE
-ja_0701,선박기술자,선박기술자,,unmapped,job_info_rows,TRUE
-ja_0702,선박엔진조립공,선박엔진조립공,,unmapped,job_info_rows,TRUE
-ja_0703,선박엔진기계공,선박엔진기계공,,unmapped,job_info_rows,TRUE
-ja_0704,시멘트제조기술자,시멘트제조기술자,,unmapped,job_info_rows,TRUE
-ja_0705,인공지능전문가,인공지능전문가,,unmapped,job_info_rows,TRUE
-ja_0706,강판압연원,강판압연원,,unmapped,job_info_rows,TRUE
-ja_0707,냉각압연반장,냉각압연반장,,unmapped,job_info_rows,TRUE
-ja_0708,냉간압연원,냉간압연원,,unmapped,job_info_rows,TRUE
-ja_0709,냉간압연입측원,냉간압연입측원,,unmapped,job_info_rows,TRUE
-ja_0710,냉간압연출측원,냉간압연출측원,,unmapped,job_info_rows,TRUE
-ja_0711,분괴압연원,분괴압연원,,unmapped,job_info_rows,TRUE
-ja_0712,사상압연원,사상압연원,,unmapped,job_info_rows,TRUE
-ja_0713,선재압연원,선재압연원,,unmapped,job_info_rows,TRUE
-ja_0714,열간압연반장,열간압연반장,,unmapped,job_info_rows,TRUE
-ja_0715,열간압연보조원,열간압연보조원,,unmapped,job_info_rows,TRUE
-ja_0716,열간압연원,열간압연원,,unmapped,job_info_rows,TRUE
-ja_0717,조압연원,조압연원,,unmapped,job_info_rows,TRUE
-ja_0718,핀치롤운전원,핀치롤운전원,,unmapped,job_info_rows,TRUE
-ja_0719,후판압연원,후판압연원,,unmapped,job_info_rows,TRUE
-ja_0720,용접공,용접공,,unmapped,job_info_rows,TRUE
-ja_0721,원자력공학기술자,원자력공학기술자,,unmapped,job_info_rows,TRUE
-ja_0722,인공위성연구원,인공위성연구원,,unmapped,job_info_rows,TRUE
-ja_0723,인쇄 및 출판작업원,인쇄_및_출판작업원,,unmapped,job_info_rows,TRUE
-ja_0724,사진식자원,사진식자원,,unmapped,job_info_rows,TRUE
-ja_0725,자동스크린날염기운전원,자동스크린날염기운전원,,unmapped,job_info_rows,TRUE
-ja_0726,코팅기조작원,코팅기조작원,,unmapped,job_info_rows,TRUE
-ja_0727,인쇄기조작반장,인쇄기조작반장,,unmapped,job_info_rows,TRUE
-ja_0728,활판인쇄기조작원,활판인쇄기조작원,,unmapped,job_info_rows,TRUE
-ja_0729,스크린인쇄기조작원,스크린인쇄기조작원,,unmapped,job_info_rows,TRUE
-ja_0730,윤전기조작원,윤전기조작원,,unmapped,job_info_rows,TRUE
-ja_0731,제본원,제본원,,unmapped,job_info_rows,TRUE
-ja_0732,제본기조작원,제본기조작원,,unmapped,job_info_rows,TRUE
-ja_0733,금박인쇄원,금박인쇄원,,unmapped,job_info_rows,TRUE
-ja_0734,재료공학자,재료공학자,,unmapped,job_info_rows,TRUE
-ja_0735,전기공,전기공,,unmapped,job_info_rows,TRUE
-ja_0736,전기감리기술자,전기감리기술자,,unmapped,job_info_rows,TRUE
-ja_0737,전기설계기술자,전기설계기술자,,unmapped,job_info_rows,TRUE
-ja_0738,계장기술자,계장기술자,,unmapped,job_info_rows,TRUE
-ja_0739,전기안전관리자,전기안전관리자,,unmapped,job_info_rows,TRUE
-ja_0740,발전설비기술자,발전설비기술자,,unmapped,job_info_rows,TRUE
-ja_0741,전자공학 기술자,전자공학_기술자,,unmapped,job_info_rows,TRUE
-ja_0742,반도체 공학 기술자,반도체_공학_기술자,,unmapped,job_info_rows,TRUE
-ja_0743,전자제어계측 기술자,전자제어계측_기술자,,unmapped,job_info_rows,TRUE
-ja_0744,가전제품 개발자,가전제품_개발자,,unmapped,job_info_rows,TRUE
-ja_0745,전화기수리설치원,전화기수리설치원,,unmapped,job_info_rows,TRUE
-ja_0746,무브먼트조립반장,무브먼트조립반장,,unmapped,job_info_rows,TRUE
-ja_0747,보철기제조원,보철기제조원,,unmapped,job_info_rows,TRUE
-ja_0748,시계검사반장,시계검사반장,,unmapped,job_info_rows,TRUE
-ja_0749,시계검사원,시계검사원,,unmapped,job_info_rows,TRUE
-ja_0750,시계수리원,시계수리원,,unmapped,job_info_rows,TRUE
-ja_0751,시계조립반장,시계조립반장,,unmapped,job_info_rows,TRUE
-ja_0752,안경렌즈부착원,안경렌즈부착원,,unmapped,job_info_rows,TRUE
-ja_0753,의료영상진단기기제조반장,의료영상진단기기제조반장,,unmapped,job_info_rows,TRUE
-ja_0754,의치모형제작원,의치모형제작원,,unmapped,job_info_rows,TRUE
-ja_0755,콘텍트렌즈성형원,콘텍트렌즈성형원,,unmapped,job_info_rows,TRUE
-ja_0756,광학용품검사원,광학용품검사원,,unmapped,job_info_rows,TRUE
-ja_0757,건축제도사,건축제도사,,unmapped,job_info_rows,TRUE
-ja_0758,토목제도사,토목제도사,,unmapped,job_info_rows,TRUE
-ja_0759,기계제도사,기계제도사,,unmapped,job_info_rows,TRUE
-ja_0760,전기제도사,전기제도사,,unmapped,job_info_rows,TRUE
-ja_0761,전자제도사,전자제도사,,unmapped,job_info_rows,TRUE
-ja_0762,광산제도사,광산제도사,,unmapped,job_info_rows,TRUE
-ja_0763,특허제도사,특허제도사,,unmapped,job_info_rows,TRUE
-ja_0764,주조제도사,주조제도사,,unmapped,job_info_rows,TRUE
-ja_0765,제도사,제도사,,unmapped,job_info_rows,TRUE
-ja_0766,제조업 단순노무자,제조업_단순노무자,,unmapped,job_info_rows,TRUE
-ja_0767,단순조립노무자,단순조립노무자,,unmapped,job_info_rows,TRUE
-ja_0768,포장원,포장원,,unmapped,job_info_rows,TRUE
-ja_0769,물품운반원,물품운반원,,unmapped,job_info_rows,TRUE
-ja_0770,금괴주조원,금괴주조원,,unmapped,job_info_rows,TRUE
-ja_0771,금양극판주조원,금양극판주조원,,unmapped,job_info_rows,TRUE
-ja_0772,비철주조원,비철주조원,,unmapped,job_info_rows,TRUE
-ja_0773,연속주조보조원,연속주조보조원,,unmapped,job_info_rows,TRUE
-ja_0774,연속주조원,연속주조원,,unmapped,job_info_rows,TRUE
-ja_0775,연속주조제어실운전원,연속주조제어실운전원,,unmapped,job_info_rows,TRUE
-ja_0776,원심주조기조작원,원심주조기조작원,,unmapped,job_info_rows,TRUE
-ja_0777,은괴주조원,은괴주조원,,unmapped,job_info_rows,TRUE
-ja_0778,조괴원,조괴원,,unmapped,job_info_rows,TRUE
-ja_0779,조동주조원,조동주조원,,unmapped,job_info_rows,TRUE
-ja_0780,주물주조원,주물주조원,,unmapped,job_info_rows,TRUE
-ja_0781,주선원,주선원,,unmapped,job_info_rows,TRUE
-ja_0782,주조기조작보조원,주조기조작보조원,,unmapped,job_info_rows,TRUE
-ja_0783,방직원,방직원,,unmapped,job_info_rows,TRUE
-ja_0784,편직기조작원,편직기조작원,,unmapped,job_info_rows,TRUE
-ja_0785,망(그물)제조기조작원,망(그물)제조기조작원,,unmapped,job_info_rows,TRUE
-ja_0786,통경기조작원,통경기조작원,,unmapped,job_info_rows,TRUE
-ja_0787,철근콘크리트공,철근콘크리트공,,unmapped,job_info_rows,TRUE
-ja_0788,철근공,철근공,,unmapped,job_info_rows,TRUE
-ja_0789,철도기관사,철도기관사,,unmapped,job_info_rows,TRUE
-ja_0790,철도차장,철도차장,,unmapped,job_info_rows,TRUE
-ja_0791,철도검수원,철도검수원,,unmapped,job_info_rows,TRUE
-ja_0792,지하철철도차량정비원,지하철철도차량정비원,,unmapped,job_info_rows,TRUE
-ja_0793,토목기술자,토목기술자,,unmapped,job_info_rows,TRUE
-ja_0794,광통신연구원,광통신연구원,,unmapped,job_info_rows,TRUE
-ja_0795,선로설비설계원,선로설비설계원,,unmapped,job_info_rows,TRUE
-ja_0796,통신기기개발자,통신기기개발자,,unmapped,job_info_rows,TRUE
-ja_0797,이동통신기술연구원,이동통신기술연구원,,unmapped,job_info_rows,TRUE
-ja_0798,영상통신연구원,영상통신연구원,,unmapped,job_info_rows,TRUE
-ja_0799,디지털교환설비 연구원,디지털교환설비_연구원,,unmapped,job_info_rows,TRUE
-ja_0800,휴대전화회로 개발원,휴대전화회로_개발원,,unmapped,job_info_rows,TRUE
-ja_0801,무선전화기 개발원,무선전화기_개발원,,unmapped,job_info_rows,TRUE
-ja_0802,모뎀개발 설계기술자,모뎀개발_설계기술자,,unmapped,job_info_rows,TRUE
-ja_0803,디지털수신기 개발원,디지털수신기_개발원,,unmapped,job_info_rows,TRUE
-ja_0804,인공위성TV수신기 개발？설계 기술자,인공위성tv수신기_개발？설계_기술자,,unmapped,job_info_rows,TRUE
-ja_0805,인터폰 및 전화기 개발자,인터폰_및_전화기_개발자,,unmapped,job_info_rows,TRUE
-ja_0806,통신선접속원,통신선접속원,,unmapped,job_info_rows,TRUE
-ja_0807,통신케이블설치원,통신케이블설치원,,unmapped,job_info_rows,TRUE
-ja_0808,인터넷통신선설치원,인터넷통신선설치원,,unmapped,job_info_rows,TRUE
-ja_0809,케이블방송선로설치원,케이블방송선로설치원,,unmapped,job_info_rows,TRUE
-ja_0810,인터넷통신선수리원,인터넷통신선수리원,,unmapped,job_info_rows,TRUE
-ja_0811,케이블방송선로수리원,케이블방송선로수리원,,unmapped,job_info_rows,TRUE
-ja_0812,인터넷설치원,인터넷설치원,,unmapped,job_info_rows,TRUE
-ja_0813,통신장비설비원,통신장비설비원,,unmapped,job_info_rows,TRUE
-ja_0814,유선통신장비 설치 및 수리원,유선통신장비_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0815,무선통신장비 설치 및 수리원,무선통신장비_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0816,전화 설치 및 수리원,전화_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0817,통신위성장비 설치 및 수리원,통신위성장비_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0818,레이더 설치 및 수리원,레이더_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0819,네트워크 장비 설치 및 수리원,네트워크_장비_설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_0820,화물트럭운전사,화물트럭운전사,,unmapped,job_info_rows,TRUE
-ja_0821,트럭운전사,트럭운전사,,unmapped,job_info_rows,TRUE
-ja_0822,금속창호설치원,금속창호설치원,,unmapped,job_info_rows,TRUE
-ja_0823,대차프레임제작반장,대차프레임제작반장,,unmapped,job_info_rows,TRUE
-ja_0824,보일러제작원,보일러제작원,,unmapped,job_info_rows,TRUE
-ja_0825,제관반장,제관반장,,unmapped,job_info_rows,TRUE
-ja_0826,차체제작반장,차체제작반장,,unmapped,job_info_rows,TRUE
-ja_0827,차체판금원,차체판금원,,unmapped,job_info_rows,TRUE
-ja_0828,창호제작반장,창호제작반장,,unmapped,job_info_rows,TRUE
-ja_0829,창호제작원,창호제작원,,unmapped,job_info_rows,TRUE
-ja_0830,보일러설치원,보일러설치원,,unmapped,job_info_rows,TRUE
-ja_0831,판금공,판금공,,unmapped,job_info_rows,TRUE
-ja_0832,자동차판금원,자동차판금원,,unmapped,job_info_rows,TRUE
-ja_0833,항공기판금원,항공기판금원,,unmapped,job_info_rows,TRUE
-ja_0834,제지설비 운전원,제지설비_운전원,,unmapped,job_info_rows,TRUE
-ja_0835,건조기조작원,건조기조작원,,unmapped,job_info_rows,TRUE
-ja_0836,고해기조작원,고해기조작원,,unmapped,job_info_rows,TRUE
-ja_0837,골판지제조원,골판지제조원,,unmapped,job_info_rows,TRUE
-ja_0838,닥피증해원,닥피증해원,,unmapped,job_info_rows,TRUE
-ja_0839,닥피표백원,닥피표백원,,unmapped,job_info_rows,TRUE
-ja_0840,리와인더조작보조원,리와인더조작보조원,,unmapped,job_info_rows,TRUE
-ja_0841,리와인더조작원,리와인더조작원,,unmapped,job_info_rows,TRUE
-ja_0842,비터기조작원,비터기조작원,,unmapped,job_info_rows,TRUE
-ja_0843,석회소성로조작원,석회소성로조작원,,unmapped,job_info_rows,TRUE
-ja_0844,솔질원,솔질원,,unmapped,job_info_rows,TRUE
-ja_0845,압착탈수원,압착탈수원,,unmapped,job_info_rows,TRUE
-ja_0846,와이어조작원,와이어조작원,,unmapped,job_info_rows,TRUE
-ja_0847,원료투입원,원료투입원,,unmapped,job_info_rows,TRUE
-ja_0848,재단기조작원,재단기조작원,,unmapped,job_info_rows,TRUE
-ja_0849,절단원,절단원,,unmapped,job_info_rows,TRUE
-ja_0850,정선기조작원,정선기조작원,,unmapped,job_info_rows,TRUE
-ja_0851,제호설비조작원,제호설비조작원,,unmapped,job_info_rows,TRUE
-ja_0852,조약원,조약원,,unmapped,job_info_rows,TRUE
-ja_0853,캘린더조작원,캘린더조작원,,unmapped,job_info_rows,TRUE
-ja_0854,탈묵기조작원,탈묵기조작원,,unmapped,job_info_rows,TRUE
-ja_0855,프레스기조작원,프레스기조작원,,unmapped,job_info_rows,TRUE
-ja_0856,해리기운전원,해리기운전원,,unmapped,job_info_rows,TRUE
-ja_0857,쇄목기조작원,쇄목기조작원,,unmapped,job_info_rows,TRUE
-ja_0858,농축기조작원,농축기조작원,,unmapped,job_info_rows,TRUE
-ja_0859,엠보싱기조작원,엠보싱기조작원,,unmapped,job_info_rows,TRUE
-ja_0860,펄프다이제스터조작원,펄프다이제스터조작원,,unmapped,job_info_rows,TRUE
-ja_0861,종이건조기조작원,종이건조기조작원,,unmapped,job_info_rows,TRUE
-ja_0862,폐기물처리연구원,폐기물처리연구원,,unmapped,job_info_rows,TRUE
-ja_0863,사업장폐기물관리자,사업장폐기물관리자,,unmapped,job_info_rows,TRUE
-ja_0864,경화성수지성형기조작원,경화성수지성형기조작원,,unmapped,job_info_rows,TRUE
-ja_0865,사출성형기조작원,사출성형기조작원,,unmapped,job_info_rows,TRUE
-ja_0866,장난감모델제조원,장난감모델제조원,,unmapped,job_info_rows,TRUE
-ja_0867,진공성형기조작원,진공성형기조작원,,unmapped,job_info_rows,TRUE
-ja_0868,플라스틱제품제조반장,플라스틱제품제조반장,,unmapped,job_info_rows,TRUE
-ja_0869,제트엔진수리원,제트엔진수리원,,unmapped,job_info_rows,TRUE
-ja_0870,항공기계기정비원,항공기계기정비원,,unmapped,job_info_rows,TRUE
-ja_0871,항공기기체정비검사원,항공기기체정비검사원,,unmapped,job_info_rows,TRUE
-ja_0872,항공기동체정비원,항공기동체정비원,,unmapped,job_info_rows,TRUE
-ja_0873,항공기보조기계정비원,항공기보조기계정비원,35,auto_partial,job_info_rows,TRUE
-ja_0874,항공기부속품기계원,항공기부속품기계원,,unmapped,job_info_rows,TRUE
-ja_0875,항공기정비사,항공기정비사,,unmapped,job_info_rows,TRUE
-ja_0876,항공기조종사,항공기조종사,,unmapped,job_info_rows,TRUE
-ja_0877,검열조종사,검열조종사,,unmapped,job_info_rows,TRUE
-ja_0878,기장,기장,,unmapped,job_info_rows,TRUE
-ja_0879,부조종사,부조종사,,unmapped,job_info_rows,TRUE
-ja_0880,시험조종사,시험조종사,,unmapped,job_info_rows,TRUE
-ja_0881,화학장치운전원,화학장치운전원,,unmapped,job_info_rows,TRUE
-ja_0882,화학제품생산기조작원,화학제품생산기조작원,,unmapped,job_info_rows,TRUE
-ja_0883,분말세제제조원,분말세제제조원,,unmapped,job_info_rows,TRUE
-ja_0884,불꽃제품용기기계조작원,불꽃제품용기기계조작원,,unmapped,job_info_rows,TRUE
-ja_0885,접착제제조기조작원,접착제제조기조작원,,unmapped,job_info_rows,TRUE
-ja_0886,페인트제조기조작원,페인트제조기조작원,,unmapped,job_info_rows,TRUE
-ja_0887,약제품생산기조작원,약제품생산기조작원,,unmapped,job_info_rows,TRUE
-ja_0888,양초제조기조작원,양초제조기조작원,,unmapped,job_info_rows,TRUE
-ja_0889,타일공,타일공,,unmapped,job_info_rows,TRUE
-ja_0890,반도체설계기술자,반도체설계기술자,,unmapped,job_info_rows,TRUE
-ja_0891,가구제작원,가구제작원,,unmapped,job_info_rows,TRUE
-ja_0892,가구목공,가구목공,,unmapped,job_info_rows,TRUE
-ja_0893,가정용·사무용 가구수리원,가정용_사무용_가구수리원,,unmapped,job_info_rows,TRUE
-ja_0894,가구제조원,가구제조원,,unmapped,job_info_rows,TRUE
-ja_0895,가구용목재조각원,가구용목재조각원,,unmapped,job_info_rows,TRUE
+﻿job_alias_id,raw_job_name,normalized_key,job_role_id,match_status,source_dataset,is_active,match_score,matched_job_role_name
+ja_0001,가스ㆍ수도ㆍ전기 계기 검침원 및 안전점검원,가스_수도_전기_계기_검침원_및_안전점검원,,unmapped,data_jobs_rows,TRUE,,
+ja_0002,일기예보관,일기예보관,,unmapped,data_jobs_rows,TRUE,,
+ja_0003,기상연구원,기상연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0004,물리학연구원,물리학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0005,방사선사,방사선사,,unmapped,data_jobs_rows,TRUE,,
+ja_0006,생물학연구원,생물학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0007,수의사,수의사,,unmapped,data_jobs_rows,TRUE,,
+ja_0008,수학연구원,수학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0009,의료장비기사,의료장비기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0010,심리학연구원,심리학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0011,안경사,안경사,,unmapped,data_jobs_rows,TRUE,,
+ja_0012,약사 및 한약사,약사_및_한약사,,unmapped,data_jobs_rows,TRUE,,
+ja_0013,유전공학연구원,유전공학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0014,지리학연구원,지리학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0015,지질학연구원,지질학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0016,천문학연구원,천문학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0017,측량사,측량사,,unmapped,data_jobs_rows,TRUE,,
+ja_0018,통계학연구원,통계학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0019,해부학연구원,해부학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0020,해양학연구원,해양학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0021,화학연구원,화학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0022,가전제품 설치 및 수리원,가전제품_설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0023,건설공사품질관리원,건설공사품질관리원,job_0039,auto_keyword,data_jobs_rows,TRUE,0.9300,품질관리
+ja_0024,건축공학기술자,건축공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0025,타이어 및 고무제품 생산직,타이어_및_고무제품_생산직,,unmapped,data_jobs_rows,TRUE,,
+ja_0026,공작기계조작원,공작기계조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0027,광원 및 채석원,광원_및_채석원,,unmapped,data_jobs_rows,TRUE,,
+ja_0028,제화원,제화원,,unmapped,data_jobs_rows,TRUE,,
+ja_0029,금속가공장치조작원,금속가공장치조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0030,금속공학기술자,금속공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0031,금형원,금형원,,unmapped,data_jobs_rows,TRUE,,
+ja_0032,기계공학 기술자ㆍ연구원,기계공학_기술자_연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0033,섬유공학기술자,섬유공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0034,냉동기사,냉동기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0035,녹음기사,녹음기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0036,대기환경기술자,대기환경기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0037,도배원,도배원,,unmapped,data_jobs_rows,TRUE,,
+ja_0038,도자기제조원,도자기제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0039,건물도장원,건물도장원,,unmapped,data_jobs_rows,TRUE,,
+ja_0040,로봇연구원,로봇연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0041,목공,목공,,unmapped,data_jobs_rows,TRUE,,
+ja_0042,목재가공관련조작원,목재가공관련조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0043,미장원,미장원,,unmapped,data_jobs_rows,TRUE,,
+ja_0044,방수원,방수원,,unmapped,data_jobs_rows,TRUE,,
+ja_0045,섬유제조원,섬유제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0046,배관원,배관원,,unmapped,data_jobs_rows,TRUE,,
+ja_0047,조적공,조적공,,unmapped,data_jobs_rows,TRUE,,
+ja_0048,보석감정사,보석감정사,,unmapped,data_jobs_rows,TRUE,,
+ja_0049,건설기계운전원,건설기계운전원,,unmapped,data_jobs_rows,TRUE,,
+ja_0050,비파괴검사원,비파괴검사원,job_0040,auto_keyword,data_jobs_rows,TRUE,0.9300,비파괴검사
+ja_0051,산업공학기술자,산업공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0052,산업안전관리원,산업안전관리원,job_0041,auto_keyword,data_jobs_rows,TRUE,0.9300,산업안전관리
+ja_0053,상ㆍ하수도 처리장치 조작원,상_하수도_처리장치_조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0054,생물공학연구원,생물공학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0055,석공,석공,,unmapped,data_jobs_rows,TRUE,,
+ja_0056,석유화학기술자,석유화학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0057,조선공학기술자,조선공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0058,선박정비원,선박정비원,job_0062,auto_similarity,data_jobs_rows,TRUE,0.6400,선박 정비
+ja_0059,시멘트제조원,시멘트제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0060,신경회로망연구원,신경회로망연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0061,압연원,압연원,,unmapped,data_jobs_rows,TRUE,,
+ja_0062,영사기사,영사기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0063,용접원,용접원,,unmapped,data_jobs_rows,TRUE,,
+ja_0064,원자력연구원,원자력연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0065,유리제품제조원,유리제품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0066,인공위성개발원,인공위성개발원,,unmapped,data_jobs_rows,TRUE,,
+ja_0067,인쇄기조작원,인쇄기조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0068,자동차정비원,자동차정비원,job_0058,auto_similarity,data_jobs_rows,TRUE,0.6667,자동차 정비
+ja_0069,자동차조립원,자동차조립원,,unmapped,data_jobs_rows,TRUE,,
+ja_0070,재료공학기술자,재료공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0071,전공,전공,,unmapped,data_jobs_rows,TRUE,,
+ja_0072,전기공학기술자,전기공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0073,전자공학기술자,전자공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0074,전자장비설치 및 수리원,전자장비설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0075,전화설치 및 수리원,전화설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0076,정밀기기제품제조원,정밀기기제품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0077,캐드원,캐드원,,unmapped,data_jobs_rows,TRUE,,
+ja_0078,단순노무자,단순노무자,,unmapped,data_jobs_rows,TRUE,,
+ja_0079,주조원,주조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0080,직조원,직조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0081,철골공,철골공,,unmapped,data_jobs_rows,TRUE,,
+ja_0082,철도 및 지하철기관사,철도_및_지하철기관사,,unmapped,data_jobs_rows,TRUE,,
+ja_0083,철도차량정비원,철도차량정비원,job_0057,auto_similarity,data_jobs_rows,TRUE,0.6400,철도 차량 정비
+ja_0084,토목공학기술자,토목공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0085,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0086,통신케이블설치 및 수리원,통신케이블설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0087,통신장비기사,통신장비기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0088,트럭운전기사,트럭운전기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0089,판금원,판금원,,unmapped,data_jobs_rows,TRUE,,
+ja_0090,펄프 및 종이 생산직,펄프_및_종이_생산직,,unmapped,data_jobs_rows,TRUE,,
+ja_0091,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0092,플라스틱제품제조원,플라스틱제품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0093,항공교통관제사,항공교통관제사,,unmapped,data_jobs_rows,TRUE,,
+ja_0094,항공기정비원,항공기정비원,,unmapped,data_jobs_rows,TRUE,,
+ja_0095,비행기조종사,비행기조종사,,unmapped,data_jobs_rows,TRUE,,
+ja_0096,항공우주공학기술자,항공우주공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0097,화학제품제조원,화학제품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0098,바닥재시공원,바닥재시공원,,unmapped,data_jobs_rows,TRUE,,
+ja_0099,반도체공학기술자,반도체공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0100,"가구제조,수리원",가구제조_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0101,식품공학기술자,식품공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0102,도축원 및 육류가공원,도축원_및_육류가공원,,unmapped,data_jobs_rows,TRUE,,
+ja_0103,양장사 및 양복사,양장사_및_양복사,,unmapped,data_jobs_rows,TRUE,,
+ja_0104,설문조사원,설문조사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0105,세탁원,세탁원,,unmapped,data_jobs_rows,TRUE,,
+ja_0106,소믈리에,소믈리에,,unmapped,data_jobs_rows,TRUE,,
+ja_0107,영양사,영양사,,unmapped,data_jobs_rows,TRUE,,
+ja_0108,전통식품제조원,전통식품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0109,제과사 및 제빵사,제과사_및_제빵사,job_0109,auto_keyword,data_jobs_rows,TRUE,0.9300,제과/제빵
+ja_0110,조리사 및 주방장,조리사_및_주방장,job_0108,auto_keyword,data_jobs_rows,TRUE,0.9300,조리
+ja_0111,가축사육자,가축사육자,,unmapped,data_jobs_rows,TRUE,,
+ja_0112,한복사,한복사,,unmapped,data_jobs_rows,TRUE,,
+ja_0113,선장 및 항해사,선장_및_항해사,,unmapped,data_jobs_rows,TRUE,,
+ja_0114,푸드스타일리스트,푸드스타일리스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0115,쇼핑호스트,쇼핑호스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0116,체형관리사,체형관리사,,unmapped,data_jobs_rows,TRUE,,
+ja_0117,바리스타,바리스타,job_0110,auto_keyword,data_jobs_rows,TRUE,0.9300,바리스타
+ja_0118,농업기술자,농업기술자,job_0133,auto_partial,data_jobs_rows,TRUE,0.9200,농업기술
+ja_0119,곡식작물재배자,곡식작물재배자,,unmapped,data_jobs_rows,TRUE,,
+ja_0120,동물조련사,동물조련사,,unmapped,data_jobs_rows,TRUE,,
+ja_0121,양식원,양식원,,unmapped,data_jobs_rows,TRUE,,
+ja_0122,연근해 어부 및 해녀,연근해_어부_및_해녀,,unmapped,data_jobs_rows,TRUE,,
+ja_0123,유제품제조원,유제품제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0124,조경원,조경원,,unmapped,data_jobs_rows,TRUE,,
+ja_0125,조경기술자,조경기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0126,해양수산기술자,해양수산기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0127,감정평가사,감정평가사,job_0086,auto_keyword,data_jobs_rows,TRUE,0.9300,감정평가
+ja_0128,검사,검사,job_0040,auto_partial,data_jobs_rows,TRUE,0.9200,비파괴검사
+ja_0129,상품중개인,상품중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0130,경영컨설턴트,경영컨설턴트,,unmapped,data_jobs_rows,TRUE,,
+ja_0131,경제학연구원,경제학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0132,노무사,노무사,,unmapped,data_jobs_rows,TRUE,,
+ja_0133,회계사,회계사,job_0067,auto_keyword,data_jobs_rows,TRUE,0.9300,회계
+ja_0134,관세사,관세사,,unmapped,data_jobs_rows,TRUE,,
+ja_0135,국제무역사무원,국제무역사무원,job_0079,auto_keyword,data_jobs_rows,TRUE,0.9300,무역사무
+ja_0136,국제회의전문가,국제회의전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0137,농수산물중개인,농수산물중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0138,도시 및 교통설계전문가,도시_및_교통설계전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0139,바이어(구매인),바이어_구매인,,unmapped,data_jobs_rows,TRUE,,
+ja_0140,물류관리사,물류관리사,job_0080,auto_keyword,data_jobs_rows,TRUE,0.9300,물류관리
+ja_0141,보험계리인,보험계리인,,unmapped,data_jobs_rows,TRUE,,
+ja_0142,부동산중개인,부동산중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0143,생활설계사,생활설계사,,unmapped,data_jobs_rows,TRUE,,
+ja_0144,선물중개인,선물중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0145,세무사,세무사,job_0066,auto_keyword,data_jobs_rows,TRUE,0.9300,세무
+ja_0146,손해사정사,손해사정사,,unmapped,data_jobs_rows,TRUE,,
+ja_0147,시장 및 여론조사전문가,시장_및_여론조사전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0148,신용조사원,신용조사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0149,광고 및 홍보전문가,광고_및_홍보전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0150,외교관,외교관,,unmapped,data_jobs_rows,TRUE,,
+ja_0151,외환딜러,외환딜러,,unmapped,data_jobs_rows,TRUE,,
+ja_0152,자동차영업원,자동차영업원,,unmapped,data_jobs_rows,TRUE,,
+ja_0153,기업고위임원,기업고위임원,,unmapped,data_jobs_rows,TRUE,,
+ja_0154,증권분석가,증권분석가,,unmapped,data_jobs_rows,TRUE,,
+ja_0155,증권중개인,증권중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0156,텔레마케터,텔레마케터,,unmapped,data_jobs_rows,TRUE,,
+ja_0157,상점판매원,상점판매원,,unmapped,data_jobs_rows,TRUE,,
+ja_0158,금융자산운용가(펀드매니저),금융자산운용가_펀드매니저,,unmapped,data_jobs_rows,TRUE,,
+ja_0159,네이미스트,네이미스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0160,법률사무원,법률사무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0161,사무보조원,사무보조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0162,은행출납사무원,은행출납사무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0163,보건의료정보관리사,보건의료정보관리사,job_0088,auto_partial,data_jobs_rows,TRUE,0.9200,보건의료정보
+ja_0164,회계사무원,회계사무원,job_0067,auto_keyword,data_jobs_rows,TRUE,0.9300,회계
+ja_0165,구성작가,구성작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0166,극작가,극작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0167,기자,기자,,unmapped,data_jobs_rows,TRUE,,
+ja_0168,통역가,통역가,,unmapped,data_jobs_rows,TRUE,,
+ja_0169,리포터,리포터,,unmapped,data_jobs_rows,TRUE,,
+ja_0170,드라마작가,드라마작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0171,번역가,번역가,,unmapped,data_jobs_rows,TRUE,,
+ja_0172,사서,사서,,unmapped,data_jobs_rows,TRUE,,
+ja_0173,정치학연구원,정치학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0174,성우,성우,,unmapped,data_jobs_rows,TRUE,,
+ja_0175,아나운서,아나운서,,unmapped,data_jobs_rows,TRUE,,
+ja_0176,언어학연구원,언어학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0177,역사학연구원,역사학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0178,카피라이터,카피라이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0179,가수,가수,,unmapped,data_jobs_rows,TRUE,,
+ja_0180,개그맨,개그맨,,unmapped,data_jobs_rows,TRUE,,
+ja_0181,광고기획자,광고기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0182,간판제작원,간판제작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0183,광고디자이너,광고디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0184,국악인,국악인,,unmapped,data_jobs_rows,TRUE,,
+ja_0185,네일아티스트,네일아티스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0186,만화가,만화가,,unmapped,data_jobs_rows,TRUE,,
+ja_0187,메이크업아티스트,메이크업아티스트,job_0115,auto_partial,data_jobs_rows,TRUE,0.9200,메이크업
+ja_0188,모델,모델,,unmapped,data_jobs_rows,TRUE,,
+ja_0189,패턴사,패턴사,,unmapped,data_jobs_rows,TRUE,,
+ja_0190,무대감독,무대감독,,unmapped,data_jobs_rows,TRUE,,
+ja_0191,무용가,무용가,,unmapped,data_jobs_rows,TRUE,,
+ja_0192,문화재보존원,문화재보존원,,unmapped,data_jobs_rows,TRUE,,
+ja_0193,방송연출가,방송연출가,,unmapped,data_jobs_rows,TRUE,,
+ja_0194,연기자,연기자,,unmapped,data_jobs_rows,TRUE,,
+ja_0195,백댄서(백업댄서),백댄서_백업댄서,,unmapped,data_jobs_rows,TRUE,,
+ja_0196,보석디자이너,보석디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0197,분장사,분장사,,unmapped,data_jobs_rows,TRUE,,
+ja_0198,비디오저널리스트(VJ),비디오저널리스트_vj,,unmapped,data_jobs_rows,TRUE,,
+ja_0199,사진작가,사진작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0200,사진인화 및 현상관련조작원,사진인화_및_현상관련조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0201,성악가,성악가,,unmapped,data_jobs_rows,TRUE,,
+ja_0202,스턴트맨,스턴트맨,,unmapped,data_jobs_rows,TRUE,,
+ja_0203,플로리스트,플로리스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0204,연주가,연주가,,unmapped,data_jobs_rows,TRUE,,
+ja_0205,악기제조원,악기제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0206,애완동물미용사,애완동물미용사,,unmapped,data_jobs_rows,TRUE,,
+ja_0207,연극연출가,연극연출가,,unmapped,data_jobs_rows,TRUE,,
+ja_0208,연예인매니저,연예인매니저,,unmapped,data_jobs_rows,TRUE,,
+ja_0209,영화감독,영화감독,,unmapped,data_jobs_rows,TRUE,,
+ja_0210,영화기획자,영화기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0211,이미지컨설턴트,이미지컨설턴트,,unmapped,data_jobs_rows,TRUE,,
+ja_0212,인테리어디자이너,인테리어디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0213,일러스트레이터,일러스트레이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0214,작곡가,작곡가,,unmapped,data_jobs_rows,TRUE,,
+ja_0215,제품디자이너,제품디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0216,조각가,조각가,,unmapped,data_jobs_rows,TRUE,,
+ja_0217,조향사,조향사,,unmapped,data_jobs_rows,TRUE,,
+ja_0218,지휘자,지휘자,,unmapped,data_jobs_rows,TRUE,,
+ja_0219,운동선수,운동선수,,unmapped,data_jobs_rows,TRUE,,
+ja_0220,촬영기사,촬영기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0221,출판물기획전문가,출판물기획전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0222,캐릭터디자이너,캐릭터디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0223,컬러리스트,컬러리스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0224,패션디자이너,패션디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0225,패션코디네이터,패션코디네이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0226,편집기사,편집기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0227,악기수리원 및 조율사,악기수리원_및_조율사,,unmapped,data_jobs_rows,TRUE,,
+ja_0228,학예사(큐레이터),학예사_큐레이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0229,화가,화가,,unmapped,data_jobs_rows,TRUE,,
+ja_0230,가사도우미,가사도우미,,unmapped,data_jobs_rows,TRUE,,
+ja_0231,간병인,간병인,,unmapped,data_jobs_rows,TRUE,,
+ja_0232,간호조무사,간호조무사,job_0087,auto_keyword,data_jobs_rows,TRUE,0.9300,간호사
+ja_0233,청소원,청소원,,unmapped,data_jobs_rows,TRUE,,
+ja_0234,경비원,경비원,,unmapped,data_jobs_rows,TRUE,,
+ja_0235,경찰관,경찰관,,unmapped,data_jobs_rows,TRUE,,
+ja_0236,경호원,경호원,,unmapped,data_jobs_rows,TRUE,,
+ja_0237,일반공무원,일반공무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0238,교도관,교도관,,unmapped,data_jobs_rows,TRUE,,
+ja_0239,이공학계열교수,이공학계열교수,,unmapped,data_jobs_rows,TRUE,,
+ja_0240,독서지도사,독서지도사,,unmapped,data_jobs_rows,TRUE,,
+ja_0241,레크리에이션지도자,레크리에이션지도자,,unmapped,data_jobs_rows,TRUE,,
+ja_0242,물리치료사,물리치료사,,unmapped,data_jobs_rows,TRUE,,
+ja_0243,바텐더,바텐더,,unmapped,data_jobs_rows,TRUE,,
+ja_0244,택배원,택배원,,unmapped,data_jobs_rows,TRUE,,
+ja_0245,버스운전기사,버스운전기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0246,법무사,법무사,job_0084,auto_partial,data_jobs_rows,TRUE,0.9200,법무사무
+ja_0247,변리사,변리사,,unmapped,data_jobs_rows,TRUE,,
+ja_0248,변호사,변호사,,unmapped,data_jobs_rows,TRUE,,
+ja_0249,전문비서,전문비서,,unmapped,data_jobs_rows,TRUE,,
+ja_0250,사회복지사,사회복지사,job_0094,auto_keyword,data_jobs_rows,TRUE,0.9300,사회복지사
+ja_0251,상담전문가,상담전문가,job_0095,auto_keyword,data_jobs_rows,TRUE,0.9300,상담사
+ja_0252,우편물집배원,우편물집배원,,unmapped,data_jobs_rows,TRUE,,
+ja_0253,성직자,성직자,,unmapped,data_jobs_rows,TRUE,,
+ja_0254,소방관,소방관,job_0042,auto_keyword,data_jobs_rows,TRUE,0.9300,소방/방재 관리
+ja_0255,언어치료사,언어치료사,,unmapped,data_jobs_rows,TRUE,,
+ja_0256,여행안내원,여행안내원,,unmapped,data_jobs_rows,TRUE,,
+ja_0257,신호원 및 수송원,신호원_및_수송원,,unmapped,data_jobs_rows,TRUE,,
+ja_0258,운동경기심판,운동경기심판,,unmapped,data_jobs_rows,TRUE,,
+ja_0259,스포츠트레이너,스포츠트레이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0260,유치원교사,유치원교사,,unmapped,data_jobs_rows,TRUE,,
+ja_0261,음악치료사,음악치료사,,unmapped,data_jobs_rows,TRUE,,
+ja_0262,응급구조사,응급구조사,job_0093,auto_partial,data_jobs_rows,TRUE,0.9200,응급구조
+ja_0263,임상심리사,임상심리사,,unmapped,data_jobs_rows,TRUE,,
+ja_0264,운동감독,운동감독,,unmapped,data_jobs_rows,TRUE,,
+ja_0265,작업치료사,작업치료사,,unmapped,data_jobs_rows,TRUE,,
+ja_0266,장례지도사,장례지도사,,unmapped,data_jobs_rows,TRUE,,
+ja_0267,전화교환원,전화교환원,,unmapped,data_jobs_rows,TRUE,,
+ja_0268,주택관리사,주택관리사,,unmapped,data_jobs_rows,TRUE,,
+ja_0269,직업군인,직업군인,,unmapped,data_jobs_rows,TRUE,,
+ja_0270,직업상담 및 취업알선원,직업상담_및_취업알선원,job_0095,auto_keyword,data_jobs_rows,TRUE,0.9300,상담사
+ja_0271,직업능력개발훈련교사,직업능력개발훈련교사,,unmapped,data_jobs_rows,TRUE,,
+ja_0272,치과위생사,치과위생사,,unmapped,data_jobs_rows,TRUE,,
+ja_0273,피부관리사,피부관리사,job_0116,auto_partial,data_jobs_rows,TRUE,0.9200,피부관리
+ja_0274,학원강사,학원강사,,unmapped,data_jobs_rows,TRUE,,
+ja_0275,비행기승무원,비행기승무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0276,스포츠강사,스포츠강사,,unmapped,data_jobs_rows,TRUE,,
+ja_0277,택시운전기사,택시운전기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0278,웨딩플래너,웨딩플래너,,unmapped,data_jobs_rows,TRUE,,
+ja_0279,통신엔지니어,통신엔지니어,job_0027,auto_similarity,data_jobs_rows,TRUE,0.6400,정보통신 엔지니어
+ja_0280,네트워크엔지니어,네트워크엔지니어,,unmapped,data_jobs_rows,TRUE,,
+ja_0281,데이터베이스관리자,데이터베이스관리자,,unmapped,data_jobs_rows,TRUE,,
+ja_0282,정보보호전문가,정보보호전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0283,시스템엔지니어,시스템엔지니어,,unmapped,data_jobs_rows,TRUE,,
+ja_0284,애니메이터,애니메이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0285,웹디자이너,웹디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0286,웹마스터,웹마스터,,unmapped,data_jobs_rows,TRUE,,
+ja_0287,IT컨설턴트,it컨설턴트,,unmapped,data_jobs_rows,TRUE,,
+ja_0288,정보중개인,정보중개인,,unmapped,data_jobs_rows,TRUE,,
+ja_0289,컴퓨터게임시나리오작가,컴퓨터게임시나리오작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0290,컴퓨터그래픽디자이너,컴퓨터그래픽디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0291,속기사,속기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0292,사이버교육운영자,사이버교육운영자,job_0101,auto_partial,data_jobs_rows,TRUE,0.9200,교육
+ja_0293,통신망설계운영기술자,통신망설계운영기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0294,컴퓨터설치·수리원,컴퓨터설치_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0295,의료정보시스템개발자,의료정보시스템개발자,,unmapped,data_jobs_rows,TRUE,,
+ja_0296,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0297,전자상거래전문가,전자상거래전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0298,아이티(IT)기술영업원,아이티_it_기술영업원,,unmapped,data_jobs_rows,TRUE,,
+ja_0299,아이티(IT)교육강사,아이티_it_교육강사,job_0101,auto_partial,data_jobs_rows,TRUE,0.9200,교육
+ja_0300,무선주파수(RF)엔지니어,무선주파수_rf_엔지니어,,unmapped,data_jobs_rows,TRUE,,
+ja_0301,교장,교장,,unmapped,data_jobs_rows,TRUE,,
+ja_0302,소음진동기술자,소음진동기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0303,크레인 및 호이스트운전원,크레인_및_호이스트운전원,,unmapped,data_jobs_rows,TRUE,,
+ja_0304,여행상품개발원,여행상품개발원,,unmapped,data_jobs_rows,TRUE,,
+ja_0305,귀금속 및 보석세공원,귀금속_및_보석세공원,,unmapped,data_jobs_rows,TRUE,,
+ja_0306,호텔지배인,호텔지배인,,unmapped,data_jobs_rows,TRUE,,
+ja_0307,시스템소프트웨어개발자,시스템소프트웨어개발자,,unmapped,data_jobs_rows,TRUE,,
+ja_0308,조명기사,조명기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0309,영화시나리오작가,영화시나리오작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0310,음향기사,음향기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0311,특수효과기술자,특수효과기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0312,음반기획자,음반기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0313,애니메이션기획자,애니메이션기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0314,애니메이션작가,애니메이션작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0315,게임기획자,게임기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0316,출판편집자,출판편집자,,unmapped,data_jobs_rows,TRUE,,
+ja_0317,북디자이너,북디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0318,영업원,영업원,,unmapped,data_jobs_rows,TRUE,,
+ja_0319,공예원,공예원,,unmapped,data_jobs_rows,TRUE,,
+ja_0320,사회학연구원,사회학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0321,사회단체활동가,사회단체활동가,,unmapped,data_jobs_rows,TRUE,,
+ja_0322,시각디자이너,시각디자이너,,unmapped,data_jobs_rows,TRUE,,
+ja_0323,시스템운영관리자,시스템운영관리자,,unmapped,data_jobs_rows,TRUE,,
+ja_0324,임상병리사,임상병리사,,unmapped,data_jobs_rows,TRUE,,
+ja_0325,카지노딜러,카지노딜러,,unmapped,data_jobs_rows,TRUE,,
+ja_0326,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0327,투자분석가(애널리스트),투자분석가_애널리스트,,unmapped,data_jobs_rows,TRUE,,
+ja_0328,행사기획자,행사기획자,,unmapped,data_jobs_rows,TRUE,,
+ja_0329,화학공학기술자,화학공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0330,화훼재배기술자,화훼재배기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0331,평론가,평론가,,unmapped,data_jobs_rows,TRUE,,
+ja_0332,원예기술자,원예기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0333,안무가,안무가,,unmapped,data_jobs_rows,TRUE,,
+ja_0334,시인,시인,,unmapped,data_jobs_rows,TRUE,,
+ja_0335,소설가,소설가,,unmapped,data_jobs_rows,TRUE,,
+ja_0336,사진사,사진사,,unmapped,data_jobs_rows,TRUE,,
+ja_0337,사진기자,사진기자,,unmapped,data_jobs_rows,TRUE,,
+ja_0338,보일러공,보일러공,,unmapped,data_jobs_rows,TRUE,,
+ja_0339,공업기계설치 및 정비원,공업기계설치_및_정비원,,unmapped,data_jobs_rows,TRUE,,
+ja_0340,인문사회계열교수,인문사회계열교수,job_0067,auto_keyword,data_jobs_rows,TRUE,0.9300,회계
+ja_0341,환경컨설턴트,환경컨설턴트,,unmapped,data_jobs_rows,TRUE,,
+ja_0342,에너지공학기술자,에너지공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0343,토양환경기술자,토양환경기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0344,환경설비기술자,환경설비기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0345,해양환경기사,해양환경기사,,unmapped,data_jobs_rows,TRUE,,
+ja_0346,상수도기술자,상수도기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0347,환경위생검사원,환경위생검사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0348,방사성폐기물관리원,방사성폐기물관리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0349,국회의원,국회의원,,unmapped,data_jobs_rows,TRUE,,
+ja_0350,마케팅전문가,마케팅전문가,job_0077,auto_partial,data_jobs_rows,TRUE,0.9200,마케팅
+ja_0351,자동차공학기술자,자동차공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0352,대형트럭 및 특수차운전원,대형트럭_및_특수차운전원,,unmapped,data_jobs_rows,TRUE,,
+ja_0353,환경공학기술자 및 연구원,환경공학기술자_및_연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0354,해양공학기술자,해양공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0355,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,,unmapped,data_jobs_rows,TRUE,,
+ja_0356,스포츠에이전트,스포츠에이전트,,unmapped,data_jobs_rows,TRUE,,
+ja_0357,콘크리트공,콘크리트공,,unmapped,data_jobs_rows,TRUE,,
+ja_0358,GIS전문가,gis전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0359,가상현실전문가,가상현실전문가,,unmapped,data_jobs_rows,TRUE,,
+ja_0360,웹프로듀서,웹프로듀서,,unmapped,data_jobs_rows,TRUE,,
+ja_0361,프로게이머,프로게이머,,unmapped,data_jobs_rows,TRUE,,
+ja_0362,군무원,군무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0363,신용관련추심원,신용관련추심원,,unmapped,data_jobs_rows,TRUE,,
+ja_0364,교육학연구원,교육학연구원,job_0101,auto_partial,data_jobs_rows,TRUE,0.9200,교육
+ja_0365,철학연구원,철학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0366,행정학연구원,행정학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0367,안마사,안마사,,unmapped,data_jobs_rows,TRUE,,
+ja_0368,위생사,위생사,,unmapped,data_jobs_rows,TRUE,,
+ja_0369,서예가,서예가,,unmapped,data_jobs_rows,TRUE,,
+ja_0370,도선사,도선사,,unmapped,data_jobs_rows,TRUE,,
+ja_0371,지게차운전원,지게차운전원,,unmapped,data_jobs_rows,TRUE,,
+ja_0372,선박갑판원,선박갑판원,,unmapped,data_jobs_rows,TRUE,,
+ja_0373,방문판매원,방문판매원,,unmapped,data_jobs_rows,TRUE,,
+ja_0374,상품대여원,상품대여원,,unmapped,data_jobs_rows,TRUE,,
+ja_0375,주유원,주유원,,unmapped,data_jobs_rows,TRUE,,
+ja_0376,계산원 및 매표원,계산원_및_매표원,,unmapped,data_jobs_rows,TRUE,,
+ja_0377,청원경찰,청원경찰,,unmapped,data_jobs_rows,TRUE,,
+ja_0378,무인경비시스템종사원,무인경비시스템종사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0379,구두미화원 및 수선원,구두미화원_및_수선원,,unmapped,data_jobs_rows,TRUE,,
+ja_0380,주차관리원,주차관리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0381,이용사,이용사,,unmapped,data_jobs_rows,TRUE,,
+ja_0382,미용사,미용사,,unmapped,data_jobs_rows,TRUE,,
+ja_0383,선박 및 열차객실승무원,선박_및_열차객실승무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0384,접객원,접객원,,unmapped,data_jobs_rows,TRUE,,
+ja_0385,주방보조원,주방보조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0386,요리배달원,요리배달원,,unmapped,data_jobs_rows,TRUE,,
+ja_0387,건설견적원,건설견적원,,unmapped,data_jobs_rows,TRUE,,
+ja_0388,전통건축원,전통건축원,,unmapped,data_jobs_rows,TRUE,,
+ja_0389,단열원,단열원,,unmapped,data_jobs_rows,TRUE,,
+ja_0390,유리부착원,유리부착원,,unmapped,data_jobs_rows,TRUE,,
+ja_0391,메카트로닉스공학기술자,메카트로닉스공학기술자,,unmapped,data_jobs_rows,TRUE,,
+ja_0392,공구제조원,공구제조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0393,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0394,제관원,제관원,,unmapped,data_jobs_rows,TRUE,,
+ja_0395,샷시원,샷시원,,unmapped,data_jobs_rows,TRUE,,
+ja_0396,단조원,단조원,,unmapped,data_jobs_rows,TRUE,,
+ja_0397,도장원,도장원,,unmapped,data_jobs_rows,TRUE,,
+ja_0398,도금원,도금원,,unmapped,data_jobs_rows,TRUE,,
+ja_0399,의복수선원,의복수선원,,unmapped,data_jobs_rows,TRUE,,
+ja_0400,발전장치조작원,발전장치조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0401,전기설비조작원,전기설비조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0402,전기 부품 및 제품 생산직,전기_부품_및_제품_생산직,,unmapped,data_jobs_rows,TRUE,,
+ja_0403,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0404,통신설비설치 및 수리원,통신설비설치_및_수리원,,unmapped,data_jobs_rows,TRUE,,
+ja_0405,음료제조관련조작원,음료제조관련조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0406,식품가공검사원,식품가공검사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0407,종이제품생산직(기계조작),종이제품생산직_기계조작,,unmapped,data_jobs_rows,TRUE,,
+ja_0408,가구조립 및 검사원,가구조립_및_검사원,,unmapped,data_jobs_rows,TRUE,,
+ja_0409,채소 및 특용작물재배자,채소_및_특용작물재배자,,unmapped,data_jobs_rows,TRUE,,
+ja_0410,과수작물재배자,과수작물재배자,,unmapped,data_jobs_rows,TRUE,,
+ja_0411,조림 영림 및 벌목원,조림_영림_및_벌목원,,unmapped,data_jobs_rows,TRUE,,
+ja_0412,원양어부,원양어부,,unmapped,data_jobs_rows,TRUE,,
+ja_0413,자동조립라인 및 산업용로봇조작원,자동조립라인_및_산업용로봇조작원,,unmapped,data_jobs_rows,TRUE,,
+ja_0414,수질환경연구원,수질환경연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0415,커플매니저,커플매니저,,unmapped,data_jobs_rows,TRUE,,
+ja_0416,병원코디네이터,병원코디네이터,,unmapped,data_jobs_rows,TRUE,,
+ja_0417,마술사,마술사,,unmapped,data_jobs_rows,TRUE,,
+ja_0418,파티플래너,파티플래너,,unmapped,data_jobs_rows,TRUE,,
+ja_0419,건축사,건축사,,unmapped,data_jobs_rows,TRUE,,
+ja_0420,행정부고위공무원,행정부고위공무원,,unmapped,data_jobs_rows,TRUE,,
+ja_0421,헤드헌터,헤드헌터,,unmapped,data_jobs_rows,TRUE,,
+ja_0422,환경영향평가원,환경영향평가원,,unmapped,data_jobs_rows,TRUE,,
+ja_0423,대체에너지개발연구원,대체에너지개발연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0424,음악강사,음악강사,,unmapped,data_jobs_rows,TRUE,,
+ja_0425,베타테스터,베타테스터,,unmapped,data_jobs_rows,TRUE,,
+ja_0426,발명가,발명가,,unmapped,data_jobs_rows,TRUE,,
+ja_0427,신약개발연구원,신약개발연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0428,스포츠해설가,스포츠해설가,,unmapped,data_jobs_rows,TRUE,,
+ja_0429,카레이서,카레이서,,unmapped,data_jobs_rows,TRUE,,
+ja_0430,캐스팅디렉터,캐스팅디렉터,,unmapped,data_jobs_rows,TRUE,,
+ja_0431,작가,작가,,unmapped,data_jobs_rows,TRUE,,
+ja_0432,자연과학연구원,자연과학연구원,,unmapped,data_jobs_rows,TRUE,,
+ja_0433,가스검침원,가스검침원,,unmapped,job_info_rows,TRUE,,
+ja_0434,전기검침원,전기검침원,,unmapped,job_info_rows,TRUE,,
+ja_0435,수도계량원,수도계량원,,unmapped,job_info_rows,TRUE,,
+ja_0436,검침원,검침원,,unmapped,job_info_rows,TRUE,,
+ja_0437,기상관측요원,기상관측요원,,unmapped,job_info_rows,TRUE,,
+ja_0438,광물리학자,광물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0439,원자물리학자,원자물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0440,입자물리학자,입자물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0441,고체물리학자,고체물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0442,생체물리학자,생체물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0443,물리학자,물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0444,핵물리학자,핵물리학자,,unmapped,job_info_rows,TRUE,,
+ja_0445,생태학자,생태학자,,unmapped,job_info_rows,TRUE,,
+ja_0446,유전학자,유전학자,,unmapped,job_info_rows,TRUE,,
+ja_0447,생물학자,생물학자,,unmapped,job_info_rows,TRUE,,
+ja_0448,순수수학자,순수수학자,,unmapped,job_info_rows,TRUE,,
+ja_0449,응용수학자,응용수학자,,unmapped,job_info_rows,TRUE,,
+ja_0450,수학자,수학자,,unmapped,job_info_rows,TRUE,,
+ja_0451,심전도기사,심전도기사,,unmapped,job_info_rows,TRUE,,
+ja_0452,교육심리학자,교육심리학자,job_0101,auto_partial,job_info_rows,TRUE,0.9200,교육
+ja_0453,발달심리학자,발달심리학자,,unmapped,job_info_rows,TRUE,,
+ja_0454,사회심리학자,사회심리학자,,unmapped,job_info_rows,TRUE,,
+ja_0455,산업심리학자,산업심리학자,,unmapped,job_info_rows,TRUE,,
+ja_0456,상담심리학자,상담심리학자,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_0457,실험심리학자,실험심리학자,,unmapped,job_info_rows,TRUE,,
+ja_0458,심리학자,심리학자,,unmapped,job_info_rows,TRUE,,
+ja_0459,유전공학자,유전공학자,,unmapped,job_info_rows,TRUE,,
+ja_0460,전문의사,전문의사,,unmapped,job_info_rows,TRUE,,
+ja_0461,의사,의사,,unmapped,job_info_rows,TRUE,,
+ja_0462,인문지리학자,인문지리학자,,unmapped,job_info_rows,TRUE,,
+ja_0463,자연지리학자,자연지리학자,,unmapped,job_info_rows,TRUE,,
+ja_0464,지리학자,지리학자,,unmapped,job_info_rows,TRUE,,
+ja_0465,지질학자,지질학자,,unmapped,job_info_rows,TRUE,,
+ja_0466,천문학자,천문학자,,unmapped,job_info_rows,TRUE,,
+ja_0467,측량기술자,측량기술자,,unmapped,job_info_rows,TRUE,,
+ja_0468,치과기공사,치과기공사,,unmapped,job_info_rows,TRUE,,
+ja_0469,치과의사,치과의사,,unmapped,job_info_rows,TRUE,,
+ja_0470,통계학자,통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0471,분석통계학자,분석통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0472,사회통계학자,사회통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0473,인구통계학자,인구통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0474,자연과학통계학자,자연과학통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0475,수리통계학자,수리통계학자,,unmapped,job_info_rows,TRUE,,
+ja_0476,한의사,한의사,,unmapped,job_info_rows,TRUE,,
+ja_0477,해부학자,해부학자,,unmapped,job_info_rows,TRUE,,
+ja_0478,해양학자,해양학자,,unmapped,job_info_rows,TRUE,,
+ja_0479,화학자,화학자,,unmapped,job_info_rows,TRUE,,
+ja_0480,분석화학자,분석화학자,,unmapped,job_info_rows,TRUE,,
+ja_0481,유기화학자,유기화학자,,unmapped,job_info_rows,TRUE,,
+ja_0482,무기화학자,무기화학자,,unmapped,job_info_rows,TRUE,,
+ja_0483,물리화학자,물리화학자,,unmapped,job_info_rows,TRUE,,
+ja_0484,전기·전자제품수리원,전기_전자제품수리원,,unmapped,job_info_rows,TRUE,,
+ja_0485,전자기사,전자기사,,unmapped,job_info_rows,TRUE,,
+ja_0486,가전제품A/S기사,가전제품a_s기사,,unmapped,job_info_rows,TRUE,,
+ja_0487,건축설계기술자,건축설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_0488,건축가,건축가,,unmapped,job_info_rows,TRUE,,
+ja_0489,건축기사,건축기사,,unmapped,job_info_rows,TRUE,,
+ja_0490,가류성형기조작원,가류성형기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0491,고무압착기조작원,고무압착기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0492,고무절단원,고무절단원,,unmapped,job_info_rows,TRUE,,
+ja_0493,고무제품마무리원,고무제품마무리원,,unmapped,job_info_rows,TRUE,,
+ja_0494,고무제품제조반장,고무제품제조반장,,unmapped,job_info_rows,TRUE,,
+ja_0495,고무제품수선원,고무제품수선원,,unmapped,job_info_rows,TRUE,,
+ja_0496,그라인딩기조작원,그라인딩기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0497,롤러조작원,롤러조작원,,unmapped,job_info_rows,TRUE,,
+ja_0498,롤성형원,롤성형원,,unmapped,job_info_rows,TRUE,,
+ja_0499,바이어스절단원,바이어스절단원,,unmapped,job_info_rows,TRUE,,
+ja_0500,발포고무경화원,발포고무경화원,,unmapped,job_info_rows,TRUE,,
+ja_0501,밴드기계조작원,밴드기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0502,벨트성형원,벨트성형원,,unmapped,job_info_rows,TRUE,,
+ja_0503,비드제조원,비드제조원,,unmapped,job_info_rows,TRUE,,
+ja_0504,사열형압축롤조작원,사열형압축롤조작원,,unmapped,job_info_rows,TRUE,,
+ja_0505,엽상기조작원,엽상기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0506,유압성형기조작원,유압성형기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0507,재생타이어검사원,재생타이어검사원,,unmapped,job_info_rows,TRUE,,
+ja_0508,재생타이어성형원,재생타이어성형원,,unmapped,job_info_rows,TRUE,,
+ja_0509,침지기계조작원,침지기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0510,캘린더롤조작원,캘린더롤조작원,,unmapped,job_info_rows,TRUE,,
+ja_0511,타이어검사원,타이어검사원,,unmapped,job_info_rows,TRUE,,
+ja_0512,타이어경화원,타이어경화원,,unmapped,job_info_rows,TRUE,,
+ja_0513,타이어블래더제조원,타이어블래더제조원,,unmapped,job_info_rows,TRUE,,
+ja_0514,타이어사상원,타이어사상원,,unmapped,job_info_rows,TRUE,,
+ja_0515,타이어성형원,타이어성형원,,unmapped,job_info_rows,TRUE,,
+ja_0516,타이어수선원,타이어수선원,,unmapped,job_info_rows,TRUE,,
+ja_0517,타이어제조반장,타이어제조반장,,unmapped,job_info_rows,TRUE,,
+ja_0518,호스제조원,호스제조원,,unmapped,job_info_rows,TRUE,,
+ja_0519,공작기계운전원,공작기계운전원,,unmapped,job_info_rows,TRUE,,
+ja_0520,날수정원,날수정원,,unmapped,job_info_rows,TRUE,,
+ja_0521,롤러연마원,롤러연마원,,unmapped,job_info_rows,TRUE,,
+ja_0522,소면기마침원,소면기마침원,,unmapped,job_info_rows,TRUE,,
+ja_0523,연마반장,연마반장,,unmapped,job_info_rows,TRUE,,
+ja_0524,연마원,연마원,,unmapped,job_info_rows,TRUE,,
+ja_0525,강관조관기조작원,강관조관기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0526,공구연삭기조작원,공구연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0527,공작반장,공작반장,,unmapped,job_info_rows,TRUE,,
+ja_0528,기계가공반장,기계가공반장,,unmapped,job_info_rows,TRUE,,
+ja_0529,기계프레스조작원,기계프레스조작원,,unmapped,job_info_rows,TRUE,,
+ja_0530,기어연삭기조작원,기어연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0531,기체연마원,기체연마원,,unmapped,job_info_rows,TRUE,,
+ja_0532,나사연삭기조작원,나사연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0533,도어록가공원,도어록가공원,,unmapped,job_info_rows,TRUE,,
+ja_0534,래핑기조작원,래핑기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0535,레이디얼드릴링기조작원,레이디얼드릴링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0536,롤연마원,롤연마원,,unmapped,job_info_rows,TRUE,,
+ja_0537,루터조작원,루터조작원,,unmapped,job_info_rows,TRUE,,
+ja_0538,모방밀링조작원,모방밀링조작원,,unmapped,job_info_rows,TRUE,,
+ja_0539,밀링기조작원,밀링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0540,반도체칩절단원,반도체칩절단원,,unmapped,job_info_rows,TRUE,,
+ja_0541,반도체후면연마원,반도체후면연마원,,unmapped,job_info_rows,TRUE,,
+ja_0542,브로칭기조작원,브로칭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0543,사상반장,사상반장,,unmapped,job_info_rows,TRUE,,
+ja_0544,석고주형원,석고주형원,,unmapped,job_info_rows,TRUE,,
+ja_0545,선반원,선반원,,unmapped,job_info_rows,TRUE,,
+ja_0546,센터리스연삭기조작원,센터리스연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0547,셰이퍼조작원,셰이퍼조작원,,unmapped,job_info_rows,TRUE,,
+ja_0548,수직선반조작원,수직선반조작원,,unmapped,job_info_rows,TRUE,,
+ja_0549,수치제어드릴링기조작원,수치제어드릴링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0550,수치제어밀링기조작원,수치제어밀링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0551,수치제어보링기조작원,수치제어보링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0552,수치제어선반조작원,수치제어선반조작원,,unmapped,job_info_rows,TRUE,,
+ja_0553,수치제어프레스조작원,수치제어프레스조작원,,unmapped,job_info_rows,TRUE,,
+ja_0554,스크레이핑원,스크레이핑원,,unmapped,job_info_rows,TRUE,,
+ja_0555,스트레치포밍기조작원,스트레치포밍기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0556,스파이럴강관조관원,스파이럴강관조관원,,unmapped,job_info_rows,TRUE,,
+ja_0557,슬로터조작원,슬로터조작원,,unmapped,job_info_rows,TRUE,,
+ja_0558,액압프레스조작원,액압프레스조작원,,unmapped,job_info_rows,TRUE,,
+ja_0559,연마기조작원,연마기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0560,연삭원,연삭원,,unmapped,job_info_rows,TRUE,,
+ja_0561,원통연마원,원통연마원,,unmapped,job_info_rows,TRUE,,
+ja_0562,원통연삭기조작원,원통연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0563,자동선반조작원,자동선반조작원,,unmapped,job_info_rows,TRUE,,
+ja_0564,전용기계조작원,전용기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0565,절곡기조작원,절곡기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0566,조형원<기계>,조형원_기계,,unmapped,job_info_rows,TRUE,,
+ja_0567,주물사제조원,주물사제조원,,unmapped,job_info_rows,TRUE,,
+ja_0568,줄날성형원,줄날성형원,,unmapped,job_info_rows,TRUE,,
+ja_0569,중자제조원,중자제조원,,unmapped,job_info_rows,TRUE,,
+ja_0570,태핑기조작원,태핑기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0571,터릿선반조작원,터릿선반조작원,,unmapped,job_info_rows,TRUE,,
+ja_0572,트랜스퍼기계조작원,트랜스퍼기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0573,편심연마원,편심연마원,,unmapped,job_info_rows,TRUE,,
+ja_0574,평면연삭기조작원,평면연삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0575,평삭기조작원,평삭기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0576,프레스반장,프레스반장,,unmapped,job_info_rows,TRUE,,
+ja_0577,호닝기조작원,호닝기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0578,드릴링기조작원,드릴링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0579,머시닝센터조작원,머시닝센터조작원,,unmapped,job_info_rows,TRUE,,
+ja_0580,방전가공기조작원,방전가공기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0581,선반조작원,선반조작원,,unmapped,job_info_rows,TRUE,,
+ja_0582,보링기조작원,보링기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0583,와이어커팅기조작원,와이어커팅기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0584,굴진부,굴진부,,unmapped,job_info_rows,TRUE,,
+ja_0585,광산기계조작원,광산기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0586,궤도공,궤도공,,unmapped,job_info_rows,TRUE,,
+ja_0587,기전공,기전공,,unmapped,job_info_rows,TRUE,,
+ja_0588,화약취급원,화약취급원,,unmapped,job_info_rows,TRUE,,
+ja_0589,선탄작업원,선탄작업원,,unmapped,job_info_rows,TRUE,,
+ja_0590,배관공,배관공,,unmapped,job_info_rows,TRUE,,
+ja_0591,구두수선공,구두수선공,,unmapped,job_info_rows,TRUE,,
+ja_0592,구두 제조·수선원,구두_제조_수선원,,unmapped,job_info_rows,TRUE,,
+ja_0593,가죽혁대 제조·수리원,가죽혁대_제조_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0594,구두골 수선원,구두골_수선원,,unmapped,job_info_rows,TRUE,,
+ja_0595,가죽가방 제조·수선원,가죽가방_제조_수선원,,unmapped,job_info_rows,TRUE,,
+ja_0596,고온고산용해원,고온고산용해원,,unmapped,job_info_rows,TRUE,,
+ja_0597,레이들원,레이들원,,unmapped,job_info_rows,TRUE,,
+ja_0598,용강주입보조원,용강주입보조원,,unmapped,job_info_rows,TRUE,,
+ja_0599,용강주입원,용강주입원,,unmapped,job_info_rows,TRUE,,
+ja_0600,용선로반장,용선로반장,,unmapped,job_info_rows,TRUE,,
+ja_0601,용압반장,용압반장,,unmapped,job_info_rows,TRUE,,
+ja_0602,유도로반장,유도로반장,,unmapped,job_info_rows,TRUE,,
+ja_0603,유도로조작원,유도로조작원,,unmapped,job_info_rows,TRUE,,
+ja_0604,이형관조형원,이형관조형원,,unmapped,job_info_rows,TRUE,,
+ja_0605,조산반장,조산반장,,unmapped,job_info_rows,TRUE,,
+ja_0606,고주파열처리원,고주파열처리원,,unmapped,job_info_rows,TRUE,,
+ja_0607,담금질원,담금질원,,unmapped,job_info_rows,TRUE,,
+ja_0608,뜨임원,뜨임원,,unmapped,job_info_rows,TRUE,,
+ja_0609,불림원,불림원,,unmapped,job_info_rows,TRUE,,
+ja_0610,소결원,소결원,,unmapped,job_info_rows,TRUE,,
+ja_0611,소결제어실운전원,소결제어실운전원,,unmapped,job_info_rows,TRUE,,
+ja_0612,시계경화원,시계경화원,,unmapped,job_info_rows,TRUE,,
+ja_0613,열처리반장,열처리반장,,unmapped,job_info_rows,TRUE,,
+ja_0614,열처리원,열처리원,,unmapped,job_info_rows,TRUE,,
+ja_0615,유도코일제작원,유도코일제작원,,unmapped,job_info_rows,TRUE,,
+ja_0616,질화처리원,질화처리원,,unmapped,job_info_rows,TRUE,,
+ja_0617,침탄담금질원,침탄담금질원,,unmapped,job_info_rows,TRUE,,
+ja_0618,풀림원,풀림원,,unmapped,job_info_rows,TRUE,,
+ja_0619,신선기조작원,신선기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0620,신선반장,신선반장,,unmapped,job_info_rows,TRUE,,
+ja_0621,인발기조작원,인발기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0622,조관기조작원,조관기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0623,코일연결원,코일연결원,,unmapped,job_info_rows,TRUE,,
+ja_0624,금형제조원,금형제조원,,unmapped,job_info_rows,TRUE,,
+ja_0625,기계공학자,기계공학자,,unmapped,job_info_rows,TRUE,,
+ja_0626,기능성 섬유 연구원,기능성_섬유_연구원,,unmapped,job_info_rows,TRUE,,
+ja_0627,섬유소재개발기술자,섬유소재개발기술자,,unmapped,job_info_rows,TRUE,,
+ja_0628,염색공정개발기술자,염색공정개발기술자,,unmapped,job_info_rows,TRUE,,
+ja_0629,섬유공정개발기술자,섬유공정개발기술자,,unmapped,job_info_rows,TRUE,,
+ja_0630,염료개발기술자,염료개발기술자,,unmapped,job_info_rows,TRUE,,
+ja_0631,공조냉동기조작원,공조냉동기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0632,냉동기조작원,냉동기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0633,공기조화기 조작원,공기조화기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0634,냉동기조작공,냉동기조작공,,unmapped,job_info_rows,TRUE,,
+ja_0635,동시녹음기사,동시녹음기사,,unmapped,job_info_rows,TRUE,,
+ja_0636,음반녹음기사,음반녹음기사,,unmapped,job_info_rows,TRUE,,
+ja_0637,테이프 녹음기사,테이프_녹음기사,,unmapped,job_info_rows,TRUE,,
+ja_0638,더빙기사,더빙기사,,unmapped,job_info_rows,TRUE,,
+ja_0639,대기환경전문가,대기환경전문가,,unmapped,job_info_rows,TRUE,,
+ja_0640,도배공,도배공,,unmapped,job_info_rows,TRUE,,
+ja_0641,도공,도공,,unmapped,job_info_rows,TRUE,,
+ja_0642,페인트공,페인트공,,unmapped,job_info_rows,TRUE,,
+ja_0643,도장공,도장공,,unmapped,job_info_rows,TRUE,,
+ja_0644,대목공,대목공,,unmapped,job_info_rows,TRUE,,
+ja_0645,한식목공,한식목공,,unmapped,job_info_rows,TRUE,,
+ja_0646,형틀목공,형틀목공,,unmapped,job_info_rows,TRUE,,
+ja_0647,내장목공,내장목공,,unmapped,job_info_rows,TRUE,,
+ja_0648,창호목공,창호목공,,unmapped,job_info_rows,TRUE,,
+ja_0649,목재가공장치 운전원,목재가공장치_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0650,제재가공장치 운전원,제재가공장치_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0651,제재기 조작원,제재기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0652,단판전조기 조작원,단판전조기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0653,단판성형기 운전원,단판성형기_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0654,둥근톱 조작원,둥근톱_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0655,합판심삽입기 조작원,합판심삽입기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0656,베니어압착기 조작원,베니어압착기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0657,합판압착기 조작원,합판압착기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0658,박피기 조작원,박피기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0659,미장공,미장공,,unmapped,job_info_rows,TRUE,,
+ja_0660,방수공,방수공,,unmapped,job_info_rows,TRUE,,
+ja_0661,방적원,방적원,,unmapped,job_info_rows,TRUE,,
+ja_0662,래핑원,래핑원,,unmapped,job_info_rows,TRUE,,
+ja_0663,소면틀보기원,소면틀보기원,,unmapped,job_info_rows,TRUE,,
+ja_0664,합사기 조작원,합사기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0665,방사원,방사원,,unmapped,job_info_rows,TRUE,,
+ja_0666,섬유혼합기 조작원,섬유혼합기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0667,연사기 운전원,연사기_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0668,정방틀보기원,정방틀보기원,,unmapped,job_info_rows,TRUE,,
+ja_0669,권사기 조작원,권사기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0670,건축배관공,건축배관공,,unmapped,job_info_rows,TRUE,,
+ja_0671,공업배관공,공업배관공,,unmapped,job_info_rows,TRUE,,
+ja_0672,벽돌공,벽돌공,,unmapped,job_info_rows,TRUE,,
+ja_0673,중장비기사,중장비기사,,unmapped,job_info_rows,TRUE,,
+ja_0674,비파괴검사기술자,비파괴검사기술자,job_0040,auto_keyword,job_info_rows,TRUE,0.9300,비파괴검사
+ja_0675,생산관리기술자,생산관리기술자,job_0036,auto_keyword,job_info_rows,TRUE,0.9300,생산관리
+ja_0676,OR(operation research) 전문가,or_operation_research_전문가,,unmapped,job_info_rows,TRUE,,
+ja_0677,공장관리기술자,공장관리기술자,,unmapped,job_info_rows,TRUE,,
+ja_0678,물류전문가,물류전문가,,unmapped,job_info_rows,TRUE,,
+ja_0679,경영정보시스템전문가,경영정보시스템전문가,,unmapped,job_info_rows,TRUE,,
+ja_0680,인간공학자,인간공학자,,unmapped,job_info_rows,TRUE,,
+ja_0681,품질관리기술자,품질관리기술자,job_0039,auto_keyword,job_info_rows,TRUE,0.9300,품질관리
+ja_0682,산업안전기술자,산업안전기술자,job_0041,auto_keyword,job_info_rows,TRUE,0.9300,산업안전관리
+ja_0683,상하수처리설비 운전원,상하수처리설비_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0684,상수처리설비운전원,상수처리설비운전원,,unmapped,job_info_rows,TRUE,,
+ja_0685,하수처리설비운전원,하수처리설비운전원,,unmapped,job_info_rows,TRUE,,
+ja_0686,폐수처리설비운전원,폐수처리설비운전원,,unmapped,job_info_rows,TRUE,,
+ja_0687,생명공학기술자,생명공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_0688,생물공학기술자,생물공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_0689,석유정제원,석유정제원,,unmapped,job_info_rows,TRUE,,
+ja_0690,석유및천연가스제조 관련 제어장치 조작원,석유및천연가스제조_관련_제어장치_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0691,계기판 조작원,계기판_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0692,보드 운전원,보드_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0693,정유장치보드 운전원,정유장치보드_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0694,정유장치제어판 운전원,정유장치제어판_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0695,제어판 조작원,제어판_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0696,조정실장치 원전원,조정실장치_원전원,,unmapped,job_info_rows,TRUE,,
+ja_0697,조정판 조작원,조정판_조작원,,unmapped,job_info_rows,TRUE,,
+ja_0698,선박건조기술자,선박건조기술자,,unmapped,job_info_rows,TRUE,,
+ja_0699,선박기계장치기술자,선박기계장치기술자,,unmapped,job_info_rows,TRUE,,
+ja_0700,선박전기기술자,선박전기기술자,,unmapped,job_info_rows,TRUE,,
+ja_0701,선박기술자,선박기술자,,unmapped,job_info_rows,TRUE,,
+ja_0702,선박엔진조립공,선박엔진조립공,,unmapped,job_info_rows,TRUE,,
+ja_0703,선박엔진기계공,선박엔진기계공,,unmapped,job_info_rows,TRUE,,
+ja_0704,시멘트제조기술자,시멘트제조기술자,,unmapped,job_info_rows,TRUE,,
+ja_0705,인공지능전문가,인공지능전문가,,unmapped,job_info_rows,TRUE,,
+ja_0706,강판압연원,강판압연원,,unmapped,job_info_rows,TRUE,,
+ja_0707,냉각압연반장,냉각압연반장,,unmapped,job_info_rows,TRUE,,
+ja_0708,냉간압연원,냉간압연원,,unmapped,job_info_rows,TRUE,,
+ja_0709,냉간압연입측원,냉간압연입측원,,unmapped,job_info_rows,TRUE,,
+ja_0710,냉간압연출측원,냉간압연출측원,,unmapped,job_info_rows,TRUE,,
+ja_0711,분괴압연원,분괴압연원,,unmapped,job_info_rows,TRUE,,
+ja_0712,사상압연원,사상압연원,,unmapped,job_info_rows,TRUE,,
+ja_0713,선재압연원,선재압연원,,unmapped,job_info_rows,TRUE,,
+ja_0714,열간압연반장,열간압연반장,,unmapped,job_info_rows,TRUE,,
+ja_0715,열간압연보조원,열간압연보조원,,unmapped,job_info_rows,TRUE,,
+ja_0716,열간압연원,열간압연원,,unmapped,job_info_rows,TRUE,,
+ja_0717,조압연원,조압연원,,unmapped,job_info_rows,TRUE,,
+ja_0718,핀치롤운전원,핀치롤운전원,,unmapped,job_info_rows,TRUE,,
+ja_0719,후판압연원,후판압연원,,unmapped,job_info_rows,TRUE,,
+ja_0720,용접공,용접공,,unmapped,job_info_rows,TRUE,,
+ja_0721,원자력공학기술자,원자력공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_0722,인공위성연구원,인공위성연구원,,unmapped,job_info_rows,TRUE,,
+ja_0723,인쇄 및 출판작업원,인쇄_및_출판작업원,,unmapped,job_info_rows,TRUE,,
+ja_0724,사진식자원,사진식자원,,unmapped,job_info_rows,TRUE,,
+ja_0725,자동스크린날염기운전원,자동스크린날염기운전원,,unmapped,job_info_rows,TRUE,,
+ja_0726,코팅기조작원,코팅기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0727,인쇄기조작반장,인쇄기조작반장,,unmapped,job_info_rows,TRUE,,
+ja_0728,활판인쇄기조작원,활판인쇄기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0729,스크린인쇄기조작원,스크린인쇄기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0730,윤전기조작원,윤전기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0731,제본원,제본원,,unmapped,job_info_rows,TRUE,,
+ja_0732,제본기조작원,제본기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0733,금박인쇄원,금박인쇄원,,unmapped,job_info_rows,TRUE,,
+ja_0734,재료공학자,재료공학자,,unmapped,job_info_rows,TRUE,,
+ja_0735,전기공,전기공,,unmapped,job_info_rows,TRUE,,
+ja_0736,전기감리기술자,전기감리기술자,,unmapped,job_info_rows,TRUE,,
+ja_0737,전기설계기술자,전기설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_0738,계장기술자,계장기술자,,unmapped,job_info_rows,TRUE,,
+ja_0739,전기안전관리자,전기안전관리자,,unmapped,job_info_rows,TRUE,,
+ja_0740,발전설비기술자,발전설비기술자,,unmapped,job_info_rows,TRUE,,
+ja_0741,전자공학 기술자,전자공학_기술자,,unmapped,job_info_rows,TRUE,,
+ja_0742,반도체 공학 기술자,반도체_공학_기술자,,unmapped,job_info_rows,TRUE,,
+ja_0743,전자제어계측 기술자,전자제어계측_기술자,,unmapped,job_info_rows,TRUE,,
+ja_0744,가전제품 개발자,가전제품_개발자,,unmapped,job_info_rows,TRUE,,
+ja_0745,전화기수리설치원,전화기수리설치원,,unmapped,job_info_rows,TRUE,,
+ja_0746,무브먼트조립반장,무브먼트조립반장,,unmapped,job_info_rows,TRUE,,
+ja_0747,보철기제조원,보철기제조원,,unmapped,job_info_rows,TRUE,,
+ja_0748,시계검사반장,시계검사반장,,unmapped,job_info_rows,TRUE,,
+ja_0749,시계검사원,시계검사원,,unmapped,job_info_rows,TRUE,,
+ja_0750,시계수리원,시계수리원,,unmapped,job_info_rows,TRUE,,
+ja_0751,시계조립반장,시계조립반장,,unmapped,job_info_rows,TRUE,,
+ja_0752,안경렌즈부착원,안경렌즈부착원,,unmapped,job_info_rows,TRUE,,
+ja_0753,의료영상진단기기제조반장,의료영상진단기기제조반장,,unmapped,job_info_rows,TRUE,,
+ja_0754,의치모형제작원,의치모형제작원,,unmapped,job_info_rows,TRUE,,
+ja_0755,콘텍트렌즈성형원,콘텍트렌즈성형원,,unmapped,job_info_rows,TRUE,,
+ja_0756,광학용품검사원,광학용품검사원,,unmapped,job_info_rows,TRUE,,
+ja_0757,건축제도사,건축제도사,,unmapped,job_info_rows,TRUE,,
+ja_0758,토목제도사,토목제도사,,unmapped,job_info_rows,TRUE,,
+ja_0759,기계제도사,기계제도사,,unmapped,job_info_rows,TRUE,,
+ja_0760,전기제도사,전기제도사,,unmapped,job_info_rows,TRUE,,
+ja_0761,전자제도사,전자제도사,,unmapped,job_info_rows,TRUE,,
+ja_0762,광산제도사,광산제도사,,unmapped,job_info_rows,TRUE,,
+ja_0763,특허제도사,특허제도사,,unmapped,job_info_rows,TRUE,,
+ja_0764,주조제도사,주조제도사,,unmapped,job_info_rows,TRUE,,
+ja_0765,제도사,제도사,,unmapped,job_info_rows,TRUE,,
+ja_0766,제조업 단순노무자,제조업_단순노무자,,unmapped,job_info_rows,TRUE,,
+ja_0767,단순조립노무자,단순조립노무자,,unmapped,job_info_rows,TRUE,,
+ja_0768,포장원,포장원,,unmapped,job_info_rows,TRUE,,
+ja_0769,물품운반원,물품운반원,,unmapped,job_info_rows,TRUE,,
+ja_0770,금괴주조원,금괴주조원,,unmapped,job_info_rows,TRUE,,
+ja_0771,금양극판주조원,금양극판주조원,,unmapped,job_info_rows,TRUE,,
+ja_0772,비철주조원,비철주조원,,unmapped,job_info_rows,TRUE,,
+ja_0773,연속주조보조원,연속주조보조원,,unmapped,job_info_rows,TRUE,,
+ja_0774,연속주조원,연속주조원,,unmapped,job_info_rows,TRUE,,
+ja_0775,연속주조제어실운전원,연속주조제어실운전원,,unmapped,job_info_rows,TRUE,,
+ja_0776,원심주조기조작원,원심주조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0777,은괴주조원,은괴주조원,,unmapped,job_info_rows,TRUE,,
+ja_0778,조괴원,조괴원,,unmapped,job_info_rows,TRUE,,
+ja_0779,조동주조원,조동주조원,,unmapped,job_info_rows,TRUE,,
+ja_0780,주물주조원,주물주조원,,unmapped,job_info_rows,TRUE,,
+ja_0781,주선원,주선원,,unmapped,job_info_rows,TRUE,,
+ja_0782,주조기조작보조원,주조기조작보조원,,unmapped,job_info_rows,TRUE,,
+ja_0783,방직원,방직원,,unmapped,job_info_rows,TRUE,,
+ja_0784,편직기조작원,편직기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0785,망(그물)제조기조작원,망_그물_제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0786,통경기조작원,통경기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0787,철근콘크리트공,철근콘크리트공,,unmapped,job_info_rows,TRUE,,
+ja_0788,철근공,철근공,,unmapped,job_info_rows,TRUE,,
+ja_0789,철도기관사,철도기관사,,unmapped,job_info_rows,TRUE,,
+ja_0790,철도차장,철도차장,,unmapped,job_info_rows,TRUE,,
+ja_0791,철도검수원,철도검수원,,unmapped,job_info_rows,TRUE,,
+ja_0792,지하철철도차량정비원,지하철철도차량정비원,,unmapped,job_info_rows,TRUE,,
+ja_0793,토목기술자,토목기술자,,unmapped,job_info_rows,TRUE,,
+ja_0794,광통신연구원,광통신연구원,,unmapped,job_info_rows,TRUE,,
+ja_0795,선로설비설계원,선로설비설계원,,unmapped,job_info_rows,TRUE,,
+ja_0796,통신기기개발자,통신기기개발자,,unmapped,job_info_rows,TRUE,,
+ja_0797,이동통신기술연구원,이동통신기술연구원,,unmapped,job_info_rows,TRUE,,
+ja_0798,영상통신연구원,영상통신연구원,,unmapped,job_info_rows,TRUE,,
+ja_0799,디지털교환설비 연구원,디지털교환설비_연구원,,unmapped,job_info_rows,TRUE,,
+ja_0800,휴대전화회로 개발원,휴대전화회로_개발원,,unmapped,job_info_rows,TRUE,,
+ja_0801,무선전화기 개발원,무선전화기_개발원,,unmapped,job_info_rows,TRUE,,
+ja_0802,모뎀개발 설계기술자,모뎀개발_설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_0803,디지털수신기 개발원,디지털수신기_개발원,,unmapped,job_info_rows,TRUE,,
+ja_0804,인공위성TV수신기 개발？설계 기술자,인공위성tv수신기_개발_설계_기술자,,unmapped,job_info_rows,TRUE,,
+ja_0805,인터폰 및 전화기 개발자,인터폰_및_전화기_개발자,,unmapped,job_info_rows,TRUE,,
+ja_0806,통신선접속원,통신선접속원,,unmapped,job_info_rows,TRUE,,
+ja_0807,통신케이블설치원,통신케이블설치원,,unmapped,job_info_rows,TRUE,,
+ja_0808,인터넷통신선설치원,인터넷통신선설치원,,unmapped,job_info_rows,TRUE,,
+ja_0809,케이블방송선로설치원,케이블방송선로설치원,,unmapped,job_info_rows,TRUE,,
+ja_0810,인터넷통신선수리원,인터넷통신선수리원,,unmapped,job_info_rows,TRUE,,
+ja_0811,케이블방송선로수리원,케이블방송선로수리원,,unmapped,job_info_rows,TRUE,,
+ja_0812,인터넷설치원,인터넷설치원,,unmapped,job_info_rows,TRUE,,
+ja_0813,통신장비설비원,통신장비설비원,,unmapped,job_info_rows,TRUE,,
+ja_0814,유선통신장비 설치 및 수리원,유선통신장비_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0815,무선통신장비 설치 및 수리원,무선통신장비_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0816,전화 설치 및 수리원,전화_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0817,통신위성장비 설치 및 수리원,통신위성장비_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0818,레이더 설치 및 수리원,레이더_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0819,네트워크 장비 설치 및 수리원,네트워크_장비_설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_0820,화물트럭운전사,화물트럭운전사,,unmapped,job_info_rows,TRUE,,
+ja_0821,트럭운전사,트럭운전사,,unmapped,job_info_rows,TRUE,,
+ja_0822,금속창호설치원,금속창호설치원,,unmapped,job_info_rows,TRUE,,
+ja_0823,대차프레임제작반장,대차프레임제작반장,,unmapped,job_info_rows,TRUE,,
+ja_0824,보일러제작원,보일러제작원,,unmapped,job_info_rows,TRUE,,
+ja_0825,제관반장,제관반장,,unmapped,job_info_rows,TRUE,,
+ja_0826,차체제작반장,차체제작반장,,unmapped,job_info_rows,TRUE,,
+ja_0827,차체판금원,차체판금원,,unmapped,job_info_rows,TRUE,,
+ja_0828,창호제작반장,창호제작반장,,unmapped,job_info_rows,TRUE,,
+ja_0829,창호제작원,창호제작원,,unmapped,job_info_rows,TRUE,,
+ja_0830,보일러설치원,보일러설치원,,unmapped,job_info_rows,TRUE,,
+ja_0831,판금공,판금공,,unmapped,job_info_rows,TRUE,,
+ja_0832,자동차판금원,자동차판금원,,unmapped,job_info_rows,TRUE,,
+ja_0833,항공기판금원,항공기판금원,,unmapped,job_info_rows,TRUE,,
+ja_0834,제지설비 운전원,제지설비_운전원,,unmapped,job_info_rows,TRUE,,
+ja_0835,건조기조작원,건조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0836,고해기조작원,고해기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0837,골판지제조원,골판지제조원,,unmapped,job_info_rows,TRUE,,
+ja_0838,닥피증해원,닥피증해원,,unmapped,job_info_rows,TRUE,,
+ja_0839,닥피표백원,닥피표백원,,unmapped,job_info_rows,TRUE,,
+ja_0840,리와인더조작보조원,리와인더조작보조원,,unmapped,job_info_rows,TRUE,,
+ja_0841,리와인더조작원,리와인더조작원,,unmapped,job_info_rows,TRUE,,
+ja_0842,비터기조작원,비터기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0843,석회소성로조작원,석회소성로조작원,,unmapped,job_info_rows,TRUE,,
+ja_0844,솔질원,솔질원,,unmapped,job_info_rows,TRUE,,
+ja_0845,압착탈수원,압착탈수원,,unmapped,job_info_rows,TRUE,,
+ja_0846,와이어조작원,와이어조작원,,unmapped,job_info_rows,TRUE,,
+ja_0847,원료투입원,원료투입원,,unmapped,job_info_rows,TRUE,,
+ja_0848,재단기조작원,재단기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0849,절단원,절단원,,unmapped,job_info_rows,TRUE,,
+ja_0850,정선기조작원,정선기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0851,제호설비조작원,제호설비조작원,,unmapped,job_info_rows,TRUE,,
+ja_0852,조약원,조약원,,unmapped,job_info_rows,TRUE,,
+ja_0853,캘린더조작원,캘린더조작원,,unmapped,job_info_rows,TRUE,,
+ja_0854,탈묵기조작원,탈묵기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0855,프레스기조작원,프레스기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0856,해리기운전원,해리기운전원,,unmapped,job_info_rows,TRUE,,
+ja_0857,쇄목기조작원,쇄목기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0858,농축기조작원,농축기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0859,엠보싱기조작원,엠보싱기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0860,펄프다이제스터조작원,펄프다이제스터조작원,,unmapped,job_info_rows,TRUE,,
+ja_0861,종이건조기조작원,종이건조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0862,폐기물처리연구원,폐기물처리연구원,,unmapped,job_info_rows,TRUE,,
+ja_0863,사업장폐기물관리자,사업장폐기물관리자,,unmapped,job_info_rows,TRUE,,
+ja_0864,경화성수지성형기조작원,경화성수지성형기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0865,사출성형기조작원,사출성형기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0866,장난감모델제조원,장난감모델제조원,,unmapped,job_info_rows,TRUE,,
+ja_0867,진공성형기조작원,진공성형기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0868,플라스틱제품제조반장,플라스틱제품제조반장,,unmapped,job_info_rows,TRUE,,
+ja_0869,제트엔진수리원,제트엔진수리원,,unmapped,job_info_rows,TRUE,,
+ja_0870,항공기계기정비원,항공기계기정비원,,unmapped,job_info_rows,TRUE,,
+ja_0871,항공기기체정비검사원,항공기기체정비검사원,,unmapped,job_info_rows,TRUE,,
+ja_0872,항공기동체정비원,항공기동체정비원,,unmapped,job_info_rows,TRUE,,
+ja_0873,항공기보조기계정비원,항공기보조기계정비원,job_0035,auto_keyword,job_info_rows,TRUE,0.9300,기계정비
+ja_0874,항공기부속품기계원,항공기부속품기계원,,unmapped,job_info_rows,TRUE,,
+ja_0875,항공기정비사,항공기정비사,,unmapped,job_info_rows,TRUE,,
+ja_0876,항공기조종사,항공기조종사,,unmapped,job_info_rows,TRUE,,
+ja_0877,검열조종사,검열조종사,,unmapped,job_info_rows,TRUE,,
+ja_0878,기장,기장,,unmapped,job_info_rows,TRUE,,
+ja_0879,부조종사,부조종사,,unmapped,job_info_rows,TRUE,,
+ja_0880,시험조종사,시험조종사,,unmapped,job_info_rows,TRUE,,
+ja_0881,화학장치운전원,화학장치운전원,,unmapped,job_info_rows,TRUE,,
+ja_0882,화학제품생산기조작원,화학제품생산기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0883,분말세제제조원,분말세제제조원,,unmapped,job_info_rows,TRUE,,
+ja_0884,불꽃제품용기기계조작원,불꽃제품용기기계조작원,,unmapped,job_info_rows,TRUE,,
+ja_0885,접착제제조기조작원,접착제제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0886,페인트제조기조작원,페인트제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0887,약제품생산기조작원,약제품생산기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0888,양초제조기조작원,양초제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_0889,타일공,타일공,,unmapped,job_info_rows,TRUE,,
+ja_0890,반도체설계기술자,반도체설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_0891,가구제작원,가구제작원,,unmapped,job_info_rows,TRUE,,
+ja_0892,가구목공,가구목공,,unmapped,job_info_rows,TRUE,,
+ja_0893,가정용·사무용 가구수리원,가정용_사무용_가구수리원,,unmapped,job_info_rows,TRUE,,
+ja_0894,가구제조원,가구제조원,,unmapped,job_info_rows,TRUE,,
+ja_0895,가구용목재조각원,가구용목재조각원,,unmapped,job_info_rows,TRUE,,
 ja_0896,"목제통 및
-상자 제조원",목제통_및_상자_제조원,,unmapped,job_info_rows,TRUE
-ja_0897,김치 및 절임 식품 제조원,김치_및_절임_식품_제조원,,unmapped,job_info_rows,TRUE
-ja_0898,가공식품개발연구원,가공식품개발연구원,,unmapped,job_info_rows,TRUE
-ja_0899,식품소재개발연구원,식품소재개발연구원,,unmapped,job_info_rows,TRUE
-ja_0900,제면식품연구원,제면식품연구원,,unmapped,job_info_rows,TRUE
-ja_0901,발효식품연구원,발효식품연구원,,unmapped,job_info_rows,TRUE
-ja_0902,김치연구원,김치연구원,,unmapped,job_info_rows,TRUE
-ja_0903,레토르트식품연구원,레토르트식품연구원,,unmapped,job_info_rows,TRUE
-ja_0904,떡연구원,떡연구원,,unmapped,job_info_rows,TRUE
-ja_0905,도축사 및 육류가공원,도축사_및_육류가공원,,unmapped,job_info_rows,TRUE
-ja_0906,정육가공원,정육가공원,,unmapped,job_info_rows,TRUE
-ja_0907,도살원,도살원,,unmapped,job_info_rows,TRUE
-ja_0908,분골원,분골원,,unmapped,job_info_rows,TRUE
-ja_0909,축가공기술자,축가공기술자,,unmapped,job_info_rows,TRUE
-ja_0910,도축원,도축원,,unmapped,job_info_rows,TRUE
-ja_0911,맞춤양복사,맞춤양복사,,unmapped,job_info_rows,TRUE
-ja_0912,주문양복사,주문양복사,,unmapped,job_info_rows,TRUE
-ja_0913,양장사,양장사,,unmapped,job_info_rows,TRUE
-ja_0914,맞춤양장사,맞춤양장사,,unmapped,job_info_rows,TRUE
-ja_0915,양복사,양복사,,unmapped,job_info_rows,TRUE
-ja_0916,모니터,모니터,,unmapped,job_info_rows,TRUE
-ja_0917,와인캡틴,와인캡틴,,unmapped,job_info_rows,TRUE
-ja_0918,와인웨이터,와인웨이터,,unmapped,job_info_rows,TRUE
-ja_0919,제과제빵사,제과제빵사,,unmapped,job_info_rows,TRUE
-ja_0920,요리사,요리사,,unmapped,job_info_rows,TRUE
-ja_0921,축산인,축산인,,unmapped,job_info_rows,TRUE
-ja_0922,낙농장종사원,낙농장종사원,,unmapped,job_info_rows,TRUE
-ja_0923,육우사육사,육우사육사,,unmapped,job_info_rows,TRUE
-ja_0924,동물사육사,동물사육사,,unmapped,job_info_rows,TRUE
-ja_0925,축산업자,축산업자,,unmapped,job_info_rows,TRUE
-ja_0926,낙농업자,낙농업자,,unmapped,job_info_rows,TRUE
-ja_0927,목축업자,목축업자,,unmapped,job_info_rows,TRUE
-ja_0928,양돈업자,양돈업자,,unmapped,job_info_rows,TRUE
-ja_0929,동물부화자,동물부화자,,unmapped,job_info_rows,TRUE
-ja_0930,한복기능사,한복기능사,,unmapped,job_info_rows,TRUE
-ja_0931,한복제조원,한복제조원,,unmapped,job_info_rows,TRUE
-ja_0932,수의 제조원,수의_제조원,,unmapped,job_info_rows,TRUE
-ja_0933,개량한복 제조원,개량한복_제조원,,unmapped,job_info_rows,TRUE
-ja_0934,승복 제조원,승복_제조원,,unmapped,job_info_rows,TRUE
-ja_0935,한복 수선원,한복_수선원,,unmapped,job_info_rows,TRUE
-ja_0936,일등항해사,일등항해사,,unmapped,job_info_rows,TRUE
-ja_0937,이등항해사,이등항해사,,unmapped,job_info_rows,TRUE
-ja_0938,푸드코디네이터,푸드코디네이터,,unmapped,job_info_rows,TRUE
-ja_0939,테이블코디네이터,테이블코디네이터,,unmapped,job_info_rows,TRUE
-ja_0940,테이블아티스트,테이블아티스트,,unmapped,job_info_rows,TRUE
-ja_0941,테이블데코레이터,테이블데코레이터,,unmapped,job_info_rows,TRUE
-ja_0942,쇼호스트,쇼호스트,,unmapped,job_info_rows,TRUE
-ja_0943,다이어트메이트,다이어트메이트,,unmapped,job_info_rows,TRUE
-ja_0944,다이어트컨설턴트,다이어트컨설턴트,,unmapped,job_info_rows,TRUE
-ja_0945,농림어업 시험원,농림어업_시험원,,unmapped,job_info_rows,TRUE
-ja_0946,농촌지도사,농촌지도사,,unmapped,job_info_rows,TRUE
-ja_0947,농업인,농업인,,unmapped,job_info_rows,TRUE
-ja_0948,전답작물재배자,전답작물재배자,,unmapped,job_info_rows,TRUE
-ja_0949,원예재배자,원예재배자,,unmapped,job_info_rows,TRUE
-ja_0950,특용작물재배자,특용작물재배자,,unmapped,job_info_rows,TRUE
-ja_0951,육묘 및 종묘재배자,육묘_및_종묘재배자,,unmapped,job_info_rows,TRUE
-ja_0952,임산기능인,임산기능인,,unmapped,job_info_rows,TRUE
-ja_0953,양봉인,양봉인,,unmapped,job_info_rows,TRUE
-ja_0954,양잠인,양잠인,,unmapped,job_info_rows,TRUE
-ja_0955,분재재배종사원,분재재배종사원,,unmapped,job_info_rows,TRUE
-ja_0956,조경시공관리자,조경시공관리자,,unmapped,job_info_rows,TRUE
-ja_0957,정원사,정원사,,unmapped,job_info_rows,TRUE
-ja_0958,수산양식자,수산양식자,137,auto_partial,job_info_rows,TRUE
-ja_0959,패류양식업자,패류양식업자,,unmapped,job_info_rows,TRUE
-ja_0960,어류양식업자,어류양식업자,,unmapped,job_info_rows,TRUE
-ja_0961,해조류양식업자,해조류양식업자,,unmapped,job_info_rows,TRUE
-ja_0962,내수면양식업자,내수면양식업자,,unmapped,job_info_rows,TRUE
-ja_0963,어업근로자,어업근로자,,unmapped,job_info_rows,TRUE
-ja_0964,선원,선원,,unmapped,job_info_rows,TRUE
-ja_0965,조경사,조경사,,unmapped,job_info_rows,TRUE
-ja_0966,조경공,조경공,,unmapped,job_info_rows,TRUE
-ja_0967,해양물리기술자,해양물리기술자,,unmapped,job_info_rows,TRUE
-ja_0968,해양화학기술자,해양화학기술자,,unmapped,job_info_rows,TRUE
-ja_0969,해양생물기술자,해양생물기술자,,unmapped,job_info_rows,TRUE
-ja_0970,해양지질기술자,해양지질기술자,,unmapped,job_info_rows,TRUE
-ja_0971,해양자원개발기술자,해양자원개발기술자,,unmapped,job_info_rows,TRUE
-ja_0972,수산기술자,수산기술자,,unmapped,job_info_rows,TRUE
-ja_0973,문서감정사,문서감정사,,unmapped,job_info_rows,TRUE
-ja_0974,문화재감정사,문화재감정사,,unmapped,job_info_rows,TRUE
-ja_0975,미술품감정사,미술품감정사,,unmapped,job_info_rows,TRUE
-ja_0976,위폐감정사,위폐감정사,,unmapped,job_info_rows,TRUE
-ja_0977,경매사,경매사,,unmapped,job_info_rows,TRUE
-ja_0978,구매인,구매인,,unmapped,job_info_rows,TRUE
-ja_0979,바이어,바이어,,unmapped,job_info_rows,TRUE
-ja_0980,선박중개인,선박중개인,,unmapped,job_info_rows,TRUE
-ja_0981,용선중개인,용선중개인,,unmapped,job_info_rows,TRUE
-ja_0982,경영지도사,경영지도사,,unmapped,job_info_rows,TRUE
-ja_0983,기업분석가,기업분석가,,unmapped,job_info_rows,TRUE
-ja_0984,가격경제학자,가격경제학자,,unmapped,job_info_rows,TRUE
-ja_0985,국제경제학자,국제경제학자,,unmapped,job_info_rows,TRUE
-ja_0986,노동경제학자,노동경제학자,,unmapped,job_info_rows,TRUE
-ja_0987,농업경제학자,농업경제학자,,unmapped,job_info_rows,TRUE
-ja_0988,산업경제학자,산업경제학자,,unmapped,job_info_rows,TRUE
-ja_0989,금융경제학자,금융경제학자,,unmapped,job_info_rows,TRUE
-ja_0990,경제학자,경제학자,,unmapped,job_info_rows,TRUE
-ja_0991,공인노무사,공인노무사,,unmapped,job_info_rows,TRUE
-ja_0992,공인회계사,공인회계사,67,auto_partial,job_info_rows,TRUE
-ja_0993,AICPA(미국공인회계사),aicpa(미국공인회계사),67,auto_partial,job_info_rows,TRUE
-ja_0994,통관대리인,통관대리인,,unmapped,job_info_rows,TRUE
-ja_0995,국제무역사,국제무역사,,unmapped,job_info_rows,TRUE
-ja_0996,도시계획기술자,도시계획기술자,50,auto_partial,job_info_rows,TRUE
-ja_0997,상품기획자,상품기획자,,unmapped,job_info_rows,TRUE
-ja_0998,상품개발담당자,상품개발담당자,,unmapped,job_info_rows,TRUE
-ja_0999,머천다이저,머천다이저,,unmapped,job_info_rows,TRUE
-ja_1000,공인중개사,공인중개사,,unmapped,job_info_rows,TRUE
-ja_1001,선물거래중개인,선물거래중개인,,unmapped,job_info_rows,TRUE
-ja_1002,손해사정인,손해사정인,,unmapped,job_info_rows,TRUE
-ja_1003,시장조사분석가,시장조사분석가,,unmapped,job_info_rows,TRUE
-ja_1004,마케팅리서치,마케팅리서치,77,auto_partial,job_info_rows,TRUE
-ja_1005,영화전문홍보가,영화전문홍보가,,unmapped,job_info_rows,TRUE
-ja_1006,자동차영업사원,자동차영업사원,,unmapped,job_info_rows,TRUE
-ja_1007,카딜러,카딜러,,unmapped,job_info_rows,TRUE
-ja_1008,조직관리자,조직관리자,,unmapped,job_info_rows,TRUE
-ja_1009,증권분석사,증권분석사,,unmapped,job_info_rows,TRUE
-ja_1010,채권중개인,채권중개인,,unmapped,job_info_rows,TRUE
-ja_1011,파생상품중개인,파생상품중개인,,unmapped,job_info_rows,TRUE
-ja_1012,판매사무원,판매사무원,,unmapped,job_info_rows,TRUE
-ja_1013,펀드매니저,펀드매니저,,unmapped,job_info_rows,TRUE
-ja_1014,브랜드네임전문가,브랜드네임전문가,,unmapped,job_info_rows,TRUE
-ja_1015,은행원,은행원,,unmapped,job_info_rows,TRUE
-ja_1016,행원,행원,,unmapped,job_info_rows,TRUE
-ja_1017,스크립터,스크립터,,unmapped,job_info_rows,TRUE
-ja_1018,방송작가,방송작가,,unmapped,job_info_rows,TRUE
-ja_1019,잡지사기자,잡지사기자,,unmapped,job_info_rows,TRUE
-ja_1020,방송기자,방송기자,,unmapped,job_info_rows,TRUE
-ja_1021,신문기자,신문기자,,unmapped,job_info_rows,TRUE
-ja_1022,순차통역사,순차통역사,,unmapped,job_info_rows,TRUE
-ja_1023,관광통역사,관광통역사,106,auto_partial,job_info_rows,TRUE
-ja_1024,비지니스통역사,비지니스통역사,,unmapped,job_info_rows,TRUE
-ja_1025,동시통역사,동시통역사,,unmapped,job_info_rows,TRUE
-ja_1026,통신원,통신원,,unmapped,job_info_rows,TRUE
-ja_1027,시나리오작가,시나리오작가,,unmapped,job_info_rows,TRUE
-ja_1028,번역사,번역사,,unmapped,job_info_rows,TRUE
-ja_1029,문헌학자,문헌학자,,unmapped,job_info_rows,TRUE
-ja_1030,서지학자,서지학자,,unmapped,job_info_rows,TRUE
-ja_1031,정치학자,정치학자,,unmapped,job_info_rows,TRUE
-ja_1032,뉴스앵커,뉴스앵커,,unmapped,job_info_rows,TRUE
-ja_1033,언어학자,언어학자,,unmapped,job_info_rows,TRUE
-ja_1034,사학자,사학자,,unmapped,job_info_rows,TRUE
-ja_1035,역사학자,역사학자,,unmapped,job_info_rows,TRUE
-ja_1036,보컬트레이너,보컬트레이너,,unmapped,job_info_rows,TRUE
-ja_1037,뮤지컬배우,뮤지컬배우,,unmapped,job_info_rows,TRUE
-ja_1038,대중가요 가수,대중가요_가수,,unmapped,job_info_rows,TRUE
-ja_1039,간판 제작·설치원,간판_제작_설치원,,unmapped,job_info_rows,TRUE
-ja_1040,간판수리원,간판수리원,,unmapped,job_info_rows,TRUE
-ja_1041,간판도장원,간판도장원,,unmapped,job_info_rows,TRUE
-ja_1042,네온제작원,네온제작원,,unmapped,job_info_rows,TRUE
-ja_1043,광고아티스트,광고아티스트,,unmapped,job_info_rows,TRUE
-ja_1044,아트플래너,아트플래너,,unmapped,job_info_rows,TRUE
-ja_1045,지면디자이너,지면디자이너,,unmapped,job_info_rows,TRUE
-ja_1046,광고메시지 기획원,광고메시지_기획원,,unmapped,job_info_rows,TRUE
-ja_1047,그래픽디자이너,그래픽디자이너,,unmapped,job_info_rows,TRUE
-ja_1048,민속음악인,민속음악인,,unmapped,job_info_rows,TRUE
-ja_1049,CF모델,cf모델,,unmapped,job_info_rows,TRUE
-ja_1050,패션모델,패션모델,,unmapped,job_info_rows,TRUE
-ja_1051,사진모델,사진모델,,unmapped,job_info_rows,TRUE
-ja_1052,나레이터모델,나레이터모델,,unmapped,job_info_rows,TRUE
-ja_1053,숍마스터,숍마스터,,unmapped,job_info_rows,TRUE
-ja_1054,재단사,재단사,,unmapped,job_info_rows,TRUE
-ja_1055,모델리스트,모델리스트,,unmapped,job_info_rows,TRUE
-ja_1056,패턴제작원,패턴제작원,,unmapped,job_info_rows,TRUE
-ja_1057,매트리스본제조원,매트리스본제조원,,unmapped,job_info_rows,TRUE
-ja_1058,옷본 제작원,옷본_제작원,,unmapped,job_info_rows,TRUE
-ja_1059,모자본 제작원,모자본_제작원,,unmapped,job_info_rows,TRUE
-ja_1060,우산본 제작원,우산본_제작원,,unmapped,job_info_rows,TRUE
-ja_1061,무대연출가,무대연출가,,unmapped,job_info_rows,TRUE
-ja_1062,문화재 수리원,문화재_수리원,,unmapped,job_info_rows,TRUE
-ja_1063,보수기술자,보수기술자,,unmapped,job_info_rows,TRUE
-ja_1064,단청기술자,단청기술자,,unmapped,job_info_rows,TRUE
-ja_1065,실측·설계기술자,실측_설계기술자,,unmapped,job_info_rows,TRUE
-ja_1066,조각기술자,조각기술자,,unmapped,job_info_rows,TRUE
-ja_1067,표구기술자,표구기술자,,unmapped,job_info_rows,TRUE
-ja_1068,칠공기술자,칠공기술자,,unmapped,job_info_rows,TRUE
-ja_1069,도금기술자,도금기술자,,unmapped,job_info_rows,TRUE
-ja_1070,모사기술자,모사기술자,,unmapped,job_info_rows,TRUE
-ja_1071,보존과학기술자,보존과학기술자,,unmapped,job_info_rows,TRUE
-ja_1072,식물보호기술자,식물보호기술자,,unmapped,job_info_rows,TRUE
-ja_1073,한식목공(대목수,한식목공(대목수,,unmapped,job_info_rows,TRUE
-ja_1074,소목수),소목수),,unmapped,job_info_rows,TRUE
-ja_1075,한식석공(가공석공,한식석공(가공석공,,unmapped,job_info_rows,TRUE
-ja_1076,쌓기석공),쌓기석공),,unmapped,job_info_rows,TRUE
-ja_1077,화공,화공,,unmapped,job_info_rows,TRUE
-ja_1078,드잡이공,드잡이공,,unmapped,job_info_rows,TRUE
-ja_1079,번와와공,번와와공,,unmapped,job_info_rows,TRUE
-ja_1080,제작와공,제작와공,,unmapped,job_info_rows,TRUE
-ja_1081,한식미장공,한식미장공,,unmapped,job_info_rows,TRUE
-ja_1082,철물공,철물공,,unmapped,job_info_rows,TRUE
-ja_1083,조각공,조각공,,unmapped,job_info_rows,TRUE
-ja_1084,칠공,칠공,,unmapped,job_info_rows,TRUE
-ja_1085,도금공,도금공,,unmapped,job_info_rows,TRUE
-ja_1086,표구공,표구공,,unmapped,job_info_rows,TRUE
-ja_1087,세척공,세척공,,unmapped,job_info_rows,TRUE
-ja_1088,보존과학공,보존과학공,,unmapped,job_info_rows,TRUE
-ja_1089,식물보호공,식물보호공,,unmapped,job_info_rows,TRUE
-ja_1090,실측설계사보,실측설계사보,,unmapped,job_info_rows,TRUE
-ja_1091,예술품복원기술자,예술품복원기술자,,unmapped,job_info_rows,TRUE
-ja_1092,학예연구사,학예연구사,,unmapped,job_info_rows,TRUE
-ja_1093,드라마 프로듀서,드라마_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1094,라디오 제작 프로듀서,라디오_제작_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1095,스포츠 프로듀서,스포츠_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1096,쇼 프로듀서,쇼_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1097,뉴스 프로듀서,뉴스_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1098,방송PD,방송pd,,unmapped,job_info_rows,TRUE
-ja_1099,배우,배우,,unmapped,job_info_rows,TRUE
-ja_1100,영화배우,영화배우,,unmapped,job_info_rows,TRUE
-ja_1101,연극배우,연극배우,,unmapped,job_info_rows,TRUE
-ja_1102,특수분장사,특수분장사,,unmapped,job_info_rows,TRUE
-ja_1103,인상사진작가,인상사진작가,,unmapped,job_info_rows,TRUE
-ja_1104,광고사진작가,광고사진작가,,unmapped,job_info_rows,TRUE
-ja_1105,순수사진작가,순수사진작가,,unmapped,job_info_rows,TRUE
-ja_1106,보도사진작가,보도사진작가,,unmapped,job_info_rows,TRUE
-ja_1107,생태사진작가,생태사진작가,,unmapped,job_info_rows,TRUE
-ja_1108,사진영상·인화원,사진영상_인화원,,unmapped,job_info_rows,TRUE
-ja_1109,슬라이드 제작원,슬라이드_제작원,,unmapped,job_info_rows,TRUE
-ja_1110,사진처리원,사진처리원,,unmapped,job_info_rows,TRUE
-ja_1111,아트플라워디자이너,아트플라워디자이너,,unmapped,job_info_rows,TRUE
-ja_1112,악기연주가,악기연주가,,unmapped,job_info_rows,TRUE
-ja_1113,기악연주가,기악연주가,,unmapped,job_info_rows,TRUE
-ja_1114,현악연주가,현악연주가,,unmapped,job_info_rows,TRUE
-ja_1115,애견미용사,애견미용사,,unmapped,job_info_rows,TRUE
-ja_1116,이미지메이커,이미지메이커,,unmapped,job_info_rows,TRUE
-ja_1117,이미지관리인,이미지관리인,,unmapped,job_info_rows,TRUE
-ja_1118,실내건축기술자,실내건축기술자,48,auto_partial,job_info_rows,TRUE
-ja_1119,실내장식전문가,실내장식전문가,,unmapped,job_info_rows,TRUE
-ja_1120,자동차디자이너,자동차디자이너,,unmapped,job_info_rows,TRUE
-ja_1121,장신구디자이너,장신구디자이너,,unmapped,job_info_rows,TRUE
-ja_1122,용기디자이너,용기디자이너,,unmapped,job_info_rows,TRUE
-ja_1123,가구디자이너,가구디자이너,,unmapped,job_info_rows,TRUE
-ja_1124,향기 전문가,향기_전문가,,unmapped,job_info_rows,TRUE
-ja_1125,향수코디네이터,향수코디네이터,,unmapped,job_info_rows,TRUE
-ja_1126,직업운동선수,직업운동선수,,unmapped,job_info_rows,TRUE
-ja_1127,영화촬영기사,영화촬영기사,,unmapped,job_info_rows,TRUE
-ja_1128,광고촬영기사,광고촬영기사,,unmapped,job_info_rows,TRUE
-ja_1129,TV촬영기사,tv촬영기사,,unmapped,job_info_rows,TRUE
-ja_1130,비디오촬영기사,비디오촬영기사,,unmapped,job_info_rows,TRUE
-ja_1131,색채전문가,색채전문가,,unmapped,job_info_rows,TRUE
-ja_1132,의상디자이너,의상디자이너,,unmapped,job_info_rows,TRUE
-ja_1133,패션어드바이저,패션어드바이저,,unmapped,job_info_rows,TRUE
-ja_1134,샵 매니저,샵_매니저,,unmapped,job_info_rows,TRUE
-ja_1135,스타일리스트,스타일리스트,,unmapped,job_info_rows,TRUE
-ja_1136,피아노조율사,피아노조율사,,unmapped,job_info_rows,TRUE
-ja_1137,큐레이터,큐레이터,,unmapped,job_info_rows,TRUE
-ja_1138,가정부,가정부,,unmapped,job_info_rows,TRUE
-ja_1139,산모도우미,산모도우미,,unmapped,job_info_rows,TRUE
-ja_1140,실버케어,실버케어,,unmapped,job_info_rows,TRUE
-ja_1141,입원환자 도우미,입원환자_도우미,,unmapped,job_info_rows,TRUE
-ja_1142,장애인 도우미,장애인_도우미,,unmapped,job_info_rows,TRUE
-ja_1143,치매 및 정신장애 도우미,치매_및_정신장애_도우미,,unmapped,job_info_rows,TRUE
-ja_1144,간호사,간호사,87,auto_exact,job_info_rows,TRUE
-ja_1145,전문간호사,전문간호사,87,auto_partial,job_info_rows,TRUE
-ja_1146,교정간호사,교정간호사,87,auto_partial,job_info_rows,TRUE
-ja_1147,건물 및 차량청소원,건물_및_차량청소원,,unmapped,job_info_rows,TRUE
-ja_1148,야간경비원,야간경비원,,unmapped,job_info_rows,TRUE
-ja_1149,수위,수위,,unmapped,job_info_rows,TRUE
-ja_1150,국립공원관리인,국립공원관리인,,unmapped,job_info_rows,TRUE
-ja_1151,형사,형사,,unmapped,job_info_rows,TRUE
-ja_1152,범죄과학수사관(CSI),범죄과학수사관(csi),,unmapped,job_info_rows,TRUE
-ja_1153,사이버경찰관,사이버경찰관,,unmapped,job_info_rows,TRUE
-ja_1154,용역경비원,용역경비원,,unmapped,job_info_rows,TRUE
-ja_1155,신변경호원(무술유단자),신변경호원(무술유단자),,unmapped,job_info_rows,TRUE
-ja_1156,보디가드,보디가드,,unmapped,job_info_rows,TRUE
-ja_1157,공무원,공무원,,unmapped,job_info_rows,TRUE
-ja_1158,교정공무원,교정공무원,,unmapped,job_info_rows,TRUE
-ja_1159,대학교수,대학교수,,unmapped,job_info_rows,TRUE
-ja_1160,조주사,조주사,,unmapped,job_info_rows,TRUE
-ja_1161,배달원,배달원,,unmapped,job_info_rows,TRUE
-ja_1162,보육교사,보육교사,,unmapped,job_info_rows,TRUE
-ja_1163,비서,비서,,unmapped,job_info_rows,TRUE
-ja_1164,사회사업가,사회사업가,,unmapped,job_info_rows,TRUE
-ja_1165,상담가,상담가,,unmapped,job_info_rows,TRUE
-ja_1166,청소년상담가,청소년상담가,,unmapped,job_info_rows,TRUE
-ja_1167,상담심리전문가,상담심리전문가,,unmapped,job_info_rows,TRUE
-ja_1168,상담지도사,상담지도사,,unmapped,job_info_rows,TRUE
-ja_1169,상담심리사,상담심리사,,unmapped,job_info_rows,TRUE
-ja_1170,상담교사,상담교사,,unmapped,job_info_rows,TRUE
-ja_1171,심리치료사,심리치료사,,unmapped,job_info_rows,TRUE
-ja_1172,산업 및 조직심리사,산업_및_조직심리사,,unmapped,job_info_rows,TRUE
-ja_1173,집배원,집배원,,unmapped,job_info_rows,TRUE
-ja_1174,승려,승려,,unmapped,job_info_rows,TRUE
-ja_1175,신부,신부,,unmapped,job_info_rows,TRUE
-ja_1176,목사,목사,,unmapped,job_info_rows,TRUE
-ja_1177,119구조대원,119구조대원,,unmapped,job_info_rows,TRUE
-ja_1178,역무원,역무원,,unmapped,job_info_rows,TRUE
-ja_1179,코치,코치,,unmapped,job_info_rows,TRUE
-ja_1180,운동선수트레이너,운동선수트레이너,,unmapped,job_info_rows,TRUE
-ja_1181,염사,염사,,unmapped,job_info_rows,TRUE
-ja_1182,인문계중등학교교사,인문계중등학교교사,,unmapped,job_info_rows,TRUE
-ja_1183,중등학교교사,중등학교교사,,unmapped,job_info_rows,TRUE
-ja_1184,중학교교사,중학교교사,,unmapped,job_info_rows,TRUE
-ja_1185,고등학교교사,고등학교교사,,unmapped,job_info_rows,TRUE
-ja_1186,장교,장교,,unmapped,job_info_rows,TRUE
-ja_1187,직업훈련교사,직업훈련교사,,unmapped,job_info_rows,TRUE
-ja_1188,초등학교교사,초등학교교사,,unmapped,job_info_rows,TRUE
-ja_1189,캐디,캐디,,unmapped,job_info_rows,TRUE
-ja_1190,특수교사,특수교사,,unmapped,job_info_rows,TRUE
-ja_1191,특수학교교사,특수학교교사,,unmapped,job_info_rows,TRUE
-ja_1192,판사,판사,,unmapped,job_info_rows,TRUE
-ja_1193,프로바둑기사,프로바둑기사,,unmapped,job_info_rows,TRUE
-ja_1194,스킨케어전문가,스킨케어전문가,,unmapped,job_info_rows,TRUE
-ja_1195,항공기객실승무원,항공기객실승무원,,unmapped,job_info_rows,TRUE
-ja_1196,스튜어드,스튜어드,,unmapped,job_info_rows,TRUE
-ja_1197,스튜어디스,스튜어디스,,unmapped,job_info_rows,TRUE
-ja_1198,홍보도우미,홍보도우미,,unmapped,job_info_rows,TRUE
-ja_1199,행사도우미,행사도우미,,unmapped,job_info_rows,TRUE
-ja_1200,헬스케어전문가,헬스케어전문가,,unmapped,job_info_rows,TRUE
-ja_1201,건강관리사,건강관리사,,unmapped,job_info_rows,TRUE
-ja_1202,운동처방사,운동처방사,,unmapped,job_info_rows,TRUE
-ja_1203,웨딩매니저,웨딩매니저,,unmapped,job_info_rows,TRUE
-ja_1204,웨딩코디네이터,웨딩코디네이터,,unmapped,job_info_rows,TRUE
-ja_1205,웨딩컨설턴트,웨딩컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1206,호스피스전문간호사,호스피스전문간호사,87,auto_partial,job_info_rows,TRUE
-ja_1207,호스피스완화간호사,호스피스완화간호사,87,auto_partial,job_info_rows,TRUE
-ja_1208,시스템 설계자,시스템_설계자,,unmapped,job_info_rows,TRUE
-ja_1209,시스템 프로그래머,시스템_프로그래머,,unmapped,job_info_rows,TRUE
-ja_1210,네트워크디자이너,네트워크디자이너,,unmapped,job_info_rows,TRUE
-ja_1211,컴퓨터 보안서비스종사자,컴퓨터_보안서비스종사자,,unmapped,job_info_rows,TRUE
-ja_1212,시스템분석가,시스템분석가,,unmapped,job_info_rows,TRUE
-ja_1213,시스템설계가,시스템설계가,,unmapped,job_info_rows,TRUE
-ja_1214,웹관리자,웹관리자,,unmapped,job_info_rows,TRUE
-ja_1215,웹매니저,웹매니저,,unmapped,job_info_rows,TRUE
-ja_1216,정보기술컨설턴트(IT),정보기술컨설턴트(it),,unmapped,job_info_rows,TRUE
-ja_1217,정보시스템컨설턴트,정보시스템컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1218,ERP컨설턴트,erp컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1219,KMS컨설턴트,kms컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1220,CRP컨설턴트,crp컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1221,정보보안컨설턴트,정보보안컨설턴트,25,auto_partial,job_info_rows,TRUE
-ja_1222,네트워크컨설턴트,네트워크컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1223,시스템컨설턴트,시스템컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1224,컴퓨터속기사,컴퓨터속기사,,unmapped,job_info_rows,TRUE
-ja_1225,사이처,사이처,,unmapped,job_info_rows,TRUE
-ja_1226,이러닝(e-learning)교수설계자,이러닝(e_learning)교수설계자,,unmapped,job_info_rows,TRUE
-ja_1227,이러닝지도자,이러닝지도자,,unmapped,job_info_rows,TRUE
-ja_1228,정보통신망연구원,정보통신망연구원,,unmapped,job_info_rows,TRUE
-ja_1229,디지털교환설비연구원,디지털교환설비연구원,,unmapped,job_info_rows,TRUE
-ja_1230,컴퓨터주변기기수리원,컴퓨터주변기기수리원,,unmapped,job_info_rows,TRUE
-ja_1231,복사기수리원,복사기수리원,,unmapped,job_info_rows,TRUE
-ja_1232,프린터수리원,프린터수리원,,unmapped,job_info_rows,TRUE
-ja_1233,팩시밀리 수리원,팩시밀리_수리원,,unmapped,job_info_rows,TRUE
-ja_1234,인터넷쇼핑몰구축전문가,인터넷쇼핑몰구축전문가,,unmapped,job_info_rows,TRUE
-ja_1235,정보통신기술영업원,정보통신기술영업원,,unmapped,job_info_rows,TRUE
-ja_1236,정보통신기술세일즈맨,정보통신기술세일즈맨,,unmapped,job_info_rows,TRUE
-ja_1237,컴퓨터학원강사,컴퓨터학원강사,,unmapped,job_info_rows,TRUE
-ja_1238,컴퓨터교육강사,컴퓨터교육강사,101,auto_partial,job_info_rows,TRUE
-ja_1239,정보통신학원강사,정보통신학원강사,,unmapped,job_info_rows,TRUE
-ja_1240,무선주파수기술자,무선주파수기술자,,unmapped,job_info_rows,TRUE
-ja_1241,소음진동기사,소음진동기사,,unmapped,job_info_rows,TRUE
-ja_1242,관광기획자,관광기획자,,unmapped,job_info_rows,TRUE
-ja_1243,시스템프로그래머,시스템프로그래머,,unmapped,job_info_rows,TRUE
-ja_1244,핀조명원,핀조명원,,unmapped,job_info_rows,TRUE
-ja_1245,조명탁조정원,조명탁조정원,,unmapped,job_info_rows,TRUE
-ja_1246,음악기사,음악기사,,unmapped,job_info_rows,TRUE
-ja_1247,음향엔지니어,음향엔지니어,,unmapped,job_info_rows,TRUE
-ja_1248,음향효과기사,음향효과기사,,unmapped,job_info_rows,TRUE
-ja_1249,컴퓨터그래픽스,컴퓨터그래픽스,,unmapped,job_info_rows,TRUE
-ja_1250,3D아티스트,3d아티스트,,unmapped,job_info_rows,TRUE
-ja_1251,오퍼레이터,오퍼레이터,,unmapped,job_info_rows,TRUE
-ja_1252,음반제작자,음반제작자,,unmapped,job_info_rows,TRUE
-ja_1253,프로듀서,프로듀서,,unmapped,job_info_rows,TRUE
-ja_1254,애니기획자,애니기획자,,unmapped,job_info_rows,TRUE
-ja_1255,애니메이션 프로듀서,애니메이션_프로듀서,,unmapped,job_info_rows,TRUE
-ja_1256,애니메이션 감독,애니메이션_감독,,unmapped,job_info_rows,TRUE
-ja_1257,스토리작가,스토리작가,,unmapped,job_info_rows,TRUE
-ja_1258,게임크리에이터,게임크리에이터,,unmapped,job_info_rows,TRUE
-ja_1259,게임디자이너,게임디자이너,,unmapped,job_info_rows,TRUE
-ja_1260,편집디자이너,편집디자이너,,unmapped,job_info_rows,TRUE
-ja_1261,출판편집기자,출판편집기자,,unmapped,job_info_rows,TRUE
-ja_1262,출판 편집기자,출판_편집기자,,unmapped,job_info_rows,TRUE
-ja_1263,영업직,영업직,,unmapped,job_info_rows,TRUE
-ja_1264,출판영업원,출판영업원,,unmapped,job_info_rows,TRUE
-ja_1265,도서유통담당자,도서유통담당자,,unmapped,job_info_rows,TRUE
-ja_1266,일반 영업원,일반_영업원,,unmapped,job_info_rows,TRUE
-ja_1267,수공예원,수공예원,,unmapped,job_info_rows,TRUE
-ja_1268,장제품공예원,장제품공예원,,unmapped,job_info_rows,TRUE
-ja_1269,돌실나이,돌실나이,,unmapped,job_info_rows,TRUE
-ja_1270,도자기빚기원,도자기빚기원,,unmapped,job_info_rows,TRUE
-ja_1271,한산모시짜기원,한산모시짜기원,,unmapped,job_info_rows,TRUE
-ja_1272,표구제조원,표구제조원,,unmapped,job_info_rows,TRUE
-ja_1273,사회학자,사회학자,,unmapped,job_info_rows,TRUE
-ja_1274,시민운동가,시민운동가,,unmapped,job_info_rows,TRUE
-ja_1275,인권운동가,인권운동가,,unmapped,job_info_rows,TRUE
-ja_1276,환경운동가,환경운동가,,unmapped,job_info_rows,TRUE
-ja_1277,사회운동가,사회운동가,,unmapped,job_info_rows,TRUE
-ja_1278,출판물디자이너,출판물디자이너,,unmapped,job_info_rows,TRUE
-ja_1279,서체디자이너,서체디자이너,,unmapped,job_info_rows,TRUE
-ja_1280,문자디자이너,문자디자이너,,unmapped,job_info_rows,TRUE
-ja_1281,시스템관리자,시스템관리자,,unmapped,job_info_rows,TRUE
-ja_1282,네트워크관리자,네트워크관리자,,unmapped,job_info_rows,TRUE
-ja_1283,컴퓨터시스템관리자,컴퓨터시스템관리자,,unmapped,job_info_rows,TRUE
-ja_1284,홈페이지관리자,홈페이지관리자,,unmapped,job_info_rows,TRUE
-ja_1285,웹서버관리자,웹서버관리자,,unmapped,job_info_rows,TRUE
-ja_1286,컴퓨터네트워크장비개발자,컴퓨터네트워크장비개발자,,unmapped,job_info_rows,TRUE
-ja_1287,컴퓨터기기개발원,컴퓨터기기개발원,,unmapped,job_info_rows,TRUE
-ja_1288,컴퓨터메인보드개발원,컴퓨터메인보드개발원,,unmapped,job_info_rows,TRUE
-ja_1289,컴퓨터하드웨어설계기술자,컴퓨터하드웨어설계기술자,,unmapped,job_info_rows,TRUE
-ja_1290,컴퓨터 제어시스템개발원,컴퓨터_제어시스템개발원,,unmapped,job_info_rows,TRUE
-ja_1291,콘트롤러개발원,콘트롤러개발원,,unmapped,job_info_rows,TRUE
-ja_1292,컴퓨터프로그래머,컴퓨터프로그래머,,unmapped,job_info_rows,TRUE
-ja_1293,재정분석가,재정분석가,,unmapped,job_info_rows,TRUE
-ja_1294,신용분석가,신용분석가,,unmapped,job_info_rows,TRUE
-ja_1295,컨퍼런스 및 회의기획자,컨퍼런스_및_회의기획자,,unmapped,job_info_rows,TRUE
-ja_1296,이벤트기획자,이벤트기획자,,unmapped,job_info_rows,TRUE
-ja_1297,이벤트전문가,이벤트전문가,,unmapped,job_info_rows,TRUE
-ja_1298,석유화학공학기술자,석유화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1299,도료·농약품화학공학기술자,도료_농약품화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1300,비누·화장품화학공학기술자,비누_화장품화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1301,화학공학기술자 및 연구원,화학공학기술자_및_연구원,,unmapped,job_info_rows,TRUE
-ja_1302,도료 및 농약품 화학공학기술자,도료_및_농약품_화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1303,비누 및 화장품 화학공학기술자,비누_및_화장품_화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1304,고무 및 플라스틱 화학공학기술자,고무_및_플라스틱_화학공학기술자,,unmapped,job_info_rows,TRUE
-ja_1305,특수사진사,특수사진사,,unmapped,job_info_rows,TRUE
-ja_1306,사진현상원,사진현상원,,unmapped,job_info_rows,TRUE
-ja_1307,촬영기자,촬영기자,,unmapped,job_info_rows,TRUE
-ja_1308,보일러수리원,보일러수리원,,unmapped,job_info_rows,TRUE
-ja_1309,기계정비원,기계정비원,35,auto_partial,job_info_rows,TRUE
-ja_1310,환경대리인,환경대리인,,unmapped,job_info_rows,TRUE
-ja_1311,환경오염방지전문가,환경오염방지전문가,,unmapped,job_info_rows,TRUE
-ja_1312,에너지자원개발연구원,에너지자원개발연구원,,unmapped,job_info_rows,TRUE
-ja_1313,대체기기개발연구원,대체기기개발연구원,,unmapped,job_info_rows,TRUE
-ja_1314,토양오염기술자,토양오염기술자,,unmapped,job_info_rows,TRUE
-ja_1315,토양복원기술자,토양복원기술자,,unmapped,job_info_rows,TRUE
-ja_1316,환경엔지니어,환경엔지니어,,unmapped,job_info_rows,TRUE
-ja_1317,환경설비기사,환경설비기사,,unmapped,job_info_rows,TRUE
-ja_1318,설비관리감독자,설비관리감독자,,unmapped,job_info_rows,TRUE
-ja_1319,해양오염방제사,해양오염방제사,,unmapped,job_info_rows,TRUE
-ja_1320,해양환경연구원,해양환경연구원,,unmapped,job_info_rows,TRUE
-ja_1321,해양오염관리자,해양오염관리자,,unmapped,job_info_rows,TRUE
-ja_1322,상수도설계기술자,상수도설계기술자,,unmapped,job_info_rows,TRUE
-ja_1323,산업위생기사,산업위생기사,,unmapped,job_info_rows,TRUE
-ja_1324,작업환경측정기사,작업환경측정기사,,unmapped,job_info_rows,TRUE
-ja_1325,산업위생관리자,산업위생관리자,,unmapped,job_info_rows,TRUE
-ja_1326,방사성폐기물처리원,방사성폐기물처리원,,unmapped,job_info_rows,TRUE
-ja_1327,방사성안전관리자,방사성안전관리자,,unmapped,job_info_rows,TRUE
-ja_1328,정치인,정치인,,unmapped,job_info_rows,TRUE
-ja_1329,정당인,정당인,,unmapped,job_info_rows,TRUE
-ja_1330,대통령,대통령,,unmapped,job_info_rows,TRUE
-ja_1331,마케팅컨설턴트,마케팅컨설턴트,77,auto_partial,job_info_rows,TRUE
-ja_1332,판촉기법전문가,판촉기법전문가,,unmapped,job_info_rows,TRUE
-ja_1333,판촉전문가,판촉전문가,,unmapped,job_info_rows,TRUE
-ja_1334,금형공학기술자,금형공학기술자,,unmapped,job_info_rows,TRUE
-ja_1335,기계플랜트기술자,기계플랜트기술자,,unmapped,job_info_rows,TRUE
-ja_1336,기계감리기술자,기계감리기술자,,unmapped,job_info_rows,TRUE
-ja_1337,메카트로닉스기술자,메카트로닉스기술자,,unmapped,job_info_rows,TRUE
-ja_1338,공정관리·설계 기술자,공정관리_설계_기술자,38,auto_partial,job_info_rows,TRUE
-ja_1339,대형화물차운전원,대형화물차운전원,,unmapped,job_info_rows,TRUE
-ja_1340,유조차운전원,유조차운전원,,unmapped,job_info_rows,TRUE
-ja_1341,덤프트럭운전원,덤프트럭운전원,,unmapped,job_info_rows,TRUE
-ja_1342,레카차운전원,레카차운전원,,unmapped,job_info_rows,TRUE
-ja_1343,레미콘운전원,레미콘운전원,,unmapped,job_info_rows,TRUE
-ja_1344,트레일러운전원,트레일러운전원,,unmapped,job_info_rows,TRUE
-ja_1345,상·하수도엔지니어,상_하수도엔지니어,,unmapped,job_info_rows,TRUE
-ja_1346,폐기물처리엔지니어,폐기물처리엔지니어,,unmapped,job_info_rows,TRUE
-ja_1347,기업체/정부/대학연구원,기업체_정부_대학연구원,,unmapped,job_info_rows,TRUE
-ja_1348,환경관련사업체관리자,환경관련사업체관리자,,unmapped,job_info_rows,TRUE
-ja_1349,기술직공무원,기술직공무원,,unmapped,job_info_rows,TRUE
-ja_1350,환경교사,환경교사,,unmapped,job_info_rows,TRUE
-ja_1351,환경경영전문가,환경경영전문가,,unmapped,job_info_rows,TRUE
-ja_1352,환경영향평가기술자,환경영향평가기술자,,unmapped,job_info_rows,TRUE
-ja_1353,수질환경기술자,수질환경기술자,,unmapped,job_info_rows,TRUE
-ja_1354,폐기물처리기술자,폐기물처리기술자,,unmapped,job_info_rows,TRUE
-ja_1355,해양관련사업체관리자,해양관련사업체관리자,,unmapped,job_info_rows,TRUE
-ja_1356,해양환경기술자,해양환경기술자,,unmapped,job_info_rows,TRUE
-ja_1357,전자축전기제조기조작원,전자축전기제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1358,브라운관제조용장비조작원,브라운관제조용장비조작원,,unmapped,job_info_rows,TRUE
-ja_1359,웨이퍼제조기조작원,웨이퍼제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1360,집적회로제조기 조작원,집적회로제조기_조작원,,unmapped,job_info_rows,TRUE
-ja_1361,인쇄회로기판제조기 조작원,인쇄회로기판제조기_조작원,,unmapped,job_info_rows,TRUE
-ja_1362,반도체리드 코딩원,반도체리드_코딩원,,unmapped,job_info_rows,TRUE
-ja_1363,반도체 코딩원,반도체_코딩원,,unmapped,job_info_rows,TRUE
-ja_1364,스포츠마케터,스포츠마케터,,unmapped,job_info_rows,TRUE
-ja_1365,스포츠마케팅전문가,스포츠마케팅전문가,77,auto_partial,job_info_rows,TRUE
-ja_1366,자연계중등학교교사,자연계중등학교교사,,unmapped,job_info_rows,TRUE
-ja_1367,교원,교원,,unmapped,job_info_rows,TRUE
-ja_1368,시멘트공,시멘트공,,unmapped,job_info_rows,TRUE
-ja_1369,콘크리트혼합공,콘크리트혼합공,,unmapped,job_info_rows,TRUE
-ja_1370,지적·측량기술자,지적_측량기술자,,unmapped,job_info_rows,TRUE
-ja_1371,토지측량사,토지측량사,,unmapped,job_info_rows,TRUE
-ja_1372,사진측량·분석가,사진측량_분석가,,unmapped,job_info_rows,TRUE
-ja_1373,지도제작기술자,지도제작기술자,,unmapped,job_info_rows,TRUE
-ja_1374,기업관리소프트웨어개발자,기업관리소프트웨어개발자,,unmapped,job_info_rows,TRUE
-ja_1375,과학용소프트웨어개발자,과학용소프트웨어개발자,,unmapped,job_info_rows,TRUE
-ja_1376,산업용소프트웨어개발자,산업용소프트웨어개발자,,unmapped,job_info_rows,TRUE
-ja_1377,교육용소프트웨어개발자,교육용소프트웨어개발자,101,auto_partial,job_info_rows,TRUE
-ja_1378,웹개발자,웹개발자,,unmapped,job_info_rows,TRUE
-ja_1379,웹 기획자(웹PD),웹_기획자(웹pd),,unmapped,job_info_rows,TRUE
-ja_1380,게이머,게이머,,unmapped,job_info_rows,TRUE
-ja_1381,특정직국가공무원,특정직국가공무원,,unmapped,job_info_rows,TRUE
-ja_1382,채권추심원,채권추심원,,unmapped,job_info_rows,TRUE
-ja_1383,채권회수자,채권회수자,,unmapped,job_info_rows,TRUE
-ja_1384,추심원,추심원,,unmapped,job_info_rows,TRUE
-ja_1385,장학사,장학사,,unmapped,job_info_rows,TRUE
-ja_1386,교육행정사무원,교육행정사무원,101,auto_partial,job_info_rows,TRUE
-ja_1387,교육학자,교육학자,101,auto_partial,job_info_rows,TRUE
-ja_1388,철학자,철학자,,unmapped,job_info_rows,TRUE
-ja_1389,서양철학자,서양철학자,,unmapped,job_info_rows,TRUE
-ja_1390,동양철학자,동양철학자,,unmapped,job_info_rows,TRUE
-ja_1391,국학자,국학자,,unmapped,job_info_rows,TRUE
-ja_1392,행정학자,행정학자,,unmapped,job_info_rows,TRUE
-ja_1393,행정가,행정가,,unmapped,job_info_rows,TRUE
-ja_1394,학습지방문교사,학습지방문교사,,unmapped,job_info_rows,TRUE
-ja_1395,학습지교사,학습지교사,,unmapped,job_info_rows,TRUE
-ja_1396,학습지지도교사,학습지지도교사,,unmapped,job_info_rows,TRUE
-ja_1397,마사지사,마사지사,,unmapped,job_info_rows,TRUE
-ja_1398,스포츠마사지사,스포츠마사지사,,unmapped,job_info_rows,TRUE
-ja_1399,소독관리인,소독관리인,,unmapped,job_info_rows,TRUE
-ja_1400,환경 및 보건위생검사원,환경_및_보건위생검사원,,unmapped,job_info_rows,TRUE
-ja_1401,갑판장,갑판장,,unmapped,job_info_rows,TRUE
-ja_1402,갑판원,갑판원,,unmapped,job_info_rows,TRUE
-ja_1403,판매외무원,판매외무원,,unmapped,job_info_rows,TRUE
-ja_1404,정수기방문판매원,정수기방문판매원,,unmapped,job_info_rows,TRUE
-ja_1405,신용카드방문판매원,신용카드방문판매원,,unmapped,job_info_rows,TRUE
-ja_1406,비디오테입대여원,비디오테입대여원,,unmapped,job_info_rows,TRUE
-ja_1407,자동차대여원,자동차대여원,,unmapped,job_info_rows,TRUE
-ja_1408,책대여원,책대여원,,unmapped,job_info_rows,TRUE
-ja_1409,의상대여원,의상대여원,,unmapped,job_info_rows,TRUE
-ja_1410,장난감대여원,장난감대여원,,unmapped,job_info_rows,TRUE
-ja_1411,가스충전원,가스충전원,,unmapped,job_info_rows,TRUE
-ja_1412,주유판매원,주유판매원,,unmapped,job_info_rows,TRUE
-ja_1413,캐셔,캐셔,,unmapped,job_info_rows,TRUE
-ja_1414,카운터,카운터,,unmapped,job_info_rows,TRUE
-ja_1415,정산원,정산원,,unmapped,job_info_rows,TRUE
-ja_1416,무인경비요원,무인경비요원,,unmapped,job_info_rows,TRUE
-ja_1417,무인경비순찰원,무인경비순찰원,,unmapped,job_info_rows,TRUE
-ja_1418,구두닦이,구두닦이,,unmapped,job_info_rows,TRUE
-ja_1419,주차장관리원,주차장관리원,,unmapped,job_info_rows,TRUE
-ja_1420,주차안내원,주차안내원,,unmapped,job_info_rows,TRUE
-ja_1421,주차요원,주차요원,,unmapped,job_info_rows,TRUE
-ja_1422,이발사,이발사,,unmapped,job_info_rows,TRUE
-ja_1423,헤어디자이너,헤어디자이너,,unmapped,job_info_rows,TRUE
-ja_1424,헤어스타일리스트,헤어스타일리스트,,unmapped,job_info_rows,TRUE
-ja_1425,혼례종사원,혼례종사원,,unmapped,job_info_rows,TRUE
-ja_1426,객실승무원,객실승무원,,unmapped,job_info_rows,TRUE
-ja_1427,치어리더,치어리더,,unmapped,job_info_rows,TRUE
-ja_1428,응원단원,응원단원,,unmapped,job_info_rows,TRUE
-ja_1429,웨이터,웨이터,,unmapped,job_info_rows,TRUE
-ja_1430,웨이트리스,웨이트리스,,unmapped,job_info_rows,TRUE
-ja_1431,음식서비스종사원(홀써빙원),음식서비스종사원(홀써빙원),,unmapped,job_info_rows,TRUE
-ja_1432,조리사보자,조리사보자,108,auto_partial,job_info_rows,TRUE
-ja_1433,찬모,찬모,,unmapped,job_info_rows,TRUE
-ja_1434,식당보조원,식당보조원,,unmapped,job_info_rows,TRUE
-ja_1435,피자배달원,피자배달원,,unmapped,job_info_rows,TRUE
-ja_1436,중국음식배달원,중국음식배달원,,unmapped,job_info_rows,TRUE
-ja_1437,야식배달원,야식배달원,,unmapped,job_info_rows,TRUE
-ja_1438,통닭배달원,통닭배달원,,unmapped,job_info_rows,TRUE
-ja_1439,분식배달원,분식배달원,,unmapped,job_info_rows,TRUE
-ja_1440,적산원,적산원,,unmapped,job_info_rows,TRUE
-ja_1441,토목견적기술공,토목견적기술공,,unmapped,job_info_rows,TRUE
-ja_1442,전통건물건축원,전통건물건축원,,unmapped,job_info_rows,TRUE
-ja_1443,사찰건축원,사찰건축원,,unmapped,job_info_rows,TRUE
-ja_1444,단열공,단열공,,unmapped,job_info_rows,TRUE
-ja_1445,보온공,보온공,,unmapped,job_info_rows,TRUE
-ja_1446,유리공,유리공,,unmapped,job_info_rows,TRUE
-ja_1447,유리설치공,유리설치공,,unmapped,job_info_rows,TRUE
-ja_1448,보일러제관원,보일러제관원,,unmapped,job_info_rows,TRUE
-ja_1449,제관조립원,제관조립원,,unmapped,job_info_rows,TRUE
-ja_1450,금속구조물제관원,금속구조물제관원,,unmapped,job_info_rows,TRUE
-ja_1451,대장원,대장원,,unmapped,job_info_rows,TRUE
-ja_1452,도장기조작원,도장기조작원,,unmapped,job_info_rows,TRUE
-ja_1453,분체도장원,분체도장원,,unmapped,job_info_rows,TRUE
-ja_1454,자동차도장원,자동차도장원,,unmapped,job_info_rows,TRUE
-ja_1455,가구도장원,가구도장원,,unmapped,job_info_rows,TRUE
-ja_1456,전동차도장원,전동차도장원,,unmapped,job_info_rows,TRUE
-ja_1457,철도차량도장원,철도차량도장원,,unmapped,job_info_rows,TRUE
-ja_1458,목재도장기조작원,목재도장기조작원,,unmapped,job_info_rows,TRUE
-ja_1459,도금기조작원,도금기조작원,,unmapped,job_info_rows,TRUE
-ja_1460,귀금속도금원,귀금속도금원,,unmapped,job_info_rows,TRUE
-ja_1461,전기도금원,전기도금원,,unmapped,job_info_rows,TRUE
-ja_1462,의복리품원,의복리품원,,unmapped,job_info_rows,TRUE
-ja_1463,의복제품검사원,의복제품검사원,,unmapped,job_info_rows,TRUE
-ja_1464,발전설비운전원,발전설비운전원,,unmapped,job_info_rows,TRUE
-ja_1465,원자력발전장치조작원,원자력발전장치조작원,,unmapped,job_info_rows,TRUE
-ja_1466,화력발전장치조작원,화력발전장치조작원,,unmapped,job_info_rows,TRUE
-ja_1467,수력발전장치조작원,수력발전장치조작원,,unmapped,job_info_rows,TRUE
-ja_1468,급전사령원,급전사령원,,unmapped,job_info_rows,TRUE
-ja_1469,발전터빈 조작원,발전터빈_조작원,,unmapped,job_info_rows,TRUE
-ja_1470,발전배반 조작원,발전배반_조작원,,unmapped,job_info_rows,TRUE
-ja_1471,전기시설관리원,전기시설관리원,,unmapped,job_info_rows,TRUE
-ja_1472,코일권선기 조작원,코일권선기_조작원,,unmapped,job_info_rows,TRUE
-ja_1473,필라멘트권선기 조작원,필라멘트권선기_조작원,,unmapped,job_info_rows,TRUE
-ja_1474,건전지제조기 조작원,건전지제조기_조작원,,unmapped,job_info_rows,TRUE
-ja_1475,광섬유 제조원,광섬유_제조원,,unmapped,job_info_rows,TRUE
-ja_1476,방송송수신기설치 및 수리원,방송송수신기설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_1477,CCTV설치 및 수리원,cctv설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_1478,방송영상기기설치 및 수리원,방송영상기기설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_1479,유선통신장비설치 및 수리원,유선통신장비설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_1480,무선통신장비설치 및 수리원,무선통신장비설치_및_수리원,,unmapped,job_info_rows,TRUE
-ja_1481,음료제품제조기조작원,음료제품제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1482,알콜성음료제조기조작원,알콜성음료제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1483,비알콜성음료제조기조작원,비알콜성음료제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1484,음식품검사원,음식품검사원,,unmapped,job_info_rows,TRUE
-ja_1485,음식품등급원,음식품등급원,,unmapped,job_info_rows,TRUE
-ja_1486,고기선별원,고기선별원,,unmapped,job_info_rows,TRUE
-ja_1487,담배등급원,담배등급원,,unmapped,job_info_rows,TRUE
-ja_1488,담배검사원,담배검사원,,unmapped,job_info_rows,TRUE
-ja_1489,채소선별원,채소선별원,,unmapped,job_info_rows,TRUE
-ja_1490,과실선별원,과실선별원,,unmapped,job_info_rows,TRUE
-ja_1491,골판지상자제조원,골판지상자제조원,,unmapped,job_info_rows,TRUE
-ja_1492,봉투제조기조작원,봉투제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1493,종이컵제조기조작원,종이컵제조기조작원,,unmapped,job_info_rows,TRUE
-ja_1494,가구조립원,가구조립원,,unmapped,job_info_rows,TRUE
-ja_1495,목재가구조립원,목재가구조립원,,unmapped,job_info_rows,TRUE
-ja_1496,사무용가구조립원,사무용가구조립원,,unmapped,job_info_rows,TRUE
-ja_1497,금속가구조립원,금속가구조립원,,unmapped,job_info_rows,TRUE
-ja_1498,식탁조립원,식탁조립원,,unmapped,job_info_rows,TRUE
-ja_1499,의자조립원,의자조립원,,unmapped,job_info_rows,TRUE
-ja_1500,주방가구조립원,주방가구조립원,,unmapped,job_info_rows,TRUE
-ja_1501,액자제조,액자제조,,unmapped,job_info_rows,TRUE
-ja_1502,책상조립원,책상조립원,,unmapped,job_info_rows,TRUE
-ja_1503,포장기조작원,포장기조작원,,unmapped,job_info_rows,TRUE
-ja_1504,밀봉기조작원,밀봉기조작원,,unmapped,job_info_rows,TRUE
-ja_1505,채소재배자,채소재배자,,unmapped,job_info_rows,TRUE
-ja_1506,섬유작물재배자,섬유작물재배자,,unmapped,job_info_rows,TRUE
-ja_1507,약용작물재배자,약용작물재배자,,unmapped,job_info_rows,TRUE
-ja_1508,과수작물 재배원,과수작물_재배원,,unmapped,job_info_rows,TRUE
-ja_1509,조림원,조림원,,unmapped,job_info_rows,TRUE
-ja_1510,영림원,영림원,,unmapped,job_info_rows,TRUE
-ja_1511,벌목원,벌목원,,unmapped,job_info_rows,TRUE
-ja_1512,산림묘포관리원,산림묘포관리원,,unmapped,job_info_rows,TRUE
-ja_1513,원양업자,원양업자,,unmapped,job_info_rows,TRUE
-ja_1514,결혼상담원,결혼상담원,,unmapped,job_info_rows,TRUE
-ja_1515,여행상품기획자,여행상품기획자,,unmapped,job_info_rows,TRUE
-ja_1516,회의기획자,회의기획자,,unmapped,job_info_rows,TRUE
-ja_1517,도시계획기술사,도시계획기술사,50,auto_partial,job_info_rows,TRUE
-ja_1518,실내디자이너,실내디자이너,,unmapped,job_info_rows,TRUE
-ja_1519,지방의회의원,지방의회의원,,unmapped,job_info_rows,TRUE
-ja_1520,직업상담사,직업상담사,,unmapped,job_info_rows,TRUE
-ja_1521,인력컨설턴트,인력컨설턴트,,unmapped,job_info_rows,TRUE
-ja_1522,베타테스트 엔지니어,베타테스트_엔지니어,,unmapped,job_info_rows,TRUE
-ja_1523,게임베타테스터,게임베타테스터,,unmapped,job_info_rows,TRUE
-ja_1524,발명자,발명자,,unmapped,job_info_rows,TRUE
-ja_1525,신약개발원,신약개발원,,unmapped,job_info_rows,TRUE
-ja_1526,제약연구원,제약연구원,,unmapped,job_info_rows,TRUE
-ja_1527,스포츠해설위원,스포츠해설위원,,unmapped,job_info_rows,TRUE
-ja_1528,축구해설가,축구해설가,,unmapped,job_info_rows,TRUE
-ja_1529,축구해설위원,축구해설위원,,unmapped,job_info_rows,TRUE
-ja_1530,자동차경주선수,자동차경주선수,,unmapped,job_info_rows,TRUE
-ja_1531,섭외전문가,섭외전문가,,unmapped,job_info_rows,TRUE
-ja_1532,드라마캐스팅디렉터,드라마캐스팅디렉터,,unmapped,job_info_rows,TRUE
-ja_1533,영화캐스팅디렉터,영화캐스팅디렉터,,unmapped,job_info_rows,TRUE
-ja_1534,방송캐스팅디렉터,방송캐스팅디렉터,,unmapped,job_info_rows,TRUE
-ja_1535,캐스팅매니저,캐스팅매니저,,unmapped,job_info_rows,TRUE
-ja_1536,일반의사,일반의사,,unmapped,job_info_rows,TRUE
-ja_1537,공중보건 의사,공중보건_의사,,unmapped,job_info_rows,TRUE
-ja_1538,코미디 작가,코미디_작가,,unmapped,job_info_rows,TRUE
-ja_1539,드라마 작가,드라마_작가,,unmapped,job_info_rows,TRUE
-ja_1540,구성 작가,구성_작가,,unmapped,job_info_rows,TRUE
-ja_1541,외화번역 작가,외화번역_작가,,unmapped,job_info_rows,TRUE
-ja_1542,희곡 작가,희곡_작가,,unmapped,job_info_rows,TRUE
-ja_1543,시나리오 작가,시나리오_작가,,unmapped,job_info_rows,TRUE
-ja_1544,만화스토리 작가,만화스토리_작가,,unmapped,job_info_rows,TRUE
-ja_1545,광고문 작성가,광고문_작성가,,unmapped,job_info_rows,TRUE
-ja_1546,게임시나리오 작가,게임시나리오_작가,,unmapped,job_info_rows,TRUE
-ja_1547,테크니컬라이터,테크니컬라이터,,unmapped,job_info_rows,TRUE
-ja_1548,애니메이션 작가,애니메이션_작가,,unmapped,job_info_rows,TRUE
-ja_1549,지질연구원,지질연구원,,unmapped,job_info_rows,TRUE
+상자 제조원",목제통_및_상자_제조원,,unmapped,job_info_rows,TRUE,,
+ja_0897,김치 및 절임 식품 제조원,김치_및_절임_식품_제조원,,unmapped,job_info_rows,TRUE,,
+ja_0898,가공식품개발연구원,가공식품개발연구원,,unmapped,job_info_rows,TRUE,,
+ja_0899,식품소재개발연구원,식품소재개발연구원,,unmapped,job_info_rows,TRUE,,
+ja_0900,제면식품연구원,제면식품연구원,,unmapped,job_info_rows,TRUE,,
+ja_0901,발효식품연구원,발효식품연구원,,unmapped,job_info_rows,TRUE,,
+ja_0902,김치연구원,김치연구원,,unmapped,job_info_rows,TRUE,,
+ja_0903,레토르트식품연구원,레토르트식품연구원,,unmapped,job_info_rows,TRUE,,
+ja_0904,떡연구원,떡연구원,,unmapped,job_info_rows,TRUE,,
+ja_0905,도축사 및 육류가공원,도축사_및_육류가공원,,unmapped,job_info_rows,TRUE,,
+ja_0906,정육가공원,정육가공원,,unmapped,job_info_rows,TRUE,,
+ja_0907,도살원,도살원,,unmapped,job_info_rows,TRUE,,
+ja_0908,분골원,분골원,,unmapped,job_info_rows,TRUE,,
+ja_0909,축가공기술자,축가공기술자,,unmapped,job_info_rows,TRUE,,
+ja_0910,도축원,도축원,,unmapped,job_info_rows,TRUE,,
+ja_0911,맞춤양복사,맞춤양복사,,unmapped,job_info_rows,TRUE,,
+ja_0912,주문양복사,주문양복사,,unmapped,job_info_rows,TRUE,,
+ja_0913,양장사,양장사,,unmapped,job_info_rows,TRUE,,
+ja_0914,맞춤양장사,맞춤양장사,,unmapped,job_info_rows,TRUE,,
+ja_0915,양복사,양복사,,unmapped,job_info_rows,TRUE,,
+ja_0916,모니터,모니터,,unmapped,job_info_rows,TRUE,,
+ja_0917,와인캡틴,와인캡틴,,unmapped,job_info_rows,TRUE,,
+ja_0918,와인웨이터,와인웨이터,,unmapped,job_info_rows,TRUE,,
+ja_0919,제과제빵사,제과제빵사,job_0109,auto_keyword,job_info_rows,TRUE,0.9300,제과/제빵
+ja_0920,요리사,요리사,,unmapped,job_info_rows,TRUE,,
+ja_0921,축산인,축산인,,unmapped,job_info_rows,TRUE,,
+ja_0922,낙농장종사원,낙농장종사원,,unmapped,job_info_rows,TRUE,,
+ja_0923,육우사육사,육우사육사,,unmapped,job_info_rows,TRUE,,
+ja_0924,동물사육사,동물사육사,,unmapped,job_info_rows,TRUE,,
+ja_0925,축산업자,축산업자,,unmapped,job_info_rows,TRUE,,
+ja_0926,낙농업자,낙농업자,,unmapped,job_info_rows,TRUE,,
+ja_0927,목축업자,목축업자,,unmapped,job_info_rows,TRUE,,
+ja_0928,양돈업자,양돈업자,,unmapped,job_info_rows,TRUE,,
+ja_0929,동물부화자,동물부화자,,unmapped,job_info_rows,TRUE,,
+ja_0930,한복기능사,한복기능사,,unmapped,job_info_rows,TRUE,,
+ja_0931,한복제조원,한복제조원,,unmapped,job_info_rows,TRUE,,
+ja_0932,수의 제조원,수의_제조원,,unmapped,job_info_rows,TRUE,,
+ja_0933,개량한복 제조원,개량한복_제조원,,unmapped,job_info_rows,TRUE,,
+ja_0934,승복 제조원,승복_제조원,,unmapped,job_info_rows,TRUE,,
+ja_0935,한복 수선원,한복_수선원,,unmapped,job_info_rows,TRUE,,
+ja_0936,일등항해사,일등항해사,,unmapped,job_info_rows,TRUE,,
+ja_0937,이등항해사,이등항해사,,unmapped,job_info_rows,TRUE,,
+ja_0938,푸드코디네이터,푸드코디네이터,,unmapped,job_info_rows,TRUE,,
+ja_0939,테이블코디네이터,테이블코디네이터,,unmapped,job_info_rows,TRUE,,
+ja_0940,테이블아티스트,테이블아티스트,,unmapped,job_info_rows,TRUE,,
+ja_0941,테이블데코레이터,테이블데코레이터,,unmapped,job_info_rows,TRUE,,
+ja_0942,쇼호스트,쇼호스트,,unmapped,job_info_rows,TRUE,,
+ja_0943,다이어트메이트,다이어트메이트,,unmapped,job_info_rows,TRUE,,
+ja_0944,다이어트컨설턴트,다이어트컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_0945,농림어업 시험원,농림어업_시험원,,unmapped,job_info_rows,TRUE,,
+ja_0946,농촌지도사,농촌지도사,,unmapped,job_info_rows,TRUE,,
+ja_0947,농업인,농업인,,unmapped,job_info_rows,TRUE,,
+ja_0948,전답작물재배자,전답작물재배자,,unmapped,job_info_rows,TRUE,,
+ja_0949,원예재배자,원예재배자,,unmapped,job_info_rows,TRUE,,
+ja_0950,특용작물재배자,특용작물재배자,,unmapped,job_info_rows,TRUE,,
+ja_0951,육묘 및 종묘재배자,육묘_및_종묘재배자,,unmapped,job_info_rows,TRUE,,
+ja_0952,임산기능인,임산기능인,,unmapped,job_info_rows,TRUE,,
+ja_0953,양봉인,양봉인,,unmapped,job_info_rows,TRUE,,
+ja_0954,양잠인,양잠인,,unmapped,job_info_rows,TRUE,,
+ja_0955,분재재배종사원,분재재배종사원,,unmapped,job_info_rows,TRUE,,
+ja_0956,조경시공관리자,조경시공관리자,,unmapped,job_info_rows,TRUE,,
+ja_0957,정원사,정원사,,unmapped,job_info_rows,TRUE,,
+ja_0958,수산양식자,수산양식자,job_0137,auto_partial,job_info_rows,TRUE,0.9200,수산양식
+ja_0959,패류양식업자,패류양식업자,,unmapped,job_info_rows,TRUE,,
+ja_0960,어류양식업자,어류양식업자,,unmapped,job_info_rows,TRUE,,
+ja_0961,해조류양식업자,해조류양식업자,,unmapped,job_info_rows,TRUE,,
+ja_0962,내수면양식업자,내수면양식업자,,unmapped,job_info_rows,TRUE,,
+ja_0963,어업근로자,어업근로자,,unmapped,job_info_rows,TRUE,,
+ja_0964,선원,선원,,unmapped,job_info_rows,TRUE,,
+ja_0965,조경사,조경사,,unmapped,job_info_rows,TRUE,,
+ja_0966,조경공,조경공,,unmapped,job_info_rows,TRUE,,
+ja_0967,해양물리기술자,해양물리기술자,,unmapped,job_info_rows,TRUE,,
+ja_0968,해양화학기술자,해양화학기술자,,unmapped,job_info_rows,TRUE,,
+ja_0969,해양생물기술자,해양생물기술자,,unmapped,job_info_rows,TRUE,,
+ja_0970,해양지질기술자,해양지질기술자,,unmapped,job_info_rows,TRUE,,
+ja_0971,해양자원개발기술자,해양자원개발기술자,,unmapped,job_info_rows,TRUE,,
+ja_0972,수산기술자,수산기술자,,unmapped,job_info_rows,TRUE,,
+ja_0973,문서감정사,문서감정사,,unmapped,job_info_rows,TRUE,,
+ja_0974,문화재감정사,문화재감정사,,unmapped,job_info_rows,TRUE,,
+ja_0975,미술품감정사,미술품감정사,,unmapped,job_info_rows,TRUE,,
+ja_0976,위폐감정사,위폐감정사,,unmapped,job_info_rows,TRUE,,
+ja_0977,경매사,경매사,,unmapped,job_info_rows,TRUE,,
+ja_0978,구매인,구매인,,unmapped,job_info_rows,TRUE,,
+ja_0979,바이어,바이어,,unmapped,job_info_rows,TRUE,,
+ja_0980,선박중개인,선박중개인,,unmapped,job_info_rows,TRUE,,
+ja_0981,용선중개인,용선중개인,,unmapped,job_info_rows,TRUE,,
+ja_0982,경영지도사,경영지도사,,unmapped,job_info_rows,TRUE,,
+ja_0983,기업분석가,기업분석가,,unmapped,job_info_rows,TRUE,,
+ja_0984,가격경제학자,가격경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0985,국제경제학자,국제경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0986,노동경제학자,노동경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0987,농업경제학자,농업경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0988,산업경제학자,산업경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0989,금융경제학자,금융경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0990,경제학자,경제학자,,unmapped,job_info_rows,TRUE,,
+ja_0991,공인노무사,공인노무사,,unmapped,job_info_rows,TRUE,,
+ja_0992,공인회계사,공인회계사,job_0067,auto_keyword,job_info_rows,TRUE,0.9300,회계
+ja_0993,AICPA(미국공인회계사),aicpa_미국공인회계사,job_0067,auto_keyword,job_info_rows,TRUE,0.9300,회계
+ja_0994,통관대리인,통관대리인,,unmapped,job_info_rows,TRUE,,
+ja_0995,국제무역사,국제무역사,,unmapped,job_info_rows,TRUE,,
+ja_0996,도시계획기술자,도시계획기술자,job_0050,auto_partial,job_info_rows,TRUE,0.9200,도시계획
+ja_0997,상품기획자,상품기획자,,unmapped,job_info_rows,TRUE,,
+ja_0998,상품개발담당자,상품개발담당자,,unmapped,job_info_rows,TRUE,,
+ja_0999,머천다이저,머천다이저,,unmapped,job_info_rows,TRUE,,
+ja_1000,공인중개사,공인중개사,,unmapped,job_info_rows,TRUE,,
+ja_1001,선물거래중개인,선물거래중개인,,unmapped,job_info_rows,TRUE,,
+ja_1002,손해사정인,손해사정인,,unmapped,job_info_rows,TRUE,,
+ja_1003,시장조사분석가,시장조사분석가,,unmapped,job_info_rows,TRUE,,
+ja_1004,마케팅리서치,마케팅리서치,job_0077,auto_partial,job_info_rows,TRUE,0.9200,마케팅
+ja_1005,영화전문홍보가,영화전문홍보가,,unmapped,job_info_rows,TRUE,,
+ja_1006,자동차영업사원,자동차영업사원,,unmapped,job_info_rows,TRUE,,
+ja_1007,카딜러,카딜러,,unmapped,job_info_rows,TRUE,,
+ja_1008,조직관리자,조직관리자,,unmapped,job_info_rows,TRUE,,
+ja_1009,증권분석사,증권분석사,,unmapped,job_info_rows,TRUE,,
+ja_1010,채권중개인,채권중개인,,unmapped,job_info_rows,TRUE,,
+ja_1011,파생상품중개인,파생상품중개인,,unmapped,job_info_rows,TRUE,,
+ja_1012,판매사무원,판매사무원,,unmapped,job_info_rows,TRUE,,
+ja_1013,펀드매니저,펀드매니저,,unmapped,job_info_rows,TRUE,,
+ja_1014,브랜드네임전문가,브랜드네임전문가,,unmapped,job_info_rows,TRUE,,
+ja_1015,은행원,은행원,,unmapped,job_info_rows,TRUE,,
+ja_1016,행원,행원,,unmapped,job_info_rows,TRUE,,
+ja_1017,스크립터,스크립터,,unmapped,job_info_rows,TRUE,,
+ja_1018,방송작가,방송작가,,unmapped,job_info_rows,TRUE,,
+ja_1019,잡지사기자,잡지사기자,,unmapped,job_info_rows,TRUE,,
+ja_1020,방송기자,방송기자,,unmapped,job_info_rows,TRUE,,
+ja_1021,신문기자,신문기자,,unmapped,job_info_rows,TRUE,,
+ja_1022,순차통역사,순차통역사,,unmapped,job_info_rows,TRUE,,
+ja_1023,관광통역사,관광통역사,job_0106,auto_partial,job_info_rows,TRUE,0.9200,관광통역
+ja_1024,비지니스통역사,비지니스통역사,,unmapped,job_info_rows,TRUE,,
+ja_1025,동시통역사,동시통역사,,unmapped,job_info_rows,TRUE,,
+ja_1026,통신원,통신원,,unmapped,job_info_rows,TRUE,,
+ja_1027,시나리오작가,시나리오작가,,unmapped,job_info_rows,TRUE,,
+ja_1028,번역사,번역사,,unmapped,job_info_rows,TRUE,,
+ja_1029,문헌학자,문헌학자,,unmapped,job_info_rows,TRUE,,
+ja_1030,서지학자,서지학자,,unmapped,job_info_rows,TRUE,,
+ja_1031,정치학자,정치학자,,unmapped,job_info_rows,TRUE,,
+ja_1032,뉴스앵커,뉴스앵커,,unmapped,job_info_rows,TRUE,,
+ja_1033,언어학자,언어학자,,unmapped,job_info_rows,TRUE,,
+ja_1034,사학자,사학자,,unmapped,job_info_rows,TRUE,,
+ja_1035,역사학자,역사학자,,unmapped,job_info_rows,TRUE,,
+ja_1036,보컬트레이너,보컬트레이너,,unmapped,job_info_rows,TRUE,,
+ja_1037,뮤지컬배우,뮤지컬배우,,unmapped,job_info_rows,TRUE,,
+ja_1038,대중가요 가수,대중가요_가수,,unmapped,job_info_rows,TRUE,,
+ja_1039,간판 제작·설치원,간판_제작_설치원,,unmapped,job_info_rows,TRUE,,
+ja_1040,간판수리원,간판수리원,,unmapped,job_info_rows,TRUE,,
+ja_1041,간판도장원,간판도장원,,unmapped,job_info_rows,TRUE,,
+ja_1042,네온제작원,네온제작원,,unmapped,job_info_rows,TRUE,,
+ja_1043,광고아티스트,광고아티스트,,unmapped,job_info_rows,TRUE,,
+ja_1044,아트플래너,아트플래너,,unmapped,job_info_rows,TRUE,,
+ja_1045,지면디자이너,지면디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1046,광고메시지 기획원,광고메시지_기획원,,unmapped,job_info_rows,TRUE,,
+ja_1047,그래픽디자이너,그래픽디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1048,민속음악인,민속음악인,,unmapped,job_info_rows,TRUE,,
+ja_1049,CF모델,cf모델,,unmapped,job_info_rows,TRUE,,
+ja_1050,패션모델,패션모델,,unmapped,job_info_rows,TRUE,,
+ja_1051,사진모델,사진모델,,unmapped,job_info_rows,TRUE,,
+ja_1052,나레이터모델,나레이터모델,,unmapped,job_info_rows,TRUE,,
+ja_1053,숍마스터,숍마스터,,unmapped,job_info_rows,TRUE,,
+ja_1054,재단사,재단사,,unmapped,job_info_rows,TRUE,,
+ja_1055,모델리스트,모델리스트,,unmapped,job_info_rows,TRUE,,
+ja_1056,패턴제작원,패턴제작원,,unmapped,job_info_rows,TRUE,,
+ja_1057,매트리스본제조원,매트리스본제조원,,unmapped,job_info_rows,TRUE,,
+ja_1058,옷본 제작원,옷본_제작원,,unmapped,job_info_rows,TRUE,,
+ja_1059,모자본 제작원,모자본_제작원,,unmapped,job_info_rows,TRUE,,
+ja_1060,우산본 제작원,우산본_제작원,,unmapped,job_info_rows,TRUE,,
+ja_1061,무대연출가,무대연출가,,unmapped,job_info_rows,TRUE,,
+ja_1062,문화재 수리원,문화재_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1063,보수기술자,보수기술자,,unmapped,job_info_rows,TRUE,,
+ja_1064,단청기술자,단청기술자,,unmapped,job_info_rows,TRUE,,
+ja_1065,실측·설계기술자,실측_설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_1066,조각기술자,조각기술자,,unmapped,job_info_rows,TRUE,,
+ja_1067,표구기술자,표구기술자,,unmapped,job_info_rows,TRUE,,
+ja_1068,칠공기술자,칠공기술자,,unmapped,job_info_rows,TRUE,,
+ja_1069,도금기술자,도금기술자,,unmapped,job_info_rows,TRUE,,
+ja_1070,모사기술자,모사기술자,,unmapped,job_info_rows,TRUE,,
+ja_1071,보존과학기술자,보존과학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1072,식물보호기술자,식물보호기술자,,unmapped,job_info_rows,TRUE,,
+ja_1073,한식목공(대목수,한식목공_대목수,,unmapped,job_info_rows,TRUE,,
+ja_1074,소목수),소목수,,unmapped,job_info_rows,TRUE,,
+ja_1075,한식석공(가공석공,한식석공_가공석공,,unmapped,job_info_rows,TRUE,,
+ja_1076,쌓기석공),쌓기석공,,unmapped,job_info_rows,TRUE,,
+ja_1077,화공,화공,,unmapped,job_info_rows,TRUE,,
+ja_1078,드잡이공,드잡이공,,unmapped,job_info_rows,TRUE,,
+ja_1079,번와와공,번와와공,,unmapped,job_info_rows,TRUE,,
+ja_1080,제작와공,제작와공,,unmapped,job_info_rows,TRUE,,
+ja_1081,한식미장공,한식미장공,,unmapped,job_info_rows,TRUE,,
+ja_1082,철물공,철물공,,unmapped,job_info_rows,TRUE,,
+ja_1083,조각공,조각공,,unmapped,job_info_rows,TRUE,,
+ja_1084,칠공,칠공,,unmapped,job_info_rows,TRUE,,
+ja_1085,도금공,도금공,,unmapped,job_info_rows,TRUE,,
+ja_1086,표구공,표구공,,unmapped,job_info_rows,TRUE,,
+ja_1087,세척공,세척공,,unmapped,job_info_rows,TRUE,,
+ja_1088,보존과학공,보존과학공,,unmapped,job_info_rows,TRUE,,
+ja_1089,식물보호공,식물보호공,,unmapped,job_info_rows,TRUE,,
+ja_1090,실측설계사보,실측설계사보,,unmapped,job_info_rows,TRUE,,
+ja_1091,예술품복원기술자,예술품복원기술자,,unmapped,job_info_rows,TRUE,,
+ja_1092,학예연구사,학예연구사,,unmapped,job_info_rows,TRUE,,
+ja_1093,드라마 프로듀서,드라마_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1094,라디오 제작 프로듀서,라디오_제작_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1095,스포츠 프로듀서,스포츠_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1096,쇼 프로듀서,쇼_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1097,뉴스 프로듀서,뉴스_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1098,방송PD,방송pd,,unmapped,job_info_rows,TRUE,,
+ja_1099,배우,배우,,unmapped,job_info_rows,TRUE,,
+ja_1100,영화배우,영화배우,,unmapped,job_info_rows,TRUE,,
+ja_1101,연극배우,연극배우,,unmapped,job_info_rows,TRUE,,
+ja_1102,특수분장사,특수분장사,,unmapped,job_info_rows,TRUE,,
+ja_1103,인상사진작가,인상사진작가,,unmapped,job_info_rows,TRUE,,
+ja_1104,광고사진작가,광고사진작가,,unmapped,job_info_rows,TRUE,,
+ja_1105,순수사진작가,순수사진작가,,unmapped,job_info_rows,TRUE,,
+ja_1106,보도사진작가,보도사진작가,,unmapped,job_info_rows,TRUE,,
+ja_1107,생태사진작가,생태사진작가,,unmapped,job_info_rows,TRUE,,
+ja_1108,사진영상·인화원,사진영상_인화원,,unmapped,job_info_rows,TRUE,,
+ja_1109,슬라이드 제작원,슬라이드_제작원,,unmapped,job_info_rows,TRUE,,
+ja_1110,사진처리원,사진처리원,,unmapped,job_info_rows,TRUE,,
+ja_1111,아트플라워디자이너,아트플라워디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1112,악기연주가,악기연주가,,unmapped,job_info_rows,TRUE,,
+ja_1113,기악연주가,기악연주가,,unmapped,job_info_rows,TRUE,,
+ja_1114,현악연주가,현악연주가,,unmapped,job_info_rows,TRUE,,
+ja_1115,애견미용사,애견미용사,,unmapped,job_info_rows,TRUE,,
+ja_1116,이미지메이커,이미지메이커,,unmapped,job_info_rows,TRUE,,
+ja_1117,이미지관리인,이미지관리인,,unmapped,job_info_rows,TRUE,,
+ja_1118,실내건축기술자,실내건축기술자,job_0048,auto_partial,job_info_rows,TRUE,0.9200,실내건축
+ja_1119,실내장식전문가,실내장식전문가,,unmapped,job_info_rows,TRUE,,
+ja_1120,자동차디자이너,자동차디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1121,장신구디자이너,장신구디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1122,용기디자이너,용기디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1123,가구디자이너,가구디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1124,향기 전문가,향기_전문가,,unmapped,job_info_rows,TRUE,,
+ja_1125,향수코디네이터,향수코디네이터,,unmapped,job_info_rows,TRUE,,
+ja_1126,직업운동선수,직업운동선수,,unmapped,job_info_rows,TRUE,,
+ja_1127,영화촬영기사,영화촬영기사,,unmapped,job_info_rows,TRUE,,
+ja_1128,광고촬영기사,광고촬영기사,,unmapped,job_info_rows,TRUE,,
+ja_1129,TV촬영기사,tv촬영기사,,unmapped,job_info_rows,TRUE,,
+ja_1130,비디오촬영기사,비디오촬영기사,,unmapped,job_info_rows,TRUE,,
+ja_1131,색채전문가,색채전문가,,unmapped,job_info_rows,TRUE,,
+ja_1132,의상디자이너,의상디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1133,패션어드바이저,패션어드바이저,,unmapped,job_info_rows,TRUE,,
+ja_1134,샵 매니저,샵_매니저,,unmapped,job_info_rows,TRUE,,
+ja_1135,스타일리스트,스타일리스트,,unmapped,job_info_rows,TRUE,,
+ja_1136,피아노조율사,피아노조율사,,unmapped,job_info_rows,TRUE,,
+ja_1137,큐레이터,큐레이터,,unmapped,job_info_rows,TRUE,,
+ja_1138,가정부,가정부,,unmapped,job_info_rows,TRUE,,
+ja_1139,산모도우미,산모도우미,,unmapped,job_info_rows,TRUE,,
+ja_1140,실버케어,실버케어,,unmapped,job_info_rows,TRUE,,
+ja_1141,입원환자 도우미,입원환자_도우미,,unmapped,job_info_rows,TRUE,,
+ja_1142,장애인 도우미,장애인_도우미,,unmapped,job_info_rows,TRUE,,
+ja_1143,치매 및 정신장애 도우미,치매_및_정신장애_도우미,,unmapped,job_info_rows,TRUE,,
+ja_1144,간호사,간호사,job_0087,auto_keyword,job_info_rows,TRUE,0.9300,간호사
+ja_1145,전문간호사,전문간호사,job_0087,auto_keyword,job_info_rows,TRUE,0.9300,간호사
+ja_1146,교정간호사,교정간호사,job_0087,auto_keyword,job_info_rows,TRUE,0.9300,간호사
+ja_1147,건물 및 차량청소원,건물_및_차량청소원,,unmapped,job_info_rows,TRUE,,
+ja_1148,야간경비원,야간경비원,,unmapped,job_info_rows,TRUE,,
+ja_1149,수위,수위,,unmapped,job_info_rows,TRUE,,
+ja_1150,국립공원관리인,국립공원관리인,,unmapped,job_info_rows,TRUE,,
+ja_1151,형사,형사,,unmapped,job_info_rows,TRUE,,
+ja_1152,범죄과학수사관(CSI),범죄과학수사관_csi,,unmapped,job_info_rows,TRUE,,
+ja_1153,사이버경찰관,사이버경찰관,,unmapped,job_info_rows,TRUE,,
+ja_1154,용역경비원,용역경비원,,unmapped,job_info_rows,TRUE,,
+ja_1155,신변경호원(무술유단자),신변경호원_무술유단자,,unmapped,job_info_rows,TRUE,,
+ja_1156,보디가드,보디가드,,unmapped,job_info_rows,TRUE,,
+ja_1157,공무원,공무원,,unmapped,job_info_rows,TRUE,,
+ja_1158,교정공무원,교정공무원,,unmapped,job_info_rows,TRUE,,
+ja_1159,대학교수,대학교수,,unmapped,job_info_rows,TRUE,,
+ja_1160,조주사,조주사,,unmapped,job_info_rows,TRUE,,
+ja_1161,배달원,배달원,,unmapped,job_info_rows,TRUE,,
+ja_1162,보육교사,보육교사,,unmapped,job_info_rows,TRUE,,
+ja_1163,비서,비서,,unmapped,job_info_rows,TRUE,,
+ja_1164,사회사업가,사회사업가,,unmapped,job_info_rows,TRUE,,
+ja_1165,상담가,상담가,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1166,청소년상담가,청소년상담가,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1167,상담심리전문가,상담심리전문가,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1168,상담지도사,상담지도사,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1169,상담심리사,상담심리사,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1170,상담교사,상담교사,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1171,심리치료사,심리치료사,,unmapped,job_info_rows,TRUE,,
+ja_1172,산업 및 조직심리사,산업_및_조직심리사,,unmapped,job_info_rows,TRUE,,
+ja_1173,집배원,집배원,,unmapped,job_info_rows,TRUE,,
+ja_1174,승려,승려,,unmapped,job_info_rows,TRUE,,
+ja_1175,신부,신부,,unmapped,job_info_rows,TRUE,,
+ja_1176,목사,목사,,unmapped,job_info_rows,TRUE,,
+ja_1177,119구조대원,119구조대원,,unmapped,job_info_rows,TRUE,,
+ja_1178,역무원,역무원,,unmapped,job_info_rows,TRUE,,
+ja_1179,코치,코치,,unmapped,job_info_rows,TRUE,,
+ja_1180,운동선수트레이너,운동선수트레이너,,unmapped,job_info_rows,TRUE,,
+ja_1181,염사,염사,,unmapped,job_info_rows,TRUE,,
+ja_1182,인문계중등학교교사,인문계중등학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1183,중등학교교사,중등학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1184,중학교교사,중학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1185,고등학교교사,고등학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1186,장교,장교,,unmapped,job_info_rows,TRUE,,
+ja_1187,직업훈련교사,직업훈련교사,,unmapped,job_info_rows,TRUE,,
+ja_1188,초등학교교사,초등학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1189,캐디,캐디,,unmapped,job_info_rows,TRUE,,
+ja_1190,특수교사,특수교사,,unmapped,job_info_rows,TRUE,,
+ja_1191,특수학교교사,특수학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1192,판사,판사,,unmapped,job_info_rows,TRUE,,
+ja_1193,프로바둑기사,프로바둑기사,,unmapped,job_info_rows,TRUE,,
+ja_1194,스킨케어전문가,스킨케어전문가,,unmapped,job_info_rows,TRUE,,
+ja_1195,항공기객실승무원,항공기객실승무원,,unmapped,job_info_rows,TRUE,,
+ja_1196,스튜어드,스튜어드,,unmapped,job_info_rows,TRUE,,
+ja_1197,스튜어디스,스튜어디스,,unmapped,job_info_rows,TRUE,,
+ja_1198,홍보도우미,홍보도우미,,unmapped,job_info_rows,TRUE,,
+ja_1199,행사도우미,행사도우미,,unmapped,job_info_rows,TRUE,,
+ja_1200,헬스케어전문가,헬스케어전문가,,unmapped,job_info_rows,TRUE,,
+ja_1201,건강관리사,건강관리사,,unmapped,job_info_rows,TRUE,,
+ja_1202,운동처방사,운동처방사,,unmapped,job_info_rows,TRUE,,
+ja_1203,웨딩매니저,웨딩매니저,,unmapped,job_info_rows,TRUE,,
+ja_1204,웨딩코디네이터,웨딩코디네이터,,unmapped,job_info_rows,TRUE,,
+ja_1205,웨딩컨설턴트,웨딩컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1206,호스피스전문간호사,호스피스전문간호사,job_0087,auto_keyword,job_info_rows,TRUE,0.9300,간호사
+ja_1207,호스피스완화간호사,호스피스완화간호사,job_0087,auto_keyword,job_info_rows,TRUE,0.9300,간호사
+ja_1208,시스템 설계자,시스템_설계자,,unmapped,job_info_rows,TRUE,,
+ja_1209,시스템 프로그래머,시스템_프로그래머,,unmapped,job_info_rows,TRUE,,
+ja_1210,네트워크디자이너,네트워크디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1211,컴퓨터 보안서비스종사자,컴퓨터_보안서비스종사자,,unmapped,job_info_rows,TRUE,,
+ja_1212,시스템분석가,시스템분석가,,unmapped,job_info_rows,TRUE,,
+ja_1213,시스템설계가,시스템설계가,,unmapped,job_info_rows,TRUE,,
+ja_1214,웹관리자,웹관리자,,unmapped,job_info_rows,TRUE,,
+ja_1215,웹매니저,웹매니저,,unmapped,job_info_rows,TRUE,,
+ja_1216,정보기술컨설턴트(IT),정보기술컨설턴트_it,,unmapped,job_info_rows,TRUE,,
+ja_1217,정보시스템컨설턴트,정보시스템컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1218,ERP컨설턴트,erp컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1219,KMS컨설턴트,kms컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1220,CRP컨설턴트,crp컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1221,정보보안컨설턴트,정보보안컨설턴트,job_0025,auto_partial,job_info_rows,TRUE,0.9200,정보보안
+ja_1222,네트워크컨설턴트,네트워크컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1223,시스템컨설턴트,시스템컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1224,컴퓨터속기사,컴퓨터속기사,,unmapped,job_info_rows,TRUE,,
+ja_1225,사이처,사이처,,unmapped,job_info_rows,TRUE,,
+ja_1226,이러닝(e-learning)교수설계자,이러닝_e_learning_교수설계자,,unmapped,job_info_rows,TRUE,,
+ja_1227,이러닝지도자,이러닝지도자,,unmapped,job_info_rows,TRUE,,
+ja_1228,정보통신망연구원,정보통신망연구원,,unmapped,job_info_rows,TRUE,,
+ja_1229,디지털교환설비연구원,디지털교환설비연구원,,unmapped,job_info_rows,TRUE,,
+ja_1230,컴퓨터주변기기수리원,컴퓨터주변기기수리원,,unmapped,job_info_rows,TRUE,,
+ja_1231,복사기수리원,복사기수리원,,unmapped,job_info_rows,TRUE,,
+ja_1232,프린터수리원,프린터수리원,,unmapped,job_info_rows,TRUE,,
+ja_1233,팩시밀리 수리원,팩시밀리_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1234,인터넷쇼핑몰구축전문가,인터넷쇼핑몰구축전문가,,unmapped,job_info_rows,TRUE,,
+ja_1235,정보통신기술영업원,정보통신기술영업원,,unmapped,job_info_rows,TRUE,,
+ja_1236,정보통신기술세일즈맨,정보통신기술세일즈맨,,unmapped,job_info_rows,TRUE,,
+ja_1237,컴퓨터학원강사,컴퓨터학원강사,,unmapped,job_info_rows,TRUE,,
+ja_1238,컴퓨터교육강사,컴퓨터교육강사,job_0101,auto_partial,job_info_rows,TRUE,0.9200,교육
+ja_1239,정보통신학원강사,정보통신학원강사,,unmapped,job_info_rows,TRUE,,
+ja_1240,무선주파수기술자,무선주파수기술자,,unmapped,job_info_rows,TRUE,,
+ja_1241,소음진동기사,소음진동기사,,unmapped,job_info_rows,TRUE,,
+ja_1242,관광기획자,관광기획자,,unmapped,job_info_rows,TRUE,,
+ja_1243,시스템프로그래머,시스템프로그래머,,unmapped,job_info_rows,TRUE,,
+ja_1244,핀조명원,핀조명원,,unmapped,job_info_rows,TRUE,,
+ja_1245,조명탁조정원,조명탁조정원,,unmapped,job_info_rows,TRUE,,
+ja_1246,음악기사,음악기사,,unmapped,job_info_rows,TRUE,,
+ja_1247,음향엔지니어,음향엔지니어,,unmapped,job_info_rows,TRUE,,
+ja_1248,음향효과기사,음향효과기사,,unmapped,job_info_rows,TRUE,,
+ja_1249,컴퓨터그래픽스,컴퓨터그래픽스,,unmapped,job_info_rows,TRUE,,
+ja_1250,3D아티스트,3d아티스트,,unmapped,job_info_rows,TRUE,,
+ja_1251,오퍼레이터,오퍼레이터,,unmapped,job_info_rows,TRUE,,
+ja_1252,음반제작자,음반제작자,,unmapped,job_info_rows,TRUE,,
+ja_1253,프로듀서,프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1254,애니기획자,애니기획자,,unmapped,job_info_rows,TRUE,,
+ja_1255,애니메이션 프로듀서,애니메이션_프로듀서,,unmapped,job_info_rows,TRUE,,
+ja_1256,애니메이션 감독,애니메이션_감독,,unmapped,job_info_rows,TRUE,,
+ja_1257,스토리작가,스토리작가,,unmapped,job_info_rows,TRUE,,
+ja_1258,게임크리에이터,게임크리에이터,,unmapped,job_info_rows,TRUE,,
+ja_1259,게임디자이너,게임디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1260,편집디자이너,편집디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1261,출판편집기자,출판편집기자,,unmapped,job_info_rows,TRUE,,
+ja_1262,출판 편집기자,출판_편집기자,,unmapped,job_info_rows,TRUE,,
+ja_1263,영업직,영업직,,unmapped,job_info_rows,TRUE,,
+ja_1264,출판영업원,출판영업원,,unmapped,job_info_rows,TRUE,,
+ja_1265,도서유통담당자,도서유통담당자,,unmapped,job_info_rows,TRUE,,
+ja_1266,일반 영업원,일반_영업원,,unmapped,job_info_rows,TRUE,,
+ja_1267,수공예원,수공예원,,unmapped,job_info_rows,TRUE,,
+ja_1268,장제품공예원,장제품공예원,,unmapped,job_info_rows,TRUE,,
+ja_1269,돌실나이,돌실나이,,unmapped,job_info_rows,TRUE,,
+ja_1270,도자기빚기원,도자기빚기원,,unmapped,job_info_rows,TRUE,,
+ja_1271,한산모시짜기원,한산모시짜기원,,unmapped,job_info_rows,TRUE,,
+ja_1272,표구제조원,표구제조원,,unmapped,job_info_rows,TRUE,,
+ja_1273,사회학자,사회학자,,unmapped,job_info_rows,TRUE,,
+ja_1274,시민운동가,시민운동가,,unmapped,job_info_rows,TRUE,,
+ja_1275,인권운동가,인권운동가,,unmapped,job_info_rows,TRUE,,
+ja_1276,환경운동가,환경운동가,,unmapped,job_info_rows,TRUE,,
+ja_1277,사회운동가,사회운동가,,unmapped,job_info_rows,TRUE,,
+ja_1278,출판물디자이너,출판물디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1279,서체디자이너,서체디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1280,문자디자이너,문자디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1281,시스템관리자,시스템관리자,,unmapped,job_info_rows,TRUE,,
+ja_1282,네트워크관리자,네트워크관리자,,unmapped,job_info_rows,TRUE,,
+ja_1283,컴퓨터시스템관리자,컴퓨터시스템관리자,,unmapped,job_info_rows,TRUE,,
+ja_1284,홈페이지관리자,홈페이지관리자,,unmapped,job_info_rows,TRUE,,
+ja_1285,웹서버관리자,웹서버관리자,,unmapped,job_info_rows,TRUE,,
+ja_1286,컴퓨터네트워크장비개발자,컴퓨터네트워크장비개발자,,unmapped,job_info_rows,TRUE,,
+ja_1287,컴퓨터기기개발원,컴퓨터기기개발원,,unmapped,job_info_rows,TRUE,,
+ja_1288,컴퓨터메인보드개발원,컴퓨터메인보드개발원,,unmapped,job_info_rows,TRUE,,
+ja_1289,컴퓨터하드웨어설계기술자,컴퓨터하드웨어설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_1290,컴퓨터 제어시스템개발원,컴퓨터_제어시스템개발원,,unmapped,job_info_rows,TRUE,,
+ja_1291,콘트롤러개발원,콘트롤러개발원,,unmapped,job_info_rows,TRUE,,
+ja_1292,컴퓨터프로그래머,컴퓨터프로그래머,,unmapped,job_info_rows,TRUE,,
+ja_1293,재정분석가,재정분석가,,unmapped,job_info_rows,TRUE,,
+ja_1294,신용분석가,신용분석가,,unmapped,job_info_rows,TRUE,,
+ja_1295,컨퍼런스 및 회의기획자,컨퍼런스_및_회의기획자,,unmapped,job_info_rows,TRUE,,
+ja_1296,이벤트기획자,이벤트기획자,,unmapped,job_info_rows,TRUE,,
+ja_1297,이벤트전문가,이벤트전문가,,unmapped,job_info_rows,TRUE,,
+ja_1298,석유화학공학기술자,석유화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1299,도료·농약품화학공학기술자,도료_농약품화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1300,비누·화장품화학공학기술자,비누_화장품화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1301,화학공학기술자 및 연구원,화학공학기술자_및_연구원,,unmapped,job_info_rows,TRUE,,
+ja_1302,도료 및 농약품 화학공학기술자,도료_및_농약품_화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1303,비누 및 화장품 화학공학기술자,비누_및_화장품_화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1304,고무 및 플라스틱 화학공학기술자,고무_및_플라스틱_화학공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1305,특수사진사,특수사진사,,unmapped,job_info_rows,TRUE,,
+ja_1306,사진현상원,사진현상원,,unmapped,job_info_rows,TRUE,,
+ja_1307,촬영기자,촬영기자,,unmapped,job_info_rows,TRUE,,
+ja_1308,보일러수리원,보일러수리원,,unmapped,job_info_rows,TRUE,,
+ja_1309,기계정비원,기계정비원,job_0035,auto_keyword,job_info_rows,TRUE,0.9300,기계정비
+ja_1310,환경대리인,환경대리인,,unmapped,job_info_rows,TRUE,,
+ja_1311,환경오염방지전문가,환경오염방지전문가,,unmapped,job_info_rows,TRUE,,
+ja_1312,에너지자원개발연구원,에너지자원개발연구원,,unmapped,job_info_rows,TRUE,,
+ja_1313,대체기기개발연구원,대체기기개발연구원,,unmapped,job_info_rows,TRUE,,
+ja_1314,토양오염기술자,토양오염기술자,,unmapped,job_info_rows,TRUE,,
+ja_1315,토양복원기술자,토양복원기술자,,unmapped,job_info_rows,TRUE,,
+ja_1316,환경엔지니어,환경엔지니어,,unmapped,job_info_rows,TRUE,,
+ja_1317,환경설비기사,환경설비기사,,unmapped,job_info_rows,TRUE,,
+ja_1318,설비관리감독자,설비관리감독자,,unmapped,job_info_rows,TRUE,,
+ja_1319,해양오염방제사,해양오염방제사,,unmapped,job_info_rows,TRUE,,
+ja_1320,해양환경연구원,해양환경연구원,,unmapped,job_info_rows,TRUE,,
+ja_1321,해양오염관리자,해양오염관리자,,unmapped,job_info_rows,TRUE,,
+ja_1322,상수도설계기술자,상수도설계기술자,,unmapped,job_info_rows,TRUE,,
+ja_1323,산업위생기사,산업위생기사,,unmapped,job_info_rows,TRUE,,
+ja_1324,작업환경측정기사,작업환경측정기사,,unmapped,job_info_rows,TRUE,,
+ja_1325,산업위생관리자,산업위생관리자,,unmapped,job_info_rows,TRUE,,
+ja_1326,방사성폐기물처리원,방사성폐기물처리원,,unmapped,job_info_rows,TRUE,,
+ja_1327,방사성안전관리자,방사성안전관리자,,unmapped,job_info_rows,TRUE,,
+ja_1328,정치인,정치인,,unmapped,job_info_rows,TRUE,,
+ja_1329,정당인,정당인,,unmapped,job_info_rows,TRUE,,
+ja_1330,대통령,대통령,,unmapped,job_info_rows,TRUE,,
+ja_1331,마케팅컨설턴트,마케팅컨설턴트,job_0077,auto_partial,job_info_rows,TRUE,0.9200,마케팅
+ja_1332,판촉기법전문가,판촉기법전문가,,unmapped,job_info_rows,TRUE,,
+ja_1333,판촉전문가,판촉전문가,,unmapped,job_info_rows,TRUE,,
+ja_1334,금형공학기술자,금형공학기술자,,unmapped,job_info_rows,TRUE,,
+ja_1335,기계플랜트기술자,기계플랜트기술자,,unmapped,job_info_rows,TRUE,,
+ja_1336,기계감리기술자,기계감리기술자,,unmapped,job_info_rows,TRUE,,
+ja_1337,메카트로닉스기술자,메카트로닉스기술자,,unmapped,job_info_rows,TRUE,,
+ja_1338,공정관리·설계 기술자,공정관리_설계_기술자,job_0038,auto_partial,job_info_rows,TRUE,0.9200,공정관리
+ja_1339,대형화물차운전원,대형화물차운전원,,unmapped,job_info_rows,TRUE,,
+ja_1340,유조차운전원,유조차운전원,,unmapped,job_info_rows,TRUE,,
+ja_1341,덤프트럭운전원,덤프트럭운전원,,unmapped,job_info_rows,TRUE,,
+ja_1342,레카차운전원,레카차운전원,,unmapped,job_info_rows,TRUE,,
+ja_1343,레미콘운전원,레미콘운전원,,unmapped,job_info_rows,TRUE,,
+ja_1344,트레일러운전원,트레일러운전원,,unmapped,job_info_rows,TRUE,,
+ja_1345,상·하수도엔지니어,상_하수도엔지니어,,unmapped,job_info_rows,TRUE,,
+ja_1346,폐기물처리엔지니어,폐기물처리엔지니어,,unmapped,job_info_rows,TRUE,,
+ja_1347,기업체/정부/대학연구원,기업체_정부_대학연구원,,unmapped,job_info_rows,TRUE,,
+ja_1348,환경관련사업체관리자,환경관련사업체관리자,,unmapped,job_info_rows,TRUE,,
+ja_1349,기술직공무원,기술직공무원,,unmapped,job_info_rows,TRUE,,
+ja_1350,환경교사,환경교사,,unmapped,job_info_rows,TRUE,,
+ja_1351,환경경영전문가,환경경영전문가,,unmapped,job_info_rows,TRUE,,
+ja_1352,환경영향평가기술자,환경영향평가기술자,,unmapped,job_info_rows,TRUE,,
+ja_1353,수질환경기술자,수질환경기술자,,unmapped,job_info_rows,TRUE,,
+ja_1354,폐기물처리기술자,폐기물처리기술자,,unmapped,job_info_rows,TRUE,,
+ja_1355,해양관련사업체관리자,해양관련사업체관리자,,unmapped,job_info_rows,TRUE,,
+ja_1356,해양환경기술자,해양환경기술자,,unmapped,job_info_rows,TRUE,,
+ja_1357,전자축전기제조기조작원,전자축전기제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1358,브라운관제조용장비조작원,브라운관제조용장비조작원,,unmapped,job_info_rows,TRUE,,
+ja_1359,웨이퍼제조기조작원,웨이퍼제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1360,집적회로제조기 조작원,집적회로제조기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1361,인쇄회로기판제조기 조작원,인쇄회로기판제조기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1362,반도체리드 코딩원,반도체리드_코딩원,,unmapped,job_info_rows,TRUE,,
+ja_1363,반도체 코딩원,반도체_코딩원,,unmapped,job_info_rows,TRUE,,
+ja_1364,스포츠마케터,스포츠마케터,,unmapped,job_info_rows,TRUE,,
+ja_1365,스포츠마케팅전문가,스포츠마케팅전문가,job_0077,auto_partial,job_info_rows,TRUE,0.9200,마케팅
+ja_1366,자연계중등학교교사,자연계중등학교교사,,unmapped,job_info_rows,TRUE,,
+ja_1367,교원,교원,,unmapped,job_info_rows,TRUE,,
+ja_1368,시멘트공,시멘트공,,unmapped,job_info_rows,TRUE,,
+ja_1369,콘크리트혼합공,콘크리트혼합공,,unmapped,job_info_rows,TRUE,,
+ja_1370,지적·측량기술자,지적_측량기술자,,unmapped,job_info_rows,TRUE,,
+ja_1371,토지측량사,토지측량사,,unmapped,job_info_rows,TRUE,,
+ja_1372,사진측량·분석가,사진측량_분석가,,unmapped,job_info_rows,TRUE,,
+ja_1373,지도제작기술자,지도제작기술자,,unmapped,job_info_rows,TRUE,,
+ja_1374,기업관리소프트웨어개발자,기업관리소프트웨어개발자,,unmapped,job_info_rows,TRUE,,
+ja_1375,과학용소프트웨어개발자,과학용소프트웨어개발자,,unmapped,job_info_rows,TRUE,,
+ja_1376,산업용소프트웨어개발자,산업용소프트웨어개발자,,unmapped,job_info_rows,TRUE,,
+ja_1377,교육용소프트웨어개발자,교육용소프트웨어개발자,job_0101,auto_partial,job_info_rows,TRUE,0.9200,교육
+ja_1378,웹개발자,웹개발자,,unmapped,job_info_rows,TRUE,,
+ja_1379,웹 기획자(웹PD),웹_기획자_웹pd,,unmapped,job_info_rows,TRUE,,
+ja_1380,게이머,게이머,,unmapped,job_info_rows,TRUE,,
+ja_1381,특정직국가공무원,특정직국가공무원,,unmapped,job_info_rows,TRUE,,
+ja_1382,채권추심원,채권추심원,,unmapped,job_info_rows,TRUE,,
+ja_1383,채권회수자,채권회수자,,unmapped,job_info_rows,TRUE,,
+ja_1384,추심원,추심원,,unmapped,job_info_rows,TRUE,,
+ja_1385,장학사,장학사,,unmapped,job_info_rows,TRUE,,
+ja_1386,교육행정사무원,교육행정사무원,job_0101,auto_partial,job_info_rows,TRUE,0.9200,교육
+ja_1387,교육학자,교육학자,job_0101,auto_partial,job_info_rows,TRUE,0.9200,교육
+ja_1388,철학자,철학자,,unmapped,job_info_rows,TRUE,,
+ja_1389,서양철학자,서양철학자,,unmapped,job_info_rows,TRUE,,
+ja_1390,동양철학자,동양철학자,,unmapped,job_info_rows,TRUE,,
+ja_1391,국학자,국학자,,unmapped,job_info_rows,TRUE,,
+ja_1392,행정학자,행정학자,,unmapped,job_info_rows,TRUE,,
+ja_1393,행정가,행정가,,unmapped,job_info_rows,TRUE,,
+ja_1394,학습지방문교사,학습지방문교사,,unmapped,job_info_rows,TRUE,,
+ja_1395,학습지교사,학습지교사,,unmapped,job_info_rows,TRUE,,
+ja_1396,학습지지도교사,학습지지도교사,,unmapped,job_info_rows,TRUE,,
+ja_1397,마사지사,마사지사,,unmapped,job_info_rows,TRUE,,
+ja_1398,스포츠마사지사,스포츠마사지사,,unmapped,job_info_rows,TRUE,,
+ja_1399,소독관리인,소독관리인,,unmapped,job_info_rows,TRUE,,
+ja_1400,환경 및 보건위생검사원,환경_및_보건위생검사원,,unmapped,job_info_rows,TRUE,,
+ja_1401,갑판장,갑판장,,unmapped,job_info_rows,TRUE,,
+ja_1402,갑판원,갑판원,,unmapped,job_info_rows,TRUE,,
+ja_1403,판매외무원,판매외무원,,unmapped,job_info_rows,TRUE,,
+ja_1404,정수기방문판매원,정수기방문판매원,,unmapped,job_info_rows,TRUE,,
+ja_1405,신용카드방문판매원,신용카드방문판매원,,unmapped,job_info_rows,TRUE,,
+ja_1406,비디오테입대여원,비디오테입대여원,,unmapped,job_info_rows,TRUE,,
+ja_1407,자동차대여원,자동차대여원,,unmapped,job_info_rows,TRUE,,
+ja_1408,책대여원,책대여원,,unmapped,job_info_rows,TRUE,,
+ja_1409,의상대여원,의상대여원,,unmapped,job_info_rows,TRUE,,
+ja_1410,장난감대여원,장난감대여원,,unmapped,job_info_rows,TRUE,,
+ja_1411,가스충전원,가스충전원,,unmapped,job_info_rows,TRUE,,
+ja_1412,주유판매원,주유판매원,,unmapped,job_info_rows,TRUE,,
+ja_1413,캐셔,캐셔,,unmapped,job_info_rows,TRUE,,
+ja_1414,카운터,카운터,,unmapped,job_info_rows,TRUE,,
+ja_1415,정산원,정산원,,unmapped,job_info_rows,TRUE,,
+ja_1416,무인경비요원,무인경비요원,,unmapped,job_info_rows,TRUE,,
+ja_1417,무인경비순찰원,무인경비순찰원,,unmapped,job_info_rows,TRUE,,
+ja_1418,구두닦이,구두닦이,,unmapped,job_info_rows,TRUE,,
+ja_1419,주차장관리원,주차장관리원,,unmapped,job_info_rows,TRUE,,
+ja_1420,주차안내원,주차안내원,,unmapped,job_info_rows,TRUE,,
+ja_1421,주차요원,주차요원,,unmapped,job_info_rows,TRUE,,
+ja_1422,이발사,이발사,,unmapped,job_info_rows,TRUE,,
+ja_1423,헤어디자이너,헤어디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1424,헤어스타일리스트,헤어스타일리스트,,unmapped,job_info_rows,TRUE,,
+ja_1425,혼례종사원,혼례종사원,,unmapped,job_info_rows,TRUE,,
+ja_1426,객실승무원,객실승무원,,unmapped,job_info_rows,TRUE,,
+ja_1427,치어리더,치어리더,,unmapped,job_info_rows,TRUE,,
+ja_1428,응원단원,응원단원,,unmapped,job_info_rows,TRUE,,
+ja_1429,웨이터,웨이터,,unmapped,job_info_rows,TRUE,,
+ja_1430,웨이트리스,웨이트리스,,unmapped,job_info_rows,TRUE,,
+ja_1431,음식서비스종사원(홀써빙원),음식서비스종사원_홀써빙원,,unmapped,job_info_rows,TRUE,,
+ja_1432,조리사보자,조리사보자,job_0108,auto_keyword,job_info_rows,TRUE,0.9300,조리
+ja_1433,찬모,찬모,,unmapped,job_info_rows,TRUE,,
+ja_1434,식당보조원,식당보조원,,unmapped,job_info_rows,TRUE,,
+ja_1435,피자배달원,피자배달원,,unmapped,job_info_rows,TRUE,,
+ja_1436,중국음식배달원,중국음식배달원,,unmapped,job_info_rows,TRUE,,
+ja_1437,야식배달원,야식배달원,,unmapped,job_info_rows,TRUE,,
+ja_1438,통닭배달원,통닭배달원,,unmapped,job_info_rows,TRUE,,
+ja_1439,분식배달원,분식배달원,,unmapped,job_info_rows,TRUE,,
+ja_1440,적산원,적산원,,unmapped,job_info_rows,TRUE,,
+ja_1441,토목견적기술공,토목견적기술공,,unmapped,job_info_rows,TRUE,,
+ja_1442,전통건물건축원,전통건물건축원,,unmapped,job_info_rows,TRUE,,
+ja_1443,사찰건축원,사찰건축원,,unmapped,job_info_rows,TRUE,,
+ja_1444,단열공,단열공,,unmapped,job_info_rows,TRUE,,
+ja_1445,보온공,보온공,,unmapped,job_info_rows,TRUE,,
+ja_1446,유리공,유리공,,unmapped,job_info_rows,TRUE,,
+ja_1447,유리설치공,유리설치공,,unmapped,job_info_rows,TRUE,,
+ja_1448,보일러제관원,보일러제관원,,unmapped,job_info_rows,TRUE,,
+ja_1449,제관조립원,제관조립원,,unmapped,job_info_rows,TRUE,,
+ja_1450,금속구조물제관원,금속구조물제관원,,unmapped,job_info_rows,TRUE,,
+ja_1451,대장원,대장원,,unmapped,job_info_rows,TRUE,,
+ja_1452,도장기조작원,도장기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1453,분체도장원,분체도장원,,unmapped,job_info_rows,TRUE,,
+ja_1454,자동차도장원,자동차도장원,,unmapped,job_info_rows,TRUE,,
+ja_1455,가구도장원,가구도장원,,unmapped,job_info_rows,TRUE,,
+ja_1456,전동차도장원,전동차도장원,,unmapped,job_info_rows,TRUE,,
+ja_1457,철도차량도장원,철도차량도장원,,unmapped,job_info_rows,TRUE,,
+ja_1458,목재도장기조작원,목재도장기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1459,도금기조작원,도금기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1460,귀금속도금원,귀금속도금원,,unmapped,job_info_rows,TRUE,,
+ja_1461,전기도금원,전기도금원,,unmapped,job_info_rows,TRUE,,
+ja_1462,의복리품원,의복리품원,,unmapped,job_info_rows,TRUE,,
+ja_1463,의복제품검사원,의복제품검사원,,unmapped,job_info_rows,TRUE,,
+ja_1464,발전설비운전원,발전설비운전원,,unmapped,job_info_rows,TRUE,,
+ja_1465,원자력발전장치조작원,원자력발전장치조작원,,unmapped,job_info_rows,TRUE,,
+ja_1466,화력발전장치조작원,화력발전장치조작원,,unmapped,job_info_rows,TRUE,,
+ja_1467,수력발전장치조작원,수력발전장치조작원,,unmapped,job_info_rows,TRUE,,
+ja_1468,급전사령원,급전사령원,,unmapped,job_info_rows,TRUE,,
+ja_1469,발전터빈 조작원,발전터빈_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1470,발전배반 조작원,발전배반_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1471,전기시설관리원,전기시설관리원,,unmapped,job_info_rows,TRUE,,
+ja_1472,코일권선기 조작원,코일권선기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1473,필라멘트권선기 조작원,필라멘트권선기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1474,건전지제조기 조작원,건전지제조기_조작원,,unmapped,job_info_rows,TRUE,,
+ja_1475,광섬유 제조원,광섬유_제조원,,unmapped,job_info_rows,TRUE,,
+ja_1476,방송송수신기설치 및 수리원,방송송수신기설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1477,CCTV설치 및 수리원,cctv설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1478,방송영상기기설치 및 수리원,방송영상기기설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1479,유선통신장비설치 및 수리원,유선통신장비설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1480,무선통신장비설치 및 수리원,무선통신장비설치_및_수리원,,unmapped,job_info_rows,TRUE,,
+ja_1481,음료제품제조기조작원,음료제품제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1482,알콜성음료제조기조작원,알콜성음료제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1483,비알콜성음료제조기조작원,비알콜성음료제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1484,음식품검사원,음식품검사원,,unmapped,job_info_rows,TRUE,,
+ja_1485,음식품등급원,음식품등급원,,unmapped,job_info_rows,TRUE,,
+ja_1486,고기선별원,고기선별원,,unmapped,job_info_rows,TRUE,,
+ja_1487,담배등급원,담배등급원,,unmapped,job_info_rows,TRUE,,
+ja_1488,담배검사원,담배검사원,,unmapped,job_info_rows,TRUE,,
+ja_1489,채소선별원,채소선별원,,unmapped,job_info_rows,TRUE,,
+ja_1490,과실선별원,과실선별원,,unmapped,job_info_rows,TRUE,,
+ja_1491,골판지상자제조원,골판지상자제조원,,unmapped,job_info_rows,TRUE,,
+ja_1492,봉투제조기조작원,봉투제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1493,종이컵제조기조작원,종이컵제조기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1494,가구조립원,가구조립원,,unmapped,job_info_rows,TRUE,,
+ja_1495,목재가구조립원,목재가구조립원,,unmapped,job_info_rows,TRUE,,
+ja_1496,사무용가구조립원,사무용가구조립원,,unmapped,job_info_rows,TRUE,,
+ja_1497,금속가구조립원,금속가구조립원,,unmapped,job_info_rows,TRUE,,
+ja_1498,식탁조립원,식탁조립원,,unmapped,job_info_rows,TRUE,,
+ja_1499,의자조립원,의자조립원,,unmapped,job_info_rows,TRUE,,
+ja_1500,주방가구조립원,주방가구조립원,,unmapped,job_info_rows,TRUE,,
+ja_1501,액자제조,액자제조,,unmapped,job_info_rows,TRUE,,
+ja_1502,책상조립원,책상조립원,,unmapped,job_info_rows,TRUE,,
+ja_1503,포장기조작원,포장기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1504,밀봉기조작원,밀봉기조작원,,unmapped,job_info_rows,TRUE,,
+ja_1505,채소재배자,채소재배자,,unmapped,job_info_rows,TRUE,,
+ja_1506,섬유작물재배자,섬유작물재배자,,unmapped,job_info_rows,TRUE,,
+ja_1507,약용작물재배자,약용작물재배자,,unmapped,job_info_rows,TRUE,,
+ja_1508,과수작물 재배원,과수작물_재배원,,unmapped,job_info_rows,TRUE,,
+ja_1509,조림원,조림원,,unmapped,job_info_rows,TRUE,,
+ja_1510,영림원,영림원,,unmapped,job_info_rows,TRUE,,
+ja_1511,벌목원,벌목원,,unmapped,job_info_rows,TRUE,,
+ja_1512,산림묘포관리원,산림묘포관리원,,unmapped,job_info_rows,TRUE,,
+ja_1513,원양업자,원양업자,,unmapped,job_info_rows,TRUE,,
+ja_1514,결혼상담원,결혼상담원,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1515,여행상품기획자,여행상품기획자,,unmapped,job_info_rows,TRUE,,
+ja_1516,회의기획자,회의기획자,,unmapped,job_info_rows,TRUE,,
+ja_1517,도시계획기술사,도시계획기술사,job_0050,auto_partial,job_info_rows,TRUE,0.9200,도시계획
+ja_1518,실내디자이너,실내디자이너,,unmapped,job_info_rows,TRUE,,
+ja_1519,지방의회의원,지방의회의원,,unmapped,job_info_rows,TRUE,,
+ja_1520,직업상담사,직업상담사,job_0095,auto_keyword,job_info_rows,TRUE,0.9300,상담사
+ja_1521,인력컨설턴트,인력컨설턴트,,unmapped,job_info_rows,TRUE,,
+ja_1522,베타테스트 엔지니어,베타테스트_엔지니어,,unmapped,job_info_rows,TRUE,,
+ja_1523,게임베타테스터,게임베타테스터,,unmapped,job_info_rows,TRUE,,
+ja_1524,발명자,발명자,,unmapped,job_info_rows,TRUE,,
+ja_1525,신약개발원,신약개발원,,unmapped,job_info_rows,TRUE,,
+ja_1526,제약연구원,제약연구원,,unmapped,job_info_rows,TRUE,,
+ja_1527,스포츠해설위원,스포츠해설위원,,unmapped,job_info_rows,TRUE,,
+ja_1528,축구해설가,축구해설가,,unmapped,job_info_rows,TRUE,,
+ja_1529,축구해설위원,축구해설위원,,unmapped,job_info_rows,TRUE,,
+ja_1530,자동차경주선수,자동차경주선수,,unmapped,job_info_rows,TRUE,,
+ja_1531,섭외전문가,섭외전문가,,unmapped,job_info_rows,TRUE,,
+ja_1532,드라마캐스팅디렉터,드라마캐스팅디렉터,,unmapped,job_info_rows,TRUE,,
+ja_1533,영화캐스팅디렉터,영화캐스팅디렉터,,unmapped,job_info_rows,TRUE,,
+ja_1534,방송캐스팅디렉터,방송캐스팅디렉터,,unmapped,job_info_rows,TRUE,,
+ja_1535,캐스팅매니저,캐스팅매니저,,unmapped,job_info_rows,TRUE,,
+ja_1536,일반의사,일반의사,,unmapped,job_info_rows,TRUE,,
+ja_1537,공중보건 의사,공중보건_의사,,unmapped,job_info_rows,TRUE,,
+ja_1538,코미디 작가,코미디_작가,,unmapped,job_info_rows,TRUE,,
+ja_1539,드라마 작가,드라마_작가,,unmapped,job_info_rows,TRUE,,
+ja_1540,구성 작가,구성_작가,,unmapped,job_info_rows,TRUE,,
+ja_1541,외화번역 작가,외화번역_작가,,unmapped,job_info_rows,TRUE,,
+ja_1542,희곡 작가,희곡_작가,,unmapped,job_info_rows,TRUE,,
+ja_1543,시나리오 작가,시나리오_작가,,unmapped,job_info_rows,TRUE,,
+ja_1544,만화스토리 작가,만화스토리_작가,,unmapped,job_info_rows,TRUE,,
+ja_1545,광고문 작성가,광고문_작성가,,unmapped,job_info_rows,TRUE,,
+ja_1546,게임시나리오 작가,게임시나리오_작가,,unmapped,job_info_rows,TRUE,,
+ja_1547,테크니컬라이터,테크니컬라이터,,unmapped,job_info_rows,TRUE,,
+ja_1548,애니메이션 작가,애니메이션_작가,,unmapped,job_info_rows,TRUE,,
+ja_1549,지질연구원,지질연구원,,unmapped,job_info_rows,TRUE,,
