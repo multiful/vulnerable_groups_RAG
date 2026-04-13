@@ -11,3 +11,10 @@ langchain-community>=0.3.0
 langchain-openai>=0.2.0
 langchain-huggingface>=0.1.0
 sentence-transformers>=3.0.0
+
+# PDF 파이프라인
+pymupdf4llm>=0.0.17
+pdfplumber>=0.11.0
+tiktoken>=0.7.0
+pytesseract>=0.3.13
+Pillow>=10.0.0
