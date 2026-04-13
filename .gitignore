@@ -76,6 +76,10 @@ temp/
 .cursorindexingignore
 .cursorrules
 
+# Claude Code (local only)
+CLAUDE.md
+.claude/
+
 # Keep project markdown docs tracked
 !*.md
 
