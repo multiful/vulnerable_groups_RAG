@@ -1,0 +1,1539 @@
+﻿relation_id,source_dataset,source_row_id,jobdic_seq,raw_job_name,normalized_key,job_alias_id
+jrb_0001,data_jobs_rows,1,1,가스ㆍ수도ㆍ전기 계기 검침원 및 안전점검원,가스ᆞ수도ᆞ전기_계기_검침원_및_안전점검원,ja_0028
+jrb_0002,data_jobs_rows,2,5,일기예보관,일기예보관,ja_1008
+jrb_0003,data_jobs_rows,3,5,일기예보관,일기예보관,ja_1008
+jrb_0004,data_jobs_rows,4,6,기상연구원,기상연구원,ja_0206
+jrb_0005,data_jobs_rows,5,6,기상연구원,기상연구원,ja_0206
+jrb_0006,data_jobs_rows,6,8,물리학연구원,물리학연구원,ja_0400
+jrb_0007,data_jobs_rows,7,10,방사선사,방사선사,ja_0437
+jrb_0008,data_jobs_rows,8,13,생물학연구원,생물학연구원,ja_0595
+jrb_0009,data_jobs_rows,9,15,수의사,수의사,ja_0679
+jrb_0010,data_jobs_rows,10,17,수학연구원,수학연구원,ja_0688
+jrb_0011,data_jobs_rows,11,19,의료장비기사,의료장비기사,ja_0962
+jrb_0012,data_jobs_rows,12,20,심리학연구원,심리학연구원,ja_0771
+jrb_0013,data_jobs_rows,13,21,안경사,안경사,ja_0784
+jrb_0014,data_jobs_rows,14,23,약사 및 한약사,약사_및_한약사,ja_0803
+jrb_0015,data_jobs_rows,15,24,유전공학연구원,유전공학연구원,ja_0932
+jrb_0016,data_jobs_rows,16,29,지리학연구원,지리학연구원,ja_1197
+jrb_0017,data_jobs_rows,17,30,지질학연구원,지질학연구원,ja_1203
+jrb_0018,data_jobs_rows,18,30,지질학연구원,지질학연구원,ja_1203
+jrb_0019,data_jobs_rows,19,31,천문학연구원,천문학연구원,ja_1232
+jrb_0020,data_jobs_rows,20,32,측량사,측량사,ja_1266
+jrb_0021,data_jobs_rows,21,32,측량사,측량사,ja_1266
+jrb_0022,data_jobs_rows,22,32,측량사,측량사,ja_1266
+jrb_0023,data_jobs_rows,23,32,측량사,측량사,ja_1266
+jrb_0024,data_jobs_rows,24,36,통계학연구원,통계학연구원,ja_1351
+jrb_0025,data_jobs_rows,25,36,통계학연구원,통계학연구원,ja_1351
+jrb_0026,data_jobs_rows,26,36,통계학연구원,통계학연구원,ja_1351
+jrb_0027,data_jobs_rows,27,36,통계학연구원,통계학연구원,ja_1351
+jrb_0028,data_jobs_rows,28,36,통계학연구원,통계학연구원,ja_1351
+jrb_0029,data_jobs_rows,29,38,해부학연구원,해부학연구원,ja_1472
+jrb_0030,data_jobs_rows,30,39,해양학연구원,해양학연구원,ja_1483
+jrb_0031,data_jobs_rows,31,40,화학연구원,화학연구원,ja_1522
+jrb_0032,data_jobs_rows,32,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0033,data_jobs_rows,33,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0034,data_jobs_rows,34,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0035,data_jobs_rows,35,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0036,data_jobs_rows,36,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0037,data_jobs_rows,37,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0038,data_jobs_rows,38,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0039,data_jobs_rows,39,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_0040,data_jobs_rows,40,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_0041,data_jobs_rows,41,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_0042,data_jobs_rows,42,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_0043,data_jobs_rows,43,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_0044,data_jobs_rows,44,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_0045,data_jobs_rows,45,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0046,data_jobs_rows,46,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0047,data_jobs_rows,47,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0048,data_jobs_rows,48,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0049,data_jobs_rows,49,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0050,data_jobs_rows,50,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0051,data_jobs_rows,51,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0052,data_jobs_rows,52,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0053,data_jobs_rows,53,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0054,data_jobs_rows,54,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0055,data_jobs_rows,55,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_0056,data_jobs_rows,56,47,타이어 및 고무제품 생산직,타이어_및_고무제품_생산직,ja_1322
+jrb_0057,data_jobs_rows,57,48,공작기계조작원,공작기계조작원,ja_0119
+jrb_0058,data_jobs_rows,58,48,공작기계조작원,공작기계조작원,ja_0119
+jrb_0059,data_jobs_rows,59,48,공작기계조작원,공작기계조작원,ja_0119
+jrb_0060,data_jobs_rows,60,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0061,data_jobs_rows,61,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0062,data_jobs_rows,62,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0063,data_jobs_rows,63,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0064,data_jobs_rows,64,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0065,data_jobs_rows,65,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0066,data_jobs_rows,66,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_0067,data_jobs_rows,67,50,제화원,제화원,ja_1138
+jrb_0068,data_jobs_rows,68,52,금속가공장치조작원,금속가공장치조작원,ja_0184
+jrb_0069,data_jobs_rows,69,52,금속가공장치조작원,금속가공장치조작원,ja_0184
+jrb_0070,data_jobs_rows,70,52,금속가공장치조작원,금속가공장치조작원,ja_0184
+jrb_0071,data_jobs_rows,71,52,금속가공장치조작원,금속가공장치조작원,ja_0184
+jrb_0072,data_jobs_rows,72,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0073,data_jobs_rows,73,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0074,data_jobs_rows,74,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0075,data_jobs_rows,75,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0076,data_jobs_rows,76,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0077,data_jobs_rows,77,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0078,data_jobs_rows,78,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0079,data_jobs_rows,79,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0080,data_jobs_rows,80,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0081,data_jobs_rows,81,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0082,data_jobs_rows,82,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_0083,data_jobs_rows,83,54,금형원,금형원,ja_0193
+jrb_0084,data_jobs_rows,84,54,금형원,금형원,ja_0193
+jrb_0085,data_jobs_rows,85,54,금형원,금형원,ja_0193
+jrb_0086,data_jobs_rows,86,54,금형원,금형원,ja_0193
+jrb_0087,data_jobs_rows,87,54,금형원,금형원,ja_0193
+jrb_0088,data_jobs_rows,88,54,금형원,금형원,ja_0193
+jrb_0089,data_jobs_rows,89,54,금형원,금형원,ja_0193
+jrb_0090,data_jobs_rows,90,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0091,data_jobs_rows,91,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0092,data_jobs_rows,92,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0093,data_jobs_rows,93,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0094,data_jobs_rows,94,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0095,data_jobs_rows,95,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0096,data_jobs_rows,96,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0097,data_jobs_rows,97,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_0098,data_jobs_rows,98,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0099,data_jobs_rows,99,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0100,data_jobs_rows,100,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0101,data_jobs_rows,101,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0102,data_jobs_rows,102,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0103,data_jobs_rows,103,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_0104,data_jobs_rows,104,58,냉동기사,냉동기사,ja_0231
+jrb_0105,data_jobs_rows,105,58,냉동기사,냉동기사,ja_0231
+jrb_0106,data_jobs_rows,106,58,냉동기사,냉동기사,ja_0231
+jrb_0107,data_jobs_rows,107,58,냉동기사,냉동기사,ja_0231
+jrb_0108,data_jobs_rows,108,59,녹음기사,녹음기사,ja_0244
+jrb_0109,data_jobs_rows,109,61,대기환경기술자,대기환경기술자,ja_0269
+jrb_0110,data_jobs_rows,110,61,대기환경기술자,대기환경기술자,ja_0269
+jrb_0111,data_jobs_rows,111,61,대기환경기술자,대기환경기술자,ja_0269
+jrb_0112,data_jobs_rows,112,63,도배원,도배원,ja_0292
+jrb_0113,data_jobs_rows,113,64,도자기제조원,도자기제조원,ja_0301
+jrb_0114,data_jobs_rows,114,65,건물도장원,건물도장원,ja_0056
+jrb_0115,data_jobs_rows,115,66,로봇연구원,로봇연구원,ja_0338
+jrb_0116,data_jobs_rows,116,68,목공,목공,ja_0370
+jrb_0117,data_jobs_rows,117,68,목공,목공,ja_0370
+jrb_0118,data_jobs_rows,118,68,목공,목공,ja_0370
+jrb_0119,data_jobs_rows,119,68,목공,목공,ja_0370
+jrb_0120,data_jobs_rows,120,68,목공,목공,ja_0370
+jrb_0121,data_jobs_rows,121,68,목공,목공,ja_0370
+jrb_0122,data_jobs_rows,122,68,목공,목공,ja_0370
+jrb_0123,data_jobs_rows,123,69,목재가공관련조작원,목재가공관련조작원,ja_0372
+jrb_0124,data_jobs_rows,124,69,목재가공관련조작원,목재가공관련조작원,ja_0372
+jrb_0125,data_jobs_rows,125,70,미장원,미장원,ja_0408
+jrb_0126,data_jobs_rows,126,72,방수원,방수원,ja_0451
+jrb_0127,data_jobs_rows,127,73,섬유제조원,섬유제조원,ja_0640
+jrb_0128,data_jobs_rows,128,73,섬유제조원,섬유제조원,ja_0640
+jrb_0129,data_jobs_rows,129,74,배관원,배관원,ja_0456
+jrb_0130,data_jobs_rows,130,74,배관원,배관원,ja_0456
+jrb_0131,data_jobs_rows,131,75,조적공,조적공,ja_1160
+jrb_0132,data_jobs_rows,132,75,조적공,조적공,ja_1160
+jrb_0133,data_jobs_rows,133,76,보석감정사,보석감정사,ja_0482
+jrb_0134,data_jobs_rows,134,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0135,data_jobs_rows,135,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0136,data_jobs_rows,136,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0137,data_jobs_rows,137,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0138,data_jobs_rows,138,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0139,data_jobs_rows,139,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_0140,data_jobs_rows,140,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0141,data_jobs_rows,141,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0142,data_jobs_rows,142,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0143,data_jobs_rows,143,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0144,data_jobs_rows,144,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0145,data_jobs_rows,145,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0146,data_jobs_rows,146,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0147,data_jobs_rows,147,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0148,data_jobs_rows,148,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0149,data_jobs_rows,149,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0150,data_jobs_rows,150,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0151,data_jobs_rows,151,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0152,data_jobs_rows,152,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_0153,data_jobs_rows,153,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0154,data_jobs_rows,154,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0155,data_jobs_rows,155,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0156,data_jobs_rows,156,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0157,data_jobs_rows,157,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0158,data_jobs_rows,158,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_0159,data_jobs_rows,159,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0160,data_jobs_rows,160,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0161,data_jobs_rows,161,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0162,data_jobs_rows,162,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0163,data_jobs_rows,163,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0164,data_jobs_rows,164,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0165,data_jobs_rows,165,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0166,data_jobs_rows,166,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_0167,data_jobs_rows,167,85,상ㆍ하수도 처리장치 조작원,상ᆞ하수도_처리장치_조작원,ja_0574
+jrb_0168,data_jobs_rows,168,85,상ㆍ하수도 처리장치 조작원,상ᆞ하수도_처리장치_조작원,ja_0574
+jrb_0169,data_jobs_rows,169,85,상ㆍ하수도 처리장치 조작원,상ᆞ하수도_처리장치_조작원,ja_0574
+jrb_0170,data_jobs_rows,170,86,생물공학연구원,생물공학연구원,ja_0594
+jrb_0171,data_jobs_rows,171,86,생물공학연구원,생물공학연구원,ja_0594
+jrb_0172,data_jobs_rows,172,87,석공,석공,ja_0609
+jrb_0173,data_jobs_rows,173,87,석공,석공,ja_0609
+jrb_0174,data_jobs_rows,174,87,석공,석공,ja_0609
+jrb_0175,data_jobs_rows,175,87,석공,석공,ja_0609
+jrb_0176,data_jobs_rows,176,87,석공,석공,ja_0609
+jrb_0177,data_jobs_rows,177,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_0178,data_jobs_rows,178,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_0179,data_jobs_rows,179,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_0180,data_jobs_rows,180,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_0181,data_jobs_rows,181,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_0182,data_jobs_rows,182,90,조선공학기술자,조선공학기술자,ja_1157
+jrb_0183,data_jobs_rows,183,90,조선공학기술자,조선공학기술자,ja_1157
+jrb_0184,data_jobs_rows,184,90,조선공학기술자,조선공학기술자,ja_1157
+jrb_0185,data_jobs_rows,185,92,선박정비원,선박정비원,ja_0626
+jrb_0186,data_jobs_rows,186,97,시멘트제조원,시멘트제조원,ja_0727
+jrb_0187,data_jobs_rows,187,98,신경회로망연구원,신경회로망연구원,ja_0750
+jrb_0188,data_jobs_rows,188,100,압연원,압연원,ja_0788
+jrb_0189,data_jobs_rows,189,101,영사기사,영사기사,ja_0852
+jrb_0190,data_jobs_rows,190,101,영사기사,영사기사,ja_0852
+jrb_0191,data_jobs_rows,191,102,용접원,용접원,ja_0884
+jrb_0192,data_jobs_rows,192,102,용접원,용접원,ja_0884
+jrb_0193,data_jobs_rows,193,102,용접원,용접원,ja_0884
+jrb_0194,data_jobs_rows,194,102,용접원,용접원,ja_0884
+jrb_0195,data_jobs_rows,195,102,용접원,용접원,ja_0884
+jrb_0196,data_jobs_rows,196,102,용접원,용접원,ja_0884
+jrb_0197,data_jobs_rows,197,104,원자력연구원,원자력연구원,ja_0900
+jrb_0198,data_jobs_rows,198,104,원자력연구원,원자력연구원,ja_0900
+jrb_0199,data_jobs_rows,199,104,원자력연구원,원자력연구원,ja_0900
+jrb_0200,data_jobs_rows,200,106,유리제품제조원,유리제품제조원,ja_0928
+jrb_0201,data_jobs_rows,201,107,인공위성개발원,인공위성개발원,ja_0987
+jrb_0202,data_jobs_rows,202,108,인쇄기조작원,인쇄기조작원,ja_1000
+jrb_0203,data_jobs_rows,203,108,인쇄기조작원,인쇄기조작원,ja_1000
+jrb_0204,data_jobs_rows,204,109,자동차정비원,자동차정비원,ja_1029
+jrb_0205,data_jobs_rows,205,109,자동차정비원,자동차정비원,ja_1029
+jrb_0206,data_jobs_rows,206,109,자동차정비원,자동차정비원,ja_1029
+jrb_0207,data_jobs_rows,207,109,자동차정비원,자동차정비원,ja_1029
+jrb_0208,data_jobs_rows,208,109,자동차정비원,자동차정비원,ja_1029
+jrb_0209,data_jobs_rows,209,110,자동차조립원,자동차조립원,ja_1030
+jrb_0210,data_jobs_rows,210,110,자동차조립원,자동차조립원,ja_1030
+jrb_0211,data_jobs_rows,211,110,자동차조립원,자동차조립원,ja_1030
+jrb_0212,data_jobs_rows,212,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0213,data_jobs_rows,213,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0214,data_jobs_rows,214,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0215,data_jobs_rows,215,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0216,data_jobs_rows,216,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0217,data_jobs_rows,217,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0218,data_jobs_rows,218,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0219,data_jobs_rows,219,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_0220,data_jobs_rows,220,113,전공,전공,ja_1058
+jrb_0221,data_jobs_rows,221,113,전공,전공,ja_1058
+jrb_0222,data_jobs_rows,222,113,전공,전공,ja_1058
+jrb_0223,data_jobs_rows,223,113,전공,전공,ja_1058
+jrb_0224,data_jobs_rows,224,113,전공,전공,ja_1058
+jrb_0225,data_jobs_rows,225,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0226,data_jobs_rows,226,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0227,data_jobs_rows,227,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0228,data_jobs_rows,228,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0229,data_jobs_rows,229,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0230,data_jobs_rows,230,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0231,data_jobs_rows,231,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0232,data_jobs_rows,232,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0233,data_jobs_rows,233,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0234,data_jobs_rows,234,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0235,data_jobs_rows,235,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0236,data_jobs_rows,236,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_0237,data_jobs_rows,237,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0238,data_jobs_rows,238,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0239,data_jobs_rows,239,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0240,data_jobs_rows,240,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0241,data_jobs_rows,241,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0242,data_jobs_rows,242,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0243,data_jobs_rows,243,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0244,data_jobs_rows,244,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0245,data_jobs_rows,245,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0246,data_jobs_rows,246,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_0247,data_jobs_rows,247,120,전자장비설치 및 수리원,전자장비설치_및_수리원,ja_1082
+jrb_0248,data_jobs_rows,248,120,전자장비설치 및 수리원,전자장비설치_및_수리원,ja_1082
+jrb_0249,data_jobs_rows,249,121,전화설치 및 수리원,전화설치_및_수리원,ja_1092
+jrb_0250,data_jobs_rows,250,121,전화설치 및 수리원,전화설치_및_수리원,ja_1092
+jrb_0251,data_jobs_rows,251,121,전화설치 및 수리원,전화설치_및_수리원,ja_1092
+jrb_0252,data_jobs_rows,252,122,정밀기기제품제조원,정밀기기제품제조원,ja_1098
+jrb_0253,data_jobs_rows,253,122,정밀기기제품제조원,정밀기기제품제조원,ja_1098
+jrb_0254,data_jobs_rows,254,125,캐드원,캐드원,ja_1281
+jrb_0255,data_jobs_rows,255,125,캐드원,캐드원,ja_1281
+jrb_0256,data_jobs_rows,256,125,캐드원,캐드원,ja_1281
+jrb_0257,data_jobs_rows,257,125,캐드원,캐드원,ja_1281
+jrb_0258,data_jobs_rows,258,125,캐드원,캐드원,ja_1281
+jrb_0259,data_jobs_rows,259,125,캐드원,캐드원,ja_1281
+jrb_0260,data_jobs_rows,260,125,캐드원,캐드원,ja_1281
+jrb_0261,data_jobs_rows,261,125,캐드원,캐드원,ja_1281
+jrb_0262,data_jobs_rows,262,125,캐드원,캐드원,ja_1281
+jrb_0263,data_jobs_rows,263,125,캐드원,캐드원,ja_1281
+jrb_0264,data_jobs_rows,264,125,캐드원,캐드원,ja_1281
+jrb_0265,data_jobs_rows,265,125,캐드원,캐드원,ja_1281
+jrb_0266,data_jobs_rows,266,125,캐드원,캐드원,ja_1281
+jrb_0267,data_jobs_rows,267,126,단순노무자,단순노무자,ja_0258
+jrb_0268,data_jobs_rows,268,127,주조원,주조원,ja_1179
+jrb_0269,data_jobs_rows,269,127,주조원,주조원,ja_1179
+jrb_0270,data_jobs_rows,270,127,주조원,주조원,ja_1179
+jrb_0271,data_jobs_rows,271,127,주조원,주조원,ja_1179
+jrb_0272,data_jobs_rows,272,129,직조원,직조원,ja_1213
+jrb_0273,data_jobs_rows,273,131,철골공,철골공,ja_1234
+jrb_0274,data_jobs_rows,274,131,철골공,철골공,ja_1234
+jrb_0275,data_jobs_rows,275,131,철골공,철골공,ja_1234
+jrb_0276,data_jobs_rows,276,131,철골공,철골공,ja_1234
+jrb_0277,data_jobs_rows,277,132,철도 및 지하철기관사,철도_및_지하철기관사,ja_1237
+jrb_0278,data_jobs_rows,278,133,철도차량정비원,철도차량정비원,ja_1241
+jrb_0279,data_jobs_rows,279,133,철도차량정비원,철도차량정비원,ja_1241
+jrb_0280,data_jobs_rows,280,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0281,data_jobs_rows,281,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0282,data_jobs_rows,282,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0283,data_jobs_rows,283,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0284,data_jobs_rows,284,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0285,data_jobs_rows,285,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0286,data_jobs_rows,286,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0287,data_jobs_rows,287,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0288,data_jobs_rows,288,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0289,data_jobs_rows,289,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_0290,data_jobs_rows,290,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0291,data_jobs_rows,291,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0292,data_jobs_rows,292,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0293,data_jobs_rows,293,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0294,data_jobs_rows,294,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0295,data_jobs_rows,295,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0296,data_jobs_rows,296,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0297,data_jobs_rows,297,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_0298,data_jobs_rows,298,139,통신케이블설치 및 수리원,통신케이블설치_및_수리원,ja_1365
+jrb_0299,data_jobs_rows,299,139,통신케이블설치 및 수리원,통신케이블설치_및_수리원,ja_1365
+jrb_0300,data_jobs_rows,300,139,통신케이블설치 및 수리원,통신케이블설치_및_수리원,ja_1365
+jrb_0301,data_jobs_rows,301,140,통신장비기사,통신장비기사,ja_1363
+jrb_0302,data_jobs_rows,302,140,통신장비기사,통신장비기사,ja_1363
+jrb_0303,data_jobs_rows,303,140,통신장비기사,통신장비기사,ja_1363
+jrb_0304,data_jobs_rows,304,140,통신장비기사,통신장비기사,ja_1363
+jrb_0305,data_jobs_rows,305,140,통신장비기사,통신장비기사,ja_1363
+jrb_0306,data_jobs_rows,306,140,통신장비기사,통신장비기사,ja_1363
+jrb_0307,data_jobs_rows,307,142,트럭운전기사,트럭운전기사,ja_1370
+jrb_0308,data_jobs_rows,308,143,판금원,판금원,ja_1384
+jrb_0309,data_jobs_rows,309,144,펄프 및 종이 생산직,펄프_및_종이_생산직,ja_1399
+jrb_0310,data_jobs_rows,310,144,펄프 및 종이 생산직,펄프_및_종이_생산직,ja_1399
+jrb_0311,data_jobs_rows,311,144,펄프 및 종이 생산직,펄프_및_종이_생산직,ja_1399
+jrb_0312,data_jobs_rows,312,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0313,data_jobs_rows,313,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0314,data_jobs_rows,314,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0315,data_jobs_rows,315,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0316,data_jobs_rows,316,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0317,data_jobs_rows,317,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_0318,data_jobs_rows,318,147,플라스틱제품제조원,플라스틱제품제조원,ja_1430
+jrb_0319,data_jobs_rows,319,148,항공교통관제사,항공교통관제사,ja_1458
+jrb_0320,data_jobs_rows,320,149,항공기정비원,항공기정비원,ja_1467
+jrb_0321,data_jobs_rows,321,149,항공기정비원,항공기정비원,ja_1467
+jrb_0322,data_jobs_rows,322,149,항공기정비원,항공기정비원,ja_1467
+jrb_0323,data_jobs_rows,323,149,항공기정비원,항공기정비원,ja_1467
+jrb_0324,data_jobs_rows,324,149,항공기정비원,항공기정비원,ja_1467
+jrb_0325,data_jobs_rows,325,149,항공기정비원,항공기정비원,ja_1467
+jrb_0326,data_jobs_rows,326,149,항공기정비원,항공기정비원,ja_1467
+jrb_0327,data_jobs_rows,327,150,비행기조종사,비행기조종사,ja_0530
+jrb_0328,data_jobs_rows,328,150,비행기조종사,비행기조종사,ja_0530
+jrb_0329,data_jobs_rows,329,150,비행기조종사,비행기조종사,ja_0530
+jrb_0330,data_jobs_rows,330,151,항공우주공학기술자,항공우주공학기술자,ja_1470
+jrb_0331,data_jobs_rows,331,151,항공우주공학기술자,항공우주공학기술자,ja_1470
+jrb_0332,data_jobs_rows,332,151,항공우주공학기술자,항공우주공학기술자,ja_1470
+jrb_0333,data_jobs_rows,333,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0334,data_jobs_rows,334,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0335,data_jobs_rows,335,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0336,data_jobs_rows,336,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0337,data_jobs_rows,337,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0338,data_jobs_rows,338,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_0339,data_jobs_rows,339,155,바닥재시공원,바닥재시공원,ja_0412
+jrb_0340,data_jobs_rows,340,157,반도체공학기술자,반도체공학기술자,ja_0421
+jrb_0341,data_jobs_rows,341,159,"가구제조,수리원",가구제조_수리원,ja_0020
+jrb_0342,data_jobs_rows,342,159,"가구제조,수리원",가구제조_수리원,ja_0020
+jrb_0343,data_jobs_rows,343,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_0344,data_jobs_rows,344,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_0345,data_jobs_rows,345,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_0346,data_jobs_rows,346,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_0347,data_jobs_rows,347,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_0348,data_jobs_rows,348,163,도축원 및 육류가공원,도축원_및_육류가공원,ja_0307
+jrb_0349,data_jobs_rows,349,164,양장사 및 양복사,양장사_및_양복사,ja_0812
+jrb_0350,data_jobs_rows,350,164,양장사 및 양복사,양장사_및_양복사,ja_0812
+jrb_0351,data_jobs_rows,351,165,설문조사원,설문조사원,ja_0634
+jrb_0352,data_jobs_rows,352,165,설문조사원,설문조사원,ja_0634
+jrb_0353,data_jobs_rows,353,166,세탁원,세탁원,ja_0648
+jrb_0354,data_jobs_rows,354,167,소믈리에,소믈리에,ja_0657
+jrb_0355,data_jobs_rows,355,169,영양사,영양사,ja_0854
+jrb_0356,data_jobs_rows,356,171,전통식품제조원,전통식품제조원,ja_1088
+jrb_0357,data_jobs_rows,357,171,전통식품제조원,전통식품제조원,ja_1088
+jrb_0358,data_jobs_rows,358,172,제과사 및 제빵사,제과사_및_제빵사,ja_1119
+jrb_0359,data_jobs_rows,359,172,제과사 및 제빵사,제과사_및_제빵사,ja_1119
+jrb_0360,data_jobs_rows,360,172,제과사 및 제빵사,제과사_및_제빵사,ja_1119
+jrb_0361,data_jobs_rows,361,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0362,data_jobs_rows,362,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0363,data_jobs_rows,363,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0364,data_jobs_rows,364,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0365,data_jobs_rows,365,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0366,data_jobs_rows,366,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0367,data_jobs_rows,367,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_0368,data_jobs_rows,368,174,가축사육자,가축사육자,ja_0038
+jrb_0369,data_jobs_rows,369,174,가축사육자,가축사육자,ja_0038
+jrb_0370,data_jobs_rows,370,174,가축사육자,가축사육자,ja_0038
+jrb_0371,data_jobs_rows,371,174,가축사육자,가축사육자,ja_0038
+jrb_0372,data_jobs_rows,372,174,가축사육자,가축사육자,ja_0038
+jrb_0373,data_jobs_rows,373,175,한복사,한복사,ja_1447
+jrb_0374,data_jobs_rows,374,175,한복사,한복사,ja_1447
+jrb_0375,data_jobs_rows,375,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0376,data_jobs_rows,376,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0377,data_jobs_rows,377,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0378,data_jobs_rows,378,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0379,data_jobs_rows,379,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0380,data_jobs_rows,380,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_0381,data_jobs_rows,381,177,푸드스타일리스트,푸드스타일리스트,ja_1419
+jrb_0382,data_jobs_rows,382,178,쇼핑호스트,쇼핑호스트,ja_0668
+jrb_0383,data_jobs_rows,383,179,체형관리사,체형관리사,ja_1249
+jrb_0384,data_jobs_rows,384,179,체형관리사,체형관리사,ja_1249
+jrb_0385,data_jobs_rows,385,180,바리스타,바리스타,ja_0413
+jrb_0386,data_jobs_rows,386,182,농업기술자,농업기술자,ja_0248
+jrb_0387,data_jobs_rows,387,182,농업기술자,농업기술자,ja_0248
+jrb_0388,data_jobs_rows,388,182,농업기술자,농업기술자,ja_0248
+jrb_0389,data_jobs_rows,389,182,농업기술자,농업기술자,ja_0248
+jrb_0390,data_jobs_rows,390,182,농업기술자,농업기술자,ja_0248
+jrb_0391,data_jobs_rows,391,182,농업기술자,농업기술자,ja_0248
+jrb_0392,data_jobs_rows,392,182,농업기술자,농업기술자,ja_0248
+jrb_0393,data_jobs_rows,393,182,농업기술자,농업기술자,ja_0248
+jrb_0394,data_jobs_rows,394,182,농업기술자,농업기술자,ja_0248
+jrb_0395,data_jobs_rows,395,182,농업기술자,농업기술자,ja_0248
+jrb_0396,data_jobs_rows,396,182,농업기술자,농업기술자,ja_0248
+jrb_0397,data_jobs_rows,397,182,농업기술자,농업기술자,ja_0248
+jrb_0398,data_jobs_rows,398,183,곡식작물재배자,곡식작물재배자,ja_0105
+jrb_0399,data_jobs_rows,399,183,곡식작물재배자,곡식작물재배자,ja_0105
+jrb_0400,data_jobs_rows,400,183,곡식작물재배자,곡식작물재배자,ja_0105
+jrb_0401,data_jobs_rows,401,183,곡식작물재배자,곡식작물재배자,ja_0105
+jrb_0402,data_jobs_rows,402,186,동물조련사,동물조련사,ja_0312
+jrb_0403,data_jobs_rows,403,186,동물조련사,동물조련사,ja_0312
+jrb_0404,data_jobs_rows,404,186,동물조련사,동물조련사,ja_0312
+jrb_0405,data_jobs_rows,405,186,동물조련사,동물조련사,ja_0312
+jrb_0406,data_jobs_rows,406,186,동물조련사,동물조련사,ja_0312
+jrb_0407,data_jobs_rows,407,186,동물조련사,동물조련사,ja_0312
+jrb_0408,data_jobs_rows,408,187,양식원,양식원,ja_0809
+jrb_0409,data_jobs_rows,409,187,양식원,양식원,ja_0809
+jrb_0410,data_jobs_rows,410,187,양식원,양식원,ja_0809
+jrb_0411,data_jobs_rows,411,187,양식원,양식원,ja_0809
+jrb_0412,data_jobs_rows,412,187,양식원,양식원,ja_0809
+jrb_0413,data_jobs_rows,413,187,양식원,양식원,ja_0809
+jrb_0414,data_jobs_rows,414,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_0415,data_jobs_rows,415,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_0416,data_jobs_rows,416,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_0417,data_jobs_rows,417,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_0418,data_jobs_rows,418,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_0419,data_jobs_rows,419,190,유제품제조원,유제품제조원,ja_0935
+jrb_0420,data_jobs_rows,420,192,조경원,조경원,ja_1146
+jrb_0421,data_jobs_rows,421,192,조경원,조경원,ja_1146
+jrb_0422,data_jobs_rows,422,192,조경원,조경원,ja_1146
+jrb_0423,data_jobs_rows,423,192,조경원,조경원,ja_1146
+jrb_0424,data_jobs_rows,424,193,조경기술자,조경기술자,ja_1143
+jrb_0425,data_jobs_rows,425,193,조경기술자,조경기술자,ja_1143
+jrb_0426,data_jobs_rows,426,193,조경기술자,조경기술자,ja_1143
+jrb_0427,data_jobs_rows,427,193,조경기술자,조경기술자,ja_1143
+jrb_0428,data_jobs_rows,428,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0429,data_jobs_rows,429,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0430,data_jobs_rows,430,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0431,data_jobs_rows,431,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0432,data_jobs_rows,432,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0433,data_jobs_rows,433,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0434,data_jobs_rows,434,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0435,data_jobs_rows,435,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0436,data_jobs_rows,436,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0437,data_jobs_rows,437,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_0438,data_jobs_rows,438,198,감정평가사,감정평가사,ja_0046
+jrb_0439,data_jobs_rows,439,199,검사,검사,ja_0069
+jrb_0440,data_jobs_rows,440,201,상품중개인,상품중개인,ja_0589
+jrb_0441,data_jobs_rows,441,201,상품중개인,상품중개인,ja_0589
+jrb_0442,data_jobs_rows,442,201,상품중개인,상품중개인,ja_0589
+jrb_0443,data_jobs_rows,443,201,상품중개인,상품중개인,ja_0589
+jrb_0444,data_jobs_rows,444,201,상품중개인,상품중개인,ja_0589
+jrb_0445,data_jobs_rows,445,201,상품중개인,상품중개인,ja_0589
+jrb_0446,data_jobs_rows,446,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0447,data_jobs_rows,447,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0448,data_jobs_rows,448,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0449,data_jobs_rows,449,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0450,data_jobs_rows,450,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0451,data_jobs_rows,451,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_0452,data_jobs_rows,452,203,경제학연구원,경제학연구원,ja_0084
+jrb_0453,data_jobs_rows,453,205,노무사,노무사,ja_0243
+jrb_0454,data_jobs_rows,454,206,회계사,회계사,ja_1544
+jrb_0455,data_jobs_rows,455,207,관세사,관세사,ja_0131
+jrb_0456,data_jobs_rows,456,208,국제무역사무원,국제무역사무원,ja_0169
+jrb_0457,data_jobs_rows,457,208,국제무역사무원,국제무역사무원,ja_0169
+jrb_0458,data_jobs_rows,458,208,국제무역사무원,국제무역사무원,ja_0169
+jrb_0459,data_jobs_rows,459,209,국제회의전문가,국제회의전문가,ja_0170
+jrb_0460,data_jobs_rows,460,209,국제회의전문가,국제회의전문가,ja_0170
+jrb_0461,data_jobs_rows,461,211,농수산물중개인,농수산물중개인,ja_0246
+jrb_0462,data_jobs_rows,462,212,도시 및 교통설계전문가,도시_및_교통설계전문가,ja_0296
+jrb_0463,data_jobs_rows,463,212,도시 및 교통설계전문가,도시_및_교통설계전문가,ja_0296
+jrb_0464,data_jobs_rows,464,214,바이어(구매인),바이어_구매인,ja_0415
+jrb_0465,data_jobs_rows,465,214,바이어(구매인),바이어_구매인,ja_0415
+jrb_0466,data_jobs_rows,466,214,바이어(구매인),바이어_구매인,ja_0415
+jrb_0467,data_jobs_rows,467,214,바이어(구매인),바이어_구매인,ja_0415
+jrb_0468,data_jobs_rows,468,215,물류관리사,물류관리사,ja_0397
+jrb_0469,data_jobs_rows,469,215,물류관리사,물류관리사,ja_0397
+jrb_0470,data_jobs_rows,470,215,물류관리사,물류관리사,ja_0397
+jrb_0471,data_jobs_rows,471,215,물류관리사,물류관리사,ja_0397
+jrb_0472,data_jobs_rows,472,217,보험계리인,보험계리인,ja_0496
+jrb_0473,data_jobs_rows,473,219,부동산중개인,부동산중개인,ja_0499
+jrb_0474,data_jobs_rows,474,222,생활설계사,생활설계사,ja_0601
+jrb_0475,data_jobs_rows,475,223,선물중개인,선물중개인,ja_0617
+jrb_0476,data_jobs_rows,476,224,세무사,세무사,ja_0646
+jrb_0477,data_jobs_rows,477,226,손해사정사,손해사정사,ja_0663
+jrb_0478,data_jobs_rows,478,230,시장 및 여론조사전문가,시장_및_여론조사전문가,ja_0740
+jrb_0479,data_jobs_rows,479,230,시장 및 여론조사전문가,시장_및_여론조사전문가,ja_0740
+jrb_0480,data_jobs_rows,480,231,신용조사원,신용조사원,ja_0760
+jrb_0481,data_jobs_rows,481,231,신용조사원,신용조사원,ja_0760
+jrb_0482,data_jobs_rows,482,231,신용조사원,신용조사원,ja_0760
+jrb_0483,data_jobs_rows,483,232,광고 및 홍보전문가,광고_및_홍보전문가,ja_0132
+jrb_0484,data_jobs_rows,484,233,외교관,외교관,ja_0871
+jrb_0485,data_jobs_rows,485,234,외환딜러,외환딜러,ja_0873
+jrb_0486,data_jobs_rows,486,236,자동차영업원,자동차영업원,ja_1028
+jrb_0487,data_jobs_rows,487,238,기업고위임원,기업고위임원,ja_0210
+jrb_0488,data_jobs_rows,488,239,증권분석가,증권분석가,ja_1192
+jrb_0489,data_jobs_rows,489,240,증권중개인,증권중개인,ja_1194
+jrb_0490,data_jobs_rows,490,242,텔레마케터,텔레마케터,ja_1341
+jrb_0491,data_jobs_rows,491,243,상점판매원,상점판매원,ja_0585
+jrb_0492,data_jobs_rows,492,244,금융자산운용가(펀드매니저),금융자산운용가_펀드매니저,ja_0191
+jrb_0493,data_jobs_rows,493,247,네이미스트,네이미스트,ja_0235
+jrb_0494,data_jobs_rows,494,252,법률사무원,법률사무원,ja_0467
+jrb_0495,data_jobs_rows,495,253,사무보조원,사무보조원,ja_0531
+jrb_0496,data_jobs_rows,496,253,사무보조원,사무보조원,ja_0531
+jrb_0497,data_jobs_rows,497,253,사무보조원,사무보조원,ja_0531
+jrb_0498,data_jobs_rows,498,253,사무보조원,사무보조원,ja_0531
+jrb_0499,data_jobs_rows,499,255,은행출납사무원,은행출납사무원,ja_0943
+jrb_0500,data_jobs_rows,500,256,보건의료정보관리사,보건의료정보관리사,ja_0477
+jrb_0501,data_jobs_rows,501,258,회계사무원,회계사무원,ja_1545
+jrb_0502,data_jobs_rows,502,258,회계사무원,회계사무원,ja_1545
+jrb_0503,data_jobs_rows,503,258,회계사무원,회계사무원,ja_1545
+jrb_0504,data_jobs_rows,504,260,구성작가,구성작가,ja_0164
+jrb_0505,data_jobs_rows,505,261,극작가,극작가,ja_0181
+jrb_0506,data_jobs_rows,506,262,기자,기자,ja_0214
+jrb_0507,data_jobs_rows,507,264,통역가,통역가,ja_1367
+jrb_0508,data_jobs_rows,508,265,리포터,리포터,ja_0346
+jrb_0509,data_jobs_rows,509,266,드라마작가,드라마작가,ja_0319
+jrb_0510,data_jobs_rows,510,267,번역가,번역가,ja_0462
+jrb_0511,data_jobs_rows,511,268,사서,사서,ja_0535
+jrb_0512,data_jobs_rows,512,268,사서,사서,ja_0535
+jrb_0513,data_jobs_rows,513,269,정치학연구원,정치학연구원,ja_1117
+jrb_0514,data_jobs_rows,514,270,성우,성우,ja_0644
+jrb_0515,data_jobs_rows,515,271,아나운서,아나운서,ja_0775
+jrb_0516,data_jobs_rows,516,272,언어학연구원,언어학연구원,ja_0817
+jrb_0517,data_jobs_rows,517,273,역사학연구원,역사학연구원,ja_0826
+jrb_0518,data_jobs_rows,518,278,카피라이터,카피라이터,ja_1280
+jrb_0519,data_jobs_rows,519,280,가수,가수,ja_0027
+jrb_0520,data_jobs_rows,520,281,개그맨,개그맨,ja_0051
+jrb_0521,data_jobs_rows,521,283,광고기획자,광고기획자,ja_0133
+jrb_0522,data_jobs_rows,522,284,간판제작원,간판제작원,ja_0043
+jrb_0523,data_jobs_rows,523,285,광고디자이너,광고디자이너,ja_0134
+jrb_0524,data_jobs_rows,524,285,광고디자이너,광고디자이너,ja_0134
+jrb_0525,data_jobs_rows,525,285,광고디자이너,광고디자이너,ja_0134
+jrb_0526,data_jobs_rows,526,286,국악인,국악인,ja_0166
+jrb_0527,data_jobs_rows,527,288,네일아티스트,네일아티스트,ja_0236
+jrb_0528,data_jobs_rows,528,291,만화가,만화가,ja_0352
+jrb_0529,data_jobs_rows,529,293,메이크업아티스트,메이크업아티스트,ja_0360
+jrb_0530,data_jobs_rows,530,294,모델,모델,ja_0364
+jrb_0531,data_jobs_rows,531,295,패턴사,패턴사,ja_1395
+jrb_0532,data_jobs_rows,532,295,패턴사,패턴사,ja_1395
+jrb_0533,data_jobs_rows,533,295,패턴사,패턴사,ja_1395
+jrb_0534,data_jobs_rows,534,295,패턴사,패턴사,ja_1395
+jrb_0535,data_jobs_rows,535,295,패턴사,패턴사,ja_1395
+jrb_0536,data_jobs_rows,536,296,무대감독,무대감독,ja_0379
+jrb_0537,data_jobs_rows,537,298,무용가,무용가,ja_0387
+jrb_0538,data_jobs_rows,538,299,문화재보존원,문화재보존원,ja_0396
+jrb_0539,data_jobs_rows,539,299,문화재보존원,문화재보존원,ja_0396
+jrb_0540,data_jobs_rows,540,299,문화재보존원,문화재보존원,ja_0396
+jrb_0541,data_jobs_rows,541,299,문화재보존원,문화재보존원,ja_0396
+jrb_0542,data_jobs_rows,542,299,문화재보존원,문화재보존원,ja_0396
+jrb_0543,data_jobs_rows,543,299,문화재보존원,문화재보존원,ja_0396
+jrb_0544,data_jobs_rows,544,299,문화재보존원,문화재보존원,ja_0396
+jrb_0545,data_jobs_rows,545,301,방송연출가,방송연출가,ja_0445
+jrb_0546,data_jobs_rows,546,303,연기자,연기자,ja_0831
+jrb_0547,data_jobs_rows,547,304,백댄서(백업댄서),백댄서_백업댄서,ja_0459
+jrb_0548,data_jobs_rows,548,305,보석디자이너,보석디자이너,ja_0483
+jrb_0549,data_jobs_rows,549,306,분장사,분장사,ja_0508
+jrb_0550,data_jobs_rows,550,309,비디오저널리스트(VJ),비디오저널리스트_vj,ja_0519
+jrb_0551,data_jobs_rows,551,310,사진작가,사진작가,ja_0547
+jrb_0552,data_jobs_rows,552,310,사진작가,사진작가,ja_0547
+jrb_0553,data_jobs_rows,553,311,사진인화 및 현상관련조작원,사진인화_및_현상관련조작원,ja_0546
+jrb_0554,data_jobs_rows,554,313,성악가,성악가,ja_0643
+jrb_0555,data_jobs_rows,555,314,스턴트맨,스턴트맨,ja_0698
+jrb_0556,data_jobs_rows,556,316,플로리스트,플로리스트,ja_1431
+jrb_0557,data_jobs_rows,557,317,연주가,연주가,ja_0841
+jrb_0558,data_jobs_rows,558,318,악기제조원,악기제조원,ja_0782
+jrb_0559,data_jobs_rows,559,318,악기제조원,악기제조원,ja_0782
+jrb_0560,data_jobs_rows,560,319,애완동물미용사,애완동물미용사,ja_0798
+jrb_0561,data_jobs_rows,561,320,연극연출가,연극연출가,ja_0829
+jrb_0562,data_jobs_rows,562,321,연예인매니저,연예인매니저,ja_0840
+jrb_0563,data_jobs_rows,563,322,영화감독,영화감독,ja_0857
+jrb_0564,data_jobs_rows,564,323,영화기획자,영화기획자,ja_0858
+jrb_0565,data_jobs_rows,565,325,이미지컨설턴트,이미지컨설턴트,ja_0979
+jrb_0566,data_jobs_rows,566,326,인테리어디자이너,인테리어디자이너,ja_1007
+jrb_0567,data_jobs_rows,567,326,인테리어디자이너,인테리어디자이너,ja_1007
+jrb_0568,data_jobs_rows,568,326,인테리어디자이너,인테리어디자이너,ja_1007
+jrb_0569,data_jobs_rows,569,327,일러스트레이터,일러스트레이터,ja_1010
+jrb_0570,data_jobs_rows,570,327,일러스트레이터,일러스트레이터,ja_1010
+jrb_0571,data_jobs_rows,571,327,일러스트레이터,일러스트레이터,ja_1010
+jrb_0572,data_jobs_rows,572,328,작곡가,작곡가,ja_1037
+jrb_0573,data_jobs_rows,573,332,제품디자이너,제품디자이너,ja_1136
+jrb_0574,data_jobs_rows,574,332,제품디자이너,제품디자이너,ja_1136
+jrb_0575,data_jobs_rows,575,332,제품디자이너,제품디자이너,ja_1136
+jrb_0576,data_jobs_rows,576,332,제품디자이너,제품디자이너,ja_1136
+jrb_0577,data_jobs_rows,577,333,조각가,조각가,ja_1139
+jrb_0578,data_jobs_rows,578,334,조향사,조향사,ja_1165
+jrb_0579,data_jobs_rows,579,335,지휘자,지휘자,ja_1206
+jrb_0580,data_jobs_rows,580,336,운동선수,운동선수,ja_0889
+jrb_0581,data_jobs_rows,581,337,촬영기사,촬영기사,ja_1251
+jrb_0582,data_jobs_rows,582,338,출판물기획전문가,출판물기획전문가,ja_1260
+jrb_0583,data_jobs_rows,583,339,캐릭터디자이너,캐릭터디자이너,ja_1283
+jrb_0584,data_jobs_rows,584,339,캐릭터디자이너,캐릭터디자이너,ja_1283
+jrb_0585,data_jobs_rows,585,339,캐릭터디자이너,캐릭터디자이너,ja_1283
+jrb_0586,data_jobs_rows,586,340,컬러리스트,컬러리스트,ja_1291
+jrb_0587,data_jobs_rows,587,340,컬러리스트,컬러리스트,ja_1291
+jrb_0588,data_jobs_rows,588,344,패션디자이너,패션디자이너,ja_1391
+jrb_0589,data_jobs_rows,589,344,패션디자이너,패션디자이너,ja_1391
+jrb_0590,data_jobs_rows,590,345,패션코디네이터,패션코디네이터,ja_1394
+jrb_0591,data_jobs_rows,591,346,편집기사,편집기사,ja_1405
+jrb_0592,data_jobs_rows,592,347,악기수리원 및 조율사,악기수리원_및_조율사,ja_0780
+jrb_0593,data_jobs_rows,593,347,악기수리원 및 조율사,악기수리원_및_조율사,ja_0780
+jrb_0594,data_jobs_rows,594,348,학예사(큐레이터),학예사_큐레이터,ja_1442
+jrb_0595,data_jobs_rows,595,348,학예사(큐레이터),학예사_큐레이터,ja_1442
+jrb_0596,data_jobs_rows,596,348,학예사(큐레이터),학예사_큐레이터,ja_1442
+jrb_0597,data_jobs_rows,597,349,화가,화가,ja_1515
+jrb_0598,data_jobs_rows,598,352,가사도우미,가사도우미,ja_0025
+jrb_0599,data_jobs_rows,599,353,간병인,간병인,ja_0039
+jrb_0600,data_jobs_rows,600,355,간호조무사,간호조무사,ja_0045
+jrb_0601,data_jobs_rows,601,356,청소원,청소원,ja_1247
+jrb_0602,data_jobs_rows,602,358,경비원,경비원,ja_0080
+jrb_0603,data_jobs_rows,603,358,경비원,경비원,ja_0080
+jrb_0604,data_jobs_rows,604,359,경찰관,경찰관,ja_0086
+jrb_0605,data_jobs_rows,605,360,경호원,경호원,ja_0087
+jrb_0606,data_jobs_rows,606,360,경호원,경호원,ja_0087
+jrb_0607,data_jobs_rows,607,362,일반공무원,일반공무원,ja_1012
+jrb_0608,data_jobs_rows,608,363,교도관,교도관,ja_0147
+jrb_0609,data_jobs_rows,609,364,이공학계열교수,이공학계열교수,ja_0972
+jrb_0610,data_jobs_rows,610,365,독서지도사,독서지도사,ja_0308
+jrb_0611,data_jobs_rows,611,366,레크리에이션지도자,레크리에이션지도자,ja_0336
+jrb_0612,data_jobs_rows,612,369,물리치료사,물리치료사,ja_0399
+jrb_0613,data_jobs_rows,613,370,바텐더,바텐더,ja_0417
+jrb_0614,data_jobs_rows,614,371,택배원,택배원,ja_1333
+jrb_0615,data_jobs_rows,615,371,택배원,택배원,ja_1333
+jrb_0616,data_jobs_rows,616,372,버스운전기사,버스운전기사,ja_0461
+jrb_0617,data_jobs_rows,617,373,법무사,법무사,ja_0468
+jrb_0618,data_jobs_rows,618,374,변리사,변리사,ja_0474
+jrb_0619,data_jobs_rows,619,375,변호사,변호사,ja_0475
+jrb_0620,data_jobs_rows,620,378,전문비서,전문비서,ja_1074
+jrb_0621,data_jobs_rows,621,379,사회복지사,사회복지사,ja_0555
+jrb_0622,data_jobs_rows,622,380,상담전문가,상담전문가,ja_0580
+jrb_0623,data_jobs_rows,623,380,상담전문가,상담전문가,ja_0580
+jrb_0624,data_jobs_rows,624,380,상담전문가,상담전문가,ja_0580
+jrb_0625,data_jobs_rows,625,380,상담전문가,상담전문가,ja_0580
+jrb_0626,data_jobs_rows,626,383,우편물집배원,우편물집배원,ja_0886
+jrb_0627,data_jobs_rows,627,383,우편물집배원,우편물집배원,ja_0886
+jrb_0628,data_jobs_rows,628,383,우편물집배원,우편물집배원,ja_0886
+jrb_0629,data_jobs_rows,629,383,우편물집배원,우편물집배원,ja_0886
+jrb_0630,data_jobs_rows,630,383,우편물집배원,우편물집배원,ja_0886
+jrb_0631,data_jobs_rows,631,383,우편물집배원,우편물집배원,ja_0886
+jrb_0632,data_jobs_rows,632,383,우편물집배원,우편물집배원,ja_0886
+jrb_0633,data_jobs_rows,633,383,우편물집배원,우편물집배원,ja_0886
+jrb_0634,data_jobs_rows,634,384,성직자,성직자,ja_0645
+jrb_0635,data_jobs_rows,635,385,소방관,소방관,ja_0658
+jrb_0636,data_jobs_rows,636,385,소방관,소방관,ja_0658
+jrb_0637,data_jobs_rows,637,385,소방관,소방관,ja_0658
+jrb_0638,data_jobs_rows,638,385,소방관,소방관,ja_0658
+jrb_0639,data_jobs_rows,639,385,소방관,소방관,ja_0658
+jrb_0640,data_jobs_rows,640,385,소방관,소방관,ja_0658
+jrb_0641,data_jobs_rows,641,385,소방관,소방관,ja_0658
+jrb_0642,data_jobs_rows,642,386,언어치료사,언어치료사,ja_0816
+jrb_0643,data_jobs_rows,643,388,여행안내원,여행안내원,ja_0824
+jrb_0644,data_jobs_rows,644,390,신호원 및 수송원,신호원_및_수송원,ja_0762
+jrb_0645,data_jobs_rows,645,390,신호원 및 수송원,신호원_및_수송원,ja_0762
+jrb_0646,data_jobs_rows,646,390,신호원 및 수송원,신호원_및_수송원,ja_0762
+jrb_0647,data_jobs_rows,647,390,신호원 및 수송원,신호원_및_수송원,ja_0762
+jrb_0648,data_jobs_rows,648,391,운동경기심판,운동경기심판,ja_0888
+jrb_0649,data_jobs_rows,649,392,스포츠트레이너,스포츠트레이너,ja_0710
+jrb_0650,data_jobs_rows,650,395,유치원교사,유치원교사,ja_0937
+jrb_0651,data_jobs_rows,651,396,음악치료사,음악치료사,ja_0954
+jrb_0652,data_jobs_rows,652,397,응급구조사,응급구조사,ja_0958
+jrb_0653,data_jobs_rows,653,398,임상심리사,임상심리사,ja_1016
+jrb_0654,data_jobs_rows,654,398,임상심리사,임상심리사,ja_1016
+jrb_0655,data_jobs_rows,655,400,운동감독,운동감독,ja_0887
+jrb_0656,data_jobs_rows,656,401,작업치료사,작업치료사,ja_1038
+jrb_0657,data_jobs_rows,657,403,장례지도사,장례지도사,ja_1044
+jrb_0658,data_jobs_rows,658,404,전화교환원,전화교환원,ja_1090
+jrb_0659,data_jobs_rows,659,404,전화교환원,전화교환원,ja_1090
+jrb_0660,data_jobs_rows,660,404,전화교환원,전화교환원,ja_1090
+jrb_0661,data_jobs_rows,661,404,전화교환원,전화교환원,ja_1090
+jrb_0662,data_jobs_rows,662,405,주택관리사,주택관리사,ja_1185
+jrb_0663,data_jobs_rows,663,407,직업군인,직업군인,ja_1207
+jrb_0664,data_jobs_rows,664,408,직업상담 및 취업알선원,직업상담_및_취업알선원,ja_1209
+jrb_0665,data_jobs_rows,665,409,직업능력개발훈련교사,직업능력개발훈련교사,ja_1208
+jrb_0666,data_jobs_rows,666,409,직업능력개발훈련교사,직업능력개발훈련교사,ja_1208
+jrb_0667,data_jobs_rows,667,409,직업능력개발훈련교사,직업능력개발훈련교사,ja_1208
+jrb_0668,data_jobs_rows,668,411,치과위생사,치과위생사,ja_1268
+jrb_0669,data_jobs_rows,669,416,피부관리사,피부관리사,ja_1432
+jrb_0670,data_jobs_rows,670,417,학원강사,학원강사,ja_1444
+jrb_0671,data_jobs_rows,671,418,비행기승무원,비행기승무원,ja_0529
+jrb_0672,data_jobs_rows,672,421,스포츠강사,스포츠강사,ja_0705
+jrb_0673,data_jobs_rows,673,426,택시운전기사,택시운전기사,ja_1334
+jrb_0674,data_jobs_rows,674,427,웨딩플래너,웨딩플래너,ja_0907
+jrb_0675,data_jobs_rows,675,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0676,data_jobs_rows,676,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0677,data_jobs_rows,677,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0678,data_jobs_rows,678,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0679,data_jobs_rows,679,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0680,data_jobs_rows,680,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0681,data_jobs_rows,681,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0682,data_jobs_rows,682,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0683,data_jobs_rows,683,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_0684,data_jobs_rows,684,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0685,data_jobs_rows,685,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0686,data_jobs_rows,686,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0687,data_jobs_rows,687,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0688,data_jobs_rows,688,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0689,data_jobs_rows,689,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0690,data_jobs_rows,690,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0691,data_jobs_rows,691,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0692,data_jobs_rows,692,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0693,data_jobs_rows,693,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_0694,data_jobs_rows,694,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0695,data_jobs_rows,695,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0696,data_jobs_rows,696,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0697,data_jobs_rows,697,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0698,data_jobs_rows,698,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0699,data_jobs_rows,699,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0700,data_jobs_rows,700,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0701,data_jobs_rows,701,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0702,data_jobs_rows,702,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_0703,data_jobs_rows,703,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_0704,data_jobs_rows,704,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_0705,data_jobs_rows,705,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_0706,data_jobs_rows,706,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_0707,data_jobs_rows,707,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_0708,data_jobs_rows,708,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0709,data_jobs_rows,709,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0710,data_jobs_rows,710,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0711,data_jobs_rows,711,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0712,data_jobs_rows,712,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0713,data_jobs_rows,713,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0714,data_jobs_rows,714,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0715,data_jobs_rows,715,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0716,data_jobs_rows,716,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_0717,data_jobs_rows,717,441,애니메이터,애니메이터,ja_0797
+jrb_0718,data_jobs_rows,718,443,웹디자이너,웹디자이너,ja_0914
+jrb_0719,data_jobs_rows,719,443,웹디자이너,웹디자이너,ja_0914
+jrb_0720,data_jobs_rows,720,444,웹마스터,웹마스터,ja_0915
+jrb_0721,data_jobs_rows,721,444,웹마스터,웹마스터,ja_0915
+jrb_0722,data_jobs_rows,722,444,웹마스터,웹마스터,ja_0915
+jrb_0723,data_jobs_rows,723,444,웹마스터,웹마스터,ja_0915
+jrb_0724,data_jobs_rows,724,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0725,data_jobs_rows,725,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0726,data_jobs_rows,726,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0727,data_jobs_rows,727,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0728,data_jobs_rows,728,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0729,data_jobs_rows,729,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0730,data_jobs_rows,730,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0731,data_jobs_rows,731,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_0732,data_jobs_rows,732,452,정보중개인,정보중개인,ja_1104
+jrb_0733,data_jobs_rows,733,452,정보중개인,정보중개인,ja_1104
+jrb_0734,data_jobs_rows,734,452,정보중개인,정보중개인,ja_1104
+jrb_0735,data_jobs_rows,735,457,컴퓨터게임시나리오작가,컴퓨터게임시나리오작가,ja_1294
+jrb_0736,data_jobs_rows,736,458,컴퓨터그래픽디자이너,컴퓨터그래픽디자이너,ja_1296
+jrb_0737,data_jobs_rows,737,459,속기사,속기사,ja_0662
+jrb_0738,data_jobs_rows,738,459,속기사,속기사,ja_0662
+jrb_0739,data_jobs_rows,739,459,속기사,속기사,ja_0662
+jrb_0740,data_jobs_rows,740,462,사이버교육운영자,사이버교육운영자,ja_0539
+jrb_0741,data_jobs_rows,741,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0742,data_jobs_rows,742,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0743,data_jobs_rows,743,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0744,data_jobs_rows,744,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0745,data_jobs_rows,745,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0746,data_jobs_rows,746,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_0747,data_jobs_rows,747,466,컴퓨터설치·수리원,컴퓨터설치_수리원,ja_1301
+jrb_0748,data_jobs_rows,748,466,컴퓨터설치·수리원,컴퓨터설치_수리원,ja_1301
+jrb_0749,data_jobs_rows,749,467,의료정보시스템개발자,의료정보시스템개발자,ja_0963
+jrb_0750,data_jobs_rows,750,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0751,data_jobs_rows,751,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0752,data_jobs_rows,752,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0753,data_jobs_rows,753,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0754,data_jobs_rows,754,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0755,data_jobs_rows,755,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0756,data_jobs_rows,756,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0757,data_jobs_rows,757,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_0758,data_jobs_rows,758,470,전자상거래전문가,전자상거래전문가,ja_1081
+jrb_0759,data_jobs_rows,759,474,아이티(IT)기술영업원,아이티_it_기술영업원,ja_0777
+jrb_0760,data_jobs_rows,760,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0761,data_jobs_rows,761,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0762,data_jobs_rows,762,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0763,data_jobs_rows,763,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0764,data_jobs_rows,764,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0765,data_jobs_rows,765,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0766,data_jobs_rows,766,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_0767,data_jobs_rows,767,476,무선주파수(RF)엔지니어,무선주파수_rf_엔지니어,ja_0383
+jrb_0768,data_jobs_rows,768,476,무선주파수(RF)엔지니어,무선주파수_rf_엔지니어,ja_0383
+jrb_0769,data_jobs_rows,769,476,무선주파수(RF)엔지니어,무선주파수_rf_엔지니어,ja_0383
+jrb_0770,data_jobs_rows,770,481,교장,교장,ja_0154
+jrb_0771,data_jobs_rows,771,539,소음진동기술자,소음진동기술자,ja_0661
+jrb_0772,data_jobs_rows,772,539,소음진동기술자,소음진동기술자,ja_0661
+jrb_0773,data_jobs_rows,773,539,소음진동기술자,소음진동기술자,ja_0661
+jrb_0774,data_jobs_rows,774,592,크레인 및 호이스트운전원,크레인_및_호이스트운전원,ja_1321
+jrb_0775,data_jobs_rows,775,592,크레인 및 호이스트운전원,크레인_및_호이스트운전원,ja_1321
+jrb_0776,data_jobs_rows,776,626,여행상품개발원,여행상품개발원,ja_0822
+jrb_0777,data_jobs_rows,777,740,귀금속 및 보석세공원,귀금속_및_보석세공원,ja_0177
+jrb_0778,data_jobs_rows,778,740,귀금속 및 보석세공원,귀금속_및_보석세공원,ja_0177
+jrb_0779,data_jobs_rows,779,740,귀금속 및 보석세공원,귀금속_및_보석세공원,ja_0177
+jrb_0780,data_jobs_rows,780,740,귀금속 및 보석세공원,귀금속_및_보석세공원,ja_0177
+jrb_0781,data_jobs_rows,781,795,호텔지배인,호텔지배인,ja_1511
+jrb_0782,data_jobs_rows,782,795,호텔지배인,호텔지배인,ja_1511
+jrb_0783,data_jobs_rows,783,795,호텔지배인,호텔지배인,ja_1511
+jrb_0784,data_jobs_rows,784,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0785,data_jobs_rows,785,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0786,data_jobs_rows,786,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0787,data_jobs_rows,787,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0788,data_jobs_rows,788,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0789,data_jobs_rows,789,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0790,data_jobs_rows,790,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_0791,data_jobs_rows,791,911,조명기사,조명기사,ja_1154
+jrb_0792,data_jobs_rows,792,911,조명기사,조명기사,ja_1154
+jrb_0793,data_jobs_rows,793,911,조명기사,조명기사,ja_1154
+jrb_0794,data_jobs_rows,794,914,영화시나리오작가,영화시나리오작가,ja_0860
+jrb_0795,data_jobs_rows,795,915,음향기사,음향기사,ja_0955
+jrb_0796,data_jobs_rows,796,916,특수효과기술자,특수효과기술자,ja_1377
+jrb_0797,data_jobs_rows,797,917,음반기획자,음반기획자,ja_0946
+jrb_0798,data_jobs_rows,798,920,애니메이션기획자,애니메이션기획자,ja_0795
+jrb_0799,data_jobs_rows,799,922,애니메이션작가,애니메이션작가,ja_0796
+jrb_0800,data_jobs_rows,800,923,게임기획자,게임기획자,ja_0073
+jrb_0801,data_jobs_rows,801,926,출판편집자,출판편집자,ja_1264
+jrb_0802,data_jobs_rows,802,927,북디자이너,북디자이너,ja_0501
+jrb_0803,data_jobs_rows,803,927,북디자이너,북디자이너,ja_0501
+jrb_0804,data_jobs_rows,804,927,북디자이너,북디자이너,ja_0501
+jrb_0805,data_jobs_rows,805,928,영업원,영업원,ja_0855
+jrb_0806,data_jobs_rows,806,929,공예원,공예원,ja_0114
+jrb_0807,data_jobs_rows,807,929,공예원,공예원,ja_0114
+jrb_0808,data_jobs_rows,808,929,공예원,공예원,ja_0114
+jrb_0809,data_jobs_rows,809,933,사회학연구원,사회학연구원,ja_0560
+jrb_0810,data_jobs_rows,810,934,사회단체활동가,사회단체활동가,ja_0554
+jrb_0811,data_jobs_rows,811,937,시각디자이너,시각디자이너,ja_0717
+jrb_0812,data_jobs_rows,812,937,시각디자이너,시각디자이너,ja_0717
+jrb_0813,data_jobs_rows,813,937,시각디자이너,시각디자이너,ja_0717
+jrb_0814,data_jobs_rows,814,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0815,data_jobs_rows,815,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0816,data_jobs_rows,816,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0817,data_jobs_rows,817,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0818,data_jobs_rows,818,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0819,data_jobs_rows,819,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_0820,data_jobs_rows,820,941,임상병리사,임상병리사,ja_1015
+jrb_0821,data_jobs_rows,821,946,카지노딜러,카지노딜러,ja_1279
+jrb_0822,data_jobs_rows,822,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0823,data_jobs_rows,823,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0824,data_jobs_rows,824,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0825,data_jobs_rows,825,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0826,data_jobs_rows,826,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0827,data_jobs_rows,827,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_0828,data_jobs_rows,828,950,투자분석가(애널리스트),투자분석가_애널리스트,ja_1368
+jrb_0829,data_jobs_rows,829,951,행사기획자,행사기획자,ja_1491
+jrb_0830,data_jobs_rows,830,951,행사기획자,행사기획자,ja_1491
+jrb_0831,data_jobs_rows,831,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0832,data_jobs_rows,832,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0833,data_jobs_rows,833,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0834,data_jobs_rows,834,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0835,data_jobs_rows,835,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0836,data_jobs_rows,836,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0837,data_jobs_rows,837,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0838,data_jobs_rows,838,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0839,data_jobs_rows,839,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_0840,data_jobs_rows,840,954,화훼재배기술자,화훼재배기술자,ja_1527
+jrb_0841,data_jobs_rows,841,954,화훼재배기술자,화훼재배기술자,ja_1527
+jrb_0842,data_jobs_rows,842,954,화훼재배기술자,화훼재배기술자,ja_1527
+jrb_0843,data_jobs_rows,843,954,화훼재배기술자,화훼재배기술자,ja_1527
+jrb_0844,data_jobs_rows,844,957,평론가,평론가,ja_1407
+jrb_0845,data_jobs_rows,845,963,원예기술자,원예기술자,ja_0896
+jrb_0846,data_jobs_rows,846,963,원예기술자,원예기술자,ja_0896
+jrb_0847,data_jobs_rows,847,966,안무가,안무가,ja_0786
+jrb_0848,data_jobs_rows,848,968,시인,시인,ja_0739
+jrb_0849,data_jobs_rows,849,973,소설가,소설가,ja_0659
+jrb_0850,data_jobs_rows,850,975,사진사,사진사,ja_0543
+jrb_0851,data_jobs_rows,851,976,사진기자,사진기자,ja_0541
+jrb_0852,data_jobs_rows,852,978,보일러공,보일러공,ja_0487
+jrb_0853,data_jobs_rows,853,978,보일러공,보일러공,ja_0487
+jrb_0854,data_jobs_rows,854,978,보일러공,보일러공,ja_0487
+jrb_0855,data_jobs_rows,855,978,보일러공,보일러공,ja_0487
+jrb_0856,data_jobs_rows,856,985,공업기계설치 및 정비원,공업기계설치_및_정비원,ja_0112
+jrb_0857,data_jobs_rows,857,985,공업기계설치 및 정비원,공업기계설치_및_정비원,ja_0112
+jrb_0858,data_jobs_rows,858,985,공업기계설치 및 정비원,공업기계설치_및_정비원,ja_0112
+jrb_0859,data_jobs_rows,859,988,인문사회계열교수,인문사회계열교수,ja_0994
+jrb_0860,data_jobs_rows,860,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0861,data_jobs_rows,861,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0862,data_jobs_rows,862,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0863,data_jobs_rows,863,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0864,data_jobs_rows,864,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0865,data_jobs_rows,865,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0866,data_jobs_rows,866,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0867,data_jobs_rows,867,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0868,data_jobs_rows,868,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0869,data_jobs_rows,869,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0870,data_jobs_rows,870,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_0871,data_jobs_rows,871,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0872,data_jobs_rows,872,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0873,data_jobs_rows,873,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0874,data_jobs_rows,874,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0875,data_jobs_rows,875,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0876,data_jobs_rows,876,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0877,data_jobs_rows,877,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0878,data_jobs_rows,878,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_0879,data_jobs_rows,879,997,토양환경기술자,토양환경기술자,ja_1348
+jrb_0880,data_jobs_rows,880,997,토양환경기술자,토양환경기술자,ja_1348
+jrb_0881,data_jobs_rows,881,997,토양환경기술자,토양환경기술자,ja_1348
+jrb_0882,data_jobs_rows,882,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0883,data_jobs_rows,883,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0884,data_jobs_rows,884,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0885,data_jobs_rows,885,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0886,data_jobs_rows,886,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0887,data_jobs_rows,887,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_0888,data_jobs_rows,888,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0889,data_jobs_rows,889,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0890,data_jobs_rows,890,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0891,data_jobs_rows,891,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0892,data_jobs_rows,892,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0893,data_jobs_rows,893,1006,해양환경기사,해양환경기사,ja_1486
+jrb_0894,data_jobs_rows,894,1007,상수도기술자,상수도기술자,ja_0582
+jrb_0895,data_jobs_rows,895,1007,상수도기술자,상수도기술자,ja_0582
+jrb_0896,data_jobs_rows,896,1007,상수도기술자,상수도기술자,ja_0582
+jrb_0897,data_jobs_rows,897,1007,상수도기술자,상수도기술자,ja_0582
+jrb_0898,data_jobs_rows,898,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0899,data_jobs_rows,899,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0900,data_jobs_rows,900,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0901,data_jobs_rows,901,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0902,data_jobs_rows,902,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0903,data_jobs_rows,903,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0904,data_jobs_rows,904,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_0905,data_jobs_rows,905,1010,방사성폐기물관리원,방사성폐기물관리원,ja_0439
+jrb_0906,data_jobs_rows,906,1010,방사성폐기물관리원,방사성폐기물관리원,ja_0439
+jrb_0907,data_jobs_rows,907,1010,방사성폐기물관리원,방사성폐기물관리원,ja_0439
+jrb_0908,data_jobs_rows,908,1061,국회의원,국회의원,ja_0172
+jrb_0909,data_jobs_rows,909,1068,마케팅전문가,마케팅전문가,ja_0350
+jrb_0910,data_jobs_rows,910,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_0911,data_jobs_rows,911,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_0912,data_jobs_rows,912,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_0913,data_jobs_rows,913,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_0914,data_jobs_rows,914,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_0915,data_jobs_rows,915,1078,대형트럭 및 특수차운전원,대형트럭_및_특수차운전원,ja_0279
+jrb_0916,data_jobs_rows,916,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0917,data_jobs_rows,917,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0918,data_jobs_rows,918,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0919,data_jobs_rows,919,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0920,data_jobs_rows,920,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0921,data_jobs_rows,921,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_0922,data_jobs_rows,922,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_0923,data_jobs_rows,923,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_0924,data_jobs_rows,924,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_0925,data_jobs_rows,925,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_0926,data_jobs_rows,926,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_0927,data_jobs_rows,927,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0928,data_jobs_rows,928,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0929,data_jobs_rows,929,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0930,data_jobs_rows,930,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0931,data_jobs_rows,931,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0932,data_jobs_rows,932,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0933,data_jobs_rows,933,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_0934,data_jobs_rows,934,1088,스포츠에이전트,스포츠에이전트,ja_0709
+jrb_0935,data_jobs_rows,935,1090,콘크리트공,콘크리트공,ja_1316
+jrb_0936,data_jobs_rows,936,1090,콘크리트공,콘크리트공,ja_1316
+jrb_0937,data_jobs_rows,937,1090,콘크리트공,콘크리트공,ja_1316
+jrb_0938,data_jobs_rows,938,1092,GIS전문가,gis전문가,ja_0008
+jrb_0939,data_jobs_rows,939,1092,GIS전문가,gis전문가,ja_0008
+jrb_0940,data_jobs_rows,940,1092,GIS전문가,gis전문가,ja_0008
+jrb_0941,data_jobs_rows,941,1092,GIS전문가,gis전문가,ja_0008
+jrb_0942,data_jobs_rows,942,1092,GIS전문가,gis전문가,ja_0008
+jrb_0943,data_jobs_rows,943,1092,GIS전문가,gis전문가,ja_0008
+jrb_0944,data_jobs_rows,944,1092,GIS전문가,gis전문가,ja_0008
+jrb_0945,data_jobs_rows,945,1092,GIS전문가,gis전문가,ja_0008
+jrb_0946,data_jobs_rows,946,1093,가상현실전문가,가상현실전문가,ja_0026
+jrb_0947,data_jobs_rows,947,1093,가상현실전문가,가상현실전문가,ja_0026
+jrb_0948,data_jobs_rows,948,1093,가상현실전문가,가상현실전문가,ja_0026
+jrb_0949,data_jobs_rows,949,1093,가상현실전문가,가상현실전문가,ja_0026
+jrb_0950,data_jobs_rows,950,1096,웹프로듀서,웹프로듀서,ja_0918
+jrb_0951,data_jobs_rows,951,1097,프로게이머,프로게이머,ja_1425
+jrb_0952,data_jobs_rows,952,1100,군무원,군무원,ja_0173
+jrb_0953,data_jobs_rows,953,1101,신용관련추심원,신용관련추심원,ja_0758
+jrb_0954,data_jobs_rows,954,1103,교육학연구원,교육학연구원,ja_0151
+jrb_0955,data_jobs_rows,955,1104,철학연구원,철학연구원,ja_1244
+jrb_0956,data_jobs_rows,956,1105,행정학연구원,행정학연구원,ja_1496
+jrb_0957,data_jobs_rows,957,1107,안마사,안마사,ja_0785
+jrb_0958,data_jobs_rows,958,1108,위생사,위생사,ja_0919
+jrb_0959,data_jobs_rows,959,1109,서예가,서예가,ja_0605
+jrb_0960,data_jobs_rows,960,1110,도선사,도선사,ja_0295
+jrb_0961,data_jobs_rows,961,1111,지게차운전원,지게차운전원,ja_1195
+jrb_0962,data_jobs_rows,962,1112,선박갑판원,선박갑판원,ja_0619
+jrb_0963,data_jobs_rows,963,1112,선박갑판원,선박갑판원,ja_0619
+jrb_0964,data_jobs_rows,964,1113,방문판매원,방문판매원,ja_0436
+jrb_0965,data_jobs_rows,965,1114,상품대여원,상품대여원,ja_0588
+jrb_0966,data_jobs_rows,966,1115,주유원,주유원,ja_1176
+jrb_0967,data_jobs_rows,967,1116,계산원 및 매표원,계산원_및_매표원,ja_0090
+jrb_0968,data_jobs_rows,968,1117,청원경찰,청원경찰,ja_1248
+jrb_0969,data_jobs_rows,969,1118,무인경비시스템종사원,무인경비시스템종사원,ja_0389
+jrb_0970,data_jobs_rows,970,1119,구두미화원 및 수선원,구두미화원_및_수선원,ja_0160
+jrb_0971,data_jobs_rows,971,1120,주차관리원,주차관리원,ja_1181
+jrb_0972,data_jobs_rows,972,1120,주차관리원,주차관리원,ja_1181
+jrb_0973,data_jobs_rows,973,1121,이용사,이용사,ja_0983
+jrb_0974,data_jobs_rows,974,1122,미용사,미용사,ja_0406
+jrb_0975,data_jobs_rows,975,1122,미용사,미용사,ja_0406
+jrb_0976,data_jobs_rows,976,1125,선박 및 열차객실승무원,선박_및_열차객실승무원,ja_0618
+jrb_0977,data_jobs_rows,977,1127,접객원,접객원,ja_1095
+jrb_0978,data_jobs_rows,978,1128,주방보조원,주방보조원,ja_1174
+jrb_0979,data_jobs_rows,979,1128,주방보조원,주방보조원,ja_1174
+jrb_0980,data_jobs_rows,980,1128,주방보조원,주방보조원,ja_1174
+jrb_0981,data_jobs_rows,981,1128,주방보조원,주방보조원,ja_1174
+jrb_0982,data_jobs_rows,982,1129,요리배달원,요리배달원,ja_0874
+jrb_0983,data_jobs_rows,983,1130,건설견적원,건설견적원,ja_0057
+jrb_0984,data_jobs_rows,984,1131,전통건축원,전통건축원,ja_1087
+jrb_0985,data_jobs_rows,985,1131,전통건축원,전통건축원,ja_1087
+jrb_0986,data_jobs_rows,986,1132,단열원,단열원,ja_0261
+jrb_0987,data_jobs_rows,987,1133,유리부착원,유리부착원,ja_0926
+jrb_0988,data_jobs_rows,988,1134,메카트로닉스공학기술자,메카트로닉스공학기술자,ja_0361
+jrb_0989,data_jobs_rows,989,1134,메카트로닉스공학기술자,메카트로닉스공학기술자,ja_0361
+jrb_0990,data_jobs_rows,990,1134,메카트로닉스공학기술자,메카트로닉스공학기술자,ja_0361
+jrb_0991,data_jobs_rows,991,1134,메카트로닉스공학기술자,메카트로닉스공학기술자,ja_0361
+jrb_0992,data_jobs_rows,992,1135,공구제조원,공구제조원,ja_0109
+jrb_0993,data_jobs_rows,993,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0994,data_jobs_rows,994,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0995,data_jobs_rows,995,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0996,data_jobs_rows,996,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0997,data_jobs_rows,997,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0998,data_jobs_rows,998,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_0999,data_jobs_rows,999,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_1000,data_jobs_rows,1000,1137,제관원,제관원,ja_1122
+jrb_1001,data_jobs_rows,1001,1137,제관원,제관원,ja_1122
+jrb_1002,data_jobs_rows,1002,1137,제관원,제관원,ja_1122
+jrb_1003,data_jobs_rows,1003,1138,샷시원,샷시원,ja_0603
+jrb_1004,data_jobs_rows,1004,1139,단조원,단조원,ja_0262
+jrb_1005,data_jobs_rows,1005,1139,단조원,단조원,ja_0262
+jrb_1006,data_jobs_rows,1006,1139,단조원,단조원,ja_0262
+jrb_1007,data_jobs_rows,1007,1140,도장원,도장원,ja_0304
+jrb_1008,data_jobs_rows,1008,1140,도장원,도장원,ja_0304
+jrb_1009,data_jobs_rows,1009,1140,도장원,도장원,ja_0304
+jrb_1010,data_jobs_rows,1010,1140,도장원,도장원,ja_0304
+jrb_1011,data_jobs_rows,1011,1141,도금원,도금원,ja_0288
+jrb_1012,data_jobs_rows,1012,1141,도금원,도금원,ja_0288
+jrb_1013,data_jobs_rows,1013,1141,도금원,도금원,ja_0288
+jrb_1014,data_jobs_rows,1014,1142,의복수선원,의복수선원,ja_0965
+jrb_1015,data_jobs_rows,1015,1142,의복수선원,의복수선원,ja_0965
+jrb_1016,data_jobs_rows,1016,1144,발전장치조작원,발전장치조작원,ja_0432
+jrb_1017,data_jobs_rows,1017,1144,발전장치조작원,발전장치조작원,ja_0432
+jrb_1018,data_jobs_rows,1018,1144,발전장치조작원,발전장치조작원,ja_0432
+jrb_1019,data_jobs_rows,1019,1144,발전장치조작원,발전장치조작원,ja_0432
+jrb_1020,data_jobs_rows,1020,1145,전기설비조작원,전기설비조작원,ja_1067
+jrb_1021,data_jobs_rows,1021,1145,전기설비조작원,전기설비조작원,ja_1067
+jrb_1022,data_jobs_rows,1022,1145,전기설비조작원,전기설비조작원,ja_1067
+jrb_1023,data_jobs_rows,1023,1145,전기설비조작원,전기설비조작원,ja_1067
+jrb_1024,data_jobs_rows,1024,1146,전기 부품 및 제품 생산직,전기_부품_및_제품_생산직,ja_1059
+jrb_1025,data_jobs_rows,1025,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1026,data_jobs_rows,1026,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1027,data_jobs_rows,1027,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1028,data_jobs_rows,1028,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1029,data_jobs_rows,1029,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1030,data_jobs_rows,1030,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1031,data_jobs_rows,1031,1148,통신설비설치 및 수리원,통신설비설치_및_수리원,ja_1359
+jrb_1032,data_jobs_rows,1032,1148,통신설비설치 및 수리원,통신설비설치_및_수리원,ja_1359
+jrb_1033,data_jobs_rows,1033,1148,통신설비설치 및 수리원,통신설비설치_및_수리원,ja_1359
+jrb_1034,data_jobs_rows,1034,1149,음료제조관련조작원,음료제조관련조작원,ja_0944
+jrb_1035,data_jobs_rows,1035,1150,식품가공검사원,식품가공검사원,ja_0747
+jrb_1036,data_jobs_rows,1036,1151,종이제품생산직(기계조작),종이제품생산직_기계조작,ja_1168
+jrb_1037,data_jobs_rows,1037,1152,가구조립 및 검사원,가구조립_및_검사원,ja_0022
+jrb_1038,data_jobs_rows,1038,1152,가구조립 및 검사원,가구조립_및_검사원,ja_0022
+jrb_1039,data_jobs_rows,1039,1154,채소 및 특용작물재배자,채소_및_특용작물재배자,ja_1227
+jrb_1040,data_jobs_rows,1040,1154,채소 및 특용작물재배자,채소_및_특용작물재배자,ja_1227
+jrb_1041,data_jobs_rows,1041,1154,채소 및 특용작물재배자,채소_및_특용작물재배자,ja_1227
+jrb_1042,data_jobs_rows,1042,1154,채소 및 특용작물재배자,채소_및_특용작물재배자,ja_1227
+jrb_1043,data_jobs_rows,1043,1155,과수작물재배자,과수작물재배자,ja_0126
+jrb_1044,data_jobs_rows,1044,1155,과수작물재배자,과수작물재배자,ja_0126
+jrb_1045,data_jobs_rows,1045,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1046,data_jobs_rows,1046,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1047,data_jobs_rows,1047,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1048,data_jobs_rows,1048,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1049,data_jobs_rows,1049,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1050,data_jobs_rows,1050,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1051,data_jobs_rows,1051,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1052,data_jobs_rows,1052,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1053,data_jobs_rows,1053,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1054,data_jobs_rows,1054,1157,원양어부,원양어부,ja_0894
+jrb_1055,data_jobs_rows,1055,1157,원양어부,원양어부,ja_0894
+jrb_1056,data_jobs_rows,1056,1157,원양어부,원양어부,ja_0894
+jrb_1057,data_jobs_rows,1057,1157,원양어부,원양어부,ja_0894
+jrb_1058,data_jobs_rows,1058,1157,원양어부,원양어부,ja_0894
+jrb_1059,data_jobs_rows,1059,1158,자동조립라인 및 산업용로봇조작원,자동조립라인_및_산업용로봇조작원,ja_1021
+jrb_1060,data_jobs_rows,1060,1255,수질환경연구원,수질환경연구원,ja_0682
+jrb_1061,data_jobs_rows,1061,1255,수질환경연구원,수질환경연구원,ja_0682
+jrb_1062,data_jobs_rows,1062,1255,수질환경연구원,수질환경연구원,ja_0682
+jrb_1063,data_jobs_rows,1063,1256,커플매니저,커플매니저,ja_1289
+jrb_1064,data_jobs_rows,1064,1257,병원코디네이터,병원코디네이터,ja_0476
+jrb_1065,data_jobs_rows,1065,1259,마술사,마술사,ja_0348
+jrb_1066,data_jobs_rows,1066,1276,파티플래너,파티플래너,ja_1382
+jrb_1067,data_jobs_rows,1067,1277,건축사,건축사,ja_0066
+jrb_1068,data_jobs_rows,1068,1278,행정부고위공무원,행정부고위공무원,ja_1495
+jrb_1069,data_jobs_rows,1069,1279,헤드헌터,헤드헌터,ja_1500
+jrb_1070,data_jobs_rows,1070,1281,환경영향평가원,환경영향평가원,ja_1538
+jrb_1071,data_jobs_rows,1071,1282,대체에너지개발연구원,대체에너지개발연구원,ja_0276
+jrb_1072,data_jobs_rows,1072,1431,음악강사,음악강사,ja_0952
+jrb_1073,data_jobs_rows,1073,1432,베타테스터,베타테스터,ja_0470
+jrb_1074,data_jobs_rows,1074,1433,발명가,발명가,ja_0427
+jrb_1075,data_jobs_rows,1075,1436,신약개발연구원,신약개발연구원,ja_0756
+jrb_1076,data_jobs_rows,1076,1437,스포츠해설가,스포츠해설가,ja_0711
+jrb_1077,data_jobs_rows,1077,1438,카레이서,카레이서,ja_1277
+jrb_1078,data_jobs_rows,1078,1438,카레이서,카레이서,ja_1277
+jrb_1079,data_jobs_rows,1079,1438,카레이서,카레이서,ja_1277
+jrb_1080,data_jobs_rows,1080,1438,카레이서,카레이서,ja_1277
+jrb_1081,data_jobs_rows,1081,1438,카레이서,카레이서,ja_1277
+jrb_1082,data_jobs_rows,1082,1439,캐스팅디렉터,캐스팅디렉터,ja_1285
+jrb_1083,data_jobs_rows,1083,1441,작가,작가,ja_1036
+jrb_1084,data_jobs_rows,1084,1541,자연과학연구원,자연과학연구원,ja_1033
+jrb_1085,job_info_rows,1,1,가스ㆍ수도ㆍ전기 계기 검침원 및 안전점검원,가스ᆞ수도ᆞ전기_계기_검침원_및_안전점검원,ja_0028
+jrb_1086,job_info_rows,5,5,일기예보관,일기예보관,ja_1008
+jrb_1087,job_info_rows,6,6,기상연구원,기상연구원,ja_0206
+jrb_1088,job_info_rows,8,8,물리학연구원,물리학연구원,ja_0400
+jrb_1089,job_info_rows,10,10,방사선사,방사선사,ja_0437
+jrb_1090,job_info_rows,13,13,생물학연구원,생물학연구원,ja_0595
+jrb_1091,job_info_rows,15,15,수의사,수의사,ja_0679
+jrb_1092,job_info_rows,17,17,수학연구원,수학연구원,ja_0688
+jrb_1093,job_info_rows,19,19,의료장비기사,의료장비기사,ja_0962
+jrb_1094,job_info_rows,20,20,심리학연구원,심리학연구원,ja_0771
+jrb_1095,job_info_rows,21,21,안경사,안경사,ja_0784
+jrb_1096,job_info_rows,23,23,약사 및 한약사,약사_및_한약사,ja_0803
+jrb_1097,job_info_rows,24,24,유전공학연구원,유전공학연구원,ja_0932
+jrb_1098,job_info_rows,25,25,전문의사,전문의사,ja_1075
+jrb_1099,job_info_rows,29,29,지리학연구원,지리학연구원,ja_1197
+jrb_1100,job_info_rows,30,30,지질학연구원,지질학연구원,ja_1203
+jrb_1101,job_info_rows,31,31,천문학연구원,천문학연구원,ja_1232
+jrb_1102,job_info_rows,32,32,측량사,측량사,ja_1266
+jrb_1103,job_info_rows,33,33,치과기공사,치과기공사,ja_1267
+jrb_1104,job_info_rows,34,34,치과의사,치과의사,ja_1269
+jrb_1105,job_info_rows,36,36,통계학연구원,통계학연구원,ja_1351
+jrb_1106,job_info_rows,37,37,한의사,한의사,ja_1454
+jrb_1107,job_info_rows,38,38,해부학연구원,해부학연구원,ja_1472
+jrb_1108,job_info_rows,39,39,해양학연구원,해양학연구원,ja_1483
+jrb_1109,job_info_rows,40,40,화학연구원,화학연구원,ja_1522
+jrb_1110,job_info_rows,41,41,가전제품 설치 및 수리원,가전제품_설치_및_수리원,ja_0032
+jrb_1111,job_info_rows,42,42,건설공사품질관리원,건설공사품질관리원,ja_0058
+jrb_1112,job_info_rows,46,46,건축공학기술자,건축공학기술자,ja_0063
+jrb_1113,job_info_rows,47,47,타이어 및 고무제품 생산직,타이어_및_고무제품_생산직,ja_1322
+jrb_1114,job_info_rows,48,48,공작기계조작원,공작기계조작원,ja_0119
+jrb_1115,job_info_rows,49,49,광원 및 채석원,광원_및_채석원,ja_0144
+jrb_1116,job_info_rows,50,50,제화원,제화원,ja_1138
+jrb_1117,job_info_rows,52,52,금속가공장치조작원,금속가공장치조작원,ja_0184
+jrb_1118,job_info_rows,53,53,금속공학기술자,금속공학기술자,ja_0186
+jrb_1119,job_info_rows,54,54,금형원,금형원,ja_0193
+jrb_1120,job_info_rows,56,56,기계공학 기술자ㆍ연구원,기계공학_기술자ᆞ연구원,ja_0198
+jrb_1121,job_info_rows,57,57,섬유공학기술자,섬유공학기술자,ja_0637
+jrb_1122,job_info_rows,58,58,냉동기사,냉동기사,ja_0231
+jrb_1123,job_info_rows,59,59,녹음기사,녹음기사,ja_0244
+jrb_1124,job_info_rows,61,61,대기환경기술자,대기환경기술자,ja_0269
+jrb_1125,job_info_rows,63,63,도배원,도배원,ja_0292
+jrb_1126,job_info_rows,64,64,도자기제조원,도자기제조원,ja_0301
+jrb_1127,job_info_rows,65,65,건물도장원,건물도장원,ja_0056
+jrb_1128,job_info_rows,66,66,로봇연구원,로봇연구원,ja_0338
+jrb_1129,job_info_rows,68,68,목공,목공,ja_0370
+jrb_1130,job_info_rows,69,69,목재가공관련조작원,목재가공관련조작원,ja_0372
+jrb_1131,job_info_rows,70,70,미장원,미장원,ja_0408
+jrb_1132,job_info_rows,72,72,방수원,방수원,ja_0451
+jrb_1133,job_info_rows,73,73,섬유제조원,섬유제조원,ja_0640
+jrb_1134,job_info_rows,74,74,배관원,배관원,ja_0456
+jrb_1135,job_info_rows,75,75,조적공,조적공,ja_1160
+jrb_1136,job_info_rows,76,76,보석감정사,보석감정사,ja_0482
+jrb_1137,job_info_rows,77,77,건설기계운전원,건설기계운전원,ja_0059
+jrb_1138,job_info_rows,81,81,비파괴검사원,비파괴검사원,ja_0528
+jrb_1139,job_info_rows,83,83,산업공학기술자,산업공학기술자,ja_0566
+jrb_1140,job_info_rows,84,84,산업안전관리원,산업안전관리원,ja_0568
+jrb_1141,job_info_rows,85,85,상ㆍ하수도 처리장치 조작원,상ᆞ하수도_처리장치_조작원,ja_0574
+jrb_1142,job_info_rows,86,86,생물공학연구원,생물공학연구원,ja_0594
+jrb_1143,job_info_rows,87,87,석공,석공,ja_0609
+jrb_1144,job_info_rows,88,88,석유화학기술자,석유화학기술자,ja_0613
+jrb_1145,job_info_rows,90,90,조선공학기술자,조선공학기술자,ja_1157
+jrb_1146,job_info_rows,92,92,선박정비원,선박정비원,ja_0626
+jrb_1147,job_info_rows,97,97,시멘트제조원,시멘트제조원,ja_0727
+jrb_1148,job_info_rows,98,98,신경회로망연구원,신경회로망연구원,ja_0750
+jrb_1149,job_info_rows,100,100,압연원,압연원,ja_0788
+jrb_1150,job_info_rows,101,101,영사기사,영사기사,ja_0852
+jrb_1151,job_info_rows,102,102,용접원,용접원,ja_0884
+jrb_1152,job_info_rows,104,104,원자력연구원,원자력연구원,ja_0900
+jrb_1153,job_info_rows,106,106,유리제품제조원,유리제품제조원,ja_0928
+jrb_1154,job_info_rows,107,107,인공위성개발원,인공위성개발원,ja_0987
+jrb_1155,job_info_rows,108,108,인쇄기조작원,인쇄기조작원,ja_1000
+jrb_1156,job_info_rows,109,109,자동차정비원,자동차정비원,ja_1029
+jrb_1157,job_info_rows,110,110,자동차조립원,자동차조립원,ja_1030
+jrb_1158,job_info_rows,112,112,재료공학기술자,재료공학기술자,ja_1051
+jrb_1159,job_info_rows,113,113,전공,전공,ja_1058
+jrb_1160,job_info_rows,114,114,전기공학기술자,전기공학기술자,ja_1064
+jrb_1161,job_info_rows,119,119,전자공학기술자,전자공학기술자,ja_1079
+jrb_1162,job_info_rows,120,120,전자장비설치 및 수리원,전자장비설치_및_수리원,ja_1082
+jrb_1163,job_info_rows,121,121,전화설치 및 수리원,전화설치_및_수리원,ja_1092
+jrb_1164,job_info_rows,122,122,정밀기기제품제조원,정밀기기제품제조원,ja_1098
+jrb_1165,job_info_rows,125,125,캐드원,캐드원,ja_1281
+jrb_1166,job_info_rows,126,126,단순노무자,단순노무자,ja_0258
+jrb_1167,job_info_rows,127,127,주조원,주조원,ja_1179
+jrb_1168,job_info_rows,129,129,직조원,직조원,ja_1213
+jrb_1169,job_info_rows,131,131,철골공,철골공,ja_1234
+jrb_1170,job_info_rows,132,132,철도 및 지하철기관사,철도_및_지하철기관사,ja_1237
+jrb_1171,job_info_rows,133,133,철도차량정비원,철도차량정비원,ja_1241
+jrb_1172,job_info_rows,137,137,토목공학기술자,토목공학기술자,ja_1343
+jrb_1173,job_info_rows,138,138,통신공학 기술자 및 연구원,통신공학_기술자_및_연구원,ja_1355
+jrb_1174,job_info_rows,139,139,통신케이블설치 및 수리원,통신케이블설치_및_수리원,ja_1365
+jrb_1175,job_info_rows,140,140,통신장비기사,통신장비기사,ja_1363
+jrb_1176,job_info_rows,142,142,트럭운전기사,트럭운전기사,ja_1370
+jrb_1177,job_info_rows,143,143,판금원,판금원,ja_1384
+jrb_1178,job_info_rows,144,144,펄프 및 종이 생산직,펄프_및_종이_생산직,ja_1399
+jrb_1179,job_info_rows,145,145,재활용 처리 및 소각로 조작원,재활용_처리_및_소각로_조작원,ja_1056
+jrb_1180,job_info_rows,147,147,플라스틱제품제조원,플라스틱제품제조원,ja_1430
+jrb_1181,job_info_rows,148,148,항공교통관제사,항공교통관제사,ja_1458
+jrb_1182,job_info_rows,149,149,항공기정비원,항공기정비원,ja_1467
+jrb_1183,job_info_rows,150,150,비행기조종사,비행기조종사,ja_0530
+jrb_1184,job_info_rows,151,151,항공우주공학기술자,항공우주공학기술자,ja_1470
+jrb_1185,job_info_rows,153,153,화학제품제조원,화학제품제조원,ja_1526
+jrb_1186,job_info_rows,155,155,바닥재시공원,바닥재시공원,ja_0412
+jrb_1187,job_info_rows,157,157,반도체공학기술자,반도체공학기술자,ja_0421
+jrb_1188,job_info_rows,159,159,"가구제조,수리원",가구제조_수리원,ja_0020
+jrb_1189,job_info_rows,162,162,식품공학기술자,식품공학기술자,ja_0748
+jrb_1190,job_info_rows,163,163,도축원 및 육류가공원,도축원_및_육류가공원,ja_0307
+jrb_1191,job_info_rows,164,164,양장사 및 양복사,양장사_및_양복사,ja_0812
+jrb_1192,job_info_rows,165,165,설문조사원,설문조사원,ja_0634
+jrb_1193,job_info_rows,166,166,세탁원,세탁원,ja_0648
+jrb_1194,job_info_rows,167,167,소믈리에,소믈리에,ja_0657
+jrb_1195,job_info_rows,169,169,영양사,영양사,ja_0854
+jrb_1196,job_info_rows,171,171,전통식품제조원,전통식품제조원,ja_1088
+jrb_1197,job_info_rows,172,172,제과사 및 제빵사,제과사_및_제빵사,ja_1119
+jrb_1198,job_info_rows,173,173,조리사 및 주방장,조리사_및_주방장,ja_1150
+jrb_1199,job_info_rows,174,174,가축사육자,가축사육자,ja_0038
+jrb_1200,job_info_rows,175,175,한복사,한복사,ja_1447
+jrb_1201,job_info_rows,176,176,선장 및 항해사,선장_및_항해사,ja_0631
+jrb_1202,job_info_rows,177,177,푸드스타일리스트,푸드스타일리스트,ja_1419
+jrb_1203,job_info_rows,178,178,쇼핑호스트,쇼핑호스트,ja_0668
+jrb_1204,job_info_rows,179,179,체형관리사,체형관리사,ja_1249
+jrb_1205,job_info_rows,180,180,바리스타,바리스타,ja_0413
+jrb_1206,job_info_rows,182,182,농업기술자,농업기술자,ja_0248
+jrb_1207,job_info_rows,183,183,곡식작물재배자,곡식작물재배자,ja_0105
+jrb_1208,job_info_rows,186,186,동물조련사,동물조련사,ja_0312
+jrb_1209,job_info_rows,187,187,양식원,양식원,ja_0809
+jrb_1210,job_info_rows,189,189,연근해 어부 및 해녀,연근해_어부_및_해녀,ja_0830
+jrb_1211,job_info_rows,190,190,유제품제조원,유제품제조원,ja_0935
+jrb_1212,job_info_rows,192,192,조경원,조경원,ja_1146
+jrb_1213,job_info_rows,193,193,조경기술자,조경기술자,ja_1143
+jrb_1214,job_info_rows,195,195,해양수산기술자,해양수산기술자,ja_1478
+jrb_1215,job_info_rows,198,198,감정평가사,감정평가사,ja_0046
+jrb_1216,job_info_rows,199,199,검사,검사,ja_0069
+jrb_1217,job_info_rows,201,201,상품중개인,상품중개인,ja_0589
+jrb_1218,job_info_rows,202,202,경영컨설턴트,경영컨설턴트,ja_0083
+jrb_1219,job_info_rows,203,203,경제학연구원,경제학연구원,ja_0084
+jrb_1220,job_info_rows,205,205,노무사,노무사,ja_0243
+jrb_1221,job_info_rows,206,206,회계사,회계사,ja_1544
+jrb_1222,job_info_rows,207,207,관세사,관세사,ja_0131
+jrb_1223,job_info_rows,208,208,국제무역사무원,국제무역사무원,ja_0169
+jrb_1224,job_info_rows,209,209,국제회의전문가,국제회의전문가,ja_0170
+jrb_1225,job_info_rows,211,211,농수산물중개인,농수산물중개인,ja_0246
+jrb_1226,job_info_rows,212,212,도시 및 교통설계전문가,도시_및_교통설계전문가,ja_0296
+jrb_1227,job_info_rows,214,214,바이어(구매인),바이어_구매인,ja_0415
+jrb_1228,job_info_rows,215,215,물류관리사,물류관리사,ja_0397
+jrb_1229,job_info_rows,217,217,보험계리인,보험계리인,ja_0496
+jrb_1230,job_info_rows,219,219,부동산중개인,부동산중개인,ja_0499
+jrb_1231,job_info_rows,222,222,생활설계사,생활설계사,ja_0601
+jrb_1232,job_info_rows,223,223,선물중개인,선물중개인,ja_0617
+jrb_1233,job_info_rows,224,224,세무사,세무사,ja_0646
+jrb_1234,job_info_rows,226,226,손해사정사,손해사정사,ja_0663
+jrb_1235,job_info_rows,230,230,시장 및 여론조사전문가,시장_및_여론조사전문가,ja_0740
+jrb_1236,job_info_rows,231,231,신용조사원,신용조사원,ja_0760
+jrb_1237,job_info_rows,232,232,광고 및 홍보전문가,광고_및_홍보전문가,ja_0132
+jrb_1238,job_info_rows,233,233,외교관,외교관,ja_0871
+jrb_1239,job_info_rows,234,234,외환딜러,외환딜러,ja_0873
+jrb_1240,job_info_rows,236,236,자동차영업원,자동차영업원,ja_1028
+jrb_1241,job_info_rows,238,238,기업고위임원,기업고위임원,ja_0210
+jrb_1242,job_info_rows,239,239,증권분석가,증권분석가,ja_1192
+jrb_1243,job_info_rows,240,240,증권중개인,증권중개인,ja_1194
+jrb_1244,job_info_rows,242,242,텔레마케터,텔레마케터,ja_1341
+jrb_1245,job_info_rows,243,243,상점판매원,상점판매원,ja_0585
+jrb_1246,job_info_rows,244,244,금융자산운용가(펀드매니저),금융자산운용가_펀드매니저,ja_0191
+jrb_1247,job_info_rows,247,247,네이미스트,네이미스트,ja_0235
+jrb_1248,job_info_rows,252,252,법률사무원,법률사무원,ja_0467
+jrb_1249,job_info_rows,253,253,사무보조원,사무보조원,ja_0531
+jrb_1250,job_info_rows,255,255,은행출납사무원,은행출납사무원,ja_0943
+jrb_1251,job_info_rows,256,256,보건의료정보관리사,보건의료정보관리사,ja_0477
+jrb_1252,job_info_rows,258,258,회계사무원,회계사무원,ja_1545
+jrb_1253,job_info_rows,260,260,구성작가,구성작가,ja_0164
+jrb_1254,job_info_rows,261,261,극작가,극작가,ja_0181
+jrb_1255,job_info_rows,262,262,기자,기자,ja_0214
+jrb_1256,job_info_rows,264,264,통역가,통역가,ja_1367
+jrb_1257,job_info_rows,265,265,리포터,리포터,ja_0346
+jrb_1258,job_info_rows,266,266,드라마작가,드라마작가,ja_0319
+jrb_1259,job_info_rows,267,267,번역가,번역가,ja_0462
+jrb_1260,job_info_rows,268,268,사서,사서,ja_0535
+jrb_1261,job_info_rows,269,269,정치학연구원,정치학연구원,ja_1117
+jrb_1262,job_info_rows,270,270,성우,성우,ja_0644
+jrb_1263,job_info_rows,271,271,아나운서,아나운서,ja_0775
+jrb_1264,job_info_rows,272,272,언어학연구원,언어학연구원,ja_0817
+jrb_1265,job_info_rows,273,273,역사학연구원,역사학연구원,ja_0826
+jrb_1266,job_info_rows,278,278,카피라이터,카피라이터,ja_1280
+jrb_1267,job_info_rows,280,280,가수,가수,ja_0027
+jrb_1268,job_info_rows,281,281,개그맨,개그맨,ja_0051
+jrb_1269,job_info_rows,283,283,광고기획자,광고기획자,ja_0133
+jrb_1270,job_info_rows,284,284,간판제작원,간판제작원,ja_0043
+jrb_1271,job_info_rows,285,285,광고디자이너,광고디자이너,ja_0134
+jrb_1272,job_info_rows,286,286,국악인,국악인,ja_0166
+jrb_1273,job_info_rows,288,288,네일아티스트,네일아티스트,ja_0236
+jrb_1274,job_info_rows,291,291,만화가,만화가,ja_0352
+jrb_1275,job_info_rows,293,293,메이크업아티스트,메이크업아티스트,ja_0360
+jrb_1276,job_info_rows,294,294,모델,모델,ja_0364
+jrb_1277,job_info_rows,295,295,패턴사,패턴사,ja_1395
+jrb_1278,job_info_rows,296,296,무대감독,무대감독,ja_0379
+jrb_1279,job_info_rows,298,298,무용가,무용가,ja_0387
+jrb_1280,job_info_rows,299,299,문화재보존원,문화재보존원,ja_0396
+jrb_1281,job_info_rows,301,301,방송연출가,방송연출가,ja_0445
+jrb_1282,job_info_rows,303,303,연기자,연기자,ja_0831
+jrb_1283,job_info_rows,304,304,백댄서(백업댄서),백댄서_백업댄서,ja_0459
+jrb_1284,job_info_rows,305,305,보석디자이너,보석디자이너,ja_0483
+jrb_1285,job_info_rows,306,306,분장사,분장사,ja_0508
+jrb_1286,job_info_rows,309,309,비디오저널리스트(VJ),비디오저널리스트_vj,ja_0519
+jrb_1287,job_info_rows,310,310,사진작가,사진작가,ja_0547
+jrb_1288,job_info_rows,311,311,사진인화 및 현상관련조작원,사진인화_및_현상관련조작원,ja_0546
+jrb_1289,job_info_rows,313,313,성악가,성악가,ja_0643
+jrb_1290,job_info_rows,314,314,스턴트맨,스턴트맨,ja_0698
+jrb_1291,job_info_rows,316,316,플로리스트,플로리스트,ja_1431
+jrb_1292,job_info_rows,317,317,연주가,연주가,ja_0841
+jrb_1293,job_info_rows,318,318,악기제조원,악기제조원,ja_0782
+jrb_1294,job_info_rows,319,319,애완동물미용사,애완동물미용사,ja_0798
+jrb_1295,job_info_rows,320,320,연극연출가,연극연출가,ja_0829
+jrb_1296,job_info_rows,321,321,연예인매니저,연예인매니저,ja_0840
+jrb_1297,job_info_rows,322,322,영화감독,영화감독,ja_0857
+jrb_1298,job_info_rows,323,323,영화기획자,영화기획자,ja_0858
+jrb_1299,job_info_rows,325,325,이미지컨설턴트,이미지컨설턴트,ja_0979
+jrb_1300,job_info_rows,326,326,인테리어디자이너,인테리어디자이너,ja_1007
+jrb_1301,job_info_rows,327,327,일러스트레이터,일러스트레이터,ja_1010
+jrb_1302,job_info_rows,328,328,작곡가,작곡가,ja_1037
+jrb_1303,job_info_rows,332,332,제품디자이너,제품디자이너,ja_1136
+jrb_1304,job_info_rows,333,333,조각가,조각가,ja_1139
+jrb_1305,job_info_rows,334,334,조향사,조향사,ja_1165
+jrb_1306,job_info_rows,335,335,지휘자,지휘자,ja_1206
+jrb_1307,job_info_rows,336,336,운동선수,운동선수,ja_0889
+jrb_1308,job_info_rows,337,337,촬영기사,촬영기사,ja_1251
+jrb_1309,job_info_rows,338,338,출판물기획전문가,출판물기획전문가,ja_1260
+jrb_1310,job_info_rows,339,339,캐릭터디자이너,캐릭터디자이너,ja_1283
+jrb_1311,job_info_rows,340,340,컬러리스트,컬러리스트,ja_1291
+jrb_1312,job_info_rows,344,344,패션디자이너,패션디자이너,ja_1391
+jrb_1313,job_info_rows,345,345,패션코디네이터,패션코디네이터,ja_1394
+jrb_1314,job_info_rows,346,346,편집기사,편집기사,ja_1405
+jrb_1315,job_info_rows,347,347,악기수리원 및 조율사,악기수리원_및_조율사,ja_0780
+jrb_1316,job_info_rows,348,348,학예사(큐레이터),학예사_큐레이터,ja_1442
+jrb_1317,job_info_rows,349,349,화가,화가,ja_1515
+jrb_1318,job_info_rows,352,352,가사도우미,가사도우미,ja_0025
+jrb_1319,job_info_rows,353,353,간병인,간병인,ja_0039
+jrb_1320,job_info_rows,354,354,간호사,간호사,ja_0044
+jrb_1321,job_info_rows,355,355,간호조무사,간호조무사,ja_0045
+jrb_1322,job_info_rows,356,356,청소원,청소원,ja_1247
+jrb_1323,job_info_rows,358,358,경비원,경비원,ja_0080
+jrb_1324,job_info_rows,359,359,경찰관,경찰관,ja_0086
+jrb_1325,job_info_rows,360,360,경호원,경호원,ja_0087
+jrb_1326,job_info_rows,362,362,일반공무원,일반공무원,ja_1012
+jrb_1327,job_info_rows,363,363,교도관,교도관,ja_0147
+jrb_1328,job_info_rows,364,364,이공학계열교수,이공학계열교수,ja_0972
+jrb_1329,job_info_rows,365,365,독서지도사,독서지도사,ja_0308
+jrb_1330,job_info_rows,366,366,레크리에이션지도자,레크리에이션지도자,ja_0336
+jrb_1331,job_info_rows,369,369,물리치료사,물리치료사,ja_0399
+jrb_1332,job_info_rows,370,370,바텐더,바텐더,ja_0417
+jrb_1333,job_info_rows,371,371,택배원,택배원,ja_1333
+jrb_1334,job_info_rows,372,372,버스운전기사,버스운전기사,ja_0461
+jrb_1335,job_info_rows,373,373,법무사,법무사,ja_0468
+jrb_1336,job_info_rows,374,374,변리사,변리사,ja_0474
+jrb_1337,job_info_rows,375,375,변호사,변호사,ja_0475
+jrb_1338,job_info_rows,376,376,보육교사,보육교사,ja_0486
+jrb_1339,job_info_rows,378,378,전문비서,전문비서,ja_1074
+jrb_1340,job_info_rows,379,379,사회복지사,사회복지사,ja_0555
+jrb_1341,job_info_rows,380,380,상담전문가,상담전문가,ja_0580
+jrb_1342,job_info_rows,383,383,우편물집배원,우편물집배원,ja_0886
+jrb_1343,job_info_rows,384,384,성직자,성직자,ja_0645
+jrb_1344,job_info_rows,385,385,소방관,소방관,ja_0658
+jrb_1345,job_info_rows,386,386,언어치료사,언어치료사,ja_0816
+jrb_1346,job_info_rows,388,388,여행안내원,여행안내원,ja_0824
+jrb_1347,job_info_rows,390,390,신호원 및 수송원,신호원_및_수송원,ja_0762
+jrb_1348,job_info_rows,391,391,운동경기심판,운동경기심판,ja_0888
+jrb_1349,job_info_rows,392,392,스포츠트레이너,스포츠트레이너,ja_0710
+jrb_1350,job_info_rows,395,395,유치원교사,유치원교사,ja_0937
+jrb_1351,job_info_rows,396,396,음악치료사,음악치료사,ja_0954
+jrb_1352,job_info_rows,397,397,응급구조사,응급구조사,ja_0958
+jrb_1353,job_info_rows,398,398,임상심리사,임상심리사,ja_1016
+jrb_1354,job_info_rows,400,400,운동감독,운동감독,ja_0887
+jrb_1355,job_info_rows,401,401,작업치료사,작업치료사,ja_1038
+jrb_1356,job_info_rows,403,403,장례지도사,장례지도사,ja_1044
+jrb_1357,job_info_rows,404,404,전화교환원,전화교환원,ja_1090
+jrb_1358,job_info_rows,405,405,주택관리사,주택관리사,ja_1185
+jrb_1359,job_info_rows,406,406,인문계중등학교교사,인문계중등학교교사,ja_0993
+jrb_1360,job_info_rows,407,407,직업군인,직업군인,ja_1207
+jrb_1361,job_info_rows,408,408,직업상담 및 취업알선원,직업상담_및_취업알선원,ja_1209
+jrb_1362,job_info_rows,409,409,직업능력개발훈련교사,직업능력개발훈련교사,ja_1208
+jrb_1363,job_info_rows,410,410,초등학교교사,초등학교교사,ja_1250
+jrb_1364,job_info_rows,411,411,치과위생사,치과위생사,ja_1268
+jrb_1365,job_info_rows,412,412,캐디,캐디,ja_1282
+jrb_1366,job_info_rows,413,413,특수교사,특수교사,ja_1373
+jrb_1367,job_info_rows,414,414,판사,판사,ja_1387
+jrb_1368,job_info_rows,415,415,프로바둑기사,프로바둑기사,ja_1427
+jrb_1369,job_info_rows,416,416,피부관리사,피부관리사,ja_1432
+jrb_1370,job_info_rows,417,417,학원강사,학원강사,ja_1444
+jrb_1371,job_info_rows,418,418,비행기승무원,비행기승무원,ja_0529
+jrb_1372,job_info_rows,419,419,홍보도우미,홍보도우미,ja_1514
+jrb_1373,job_info_rows,421,421,스포츠강사,스포츠강사,ja_0705
+jrb_1374,job_info_rows,426,426,택시운전기사,택시운전기사,ja_1334
+jrb_1375,job_info_rows,427,427,웨딩플래너,웨딩플래너,ja_0907
+jrb_1376,job_info_rows,428,428,호스피스전문간호사,호스피스전문간호사,ja_1510
+jrb_1377,job_info_rows,429,429,통신엔지니어,통신엔지니어,ja_1360
+jrb_1378,job_info_rows,430,430,네트워크엔지니어,네트워크엔지니어,ja_0240
+jrb_1379,job_info_rows,431,431,데이터베이스관리자,데이터베이스관리자,ja_0283
+jrb_1380,job_info_rows,435,435,정보보호전문가,정보보호전문가,ja_1102
+jrb_1381,job_info_rows,440,440,시스템엔지니어,시스템엔지니어,ja_0735
+jrb_1382,job_info_rows,441,441,애니메이터,애니메이터,ja_0797
+jrb_1383,job_info_rows,443,443,웹디자이너,웹디자이너,ja_0914
+jrb_1384,job_info_rows,444,444,웹마스터,웹마스터,ja_0915
+jrb_1385,job_info_rows,450,450,IT컨설턴트,it컨설턴트,ja_0009
+jrb_1386,job_info_rows,452,452,정보중개인,정보중개인,ja_1104
+jrb_1387,job_info_rows,457,457,컴퓨터게임시나리오작가,컴퓨터게임시나리오작가,ja_1294
+jrb_1388,job_info_rows,458,458,컴퓨터그래픽디자이너,컴퓨터그래픽디자이너,ja_1296
+jrb_1389,job_info_rows,459,459,속기사,속기사,ja_0662
+jrb_1390,job_info_rows,462,462,사이버교육운영자,사이버교육운영자,ja_0539
+jrb_1391,job_info_rows,465,465,통신망설계운영기술자,통신망설계운영기술자,ja_1357
+jrb_1392,job_info_rows,466,466,컴퓨터설치·수리원,컴퓨터설치_수리원,ja_1301
+jrb_1393,job_info_rows,467,467,의료정보시스템개발자,의료정보시스템개발자,ja_0963
+jrb_1394,job_info_rows,469,469,고객관리시스템(CRM)전문가,고객관리시스템_crm_전문가,ja_0092
+jrb_1395,job_info_rows,470,470,전자상거래전문가,전자상거래전문가,ja_1081
+jrb_1396,job_info_rows,474,474,아이티(IT)기술영업원,아이티_it_기술영업원,ja_0777
+jrb_1397,job_info_rows,475,475,아이티(IT)교육강사,아이티_it_교육강사,ja_0776
+jrb_1398,job_info_rows,476,476,무선주파수(RF)엔지니어,무선주파수_rf_엔지니어,ja_0383
+jrb_1399,job_info_rows,481,481,교장,교장,ja_0154
+jrb_1400,job_info_rows,539,539,소음진동기술자,소음진동기술자,ja_0661
+jrb_1401,job_info_rows,592,592,크레인 및 호이스트운전원,크레인_및_호이스트운전원,ja_1321
+jrb_1402,job_info_rows,626,626,여행상품개발원,여행상품개발원,ja_0822
+jrb_1403,job_info_rows,740,740,귀금속 및 보석세공원,귀금속_및_보석세공원,ja_0177
+jrb_1404,job_info_rows,795,795,호텔지배인,호텔지배인,ja_1511
+jrb_1405,job_info_rows,834,834,시스템소프트웨어개발자,시스템소프트웨어개발자,ja_0734
+jrb_1406,job_info_rows,911,911,조명기사,조명기사,ja_1154
+jrb_1407,job_info_rows,914,914,영화시나리오작가,영화시나리오작가,ja_0860
+jrb_1408,job_info_rows,915,915,음향기사,음향기사,ja_0955
+jrb_1409,job_info_rows,916,916,특수효과기술자,특수효과기술자,ja_1377
+jrb_1410,job_info_rows,917,917,음반기획자,음반기획자,ja_0946
+jrb_1411,job_info_rows,920,920,애니메이션기획자,애니메이션기획자,ja_0795
+jrb_1412,job_info_rows,922,922,애니메이션작가,애니메이션작가,ja_0796
+jrb_1413,job_info_rows,923,923,게임기획자,게임기획자,ja_0073
+jrb_1414,job_info_rows,926,926,출판편집자,출판편집자,ja_1264
+jrb_1415,job_info_rows,927,927,북디자이너,북디자이너,ja_0501
+jrb_1416,job_info_rows,928,928,영업원,영업원,ja_0855
+jrb_1417,job_info_rows,929,929,공예원,공예원,ja_0114
+jrb_1418,job_info_rows,933,933,사회학연구원,사회학연구원,ja_0560
+jrb_1419,job_info_rows,934,934,사회단체활동가,사회단체활동가,ja_0554
+jrb_1420,job_info_rows,937,937,시각디자이너,시각디자이너,ja_0717
+jrb_1421,job_info_rows,938,938,시스템운영관리자,시스템운영관리자,ja_0736
+jrb_1422,job_info_rows,941,941,임상병리사,임상병리사,ja_1015
+jrb_1423,job_info_rows,946,946,카지노딜러,카지노딜러,ja_1279
+jrb_1424,job_info_rows,948,948,컴퓨터하드웨어 기술자 및 연구원,컴퓨터하드웨어_기술자_및_연구원,ja_1306
+jrb_1425,job_info_rows,950,950,투자분석가(애널리스트),투자분석가_애널리스트,ja_1368
+jrb_1426,job_info_rows,951,951,행사기획자,행사기획자,ja_1491
+jrb_1427,job_info_rows,952,952,화학공학기술자,화학공학기술자,ja_1520
+jrb_1428,job_info_rows,954,954,화훼재배기술자,화훼재배기술자,ja_1527
+jrb_1429,job_info_rows,957,957,평론가,평론가,ja_1407
+jrb_1430,job_info_rows,963,963,원예기술자,원예기술자,ja_0896
+jrb_1431,job_info_rows,966,966,안무가,안무가,ja_0786
+jrb_1432,job_info_rows,968,968,시인,시인,ja_0739
+jrb_1433,job_info_rows,973,973,소설가,소설가,ja_0659
+jrb_1434,job_info_rows,975,975,사진사,사진사,ja_0543
+jrb_1435,job_info_rows,976,976,사진기자,사진기자,ja_0541
+jrb_1436,job_info_rows,978,978,보일러공,보일러공,ja_0487
+jrb_1437,job_info_rows,985,985,공업기계설치 및 정비원,공업기계설치_및_정비원,ja_0112
+jrb_1438,job_info_rows,988,988,인문사회계열교수,인문사회계열교수,ja_0994
+jrb_1439,job_info_rows,994,994,환경컨설턴트,환경컨설턴트,ja_1542
+jrb_1440,job_info_rows,995,995,에너지공학기술자,에너지공학기술자,ja_0819
+jrb_1441,job_info_rows,997,997,토양환경기술자,토양환경기술자,ja_1348
+jrb_1442,job_info_rows,1004,1004,환경설비기술자,환경설비기술자,ja_1535
+jrb_1443,job_info_rows,1006,1006,해양환경기사,해양환경기사,ja_1486
+jrb_1444,job_info_rows,1007,1007,상수도기술자,상수도기술자,ja_0582
+jrb_1445,job_info_rows,1009,1009,환경위생검사원,환경위생검사원,ja_1541
+jrb_1446,job_info_rows,1010,1010,방사성폐기물관리원,방사성폐기물관리원,ja_0439
+jrb_1447,job_info_rows,1061,1061,국회의원,국회의원,ja_0172
+jrb_1448,job_info_rows,1068,1068,마케팅전문가,마케팅전문가,ja_0350
+jrb_1449,job_info_rows,1076,1076,자동차공학기술자,자동차공학기술자,ja_1023
+jrb_1450,job_info_rows,1078,1078,대형트럭 및 특수차운전원,대형트럭_및_특수차운전원,ja_0279
+jrb_1451,job_info_rows,1080,1080,환경공학기술자 및 연구원,환경공학기술자_및_연구원,ja_1530
+jrb_1452,job_info_rows,1081,1081,해양공학기술자,해양공학기술자,ja_1474
+jrb_1453,job_info_rows,1087,1087,전자 부품 및 제품 생산직,전자_부품_및_제품_생산직,ja_1077
+jrb_1454,job_info_rows,1088,1088,스포츠에이전트,스포츠에이전트,ja_0709
+jrb_1455,job_info_rows,1089,1089,자연계중등학교교사,자연계중등학교교사,ja_1032
+jrb_1456,job_info_rows,1090,1090,콘크리트공,콘크리트공,ja_1316
+jrb_1457,job_info_rows,1092,1092,GIS전문가,gis전문가,ja_0008
+jrb_1458,job_info_rows,1093,1093,가상현실전문가,가상현실전문가,ja_0026
+jrb_1459,job_info_rows,1096,1096,웹프로듀서,웹프로듀서,ja_0918
+jrb_1460,job_info_rows,1097,1097,프로게이머,프로게이머,ja_1425
+jrb_1461,job_info_rows,1100,1100,군무원,군무원,ja_0173
+jrb_1462,job_info_rows,1101,1101,신용관련추심원,신용관련추심원,ja_0758
+jrb_1463,job_info_rows,1102,1102,장학사,장학사,ja_1048
+jrb_1464,job_info_rows,1103,1103,교육학연구원,교육학연구원,ja_0151
+jrb_1465,job_info_rows,1104,1104,철학연구원,철학연구원,ja_1244
+jrb_1466,job_info_rows,1105,1105,행정학연구원,행정학연구원,ja_1496
+jrb_1467,job_info_rows,1106,1106,학습지방문교사,학습지방문교사,ja_1440
+jrb_1468,job_info_rows,1107,1107,안마사,안마사,ja_0785
+jrb_1469,job_info_rows,1108,1108,위생사,위생사,ja_0919
+jrb_1470,job_info_rows,1109,1109,서예가,서예가,ja_0605
+jrb_1471,job_info_rows,1110,1110,도선사,도선사,ja_0295
+jrb_1472,job_info_rows,1111,1111,지게차운전원,지게차운전원,ja_1195
+jrb_1473,job_info_rows,1112,1112,선박갑판원,선박갑판원,ja_0619
+jrb_1474,job_info_rows,1113,1113,방문판매원,방문판매원,ja_0436
+jrb_1475,job_info_rows,1114,1114,상품대여원,상품대여원,ja_0588
+jrb_1476,job_info_rows,1115,1115,주유원,주유원,ja_1176
+jrb_1477,job_info_rows,1116,1116,계산원 및 매표원,계산원_및_매표원,ja_0090
+jrb_1478,job_info_rows,1117,1117,청원경찰,청원경찰,ja_1248
+jrb_1479,job_info_rows,1118,1118,무인경비시스템종사원,무인경비시스템종사원,ja_0389
+jrb_1480,job_info_rows,1119,1119,구두미화원 및 수선원,구두미화원_및_수선원,ja_0160
+jrb_1481,job_info_rows,1120,1120,주차관리원,주차관리원,ja_1181
+jrb_1482,job_info_rows,1121,1121,이용사,이용사,ja_0983
+jrb_1483,job_info_rows,1122,1122,미용사,미용사,ja_0406
+jrb_1484,job_info_rows,1124,1124,혼례종사원,혼례종사원,ja_1512
+jrb_1485,job_info_rows,1125,1125,선박 및 열차객실승무원,선박_및_열차객실승무원,ja_0618
+jrb_1486,job_info_rows,1126,1126,치어리더,치어리더,ja_1271
+jrb_1487,job_info_rows,1127,1127,접객원,접객원,ja_1095
+jrb_1488,job_info_rows,1128,1128,주방보조원,주방보조원,ja_1174
+jrb_1489,job_info_rows,1129,1129,요리배달원,요리배달원,ja_0874
+jrb_1490,job_info_rows,1130,1130,건설견적원,건설견적원,ja_0057
+jrb_1491,job_info_rows,1131,1131,전통건축원,전통건축원,ja_1087
+jrb_1492,job_info_rows,1132,1132,단열원,단열원,ja_0261
+jrb_1493,job_info_rows,1133,1133,유리부착원,유리부착원,ja_0926
+jrb_1494,job_info_rows,1134,1134,메카트로닉스공학기술자,메카트로닉스공학기술자,ja_0361
+jrb_1495,job_info_rows,1135,1135,공구제조원,공구제조원,ja_0109
+jrb_1496,job_info_rows,1136,1136,항공기·선박조립 및 검사원,항공기_선박조립_및_검사원,ja_1459
+jrb_1497,job_info_rows,1137,1137,제관원,제관원,ja_1122
+jrb_1498,job_info_rows,1138,1138,샷시원,샷시원,ja_0603
+jrb_1499,job_info_rows,1139,1139,단조원,단조원,ja_0262
+jrb_1500,job_info_rows,1140,1140,도장원,도장원,ja_0304
+jrb_1501,job_info_rows,1141,1141,도금원,도금원,ja_0288
+jrb_1502,job_info_rows,1142,1142,의복수선원,의복수선원,ja_0965
+jrb_1503,job_info_rows,1143,1143,의복제품검사원,의복제품검사원,ja_0966
+jrb_1504,job_info_rows,1144,1144,발전장치조작원,발전장치조작원,ja_0432
+jrb_1505,job_info_rows,1145,1145,전기설비조작원,전기설비조작원,ja_1067
+jrb_1506,job_info_rows,1146,1146,전기 부품 및 제품 생산직,전기_부품_및_제품_생산직,ja_1059
+jrb_1507,job_info_rows,1147,1147,방송장비(H/W)설치 및 수리원,방송장비_h_w_설치_및_수리원,ja_0448
+jrb_1508,job_info_rows,1148,1148,통신설비설치 및 수리원,통신설비설치_및_수리원,ja_1359
+jrb_1509,job_info_rows,1149,1149,음료제조관련조작원,음료제조관련조작원,ja_0944
+jrb_1510,job_info_rows,1150,1150,식품가공검사원,식품가공검사원,ja_0747
+jrb_1511,job_info_rows,1151,1151,종이제품생산직(기계조작),종이제품생산직_기계조작,ja_1168
+jrb_1512,job_info_rows,1152,1152,가구조립 및 검사원,가구조립_및_검사원,ja_0022
+jrb_1513,job_info_rows,1153,1153,포장원,포장원,ja_1415
+jrb_1514,job_info_rows,1154,1154,채소 및 특용작물재배자,채소_및_특용작물재배자,ja_1227
+jrb_1515,job_info_rows,1155,1155,과수작물재배자,과수작물재배자,ja_0126
+jrb_1516,job_info_rows,1156,1156,조림 영림 및 벌목원,조림_영림_및_벌목원,ja_1152
+jrb_1517,job_info_rows,1157,1157,원양어부,원양어부,ja_0894
+jrb_1518,job_info_rows,1158,1158,자동조립라인 및 산업용로봇조작원,자동조립라인_및_산업용로봇조작원,ja_1021
+jrb_1519,job_info_rows,1255,1255,수질환경연구원,수질환경연구원,ja_0682
+jrb_1520,job_info_rows,1256,1256,커플매니저,커플매니저,ja_1289
+jrb_1521,job_info_rows,1257,1257,병원코디네이터,병원코디네이터,ja_0476
+jrb_1522,job_info_rows,1259,1259,마술사,마술사,ja_0348
+jrb_1523,job_info_rows,1276,1276,파티플래너,파티플래너,ja_1382
+jrb_1524,job_info_rows,1277,1277,건축사,건축사,ja_0066
+jrb_1525,job_info_rows,1278,1278,행정부고위공무원,행정부고위공무원,ja_1495
+jrb_1526,job_info_rows,1279,1279,헤드헌터,헤드헌터,ja_1500
+jrb_1527,job_info_rows,1281,1281,환경영향평가원,환경영향평가원,ja_1538
+jrb_1528,job_info_rows,1282,1282,대체에너지개발연구원,대체에너지개발연구원,ja_0276
+jrb_1529,job_info_rows,1431,1431,음악강사,음악강사,ja_0952
+jrb_1530,job_info_rows,1432,1432,베타테스터,베타테스터,ja_0470
+jrb_1531,job_info_rows,1433,1433,발명가,발명가,ja_0427
+jrb_1532,job_info_rows,1436,1436,신약개발연구원,신약개발연구원,ja_0756
+jrb_1533,job_info_rows,1437,1437,스포츠해설가,스포츠해설가,ja_0711
+jrb_1534,job_info_rows,1438,1438,카레이서,카레이서,ja_1277
+jrb_1535,job_info_rows,1439,1439,캐스팅디렉터,캐스팅디렉터,ja_1285
+jrb_1536,job_info_rows,1440,1440,일반의사,일반의사,ja_1013
+jrb_1537,job_info_rows,1441,1441,작가,작가,ja_1036
+jrb_1538,job_info_rows,1541,1541,자연과학연구원,자연과학연구원,ja_1033
