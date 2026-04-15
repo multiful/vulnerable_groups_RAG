@@ -1,6 +1,7 @@
 # Content Hash: SHA256:TBD
 # Script: build_all_relations.py
-# Purpose: cert_job_mapping(재생성), job_to_domain, risk_stage_to_roadmap_stage, risk_stage_to_domain 생성
+# Purpose: cert_job_mapping(재생성), job_to_domain, risk_stage_to_roadmap_stage 생성
+# Note: risk_stage_to_domain 생성 로직은 설계 폐기됨 (2026-04-15) — 아래 Section 5 코드는 실행되나 출력 파일 미사용
 
 import csv, os, sys, collections
 sys.stdout.reconfigure(encoding='utf-8')

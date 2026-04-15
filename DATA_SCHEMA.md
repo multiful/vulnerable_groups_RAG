@@ -411,8 +411,8 @@
 
 ## 6.4 risk_stage_to_domain
 
-> **상태**: reserved / 삭제 검토  
-> risk_stage는 로드맵 시작점(§6.5)만 결정한다. 도메인 선택은 사용자 관심사(job/domain 입력)로 결정하며, risk_stage가 domain을 결정하는 관계는 설계 근거가 없어 현재 사용하지 않는다.
+> **상태**: ❌ 삭제됨 (2026-04-15)  
+> risk_stage는 로드맵 시작점(§6.5)만 결정한다. 도메인 선택은 사용자 관심사(job/domain 입력)로 결정하며, risk_stage가 domain을 결정하는 관계는 설계 근거가 없다. 생성 파일 및 스크립트 로직 폐기. (MASTER_MERGE_PLAN §2.3·§8 참조)
 
 ---
 

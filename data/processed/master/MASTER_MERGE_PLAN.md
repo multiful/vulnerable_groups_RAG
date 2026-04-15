@@ -259,9 +259,10 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - keyword 매핑: 567행 / top_domain fallback: 11행 (모두 is_primary=False)
 - 스크립트: `scripts/build_cert_domain_mapping.py`
 
-### Phase 3 — Relations ✅ 완료
+### Phase 3 — Relations ✅ 핵심 완료 (cert_major_mapping ⬜ 제외)
 
-> **현재 상태**: 모든 relation 파일 생성 완료.  
+> **현재 상태**: Phase 4 필수 relation 파일 전체 완료.  
+> **미완료**: Step 3-3 cert_major_mapping (Phase 4 비blocking — defer 가능)  
 > **Phase 4 진입 가능**: cert_candidates.csv 생성 시작 가능
 
 #### Step 3-1 — cert_ncs_mapping.csv 생성 ✅
@@ -270,6 +271,7 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - 출력: `canonical/relations/cert_ncs_mapping.csv`
 - 결과: 3,573행 / cert 743/1,290 (57.6%) / ncs 248/261 (95.0%)
 - 매칭 방법: exact(3,357), norm(226), alias(14), 미매칭(222)
+- **스크립트**: `scripts/build_all_relations.py`
 
 #### Step 3-2 — cert_job_mapping.csv 생성 ✅
 - 소스: `cert_domain_mapping` 경유 (domain_sub_label_id → job_role_id 매핑 테이블)
@@ -277,58 +279,54 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - 출력: `canonical/relations/cert_job_mapping.csv`
 - 결과: 4,755행 / cert 1,212/1,290 (94.0%) / job 142/142 (100%)
 - 미연결 78개: domain_0028 (언어/문서/속기) — job_master 해당 직종 없음 (by design)
+- **스크립트**: `scripts/build_all_relations.py`
 
 #### Step 3-3 — cert_major_mapping.csv 생성 ⬜
 - 소스: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼
 - join: cert_name → cert_id, 학과명 split → major_id
 - 출력: `canonical/relations/cert_major_mapping.csv`
+- **스크립트**: `scripts/build_cert_major_mapping.py` (미작성 — Phase 4 비blocking)
 
 #### Step 3-4 — risk_stage_to_roadmap_stage.csv ✅
-- 결과: 5행 / `scripts/build_all_relations.py`
+- 결과: 5행
+- **스크립트**: `scripts/build_all_relations.py` (build_risk_to_roadmap 함수)
 - risk_0001→roadmap_stage_0003, risk_0002/0003→roadmap_stage_0002, risk_0004/0005→roadmap_stage_0001
 
-#### Step 3-5 — risk_stage_to_domain.csv ✅
-- 결과: 215행 (5×43) / priority_rank 포함 / `scripts/build_all_relations.py`
-- 접근성 티어(1~4) 기반 우선순위: 高위험군→조리/미용/사회복지 우선, 低위험군→데이터/기계/건축 우선
+#### Step 3-5 — risk_stage_to_domain.csv ❌ 삭제
+- **설계 결정**: domain은 사용자 관심사 입력으로 결정 — risk_stage→domain 관계는 근거 없음
+- **이전 상태**: `scripts/build_all_relations.py`로 215행(5×43) 생성됐으나 설계 검토 후 폐기
+- **조치**: 생성 파일 삭제 완료 (§9 참조)
 
 #### Step 3-6 — job_to_domain.csv ✅
-- 결과: 151행 / job 142/142, domain 42/43 / `scripts/build_all_relations.py`
+- 결과: 151행 / job 142/142, domain 42/43
+- **스크립트**: `scripts/build_all_relations.py` (build_job_to_domain 함수)
 - domain_0028(언어/문서/속기) 미연결 — by design (job_master에 해당 직종 없음)
 
-### Phase 4 — Candidate Generation ⬜  ← **Phase 3 수동 정의 완료 후 다음 단계**
+### Phase 4 — Candidate Generation ⬜  ← **담당자 직접 구현**
 
-> **목적**: 추천 엔진이 직접 조회할 수 있는 비정규화 후보 행 생성  
-> **진입 조건**: Step 3-4 (risk_stage_to_roadmap_stage), 3-5 (risk_stage_to_domain), 3-6 (job_to_domain) 완료  
-> **담당**: Person A — `scripts/build_cert_candidates.py` 작성 후 실행
+> **진입 조건**: Phase 3 핵심 완료 → ✅ 충족  
+> **담당**: 담당자 직접 구현 (`scripts/build_cert_candidates.py`)  
+> **이 플랜 범위 외**: Phase 4 이후(추천 엔진 입력) 는 담당자 영역 — 상세 스키마·생성 규칙은 DATA_SCHEMA.md §candidate 참조
 
-#### Candidate Row 스키마 (cert_candidates.csv)
+---
 
-| 컬럼 | 소스 | 비고 |
-|---|---|---|
-| candidate_id | 자동 생성 | cand_0001~ |
-| cert_id | cert_master | |
-| cert_name | cert_master | |
-| cert_grade_tier | cert_master | |
-| roadmap_stage_id | cert_to_roadmap_stage | |
-| domain_id_primary | cert_domain_mapping (is_primary=True) | |
-| domain_ids_all | cert_domain_mapping | JSON array |
-| job_ids | cert_job_mapping | JSON array |
-| ncs_ids | cert_ncs_mapping | JSON array |
-| risk_stage_relevance | risk_stage_to_domain + cert_domain_mapping | 위험군별 관련도 점수 |
-| difficulty | cert_master (Step 2-1 보강 후) | 1~5 |
-| exam_count_per_year | cert_master (Step 2-1 보강 후) | |
-| has_written | cert_master | |
-| has_practical | cert_master | |
-| cert_type | cert_master | |
-| is_active | cert_master | |
-| content_hash | candidate row 내용 기반 | 증분 빌드용 |
+## 8-S. 스크립트 역할분담 (Phase 1~3 범위)
 
-#### 생성 규칙
-1. cert_master의 is_active=True 행만 대상
-2. domain_id_primary 없는 cert는 포함하되 domain 필드 빈값 허용
-3. risk_stage_relevance: risk_stage_to_domain의 domain_id 기반 역매핑
-4. content_hash: cert_id + domain_ids_all + job_ids + roadmap_stage_id 조합으로 계산
-5. Phase 3 relation이 바뀌면 해당 cert만 content_hash 비교 후 selective 재생성
+> Phase 4(candidates) 이후는 담당자 영역 — 이 표에 포함하지 않음
+
+| 스크립트 | 담당 Step | 출력 파일 | 상태 |
+|---|---|---|---|
+| `scripts/build_cert_domain_mapping.py` | Step 2-2 | `canonical/relations/cert_domain_mapping.csv` | ✅ |
+| `scripts/build_all_relations.py` | Step 3-1 | `canonical/relations/cert_ncs_mapping.csv` | ✅ |
+| `scripts/build_all_relations.py` | Step 3-2 | `canonical/relations/cert_job_mapping.csv` | ✅ |
+| `scripts/build_all_relations.py` | Step 3-4 | `canonical/relations/risk_stage_to_roadmap_stage.csv` | ✅ |
+| `scripts/build_all_relations.py` | Step 3-6 | `canonical/relations/job_to_domain.csv` | ✅ |
+| `scripts/build_all_relations.py` | Step 3-5 ❌ | `risk_stage_to_domain.csv` | ❌ 폐기 (코드 잔존, 출력 미사용) |
+| `scripts/build_cert_major_mapping.py` | Step 3-3 | `canonical/relations/cert_major_mapping.csv` | ⬜ 미작성 (비blocking) |
+| `scratch_build_masters.py` | Phase 1 전체 | `processed/master/*.csv` | ✅ |
+
+> `build_all_relations.py`의 risk_stage_to_domain 코드는 폐기됐으나 삭제 전 주석 유지.  
+> 실제 삭제는 코드 정리 시점에 진행.
 
 ---
 
@@ -341,7 +339,7 @@ canonical/relations/
 ├── cert_domain_mapping.csv         ✅  1,290행 (is_primary=T 712 / fallback 578)
 ├── major_to_domain.csv             ✅  5,268행
 ├── cert_ncs_mapping.csv            ✅  3,573행 (cert 57.6% / ncs 95.0%)  ⚠️소수 NCS 소스 오류 있음
-├── cert_job_mapping.csv            ✅  5,058행 (cert 94.0% / job 100%)
+├── cert_job_mapping.csv            ✅  4,755행 (cert 94.0% / job 100%)
 ├── job_to_domain.csv               ✅    151행 (job 100% / domain 42/43)
 ├── risk_stage_to_roadmap_stage.csv ✅      5행
 ├── risk_stage_to_domain.csv        ❌  삭제 — 설계 근거 없음 (domain은 사용자 관심사로 결정)
