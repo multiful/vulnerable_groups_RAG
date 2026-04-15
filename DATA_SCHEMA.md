@@ -411,16 +411,8 @@
 
 ## 6.4 risk_stage_to_domain
 
-위험군과 도메인의 관계
-
-| 필드명 | 타입 | 필수 | nullable | 설명 |
-|---|---|---:|---:|---|
-| `relation_id` | string | Y | N | 관계 식별자 |
-| `risk_stage_id` | string | Y | N | 위험군 식별자 |
-| `domain_sub_label_id` | string | Y | N | 도메인 세부 라벨 식별자 |
-| `weight` | number | N | Y | 관계 가중치 |
-| `source_id` | string | N | Y | 원천 소스 식별자 |
-| `is_active` | boolean | Y | N | 활성 여부 |
+> **상태**: reserved / 삭제 검토  
+> risk_stage는 로드맵 시작점(§6.5)만 결정한다. 도메인 선택은 사용자 관심사(job/domain 입력)로 결정하며, risk_stage가 domain을 결정하는 관계는 설계 근거가 없어 현재 사용하지 않는다.
 
 ---
 

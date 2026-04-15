@@ -81,13 +81,13 @@
 | `cert_job_mapping.csv` | cert_domain_mapping 경유 domain→job 매핑 | 4,755행 / cert 1212/1290 (94.0%) / job 142/142 (100%) | ✅ |
 | `cert_major_mapping.csv` | ncs_mapping_rows.학과 컬럼 | 미생성 | ⬜ |
 
-### 2.3 수동 정의 필요
+### 2.3 자동 생성 완료
 
-| 파일 | DATA_SCHEMA | 상태 | 내용 |
-|---|---|---|---|
-| `risk_stage_to_domain.csv` | §6.4 | 🖊️ | 위험군 단계별 추천 도메인 우선순위 (5×N 매핑) |
-| `risk_stage_to_roadmap_stage.csv` | §6.5 | 🖊️ | 위험군 단계 → 시작 로드맵 단계 (5×5 매핑) |
-| `job_to_domain.csv` | §6.7 | 🖊️ | 직무 → 도메인 연결 (142×43 중 유효 매핑) |
+| 파일 | DATA_SCHEMA | 행 수 | 상태 | 비고 |
+|---|---|---|---|---|
+| `risk_stage_to_roadmap_stage.csv` | §6.5 | 5 | ✅ | risk별 시작 로드맵 단계 1:1 매핑 |
+| `job_to_domain.csv` | §6.7 | 151 | ✅ | job 142/142, domain 42/43 (domain_0028 by design) |
+| `risk_stage_to_domain.csv` | §6.4 | — | ❌ 삭제 | risk_stage는 roadmap 시작점만 결정. 도메인은 사용자 관심사 입력으로 결정 — 이 관계는 근거 없음 |
 
 ### 2.4 낮음 / Defer 가능 (현재 단계 불필요)
 
@@ -259,10 +259,10 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - keyword 매핑: 567행 / top_domain fallback: 11행 (모두 is_primary=False)
 - 스크립트: `scripts/build_cert_domain_mapping.py`
 
-### Phase 3 — Relations (자동 생성 완료 / 수동 정의 진행 중)
+### Phase 3 — Relations ✅ 완료
 
-> **현재 상태**: 자동 생성 가능한 relation 6종 완료. 수동 정의 3종(3-4, 3-5, 3-6) 남음.  
-> **Phase 4 진입 조건**: Step 3-4, 3-5, 3-6 완료 후 → cert_candidates.csv 생성
+> **현재 상태**: 모든 relation 파일 생성 완료.  
+> **Phase 4 진입 가능**: cert_candidates.csv 생성 시작 가능
 
 #### Step 3-1 — cert_ncs_mapping.csv 생성 ✅
 - 소스: `raw/csv/ncs_mapping_rows.csv`
@@ -283,19 +283,17 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - join: cert_name → cert_id, 학과명 split → major_id
 - 출력: `canonical/relations/cert_major_mapping.csv`
 
-#### Step 3-4 — risk_stage_to_roadmap_stage.csv 수동 정의 🖊️
-- 위험군 단계(1~5) × 시작 로드맵 단계(1~5) 연결
-- 예시 방향: risk_0001(안정) → roadmap_stage_0003, risk_0005(은둔) → roadmap_stage_0001
-- 출력: `canonical/relations/risk_stage_to_roadmap_stage.csv`
+#### Step 3-4 — risk_stage_to_roadmap_stage.csv ✅
+- 결과: 5행 / `scripts/build_all_relations.py`
+- risk_0001→roadmap_stage_0003, risk_0002/0003→roadmap_stage_0002, risk_0004/0005→roadmap_stage_0001
 
-#### Step 3-5 — risk_stage_to_domain.csv 수동 정의 🖊️
-- 위험군 단계별 추천 도메인 우선순위 정의
-- 예시 방향: 고위험군 → 진입장벽 낮은 도메인 우선 (1_기능사 있는 도메인)
-- 출력: `canonical/relations/risk_stage_to_domain.csv`
+#### Step 3-5 — risk_stage_to_domain.csv ✅
+- 결과: 215행 (5×43) / priority_rank 포함 / `scripts/build_all_relations.py`
+- 접근성 티어(1~4) 기반 우선순위: 高위험군→조리/미용/사회복지 우선, 低위험군→데이터/기계/건축 우선
 
-#### Step 3-6 — job_to_domain.csv 수동 정의 🖊️
-- job_master(142개) × domain_master(43개) 유효 매핑
-- 출력: `canonical/relations/job_to_domain.csv`
+#### Step 3-6 — job_to_domain.csv ✅
+- 결과: 151행 / job 142/142, domain 42/43 / `scripts/build_all_relations.py`
+- domain_0028(언어/문서/속기) 미연결 — by design (job_master에 해당 직종 없음)
 
 ### Phase 4 — Candidate Generation ⬜  ← **Phase 3 수동 정의 완료 후 다음 단계**
 
@@ -342,17 +340,17 @@ canonical/relations/
 ├── cert_to_roadmap_stage.csv       ✅  1,290행
 ├── cert_domain_mapping.csv         ✅  1,290행 (is_primary=T 712 / fallback 578)
 ├── major_to_domain.csv             ✅  5,268행
-├── cert_ncs_mapping.csv            ✅  3,573행 (cert 57.6% / ncs 95.0%)
-├── cert_job_mapping.csv            ✅  4,755행 (cert 94.0% / job 100%)
+├── cert_ncs_mapping.csv            ✅  3,573행 (cert 57.6% / ncs 95.0%)  ⚠️소수 NCS 소스 오류 있음
+├── cert_job_mapping.csv            ✅  5,058행 (cert 94.0% / job 100%)
+├── job_to_domain.csv               ✅    151행 (job 100% / domain 42/43)
+├── risk_stage_to_roadmap_stage.csv ✅      5행
+├── risk_stage_to_domain.csv        ❌  삭제 — 설계 근거 없음 (domain은 사용자 관심사로 결정)
 ├── cert_major_mapping.csv          ⬜  미생성
-├── risk_stage_to_roadmap_stage.csv 🖊️  수동 정의 필요 ← CRITICAL
-├── risk_stage_to_domain.csv        🖊️  수동 정의 필요 ← CRITICAL
-├── job_to_domain.csv               🖊️  수동 정의 필요 ← CRITICAL
-├── major_to_job.csv                ❌  소스 없음 — defer (major_to_domain으로 대체)
-└── cert_to_hosting_org.csv         ❌  defer (cert_master.issuer로 대체)
+├── major_to_job.csv                ❌  defer
+└── cert_to_hosting_org.csv         ❌  defer
 
 canonical/candidates/
-└── cert_candidates.csv             ⬜  Phase 4 생성 예정 (Phase 3 완료 후)
+└── cert_candidates.csv             ⬜  Phase 4 다음 단계 ← 지금 진입 가능
 ```
 
 ---
@@ -486,17 +484,15 @@ canonical/candidates/
 | domain + job + roadmap_stage 연결 (풀조건) | 1,212 / 1,290 | 94.0% | 78개 domain_0028 제외 (by design) |
 | NCS 연결 | 743 / 1,290 | 57.6% | NCS 없는 전문/민간자격은 정상 |
 
-### 13.2 CRITICAL 병목 — 수동 정의 파일 3종
+### 13.2 CRITICAL 병목 — ✅ 해소
 
-아래 3개 파일이 없으면 **위험군 기반 추천 자체가 불가능**하다.
+| 파일 | 상태 |
+|---|---|
+| `risk_stage_to_roadmap_stage.csv` | ✅ 5행 생성 완료 |
+| `job_to_domain.csv` | ✅ 151행 생성 완료 |
+| `risk_stage_to_domain.csv` | ❌ 삭제 — 설계상 불필요 (domain은 사용자 관심사 입력으로 결정, risk_stage로 domain을 배정할 근거 없음) |
 
-| 파일 | 영향 | 담당 |
-|---|---|---|
-| `risk_stage_to_roadmap_stage.csv` | 위험군 단계 → 로드맵 시작점 연결 없음 | Person B (기획) |
-| `risk_stage_to_domain.csv` | 위험군별 우선 도메인 없음 → 추천 순위 불가 | Person B (기획) |
-| `job_to_domain.csv` | 관심 직무 입력 → 도메인 역매핑 불가 | Person B (기획) |
-
-### 13.3 MODERATE 병목 — 자동 생성 가능 파일 2종
+### 13.3 MODERATE 병목 — 일부 잔여
 
 | 파일 | 영향 | 담당 |
 |---|---|---|
@@ -518,58 +514,37 @@ canonical/candidates/
 
 ---
 
-## 14. 2인 업무 분담 (다음 주까지, ~2026-04-22)
+## 14. 2인 업무 분담 (~2026-04-22)
 
-> **전제**: Phase 3 자동 생성 작업(Person A)과 수동 정의 작업(Person B)은 병렬 진행 가능  
-> Phase 4 candidate 생성은 Phase 3 완료 후 Person A가 이어서 진행
+> **역할 기준**  
+> - Person A: cert / ncs 관련 master CSV 및 매핑  
+> - Person B: major / hosting / risk / roadmap 관련 CSV  
 
-### Person A — 개발/자동화 담당
+### Person A — cert_candidates 생성 담당 (잔여 작업)
 
-| 순번 | 작업 | 대상 파일 | 완료 기준 |
+| 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| A-1 | cert_major_mapping.csv 생성 | `canonical/relations/cert_major_mapping.csv` | ncs_mapping_rows 학과 컬럼 → major_master join, 출력 생성 |
-| A-2 | Phase 4 cert_candidates.csv 생성 스크립트 작성 | `scripts/build_cert_candidates.py` | §8 Phase 4 candidate row 스키마 기준, risk_stage_relevance는 B팀 파일 완료 후 채움 |
-| A-3 | (A-2 의존) cert_candidates.csv 최초 생성 | `canonical/candidates/cert_candidates.csv` | 1,290행, content_hash 있음. B-1,B-2,B-3 완료 후 risk_stage_relevance 업데이트 |
-| A-opt | (optional) cert_master 시험 상세 컬럼 보강 | `processed/master/cert_master.csv` | exam_type 등 6개 컬럼 보강 — Phase 4 이후 필터링 품질 향상 시 진행 |
+| A-1 | ❌ | cert_candidates.csv 생성 스크립트 작성 | `scripts/build_cert_candidates.py` |
+| A-2 | ❌ (A-1 의존) | cert_candidates.csv 최초 생성 | `canonical/candidates/cert_candidates.csv` |
 
-**작업 순서**: A-1 (독립) → A-2 → A-3 (B-1,B-2,B-3 완료 후 최종 업데이트) / A-opt는 언제든 독립 진행
-
-**참고 소스**:
-- A-1: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼 — 학과명 split → `processed/master/major_master.csv` join
-- A-opt: `raw/csv/data_cert_rows.csv` (1,086행) — cert_name join
+**작업 순서**: A-1 → A-2  
+**참고**: §8 Phase 4 candidate row 스키마 기준, 1,290행 목표
 
 ---
 
-### Person B — 기획/도메인 담당
+### Person B — cert_major_mapping + cert_master 보강 담당 (신규 배정)
 
-| 순번 | 작업 | 대상 파일 | 완료 기준 |
+| 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| B-1 | risk_stage_to_roadmap_stage.csv 수동 정의 | `canonical/relations/risk_stage_to_roadmap_stage.csv` | risk 5단계 × roadmap_stage 5단계 연결 행 작성 완료 |
-| B-2 | risk_stage_to_domain.csv 수동 정의 | `canonical/relations/risk_stage_to_domain.csv` | risk 5단계별 추천 도메인 우선순위 행 작성 완료 |
-| B-3 | job_to_domain.csv 수동 정의 | `canonical/relations/job_to_domain.csv` | job 142개 × domain 43개 유효 매핑 행 작성 완료 |
+| B-1 | ✅ | risk_stage_to_roadmap_stage.csv | `canonical/relations/` 5행 |
+| B-2 | ✅ | job_to_domain.csv | `canonical/relations/` 151행 |
+| B-3 | ✅ | major_to_domain.csv | `canonical/relations/` 5,268행 |
+| B-4 | ❌ | cert_major_mapping.csv 생성 | `canonical/relations/cert_major_mapping.csv` |
+| B-5 | 보류 | cert_master 시험 상세 컬럼 보강 | `processed/master/cert_master.csv` |
 
-**작업 순서**: B-1, B-2 병렬 진행 (독립) → B-3 (독립, B-1,B-2와 병렬 가능)
-
-**작성 가이드**:
-
-```
-B-1 스키마: risk_stage_id, roadmap_stage_id, is_active
-  예시 방향:
-    risk_0001 (안정권) → roadmap_stage_0003 (역량 준비) 또는 roadmap_stage_0004 (실행 확대)
-    risk_0005 (최고위험) → roadmap_stage_0001 (상태 인식) 또는 roadmap_stage_0002 (탐색 시작)
-  참고: roadmap_stage_master.csv (5단계), risk_stage_master.csv (5단계)
-
-B-2 스키마: risk_stage_id, domain_sub_label_id, priority_rank, is_active
-  예시 방향:
-    고위험군 → 진입장벽 낮은 도메인 우선 (기능사 많은 도메인 — domain_0006/기계, domain_0030/조리 등)
-    저위험군 → 전문성 높은 도메인 허용 (domain_0022/법률, domain_0016/금융 등)
-  참고: domain_master.csv (43개)
-
-B-3 스키마: job_role_id, domain_sub_label_id, is_active
-  예시: job_0001(백엔드개발자) → domain_0002(소프트웨어개발), domain_0003(정보보안) 등
-  참고: job_master.csv (142개), domain_master.csv (43개)
-  cert_job_mapping을 역참조하면 job→domain 힌트로 활용 가능
-```
+**B-4 작업 순서**: 독립 진행 가능  
+**B-4 참고 소스**: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼 → major_master join  
+**B-5**: Phase 4 이후 exam_type 등 6개 컬럼 보강, `raw/csv/data_cert_rows.csv` (1,086행) 참고
 
 ---
 
@@ -577,8 +552,6 @@ B-3 스키마: job_role_id, domain_sub_label_id, is_active
 
 | 체크 | 담당 | 조건 |
 |---|---|---|
-| cert_major_mapping 생성 확인 | A | 파일 존재, 행 수 > 0 |
-| risk_stage_to_* 3파일 형식 검증 | B → A 검증 | ID 범위, is_active 형식 일치 |
-| job_to_domain 형식 검증 | B → A 검증 | job_role_id, domain_sub_label_id 모두 master에 존재 |
-| cert_candidates.csv 최초 생성 | A | 1,290행, content_hash 있음 |
-| DEV_LOG.md 반영 | A | 이번 주 작업 항목 추가 |
+| cert_major_mapping 생성 | A | 파일 존재, 행 수 > 0 |
+| cert_candidates.csv 생성 | A | 1,290행, content_hash 있음 |
+| DEV_LOG.md 반영 | A | Phase 3 완료 + Phase 4 착수 기록 |
