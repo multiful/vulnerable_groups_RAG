@@ -2,7 +2,7 @@
 
 > **파일명**: RAG_PIPELINE.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:974f5ca1682900ecbb235b078fa26d7c03b04195cc8805fef639c7933c2d9326
+> **문서 해시**: SHA256:3799bd38ac4e56c108991d55b9d2541ccb74100d04d2ae443af0f6a9e98fce9a
 > **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
@@ -45,7 +45,7 @@
 | **인덱싱** | Parse·Chunking·Embedding·Store 조건별 기본안, 확장 순서, 운영·스토어 | 공식 PDF/HTML·표·스캔 혼합 등 **인제스트 품질**과 **재색인 비용**을 설계할 때 참고한다. **계약·버전·증분 규칙**은 본 문서(`RAG_PIPELINE.md`)와 `HASH_INCREMENTAL_BUILD_GUIDE.md`가 우선한다. |
 | **질의(Pre-retrieval)** | Retriever 직전까지의 질의 처리(정책·캐시·rewrite·라우팅·예산 등) | RAG가 **추천 엔진이 아니라 evidence 검색**인 점은 유지한 채, 질의 품질·지연·비용을 다룰 때 참고한다. Hybrid·RRF **튜닝·reranker** 등은 루트 규칙상 reserved면 **읽기만** 하고 범위를 임의 확장하지 않는다. |
 
-위 축은 **범용 기준서**에서 흔히 나뉘는 틀이다. 제품 범위·reserved 여부는 `PRD.md`, `FEATURE_SPEC.md`, `.cursor/rules`와 충돌 시 **루트 문서**를 따른다.
+위 축은 **범용 기준서**에서 흔히 나뉘는 틀이다. 제품 범위·reserved 여부는 `PRD.md`, `FEATURE_SPEC.md`, `CLAUDE.md`와 충돌 시 **루트 문서**를 따른다.
 
 ---
 

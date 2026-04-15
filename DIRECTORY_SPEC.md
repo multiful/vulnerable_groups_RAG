@@ -2,7 +2,7 @@
 
 > **파일명**: DIRECTORY_SPEC.md  
 > **최종 수정일**: 2026-04-07  
-> **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>
+> **문서 해시**: SHA256:84ab22dd61ae45429892dae26369f62ec70c573ebe7b689cb5f58dce2d58676b
 > **문서 역할**: 프로젝트 디렉토리 구조와 파일/폴더 책임 정의 문서  
 > **문서 우선순위**: 9  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, SYSTEM_ARCHITECTURE.md, PRD.md  

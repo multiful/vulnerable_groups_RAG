@@ -2,7 +2,7 @@
 
 > **파일명**: DATA_SCHEMA.md  
 > **최종 수정일**: 2026-04-15  
-> **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>
+> **문서 해시**: SHA256:33c4922f996b557777421d52c5f764ae7cc29d95ece20cd3ed1c6fdef33e12b7
 > **문서 역할**: 데이터 구조, 엔티티, 관계, 공통 필드, 제약조건 정의 문서  
 > **문서 우선순위**: 5  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, API_SPEC.md, RAG_PIPELINE.md  
@@ -165,13 +165,14 @@
 - `cert_to_job`
 - `cert_to_roadmap_stage`
 - `cert_prerequisite`
-- `risk_stage_to_domain`
 - `risk_stage_to_roadmap_stage`
 - `major_to_job`
 - `job_to_domain`
 - `cert_to_hosting_org`
 - `major_to_domain`
 - `cert_to_ncs`
+
+> `risk_stage_to_domain`: ❌ 삭제됨 (2026-04-15) — §6.4 참조
 
 ### 4.7 cert_grade_tier
 자격증 등급 계층 허용값 (낮은 숫자 = 진입 난이도 낮음):
@@ -603,7 +604,6 @@ canonical relation table은 정규화된 관계를 저장하는 공통 구조다
 - `cert_to_job`
 - `cert_to_roadmap_stage`
 - `cert_prerequisite`
-- `risk_stage_to_domain`
 - `risk_stage_to_roadmap_stage`
 - `major_to_job`
 - `job_to_domain`

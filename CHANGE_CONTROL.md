@@ -2,7 +2,7 @@
 
 > **파일명**: CHANGE_CONTROL.md  
 > **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:c02910a26b7bc0102384837febdfd6aadfe3304eb6b9df7a1cc2e7b6f20c2f49
+> **문서 해시**: SHA256:fb205605a4aedf2d36161539c1d707e5feb483f9788174031df167ce0cff5dc7
 > **문서 역할**: 루트 문서 갱신 규칙 및 작업 절차 문서  
 > **문서 우선순위**: 1  
 > **연관 문서**: README.md, PROJECT_SUMMARY.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, DEV_LOG.md, HASH_INCREMENTAL_BUILD_GUIDE.md  
@@ -155,6 +155,11 @@ Parse, Chunking, Metadata, Embedding, Retrieval 파이프라인을 담당한다.
 ### 5.2 메타데이터 정합성 원칙
 - 각 문서의 `문서 우선순위` 숫자는 **중복되면 안 된다.**
 - 메타데이터 숫자가 본 목록과 충돌하면, 본 문서의 목록을 기준으로 즉시 수정한다.
+
+### 5.3 도구 지시 파일 예외
+- AI 도구 지시 파일(예: `CLAUDE.md`)은 **우선순위 90 이상**의 숫자를 사용하며, 본 §5 충돌 해결 목록에 포함하지 않는다.
+- 이 파일들은 콘텐츠 충돌 해결 계층에 참여하지 않는다. 도구 동작 규칙만 담당한다.
+- 현재 지정: `CLAUDE.md` → 99
 
 ---
 
