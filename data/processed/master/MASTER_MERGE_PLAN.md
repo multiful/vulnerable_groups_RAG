@@ -552,6 +552,6 @@ canonical/candidates/
 
 | 체크 | 담당 | 조건 |
 |---|---|---|
-| cert_major_mapping 생성 | A | 파일 존재, 행 수 > 0 |
+| cert_major_mapping 생성 | B | 파일 존재, 행 수 > 0 |
 | cert_candidates.csv 생성 | A | 1,290행, content_hash 있음 |
 | DEV_LOG.md 반영 | A | Phase 3 완료 + Phase 4 착수 기록 |
