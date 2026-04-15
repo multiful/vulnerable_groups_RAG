@@ -1,0 +1,200 @@
+{
+  "doc_id": "자격증시험일정_워드프로세스",
+  "source_path": "data\\raw\\html\\자격증시험일정_워드프로세스.html",
+  "file_hash": "sha256:11e05df556190ecce4bed74c2f83c3ccc29f30e95d71cc821eab105304a913a1",
+  "parse_hash": "sha256:517274816ac3eac2b760533879e17e10bb624e4425bdfdd1439d6c044d7daa5c",
+  "parser_used": "html",
+  "page_count": 1,
+  "blocks": [
+    {
+      "block_id": "b00000",
+      "block_type": "paragraph",
+      "text": "자격증 시험일정",
+      "reading_order_index": 0,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": []
+    },
+    {
+      "block_id": "b00001",
+      "block_type": "heading",
+      "text": "자격증 시험일정",
+      "reading_order_index": 1,
+      "source_loc": "html:1",
+      "heading_level": 3,
+      "section_path": []
+    },
+    {
+      "block_id": "b00002",
+      "block_type": "paragraph",
+      "text": "전공학점 혹은 일반선택학점을 단번에 빠르게 채우고 싶은 분들에게 권합니다. 아래 달력을 통해서 내게 필요한 자격증의 시험일정을 확인해 보세요.",
+      "reading_order_index": 2,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00003",
+      "block_type": "paragraph",
+      "text": "국가공인 매경TEST",
+      "reading_order_index": 3,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00004",
+      "block_type": "paragraph",
+      "text": "국가공인 한경TESAT",
+      "reading_order_index": 4,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00005",
+      "block_type": "paragraph",
+      "text": "소방안전 관리자",
+      "reading_order_index": 5,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00006",
+      "block_type": "paragraph",
+      "text": "CS 리더스 (관리사)",
+      "reading_order_index": 6,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00007",
+      "block_type": "paragraph",
+      "text": "워드프로세서",
+      "reading_order_index": 7,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00008",
+      "block_type": "paragraph",
+      "text": "컴퓨터 활용능력",
+      "reading_order_index": 8,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00009",
+      "block_type": "paragraph",
+      "text": "텔레마케팅 관리사",
+      "reading_order_index": 9,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00010",
+      "block_type": "paragraph",
+      "text": "정보처리 산업기사",
+      "reading_order_index": 10,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00011",
+      "block_type": "paragraph",
+      "text": "직업상담사 2급",
+      "reading_order_index": 11,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00012",
+      "block_type": "paragraph",
+      "text": "유통관리사 2급",
+      "reading_order_index": 12,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00013",
+      "block_type": "heading",
+      "text": "워드프로세서",
+      "reading_order_index": 13,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00014",
+      "block_type": "heading",
+      "text": "취득가능학점",
+      "reading_order_index": 14,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00016",
+      "block_type": "heading",
+      "text": "시험기본정보",
+      "reading_order_index": 15,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00017",
+      "block_type": "paragraph",
+      "text": "기타 자세한 사항은 대한상공회의소 자격평가사업단 홈페이지를 참조해 주시기 바랍니다.",
+      "reading_order_index": 16,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "시험기본정보"
+      ]
+    },
+    {
+      "block_id": "b00018",
+      "block_type": "paragraph",
+      "text": "대한상공회의소 자격평가사업단",
+      "reading_order_index": 17,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "시험기본정보"
+      ]
+    }
+  ],
+  "parse_quality_flags": [],
+  "parsed_at": "2026-04-13T15:24:19.648880+00:00"
+}

@@ -1,7 +1,7 @@
 # DEV_LOG.md
 
 > **파일명**: DEV_LOG.md  
-> **최종 수정일**: 2026-04-03  
+> **최종 수정일**: 2026-04-14  
 > **문서 해시**: SHA256:1fefb46e6b08cbfc6ad345cb7f889fa0c90f149114be552594a715652c0ebdae
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
@@ -13,6 +13,40 @@
 ## 1. 문서 목적
 
 구현과 문서 정렬 작업의 **타임라인**을 남겨, 이후 기여자가 맥락을 잃지 않게 한다.
+
+---
+
+## 2026-04-14 — 핵심 아키텍처 결정: cert_grade_tier 정렬 + 선수과목 DAG 로드맵
+
+### 배경
+
+청크·추천 테스트 및 고도화 논의 과정에서 두 가지 구조적 설계 결정을 확정.
+
+### 결정 사항
+
+**결정 1: cert_grade_tier 기반 위험군 연동 정렬**
+- 위험군 단계가 높을수록(4~5단계) 기능사·산업기사를 우선 추천하고, 기사·기술사는 후순위로 자동 조정한다.
+- Certificate 엔티티에 `cert_grade_tier` 필드 추가 (`DATA_SCHEMA.md` §4.7, §5.3).
+- 정렬 로직은 Recommendation Core 계층이 담당 (`SYSTEM_ARCHITECTURE.md` §8, §17 결정 8).
+- FEATURE_SPEC.md F-03 처리 규칙에 정렬 기준 명시.
+
+**결정 2: 선수과목 DAG 순회 로드맵 생성**
+- flat list 대신 `cert_prerequisite` 관계(`DATA_SCHEMA.md` §6.8)를 방향 그래프(DAG)로 순회하여 로드맵 경로를 생성한다.
+- 사용자 현재 위치에서 실제 이동 가능한 경로만 로드맵 단계 후보로 제시한다.
+- FEATURE_SPEC.md F-05 처리 규칙에 DAG 순회 원칙 명시.
+- `SYSTEM_ARCHITECTURE.md` §8 원칙, §17 결정 9에 반영.
+
+### 수정 문서
+
+- `DATA_SCHEMA.md`: §4.3에 `cert_to_cert_prerequisite` 추가, §4.7 `cert_grade_tier` enum 신규, §5.3 Certificate에 `cert_grade_tier` 필드 추가
+- `FEATURE_SPEC.md`: F-03 처리 규칙에 tier 정렬 규칙 추가, F-05 처리 규칙에 DAG 순회 원칙 추가
+- `SYSTEM_ARCHITECTURE.md`: §8 Recommendation Core 원칙에 두 결정 추가, §17 핵심 아키텍처 결정에 8·9번 추가
+
+### 의도적으로 하지 않은 것
+
+- cert_grade_tier 실제 값 채우기(CSV canonicalization 단계에서 수행)
+- DAG 순회 구현 코드(구현은 다음 스프린트)
+- feasibility_score, prerequisite_met 등 파생 필드 설계(후속 단계)
 
 ---
 

@@ -1,6 +1,6 @@
 ﻿roadmap_stage_id,roadmap_stage_name,stage_order,description,is_active
-roadmap_stage_1,상태 인식,1,현재 생활 상태와 진로·취업 준비 수준을 점검하는 초기 단계,True
-roadmap_stage_2,탐색 시작,2,"관심 분야, 전공 연계성, 가능한 직무와 자격증을 탐색하는 단계",True
-roadmap_stage_3,역량 준비,3,"기초 학습, 자격증 준비, 교육훈련 참여 등으로 역량을 쌓는 단계",True
-roadmap_stage_4,실행 확대,4,"지원 활동, 대외활동, 실전 경험을 늘리며 진로 실행을 확장하는 단계",True
-roadmap_stage_5,유지·정착,5,형성된 진로 경로와 생활 리듬을 유지하며 장기 계획으로 정착하는 단계,True
+roadmap_stage_0001,상태 인식,1,현재 생활 상태와 진로·취업 준비 수준을 점검하는 초기 단계,True
+roadmap_stage_0002,탐색 시작,2,"관심 분야, 전공 연계성, 가능한 직무와 자격증을 탐색하는 단계",True
+roadmap_stage_0003,역량 준비,3,"기초 학습, 자격증 준비, 교육훈련 참여 등으로 역량을 쌓는 단계",True
+roadmap_stage_0004,실행 확대,4,"지원 활동, 대외활동, 실전 경험을 늘리며 진로 실행을 확장하는 단계",True
+roadmap_stage_0005,유지·정착,5,형성된 진로 경로와 생활 리듬을 유지하며 장기 계획으로 정착하는 단계,True

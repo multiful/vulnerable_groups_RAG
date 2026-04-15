@@ -1,0 +1,222 @@
+{
+  "doc_id": "자격증시험일정_직업상담사",
+  "source_path": "data\\raw\\html\\자격증시험일정_직업상담사.html",
+  "file_hash": "sha256:0dfac4cd30452d54c15c77b775ca32209ec9927942cd227ce632d228735a4255",
+  "parse_hash": "sha256:ca6f3b0dff829f27ff924525820efe7640e72e07898fcc7bf39a0fb38e10fbb1",
+  "parser_used": "html",
+  "page_count": 1,
+  "blocks": [
+    {
+      "block_id": "b00000",
+      "block_type": "paragraph",
+      "text": "자격증 시험일정",
+      "reading_order_index": 0,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": []
+    },
+    {
+      "block_id": "b00001",
+      "block_type": "heading",
+      "text": "자격증 시험일정",
+      "reading_order_index": 1,
+      "source_loc": "html:1",
+      "heading_level": 3,
+      "section_path": []
+    },
+    {
+      "block_id": "b00002",
+      "block_type": "paragraph",
+      "text": "전공학점 혹은 일반선택학점을 단번에 빠르게 채우고 싶은 분들에게 권합니다. 아래 달력을 통해서 내게 필요한 자격증의 시험일정을 확인해 보세요.",
+      "reading_order_index": 2,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00003",
+      "block_type": "paragraph",
+      "text": "국가공인 매경TEST",
+      "reading_order_index": 3,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00004",
+      "block_type": "paragraph",
+      "text": "국가공인 한경TESAT",
+      "reading_order_index": 4,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00005",
+      "block_type": "paragraph",
+      "text": "소방안전 관리자",
+      "reading_order_index": 5,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00006",
+      "block_type": "paragraph",
+      "text": "CS 리더스 (관리사)",
+      "reading_order_index": 6,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00007",
+      "block_type": "paragraph",
+      "text": "워드프로세서",
+      "reading_order_index": 7,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00008",
+      "block_type": "paragraph",
+      "text": "컴퓨터 활용능력",
+      "reading_order_index": 8,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00009",
+      "block_type": "paragraph",
+      "text": "텔레마케팅 관리사",
+      "reading_order_index": 9,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00010",
+      "block_type": "paragraph",
+      "text": "정보처리 산업기사",
+      "reading_order_index": 10,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00011",
+      "block_type": "paragraph",
+      "text": "직업상담사 2급",
+      "reading_order_index": 11,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00012",
+      "block_type": "paragraph",
+      "text": "유통관리사 2급",
+      "reading_order_index": 12,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "자격증 시험일정"
+      ]
+    },
+    {
+      "block_id": "b00013",
+      "block_type": "heading",
+      "text": "직업상담사 2급",
+      "reading_order_index": 13,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00014",
+      "block_type": "heading",
+      "text": "취득가능학점",
+      "reading_order_index": 14,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00016",
+      "block_type": "table",
+      "text": "| 회차 | 필기원서접수 (인터넷) | 필기시험 | 필기합격 (예정자)발표 | 실기원서접수 | 실기시험 | 최종합격자 발표일 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 2025년 정기 기사 1회 | 2025.01.13 ~ 2025.01.16 | 2025.02.07 ~2025.03.04 | 2025.03.12 | 2025.03.24 ~ 2025.03.27 | 2025.04.19 ~2025.05.09 | 1차: 2025.06.05 2차: 2025.06.13 |\n| 2025년 정기 기사 2회 | 2025.04.14 ~ 2025.04.17 | 2025.05.10 ~2025.05.30 | 2025.06.11 | 2025.06.23 ~ 2025.06.26 | 2025.07.19 ~2025.08.06 | 1차: 2025.09.05 2차: 2025.09.12 |\n| 2025년 정기 기사 3회 | 2025.07.21 ~ 2025.07.24 | 2025.08.09 ~ 2025.09.01 | 2025.09.10 | 2025.09.22 ~ 2025.09.25 | 2025.11.01 ~2025.11.21 | 1차: 2025.12.05 2차: 2025.12.24 |",
+      "reading_order_index": 15,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "취득가능학점"
+      ]
+    },
+    {
+      "block_id": "b00017",
+      "block_type": "paragraph",
+      "text": "※ 상기 일정은 주관기관의 사정에 따라 변경될 수 있습니다.",
+      "reading_order_index": 16,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "취득가능학점"
+      ]
+    },
+    {
+      "block_id": "b00018",
+      "block_type": "heading",
+      "text": "시험기본정보",
+      "reading_order_index": 17,
+      "source_loc": "html:1",
+      "heading_level": 1,
+      "section_path": []
+    },
+    {
+      "block_id": "b00019",
+      "block_type": "paragraph",
+      "text": "기타 자세한 사항은 한국산업인력공단 Q-Net 홈페이지를 참조해 주시기 바랍니다.",
+      "reading_order_index": 18,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "시험기본정보"
+      ]
+    },
+    {
+      "block_id": "b00020",
+      "block_type": "paragraph",
+      "text": "한국산업인력공단 Q-Net",
+      "reading_order_index": 19,
+      "source_loc": "html:1",
+      "heading_level": null,
+      "section_path": [
+        "시험기본정보"
+      ]
+    }
+  ],
+  "parse_quality_flags": [],
+  "parsed_at": "2026-04-13T15:24:19.725178+00:00"
+}

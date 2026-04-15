@@ -1,7 +1,7 @@
 # DATA_SCHEMA.md
 
 > **파일명**: DATA_SCHEMA.md  
-> **최종 수정일**: 2026-04-07  
+> **최종 수정일**: 2026-04-15  
 > **문서 해시**: SHA256:<AUTO_HASH_OR_TBD>
 > **문서 역할**: 데이터 구조, 엔티티, 관계, 공통 필드, 제약조건 정의 문서  
 > **문서 우선순위**: 5  
@@ -164,8 +164,23 @@
 - `cert_to_domain`
 - `cert_to_job`
 - `cert_to_roadmap_stage`
+- `cert_prerequisite`
 - `risk_stage_to_domain`
 - `risk_stage_to_roadmap_stage`
+- `major_to_job`
+- `job_to_domain`
+- `cert_to_hosting_org`
+- `major_to_domain`
+- `cert_to_ncs`
+
+### 4.7 cert_grade_tier
+자격증 등급 계층 허용값 (낮은 숫자 = 진입 난이도 낮음):
+- `1_기능사`
+- `2_산업기사`
+- `3_기사`
+- `4_기술사`
+- `5_기능장`
+- `null` — 등급 계층 미분류(비기술사격, 민간자격 등)
 
 ### 4.4 row_type
 현재 허용값:
@@ -232,16 +247,26 @@
 |---|---|---:|---:|---|
 | `cert_id` | string | Y | N | 자격증 식별자 |
 | `cert_name` | string | Y | N | 표시용 자격증명 |
-| `issuer` | string | N | Y | 발급/주관 기관 |
 | `canonical_name` | string | Y | N | 대표 정규명 |
 | `normalized_key` | string | Y | N | 정규화 키 |
 | `aliases` | array[string] | N | Y | alias 목록 |
+| `issuer` | string | N | Y | 발급/주관 기관명 (표시용, cert_to_hosting_org 생성 전까지 대체) |
+| `cert_type` | string | N | Y | 자격증 유형 (국가기술자격/국가전문자격/국가민간자격) |
+| `grade_name` | string | N | Y | 원본 등급명 (Q-Net 원문 유지) |
+| `cert_grade_tier` | enum/string | N | Y | 자격증 등급 계층 (§4.7 허용값) |
+| `primary_domain` | string | N | Y | Q-Net 원본 도메인 코드 (cert_domain_mapping과 별도) |
+| `top_domain` | string | N | Y | 9개 대분류 중 하나 |
+| `domain_name_raw` | string | N | Y | Q-Net 원본 54개 소분류 값 (빈값 578개 허용) |
+| `written_avg_pass_rate` | number | N | Y | 필기 평균 합격률 |
+| `practical_avg_pass_rate` | number | N | Y | 실기 평균 합격률 |
+| `avg_pass_rate_3yr` | number | N | Y | 최근 3년 평균 합격률 |
 | `is_active` | boolean | Y | N | 활성 여부 |
 
 ### 제약
 - `cert_id`는 유일해야 한다.
 - `canonical_name`은 추천 표시에 사용할 대표 이름이다.
 - `normalized_key`는 중복 제거와 canonicalization 기준에 사용한다.
+- `cert_grade_tier`는 §4.7 허용값만 사용한다. 등급 미분류인 경우 null을 허용한다.
 
 ---
 
@@ -338,6 +363,7 @@
 | `relation_id` | string | Y | N | 관계 식별자 |
 | `cert_id` | string | Y | N | 자격증 식별자 |
 | `domain_sub_label_id` | string | Y | N | 도메인 세부 라벨 식별자 |
+| `is_primary` | boolean | Y | N | domain_name_raw 직접 매핑 여부 (True=원본 기반, False=keyword/fallback) |
 | `weight` | number | N | Y | 관계 가중치 |
 | `source_id` | string | N | Y | 원천 소스 식별자 |
 | `is_active` | boolean | Y | N | 활성 여부 |
@@ -345,6 +371,8 @@
 ### 제약
 - 하나의 자격증은 여러 도메인 세부 라벨과 연결될 수 있다.
 - 최소 1개의 primary domain을 도출할 수 있어야 한다.
+- `is_primary=True`: cert_master.domain_name_raw 직접 매핑 (712개)
+- `is_primary=False`: keyword 규칙 또는 top_domain fallback (578개)
 
 ---
 
@@ -415,6 +443,8 @@
 
 전공과 직무 세부 라벨의 관계
 
+> **상태**: defer — 현재 신뢰할 만한 소스 없음. `major_to_domain`(§6.10)과 `job_to_domain`(§6.7)의 역방향으로 간접 대체 가능.
+
 | 필드명 | 타입 | 필수 | nullable | 설명 |
 |---|---|---:|---:|---|
 | `relation_id` | string | Y | N | 관계 식별자 |
@@ -471,16 +501,19 @@
 
 자격증과 주관기관 관계
 
+> **상태**: defer — `cert_master.issuer` 컬럼으로 현재 단계 대체 가능. 별도 파일 생성 시 아래 스키마 사용.
+
 | 필드명 | 타입 | 필수 | nullable | 설명 |
 |---|---|---:|---:|---|
 | `relation_id` | string | Y | N | 관계 식별자 |
 | `cert_id` | string | Y | N | 자격증 식별자 |
-| `issuer` | string | Y | N | 주관기관명 |
+| `hosting_org_id` | string | Y | N | 주관기관 식별자 (`hosting_org_master.csv` 기준) |
 | `source_id` | string | N | Y | 원천 소스 식별자 |
 | `is_active` | boolean | Y | N | 활성 여부 |
 
 ### 제약
 - `cert_id`는 `cert_master.csv`에 존재해야 한다.
+- `hosting_org_id`는 `hosting_org_master.csv`에 존재해야 한다.
 
 ---
 
@@ -500,6 +533,27 @@
 ### 제약
 - `major_id`는 `major_master.csv`에 존재해야 한다.
 - `domain_sub_label_id`는 `domain_master.csv`에 존재해야 한다.
+
+---
+
+## 6.11 cert_to_ncs
+
+자격증과 NCS 소직무의 관계
+
+| 필드명 | 타입 | 필수 | nullable | 설명 |
+|---|---|---:|---:|---|
+| `relation_id` | string | Y | N | 관계 식별자 |
+| `cert_id` | string | Y | N | 자격증 식별자 |
+| `ncs_id` | string | Y | N | NCS 소직무 식별자 (`ncs_master.csv` 기준) |
+| `source_id` | string | N | Y | 원천 소스 식별자 (ncs_mapping_rows 기준) |
+| `is_active` | boolean | Y | N | 활성 여부 |
+
+### 제약
+- `cert_id`는 `cert_master.csv`에 존재해야 한다.
+- `ncs_id`는 `ncs_master.csv`에 존재해야 한다.
+- 하나의 자격증은 여러 NCS 소직무와 연결될 수 있다.
+- join 기준: `ncs_mapping_rows`의 대직무코드 + 중직무코드 + 소직무코드 → `ncs_master.ncsID`
+- 현재 커버리지: cert 743/1,290 (57.6%), ncs 248/261 (95.0%)
 
 ---
 
@@ -552,17 +606,18 @@ canonical relation table은 정규화된 관계를 저장하는 공통 구조다
 | `quality_flags` | array/object | N | Y | 품질 플래그 |
 | `updated_at` | string(datetime) | Y | N | 갱신 시각 |
 
-### `relation_type` 허용 값 예시
+### `relation_type` 허용 값 (§4.3과 동일)
 - `cert_to_domain`
 - `cert_to_job`
 - `cert_to_roadmap_stage`
+- `cert_prerequisite`
 - `risk_stage_to_domain`
 - `risk_stage_to_roadmap_stage`
 - `major_to_job`
 - `job_to_domain`
-- `cert_prerequisite`
 - `cert_to_hosting_org`
 - `major_to_domain`
+- `cert_to_ncs`
 
 ---
 

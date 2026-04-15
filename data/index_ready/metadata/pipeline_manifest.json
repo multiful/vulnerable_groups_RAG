@@ -1,0 +1,300 @@
+{
+  "parse_version": "v1",
+  "chunk_version": "v1",
+  "embed_version": "text-embedding-3-small-v1",
+  "documents": {
+    "2025년_민간자격관리자_연수_자료": {
+      "file_hash": "sha256:13c24aaf4868762aacae8745e38ca3c79d4dd0ebfd71c7244c7a918b4585315e",
+      "parse_hash": "sha256:45413b92276d162d5fe4f2ed03a74289737282f0ae82f1cbb4ff66ed536df3be",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 39,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "2026_전단지_210x297": {
+      "file_hash": "sha256:b821389f35b89d20bcf421306c2d6aa40338cec14c10d4896d3bd734423216fd",
+      "parse_hash": "sha256:63618e2ae372ff4ad515ddc398698c4b8dc665fb22af5353a17dd0e857654353",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pymupdf",
+      "chunk_count": 25,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00",
+        "table_header_preservation_low"
+      ]
+    },
+    "2026년도_국가전문자격_시행일정_및_시행지역_안_정수시설_제외": {
+      "file_hash": "sha256:5bfa3ba072f88f331e13830e6f009f64ae3aa7806dda34a7a15e4fd6ce9c9398",
+      "parse_hash": "sha256:4f9940227dec5ad0f4f51d25c97b507d21eceb93513067eadac278dedd131ab8",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pymupdf",
+      "chunk_count": 4,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "2026년도국가자격검정시행안내_hwp": {
+      "file_hash": "sha256:0f64715806c2a6b7e4a221065f60234d4b93972a30f6e0aac1c8b498cb618cb8",
+      "parse_hash": "sha256:caa91db465881fd2e41507c338383e88b204832370bc7ea9daf3a0473754654b",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 17,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "250320_취업잘되는_국가기술자격정보_제공_직업능력평가과_7": {
+      "file_hash": "sha256:f50881fc398867e6f16c51f7158a5fc86fd7d6503f1b506a73359433d695fe30",
+      "parse_hash": "sha256:f7b61159a938d7edb95fb33b5d4fe651f0bffc3e68691bece2649a69fe9e919c",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 16,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "Secure_document_2D_Barcode": {
+      "file_hash": "sha256:1cd7f38d963b4d0d28d3f21b1063e9acba3262b63059c2c348936482b44ee560",
+      "parse_hash": "sha256:505ff0fdb3c487fd670aa6c02b99409b22c226362bb4935eab96b6ac7aedcc8f",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 33,
+      "status": "done",
+      "quality_flags": [
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "국가정보자격집_20260122_압축됨": {
+      "file_hash": "sha256:35e6fdbd28cee884f996805f0de9ba2781b997ddaed2e27e68a071ac2dce1af4",
+      "parse_hash": "sha256:7514e3491c550d3b88407ea2157a32cd092cfa443865c7a3cfc914524370865d",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 302,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "붙임_2025년_공인민간자격_정보자료집_탑재용": {
+      "file_hash": "sha256:e0e9b73ca3c0c219a011bd50fd982844d81930aa3e3d30cee19c897370c958d4",
+      "parse_hash": "sha256:7733bc0efb79b906561bd11b6ce77f121584ba6041c15135ed778b898a34b84c",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 276,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "unresolved_cert_id",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "붙임_2025년_공인민간자격_통계연보_탑재용": {
+      "file_hash": "sha256:e188e66a063d97cfafac30f6d03c4216c90be4000ba7484871aee75b223bd9ae",
+      "parse_hash": "sha256:b609e106dd8e60abf647aa1024a32f90ecb0366101d1c3e8db8e03d7730397b8",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "pdfplumber",
+      "chunk_count": 118,
+      "status": "done",
+      "quality_flags": [
+        "multi_column_detected",
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "ITQ_시험_일정": {
+      "file_hash": "sha256:89624dc497e3293958d85858f4a3d4fec334dc81a17a981fe94d23e215e003b7",
+      "parse_hash": "sha256:235ad9755a4db6debe78bb0b3379456d32c6d96cf5c66e85c127da613195f970",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 3,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "국가전문자격_연간시험일정_자격정보_Q_nets": {
+      "file_hash": "sha256:09e1561a017a2fc4ac0732a11f0a2087e9dde4c8203c86fe5dc37e7e96756bf7",
+      "parse_hash": "sha256:ff371cbb8e2cf4d98a349d37b2b5e694d423b5810db3cacd7e82623f66a65d8f",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 1,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_CS리더스": {
+      "file_hash": "sha256:ff356e095957671db822b48e93c54cd81582f5e0ebed8956d4df3edd72529616",
+      "parse_hash": "sha256:42c0f68fd9f0593ece67b23f611e84cad8e6e030abb71d9c79cca5bca9cfd5f0",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 5,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_국가공인_매경TEST": {
+      "file_hash": "sha256:017279ed646704a754f42505e5133ab5e9df7f0e16ce1e51d2bf8909508e33d1",
+      "parse_hash": "sha256:660f412694cdd3fd51f17643e2890934f921527d34f3e84ea9bce5a138a3b877",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 5,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_전산세무": {
+      "file_hash": "sha256:e53437c9de3ac5e50f78ac3a11037dfcca90425bc046722d4c8eaa30b6b5993e",
+      "parse_hash": "sha256:ff69c726512e53b19e6fb5616aa7601463d5ec4bfbaf8900b1fcecc5e5e31ae5",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 5,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_tesat": {
+      "file_hash": "sha256:7161bb8648552d6efdccd88b5858dad806bc0cf71dd0a5bf58ff248176fcd9db",
+      "parse_hash": "sha256:afd5ef2271689a38d05486bccbf2c6c414c05b13919eede66c86ac858d833e3f",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 6,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_독학사": {
+      "file_hash": "sha256:7dc35efff82e0694b4f15ac238c1cc7ca954c71959f468e24010447445704a31",
+      "parse_hash": "sha256:5b8e0a21cd80732708e4c1593fdd768c71866279d42929d120c869b9908a4838",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 5,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_소방안전관리자": {
+      "file_hash": "sha256:0d0d9d90889af3829fd8298055c0503840d0fa2d542aeb1e5ab686d822421659",
+      "parse_hash": "sha256:91327d2aa24039a608e4c1585ed3ba47240657ae6314c3670f63735c744fe97c",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 4,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_워드프로세스": {
+      "file_hash": "sha256:11e05df556190ecce4bed74c2f83c3ccc29f30e95d71cc821eab105304a913a1",
+      "parse_hash": "sha256:517274816ac3eac2b760533879e17e10bb624e4425bdfdd1439d6c044d7daa5c",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 2,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_유통관리사": {
+      "file_hash": "sha256:7abf9f2dd367454ce2147350ee4843a467c3dc674c01be71d0ff4f83fff97e9d",
+      "parse_hash": "sha256:b64e5f005510cd648430aaccc430d211d4a9206286d8ee4ad700c114f2644b19",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 4,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_정보처리산업기사": {
+      "file_hash": "sha256:f88f4d6cf0f4b7d296a96f4c08ae4f3ca20c35f20b446c91031926fab4a42f14",
+      "parse_hash": "sha256:41f6dd39fb71f8cfa59d115275c66b8e8fef2755c5523e494c17be27d02110d4",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 5,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_직업상담사": {
+      "file_hash": "sha256:0dfac4cd30452d54c15c77b775ca32209ec9927942cd227ce632d228735a4255",
+      "parse_hash": "sha256:ca6f3b0dff829f27ff924525820efe7640e72e07898fcc7bf39a0fb38e10fbb1",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 4,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_컴퓨터활용능력": {
+      "file_hash": "sha256:456bc97ae1178f2e8ab313bd96954a71a431be7b639319fc0ee44f96a814bd8b",
+      "parse_hash": "sha256:0a5c48ace9a4ce5bde2905304d44f2c3e0d4daf9a000843c4d2e93471cc01f69",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 2,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    },
+    "자격증시험일정_텔레마케팅관리사": {
+      "file_hash": "sha256:f1c58e9f61c72215b649fdd8372f17a032ce42e869ecbb95064cb0d397a51cd2",
+      "parse_hash": "sha256:ee45af33bf1814fc2bcc2a5d0d5807760f255b4aa999cefb8cf0116a48c4bb64",
+      "parse_version": "v1",
+      "chunk_version": "v1",
+      "parser_used": "html",
+      "chunk_count": 4,
+      "status": "done",
+      "quality_flags": [
+        "low_cert_resolution:0.00"
+      ]
+    }
+  },
+  "chunks": {}
+}
