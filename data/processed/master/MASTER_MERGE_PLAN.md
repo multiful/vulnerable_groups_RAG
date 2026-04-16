@@ -281,10 +281,14 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - 미연결 78개: domain_0028 (언어/문서/속기) — job_master 해당 직종 없음 (by design)
 - **스크립트**: `scripts/build_all_relations.py`
 
-#### Step 3-3 — cert_major_mapping.csv 생성 ⬜
+#### Step 3-3 — cert_major_mapping.csv 생성 ✅
 - 소스: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼
 - join: cert_name → cert_id, 학과명 split → major_id
-- 출력: `canonical/relations/cert_major_mapping.csv`
+- 출력: `canonical/relations/cert_major_mapping.csv` (2,066행 완료)
+
+#### Step 3-4 — cert_master exam 컬럼 보강 ✅
+- 소스: `raw/csv/data_cert_rows.csv`
+- 대상: `processed/master/cert_master.csv` (719행 보강 및 신규 7개 컬럼 추가 완료)
 - **스크립트**: `scripts/build_cert_major_mapping.py` (미작성 — Phase 4 비blocking)
 
 #### Step 3-4 — risk_stage_to_roadmap_stage.csv ✅
@@ -343,12 +347,13 @@ canonical/relations/
 ├── job_to_domain.csv               ✅    151행 (job 100% / domain 42/43)
 ├── risk_stage_to_roadmap_stage.csv ✅      5행
 ├── risk_stage_to_domain.csv        ❌  삭제 — 설계 근거 없음 (domain은 사용자 관심사로 결정)
-├── cert_major_mapping.csv          ⬜  미생성
+├── cert_major_mapping.csv          ✅  2,066행 (scripts/build_cert_major_mapping.py)
 ├── major_to_job.csv                ❌  defer
 └── cert_to_hosting_org.csv         ❌  defer
 
 canonical/candidates/
-└── cert_candidates.csv             ⬜  Phase 4 다음 단계 ← 지금 진입 가능
+| `cert_candidates.csv`             | ✅  Phase 4 완료 (1,290행) |
+| `cert_candidates.jsonl`           | ✅  Backend ingestion용 JSONL 생성 |
 ```
 
 ---
@@ -523,7 +528,7 @@ canonical/candidates/
 | 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
 | A-1 | ❌ | cert_candidates.csv 생성 스크립트 작성 | `scripts/build_cert_candidates.py` |
-| A-2 | ❌ (A-1 의존) | cert_candidates.csv 최초 생성 | `canonical/candidates/cert_candidates.csv` |
+| A-2 | ✅ | cert_candidates.csv 최초 생성 | `canonical/candidates/cert_candidates.csv` 1,290행 |
 
 **작업 순서**: A-1 → A-2  
 **참고**: §8 Phase 4 candidate row 스키마 기준, 1,290행 목표
@@ -537,8 +542,8 @@ canonical/candidates/
 | B-1 | ✅ | risk_stage_to_roadmap_stage.csv | `canonical/relations/` 5행 |
 | B-2 | ✅ | job_to_domain.csv | `canonical/relations/` 151행 |
 | B-3 | ✅ | major_to_domain.csv | `canonical/relations/` 5,268행 |
-| B-4 | ❌ | cert_major_mapping.csv 생성 | `canonical/relations/cert_major_mapping.csv` |
-| B-5 | 보류 | cert_master 시험 상세 컬럼 보강 | `processed/master/cert_master.csv` |
+| B-4 | ✅ | cert_major_mapping.csv 생성 | `canonical/relations/cert_major_mapping.csv` (2,066행) |
+| B-5 | ✅ | cert_master 시험 상세 컬럼 보강 | `processed/master/cert_master.csv` (719행 보강) |
 
 **B-4 작업 순서**: 독립 진행 가능  
 **B-4 참고 소스**: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼 → major_master join  

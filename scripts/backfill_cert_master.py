@@ -1,0 +1,113 @@
+import os
+import pandas as pd
+import re
+
+# Base paths
+BASE_DIR = r"C:\Users\min00\OneDrive\바탕 화면\시스템 분석 2학기\vulnerable_groups_RAG"
+CERT_MASTER = os.path.join(BASE_DIR, "data", "processed", "master", "cert_master.csv")
+RAW_DATA = os.path.join(BASE_DIR, "data", "raw", "csv", "data_cert_rows.csv")
+
+def generate_normalized_key(text):
+    if not isinstance(text, str):
+        return ""
+    text = text.lower()
+    text = text.strip()
+    text = re.sub(r'[\s\-\/\.\·\ㆍ\(\)\[\]]', '_', text)
+    text = re.sub(r'_+', '_', text)
+    text = text.strip('_')
+    return text
+
+def main():
+    print("Starting B-5: Backfilling cert_master exam details...")
+
+    # 1. Load Cert Master
+    if not os.path.exists(CERT_MASTER):
+        print(f"Error: {CERT_MASTER} not found.")
+        return
+    df_master = pd.read_csv(CERT_MASTER)
+    print(f"Loaded {len(df_master)} master records.")
+
+    # 2. Add missing columns if they don't exist
+    new_cols = [
+        'exam_difficulty', 'exam_type_info', 'exam_fee_info', 
+        'exam_pass_rate', 'exam_frequency', 'exam_subject_info', 
+        'exam_eligibility_info'
+    ]
+    for col in new_cols:
+        if col not in df_master.columns:
+            df_master[col] = None
+
+    # 3. Load Raw Data
+    if not os.path.exists(RAW_DATA):
+        print(f"Error: {RAW_DATA} not found.")
+        return
+    
+    # Try different encodings
+    try:
+        # Based on previous tests, utf-8-sig seems correct for the data but console mangles it
+        df_raw = pd.read_csv(RAW_DATA, encoding='utf-8-sig')
+    except:
+        df_raw = pd.read_csv(RAW_DATA, encoding='cp949')
+
+    print(f"Loaded {len(df_raw)} raw records for backfill.")
+
+    # 4. Create lookup Map (normalized_key -> raw_row)
+    # We use normalization to be resilient to minor naming differences
+    lookup = {}
+    for idx, row in df_raw.iterrows():
+        cname = str(row.get('자격증명', '')).strip()
+        if not cname or cname == 'nan':
+            continue
+        key = generate_normalized_key(cname)
+        lookup[key] = row
+
+    # 5. Backfill
+    updated_count = 0
+    for idx, row in df_master.iterrows():
+        key = row['normalized_key']
+        if key in lookup:
+            raw_row = lookup[key]
+            
+            # Map columns
+            # Difficulty
+            diff = str(raw_row.get('난이도', '')).strip()
+            if diff and diff != 'nan':
+                df_master.at[idx, 'exam_difficulty'] = diff
+            
+            # Type Info
+            etype = str(raw_row.get('시험종류', '')).strip()
+            if etype and etype != 'nan':
+                df_master.at[idx, 'exam_type_info'] = etype
+            
+            # Subject Info (combine Written, Practical, Interview)
+            subjects = []
+            for sub_col in ['필기', '실기', '면접']:
+                val = str(raw_row.get(sub_col, '')).strip()
+                if val and val != 'nan' and val != '0':
+                    subjects.append(f"{sub_col}: {val}")
+            if subjects:
+                df_master.at[idx, 'exam_subject_info'] = " / ".join(subjects)
+            
+            # Pass Rate Summary
+            # Use '총합' if available or leave for later logic
+            total = str(raw_row.get('총합', '')).strip()
+            if total and total != 'nan':
+                df_master.at[idx, 'exam_pass_rate'] = f"최근 합격률(종합): {total}%"
+            
+            # Other fields might come from 비고 if they look like fee/frequency
+            notes = str(raw_row.get('비고', '')).strip()
+            if notes and notes != 'nan':
+                if '원' in notes or '비용' in notes:
+                    df_master.at[idx, 'exam_fee_info'] = notes
+                elif '회' in notes:
+                    df_master.at[idx, 'exam_frequency'] = notes
+                    
+            updated_count += 1
+
+    # 6. Save updated master
+    df_master.to_csv(CERT_MASTER, index=False, encoding='utf-8-sig')
+    print(f"Updated {updated_count} records in {CERT_MASTER}.")
+    print("Backfill complete.")
+
+if __name__ == "__main__":
+    main()
