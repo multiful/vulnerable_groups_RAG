@@ -32,7 +32,10 @@
 - 대용량 원본·산출물은 Git 정책(`.gitignore`)과 `HASH_INCREMENTAL_BUILD_GUIDE.md` 증분 원칙을 따른다.
 
 ## Audit Findings (by Gemini CLI) - 2026-04-17
-- **Issue**: 자격증 간 선후 관계(`cert_to_cert_relation`)를 생성할 때, 해당 관계가 왜 형성되었는지에 대한 텍스트 근거(Reasoning)가 누락되어 있어 사용자에게 신뢰성 있는 설명을 제공하기 어려움.
-- **Required Action**: `build_all_relations.py` 수정 시, PDF 파싱 결과물(`data/index_ready/parse_ir/`)을 검색하여 "로드맵", "권장 순서", "선행 학습" 등의 키워드가 포함된 문장을 추출하고, 이를 `cert_to_cert_relation.csv`의 `reasoning_evidence` 컬럼에 저장할 것.
-- **Feasibility**: LangChain의 `SimpleDirectoryLoader` 또는 파싱된 JSONL을 정규표현식으로 스캔하여 관계 쌍과 텍스트를 매핑하는 로직 구현 권장.
+- **Issue**: 자격증 간 선후 관계(`cert_to_cert_relation`) 생성 시, "왜 이 순서인가?"에 대한 텍스트 근거(Reasoning)가 데이터에 포함되지 않아 추천의 신뢰성이 떨어짐.
+- **Required Action**: `scripts/build_all_relations.py` (또는 전용 스크립트) 보완:
+    1. `data/index_ready/parse_ir/` 내의 파싱된 JSONL 문서를 스캔.
+    2. "로드맵", "권장 순서", "선행 학습", "이수 체계" 등의 키워드가 포함된 문맥에서 자격증 쌍(A -> B)의 관계 근거를 추출.
+    3. 추출된 텍스트를 `cert_to_cert_relation.csv`의 `reasoning_evidence` 컬럼에 매핑하여 저장.
+- **Feasibility**: 파싱된 데이터에서 자격증 명칭이 동시에 등장하는 문장을 우선적으로 필터링하여 NLP 기반(또는 정규표현식)으로 관계 문장을 선정하는 로직 구현 권장.
 

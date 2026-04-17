@@ -1,0 +1,370 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-04-18",
+    "purpose": "추천 시스템 골든셋 구축용 대표 페르소나 — 15종",
+    "variables": ["risk_stage(1-5)", "major_yn", "domain", "held_cert_ids"],
+    "risk_to_entry": {
+      "risk_0001": "roadmap_stage_0003(역량 준비)",
+      "risk_0002": "roadmap_stage_0002(탐색 시작)",
+      "risk_0003": "roadmap_stage_0002(탐색 시작)",
+      "risk_0004": "roadmap_stage_0001(상태 인식)",
+      "risk_0005": "roadmap_stage_0001(상태 인식)"
+    },
+    "held_cert_entry_rule": "보유 자격증 최고 stage > 기본 진입점 → 다음 stage로 자동 전진",
+    "note_missing_passrate": "cert_master의 30.7%(396/1290)에 avg_pass_rate_3yr 누락 — 해당 자격증은 키워드 fallback 적용됨"
+  },
+  "personas": [
+    {
+      "persona_id": "P01",
+      "name": "김수현",
+      "label": "최취약/IT·데이터/비전공/자격증없음",
+      "description": "데이터 분석에 관심 있는 비전공자. 현재 취업 의지는 있으나 방향을 잡지 못한 상태.",
+      "api_request": {
+        "risk_stage_id": "risk_0005",
+        "domain_ids": ["domain_0001"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "가장 쉬운 비기술 자격증(합격률 ≥50%)부터 제시. 기능사/기사 계열보다 검정류·자격증이 먼저 나와야 함.",
+        "evaluation_criteria": [
+          "roadmap_sequence의 첫 자격증이 roadmap_stage_0001 또는 stage_0002에 속하는가",
+          "is_bottleneck 자격증이 후반부에만 등장하는가",
+          "domain_0001 관련 자격증이 포함되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P02",
+      "name": "이민준",
+      "label": "최취약/조리·식품/비전공/자격증없음",
+      "description": "외식업 종사를 원하는 비전공자. 기초부터 시작해야 하는 상황.",
+      "api_request": {
+        "risk_stage_id": "risk_0005",
+        "domain_ids": ["domain_0030"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "조리기능사 계열(1_기능사)부터 시작. 합격률 높은 기능사 자격증이 로드맵 초반에 배치되어야 함.",
+        "evaluation_criteria": [
+          "조리/식품 도메인 자격증이 결과에 포함되는가",
+          "1_기능사 tier 자격증이 stage_0003 이하에 배치되는가",
+          "roadmap_sequence stage_order가 단조 증가하는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P03",
+      "name": "박지수",
+      "label": "높은위험/경영·사무/비전공/자격증없음",
+      "description": "사무직 취업을 목표로 하는 비전공자. 안정적인 직무 자격증 취득이 우선.",
+      "api_request": {
+        "risk_stage_id": "risk_0004",
+        "domain_ids": ["domain_0017"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "경영/사무 도메인 비기술 자격증이 주로 추천. 합격률 높은 순서로 배치.",
+        "evaluation_criteria": [
+          "domain_0017(경영/사무) 관련 자격증이 포함되는가",
+          "낮은 tier 자격증이 앞에 오는가",
+          "사무직 관련 job_ids가 related_jobs에 포함되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P04",
+      "name": "최현우",
+      "label": "높은위험/전기·전자/전기공학계열전공/자격증없음",
+      "description": "전기공학 전공자이나 취업에 어려움을 겪고 있음. 전공 연계 자격증 취득 희망.",
+      "api_request": {
+        "risk_stage_id": "risk_0004",
+        "domain_ids": ["domain_0005"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": "전기공학계열"
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "major_name으로 domain_0005 추가 확인(이미 포함). 전기기능사 계열부터 제시.",
+        "evaluation_criteria": [
+          "major_name 입력 시 domain_0005가 query.domain_ids에 포함되는가(중복없이)",
+          "전기/전자 domain_0005 자격증이 포함되는가",
+          "entry_advanced=false (보유 자격증 없음)"
+        ]
+      }
+    },
+    {
+      "persona_id": "P05",
+      "name": "정예린",
+      "label": "중간위험/건축/비전공/자격증없음",
+      "description": "건축 분야에 관심 있는 비전공 청년. 자격증 경로 탐색 중.",
+      "api_request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0010"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0002",
+        "entry_advanced": false,
+        "behavior_notes": "risk_0003 → roadmap_stage_0002 시작. 건축/인테리어 자격증이 제시되어야 함.",
+        "evaluation_criteria": [
+          "starting_roadmap_stage = roadmap_stage_0002",
+          "domain_0010 자격증이 포함되는가",
+          "roadmap_sequence가 2개 이상 단계에 걸쳐 있는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P06",
+      "name": "홍성민",
+      "label": "중간위험/소프트웨어개발/IT전공/기능사보유",
+      "description": "컴퓨터공학 전공자. 정보기기운용기능사(cert_0547) 이미 보유. 다음 단계 자격증 필요.",
+      "api_request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0002"],
+        "job_ids": [],
+        "held_cert_ids": ["cert_0547"],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0004",
+        "entry_advanced": true,
+        "behavior_notes": "cert_0547(기능사, stage_0003) 보유 → stage_0003 다음인 stage_0004부터 시작. cert_0547 결과에서 제외.",
+        "evaluation_criteria": [
+          "entry_advanced=true",
+          "starting_roadmap_stage=roadmap_stage_0004",
+          "cert_0547(정보기기운용기능사)가 결과에 없는가",
+          "stage_0004 이상 자격증만 추천되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P07",
+      "name": "윤지현",
+      "label": "낮은위험/환경·안전/관심만/자격증없음",
+      "description": "환경/안전 직무에 관심 있는 구직자. 자격증은 없으나 위험도는 낮은 편.",
+      "api_request": {
+        "risk_stage_id": "risk_0002",
+        "domain_ids": ["domain_0012"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0002",
+        "entry_advanced": false,
+        "behavior_notes": "risk_0002 → roadmap_stage_0002. 환경/안전 자격증 제시.",
+        "evaluation_criteria": [
+          "starting_roadmap_stage=roadmap_stage_0002",
+          "domain_0012(환경/안전) 자격증이 포함되는가",
+          "기능사 → 기사 순으로 배치되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P08",
+      "name": "강태양",
+      "label": "낮은위험/기계·제조/기계공학전공/기능사보유",
+      "description": "기계 전공자. 컴퓨터응용선반기능사(cert_0465) 보유. 기사 취득 단계 진입.",
+      "api_request": {
+        "risk_stage_id": "risk_0002",
+        "domain_ids": ["domain_0006"],
+        "job_ids": [],
+        "held_cert_ids": ["cert_0465"],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0004",
+        "entry_advanced": true,
+        "behavior_notes": "cert_0465(기능사, stage_0003) 보유 → stage_0004 진입. 기계 기사 계열 자격증 주로 추천.",
+        "evaluation_criteria": [
+          "entry_advanced=true",
+          "starting_roadmap_stage=roadmap_stage_0004",
+          "cert_0465 결과에서 제외",
+          "기사(3_기사)/기술사(4_기술사) tier 자격증이 주로 제시되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P09",
+      "name": "임서연",
+      "label": "안정권/의료·보건/비전공/자격증없음",
+      "description": "의료 분야 취업에 관심 있는 취업 안정권 구직자. 고급 자격증 취득 목표.",
+      "api_request": {
+        "risk_stage_id": "risk_0001",
+        "domain_ids": ["domain_0023"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0003",
+        "entry_advanced": false,
+        "behavior_notes": "risk_0001 → roadmap_stage_0003 시작. 의료/보건 도메인 자격증 제시.",
+        "evaluation_criteria": [
+          "starting_roadmap_stage=roadmap_stage_0003",
+          "domain_0023(의료/보건) 자격증 포함",
+          "achievability=immediate 또는 near_term 자격증이 포함되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P10",
+      "name": "남도현",
+      "label": "안정권/데이터·AI/전공/비기술자격보유",
+      "description": "데이터 분야 종사자. 영상정보관리사(cert_1006, stage_0002) 보유. 상위 자격증 탐색.",
+      "api_request": {
+        "risk_stage_id": "risk_0001",
+        "domain_ids": ["domain_0001"],
+        "job_ids": [],
+        "held_cert_ids": ["cert_1006"],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0003",
+        "entry_advanced": false,
+        "behavior_notes": "cert_1006(stage_0002, order=2) < risk_0001 기준 stage_0003(order=3) → 진입점 유지. cert_1006 결과에서 제외만 됨.",
+        "evaluation_criteria": [
+          "entry_advanced=false (보유 자격증이 진입점보다 낮은 stage이므로)",
+          "starting_roadmap_stage=roadmap_stage_0003",
+          "cert_1006(영상정보관리사) 결과에서 제외",
+          "데이터/AI 관련 고급 자격증(ADsP, SQLD, 빅데이터분석기사 등) 포함"
+        ]
+      }
+    },
+    {
+      "persona_id": "P11",
+      "name": "오유진",
+      "label": "최취약/사회복지·상담/비전공/자격증없음",
+      "description": "사회복지 분야 취업 희망. 가장 취약한 상황이나 복지사 자격증 취득 의지 강함.",
+      "api_request": {
+        "risk_stage_id": "risk_0005",
+        "domain_ids": ["domain_0024"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "가장 낮은 stage부터 시작. 사회복지 분야 자격증은 대부분 비기술 → 합격률 기반 배치.",
+        "evaluation_criteria": [
+          "domain_0024(사회복지/상담) 자격증 포함",
+          "비기술자격이 stage_0002~0003에 배치되는가",
+          "fallback_used 여부 확인 (해당 risk에 직접 매핑 없는 경우)"
+        ]
+      }
+    },
+    {
+      "persona_id": "P12",
+      "name": "백선영",
+      "label": "중간위험/세무·회계/전공/자격증없음",
+      "description": "회계학 전공자. 세무/회계 분야 자격증 취득으로 취업 준비 중.",
+      "api_request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0016"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": "회계계열"
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0002",
+        "entry_advanced": false,
+        "behavior_notes": "major_name='회계계열'로 domain 추가 시도 (major_to_domain 매칭 여부 검증). domain_0016 세무/회계 자격증 제시.",
+        "evaluation_criteria": [
+          "major_name 처리 후 domain_ids에 domain_0016이 포함되는가(또는 major join 성공 여부)",
+          "세무/회계 자격증 포함",
+          "starting_roadmap_stage=roadmap_stage_0002"
+        ]
+      }
+    },
+    {
+      "persona_id": "P13",
+      "name": "장민호",
+      "label": "높은위험/농·림·축·수산/비전공/자격증없음",
+      "description": "농업 분야 취업을 원하는 비전공자. 농업 관련 자격증 경로 탐색.",
+      "api_request": {
+        "risk_stage_id": "risk_0004",
+        "domain_ids": ["domain_0038"],
+        "job_ids": [],
+        "held_cert_ids": [],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0001",
+        "entry_advanced": false,
+        "behavior_notes": "농업 분야 기능사 자격증부터 제시. 합격률 데이터 누락 자격증이 많을 수 있어 키워드 fallback 확인.",
+        "evaluation_criteria": [
+          "domain_0038(농/림/축/수산) 자격증 포함",
+          "1_기능사 tier 자격증이 초반에 배치",
+          "fallback_used 또는 키워드 기반 레벨 추론 케이스 관찰"
+        ]
+      }
+    },
+    {
+      "persona_id": "P14",
+      "name": "신지혜",
+      "label": "낮은위험/건축/전공/기능사보유→다음단계진입검증",
+      "description": "건축학 전공자. 배관기능사(cert_0480, stage_0003) 보유. 산업기사/기사 단계 진입 희망.",
+      "api_request": {
+        "risk_stage_id": "risk_0002",
+        "domain_ids": ["domain_0010"],
+        "job_ids": [],
+        "held_cert_ids": ["cert_0480"],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0004",
+        "entry_advanced": true,
+        "behavior_notes": "cert_0480(배관기능사, stage_0003) 보유 → stage_0004 진입. 산업기사/기사 계열 위주 추천.",
+        "evaluation_criteria": [
+          "entry_advanced=true",
+          "starting_roadmap_stage=roadmap_stage_0004",
+          "cert_0480 결과에서 제외",
+          "2_산업기사 또는 3_기사 tier 건축 자격증이 포함되는가"
+        ]
+      }
+    },
+    {
+      "persona_id": "P15",
+      "name": "류성진",
+      "label": "중간위험/전기·전자/전공/기능사+기사보유→최고단계진입",
+      "description": "전기 전공자. 의료전자기능사(cert_0479, stage_0003)·임베디드기사(cert_0110, stage_0004) 보유. 기술사 레벨 탐색.",
+      "api_request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0005"],
+        "job_ids": [],
+        "held_cert_ids": ["cert_0479", "cert_0110"],
+        "major_name": null
+      },
+      "_expected": {
+        "starting_roadmap_stage": "roadmap_stage_0005",
+        "entry_advanced": true,
+        "behavior_notes": "cert_0110(기사, stage_0004) 최고 → stage_0005 진입. 기술사/기능장 계열만 추천. cert_0479·cert_0110 결과에서 제외.",
+        "evaluation_criteria": [
+          "entry_advanced=true",
+          "starting_roadmap_stage=roadmap_stage_0005",
+          "cert_0479·cert_0110 결과에서 제외",
+          "4_기술사 또는 5_기능장 tier 자격증만 포함되는가",
+          "total_certs_in_roadmap가 다른 페르소나보다 적을 가능성 관찰"
+        ]
+      }
+    }
+  ]
+}

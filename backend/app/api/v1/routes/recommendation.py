@@ -1,6 +1,6 @@
 # File: recommendation.py
-# Last Updated: 2026-04-03
-# Content Hash: SHA256:da6ae93f8d9533f69ac7197a4b2ff79ab713558cd77b828dc2362d2f8815afff
+# Last Updated: 2026-04-18
+# Content Hash: SHA256:TBD
 # Role: POST /api/v1/recommendations, /recommendations/evidence
 from __future__ import annotations
 

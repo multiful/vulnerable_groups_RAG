@@ -1,0 +1,340 @@
+{
+  "generated_at": "2026-04-18",
+  "baselines": [
+    {
+      "persona_id": "P01",
+      "request": {
+        "risk_stage_id": "risk_0005",
+        "domain_ids": [
+          "domain_0001"
+        ]
+      },
+      "starting_roadmap_stage": "roadmap_stage_0001",
+      "entry_advanced": false,
+      "fallback_used": true,
+      "total_certs": 12,
+      "top5_sequence": [
+        {
+          "step": 1,
+          "cert_id": "cert_0976",
+          "cert_name": "영상판독사 3급",
+          "roadmap_stage_id": "roadmap_stage_0002",
+          "avg_pass_rate": null,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "near_term"
+        },
+        {
+          "step": 2,
+          "cert_id": "cert_1128",
+          "cert_name": "데이터분석준전문가(ADsP)",
+          "roadmap_stage_id": "roadmap_stage_0002",
+          "avg_pass_rate": 65.1,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "near_term"
+        },
+        {
+          "step": 3,
+          "cert_id": "cert_1006",
+          "cert_name": "영상정보관리사",
+          "roadmap_stage_id": "roadmap_stage_0002",
+          "avg_pass_rate": 60.6,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "near_term"
+        },
+        {
+          "step": 4,
+          "cert_id": "cert_1207",
+          "cert_name": "데이터아키텍처준전문가(DAsP)",
+          "roadmap_stage_id": "roadmap_stage_0002",
+          "avg_pass_rate": 52.1,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "near_term"
+        },
+        {
+          "step": 5,
+          "cert_id": "cert_0877",
+          "cert_name": "데이터거래사",
+          "roadmap_stage_id": "roadmap_stage_0002",
+          "avg_pass_rate": null,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "near_term"
+        }
+      ]
+    },
+    {
+      "persona_id": "P06",
+      "request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": [
+          "domain_0002"
+        ],
+        "held_cert_ids": [
+          "cert_0547"
+        ]
+      },
+      "starting_roadmap_stage": "roadmap_stage_0004",
+      "entry_advanced": true,
+      "fallback_used": false,
+      "total_certs": 41,
+      "top5_sequence": [
+        {
+          "step": 1,
+          "cert_id": "cert_0897",
+          "cert_name": "전자계산기기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 55.8,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 2,
+          "cert_id": "cert_0906",
+          "cert_name": "정보처리기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 45.7,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 3,
+          "cert_id": "cert_0551",
+          "cert_name": "프로그래밍기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": null,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 4,
+          "cert_id": "cert_0925",
+          "cert_name": "스마트공장기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": null,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 5,
+          "cert_id": "cert_1117",
+          "cert_name": "디지털정보활용능력(DIAT) 초급",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 96.4,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        }
+      ]
+    },
+    {
+      "persona_id": "P09",
+      "request": {
+        "risk_stage_id": "risk_0001",
+        "domain_ids": [
+          "domain_0023"
+        ]
+      },
+      "starting_roadmap_stage": "roadmap_stage_0003",
+      "entry_advanced": false,
+      "fallback_used": false,
+      "total_certs": 24,
+      "top5_sequence": [
+        {
+          "step": 1,
+          "cert_id": "cert_0893",
+          "cert_name": "임상병리사",
+          "roadmap_stage_id": "roadmap_stage_0003",
+          "avg_pass_rate": 85.8,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 2,
+          "cert_id": "cert_0963",
+          "cert_name": "작업치료사",
+          "roadmap_stage_id": "roadmap_stage_0003",
+          "avg_pass_rate": 84.4,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 3,
+          "cert_id": "cert_0775",
+          "cert_name": "응급구조사 2급",
+          "roadmap_stage_id": "roadmap_stage_0003",
+          "avg_pass_rate": 83.3,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 4,
+          "cert_id": "cert_0781",
+          "cert_name": "응급구조사 1급",
+          "roadmap_stage_id": "roadmap_stage_0003",
+          "avg_pass_rate": 82.1,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 5,
+          "cert_id": "cert_1166",
+          "cert_name": "보조공학사",
+          "roadmap_stage_id": "roadmap_stage_0003",
+          "avg_pass_rate": 78.2,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        }
+      ]
+    },
+    {
+      "persona_id": "P14",
+      "request": {
+        "risk_stage_id": "risk_0002",
+        "domain_ids": [
+          "domain_0010"
+        ],
+        "held_cert_ids": [
+          "cert_0480"
+        ]
+      },
+      "starting_roadmap_stage": "roadmap_stage_0004",
+      "entry_advanced": true,
+      "fallback_used": false,
+      "total_certs": 48,
+      "top5_sequence": [
+        {
+          "step": 1,
+          "cert_id": "cert_0574",
+          "cert_name": "실내건축기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 69.0,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 2,
+          "cert_id": "cert_0560",
+          "cert_name": "전산응용건축제도기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 68.0,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 3,
+          "cert_id": "cert_0576",
+          "cert_name": "거푸집기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 66.2,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 4,
+          "cert_id": "cert_0575",
+          "cert_name": "온수온돌기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 60.6,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 5,
+          "cert_id": "cert_0568",
+          "cert_name": "비계기능사",
+          "roadmap_stage_id": "roadmap_stage_0004",
+          "avg_pass_rate": 60.4,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        }
+      ]
+    },
+    {
+      "persona_id": "P15",
+      "request": {
+        "risk_stage_id": "risk_0003",
+        "domain_ids": [
+          "domain_0005"
+        ],
+        "held_cert_ids": [
+          "cert_0479",
+          "cert_0110"
+        ]
+      },
+      "starting_roadmap_stage": "roadmap_stage_0005",
+      "entry_advanced": true,
+      "fallback_used": false,
+      "total_certs": 32,
+      "top5_sequence": [
+        {
+          "step": 1,
+          "cert_id": "cert_0633",
+          "cert_name": "3D프린터운용기능사",
+          "roadmap_stage_id": "roadmap_stage_0005",
+          "avg_pass_rate": 65.5,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 2,
+          "cert_id": "cert_0898",
+          "cert_name": "전자부품장착기능사",
+          "roadmap_stage_id": "roadmap_stage_0005",
+          "avg_pass_rate": 63.5,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 3,
+          "cert_id": "cert_0532",
+          "cert_name": "철도전기신호기능사",
+          "roadmap_stage_id": "roadmap_stage_0005",
+          "avg_pass_rate": 57.9,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 4,
+          "cert_id": "cert_0632",
+          "cert_name": "전기기능사",
+          "roadmap_stage_id": "roadmap_stage_0005",
+          "avg_pass_rate": 54.0,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        },
+        {
+          "step": 5,
+          "cert_id": "cert_0533",
+          "cert_name": "전자캐드기능사",
+          "roadmap_stage_id": "roadmap_stage_0005",
+          "avg_pass_rate": 49.0,
+          "is_bottleneck": false,
+          "bottleneck_note": null,
+          "achievability": "immediate"
+        }
+      ]
+    }
+  ]
+}

@@ -183,9 +183,106 @@ def run_scenarios(
                   f"risk_0004({risk_map['risk_0004']}) + 조리/식품")
 
 
+# ---------- 로드맵 순서 무결성 검증 ----------
+def verify_ordering():
+    """
+    recommendation_service를 직접 호출하여 단조 증가 및 핵심 케이스를 검증.
+    - SQLP(20.1%)가 빅데이터분석기사(54.95%)보다 항상 뒤에 나와야 함.
+    - roadmap_sequence stage_order가 단조 증가해야 함.
+    """
+    sys.path.insert(0, BASE_DIR)
+    try:
+        from backend.app.services.recommendation_service import (
+            recommendations,
+            _load_roadmap_stages,
+        )
+    except ImportError as e:
+        print(f"[SKIP] recommendation_service import 실패: {e}")
+        return
+
+    SQLP_ID = "cert_1130"
+    BIGDATA_ID = "cert_0923"
+    roadmap_stages = _load_roadmap_stages()
+    stage_order = {v["id"]: v["order"] for v in roadmap_stages.values()}
+
+    # 데이터/AI 도메인 — SQLP(cert_1130), 빅데이터분석기사(cert_0923) 모두 domain_0001 소속
+    result = recommendations({
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0001"],
+    })
+
+    print(f"\n{'='*60}")
+    print("로드맵 순서 무결성 검증")
+    print(f"{'='*60}")
+
+    if not result.get("success"):
+        print(f"  [FAIL] API 오류: {result.get('error')}")
+        return
+
+    seq = result["data"]["roadmap_sequence"]
+
+    # 단조 증가 검증
+    orders = [stage_order.get(s["roadmap_stage_id"], 0) for s in seq]
+    is_monotone = orders == sorted(orders)
+    print(f"  단조 증가 (stage_order): {'✅ OK' if is_monotone else '❌ FAIL'}")
+    if not is_monotone:
+        print(f"    orders: {orders}")
+
+    # SQLP vs 빅데이터분석기사 순서 검증
+    seq_ids = [s["cert_id"] for s in seq]
+    sqlp_pos = next((i for i, s in enumerate(seq) if s["cert_id"] == SQLP_ID), None)
+    big_pos  = next((i for i, s in enumerate(seq) if s["cert_id"] == BIGDATA_ID), None)
+
+    if sqlp_pos is None or big_pos is None:
+        missing = []
+        if sqlp_pos is None: missing.append("SQLP")
+        if big_pos is None:  missing.append("빅데이터분석기사")
+        print(f"  [SKIP] {', '.join(missing)} 해당 필터에 없음 — domain_ids 범위 밖")
+    else:
+        ok = big_pos < sqlp_pos
+        sqlp_pr  = next(s["avg_pass_rate"] for s in seq if s["cert_id"] == SQLP_ID)
+        big_pr   = next(s["avg_pass_rate"] for s in seq if s["cert_id"] == BIGDATA_ID)
+        print(f"  빅분기(step {big_pos+1}, {big_pr}%) → SQLP(step {sqlp_pos+1}, {sqlp_pr}%): {'✅ OK' if ok else '❌ FAIL'}")
+
+    # bottleneck 항목 출력
+    bottlenecks = [s for s in seq if s.get("is_bottleneck")]
+    print(f"  is_bottleneck 항목: {len(bottlenecks)}개")
+    for b in bottlenecks[:3]:
+        print(f"    - {b['cert_name']} ({b['avg_pass_rate']}%): {b.get('bottleneck_note','')}")
+
+    # entry_advanced 출력
+    print(f"  entry_advanced: {result['data'].get('entry_advanced', False)}")
+
+    # --- is_redundant 검증 (P15: 기능사+기사 보유 → 기능사 is_redundant) ---
+    result_p15 = recommendations({
+        "risk_stage_id": "risk_0003",
+        "domain_ids": ["domain_0005"],
+        "held_cert_ids": ["cert_0479", "cert_0110"],
+    })
+    seq_p15 = result_p15["data"].get("roadmap_sequence", [])
+    redundant_cnt = sum(1 for s in seq_p15 if s.get("is_redundant"))
+    non_red_tiers = {s["cert_grade_tier"] for s in seq_p15 if not s.get("is_redundant")}
+    kisa_all_redundant = all(
+        s.get("is_redundant") for s in seq_p15 if s["cert_grade_tier"] == "1_기능사"
+    )
+    print(f"\n  [is_redundant 검증 - P15]")
+    print(f"  {len(seq_p15)}건 중 redundant={redundant_cnt}, non-redundant tiers={non_red_tiers}")
+    print(f"  기능사 전부 is_redundant: {'✅ OK' if kisa_all_redundant else '❌ FAIL'}")
+
+    # --- RAG 파이프라인 구조 검증 (P01) ---
+    print(f"\n  [RAG 파이프라인 구조 검증 - P01]")
+    p01_seq = result["data"].get("roadmap_sequence", [])
+    if p01_seq:
+        sample = p01_seq[0]
+        print(f"  text_for_dense 존재: {'✅' if sample.get('text_for_dense') else '⚠️ 빈값'}")
+        print(f"  cert_id: {sample.get('cert_id')} | domain: {sample.get('primary_domain')}")
+        print(f"  → /recommendations/evidence 호출 시 cert_id 기반 RAG 검색 가능")
+
+
 # ---------- 진입점 ----------
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     print("cert_candidates.csv 기반 추천 동작 검증")
     candidates, domain_map, job_map, risk_map, roadmap_map, pass_rate_map = load_data()
     run_scenarios(candidates, domain_map, job_map, risk_map, roadmap_map, pass_rate_map)
+    verify_ordering()

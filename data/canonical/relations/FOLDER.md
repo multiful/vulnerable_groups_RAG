@@ -2,7 +2,7 @@
 
 > **파일명**: FOLDER.md  
 > **폴더 경로**: `data/canonical/relations`  
-> **최종 수정일**: 2026-04-17  
+> **최종 수정일**: 2026-04-18  
 > **문서 해시**: SHA256:TBD  
 > **문서 역할**: 디렉터리 스캐폴드 명시서 — 담는 내용·금지·다음 단계 연계  
 > **문서 우선순위**: reference (충돌 시 루트 기준 문서 우선)  
@@ -33,6 +33,7 @@
 | `major_to_domain.csv` | 5,268 | ✅ | — |
 | `job_to_domain.csv` | 151 | ✅ job 100% / domain 42/43 | `scripts/build_all_relations.py` |
 | `risk_stage_to_roadmap_stage.csv` | 5 | ✅ | `scripts/build_all_relations.py` |
+| `cert_to_cert_relation.csv` | 4,256 | ✅ parse_ir 243행 + NCS 4,013행 | `scripts/build_cert_to_cert_relation.py` |
 | ~~`risk_stage_to_domain.csv`~~ | — | ❌ 삭제 — domain은 사용자 관심사로 결정 | — |
 
 > 상세 생성 규칙·매핑 테이블은 `MASTER_MERGE_PLAN.md` 참조.
