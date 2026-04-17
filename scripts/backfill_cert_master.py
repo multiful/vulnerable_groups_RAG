@@ -79,31 +79,38 @@ def main():
             if etype and etype != 'nan':
                 df_master.at[idx, 'exam_type_info'] = etype
             
-            # Subject Info (combine Written, Practical, Interview)
+            # Subject Info
             subjects = []
             for sub_col in ['필기', '실기', '면접']:
                 val = str(raw_row.get(sub_col, '')).strip()
-                if val and val != 'nan' and val != '0':
-                    subjects.append(f"{sub_col}: {val}")
+                if val == '1' or val == '1.0':
+                    subjects.append(sub_col)
             if subjects:
-                df_master.at[idx, 'exam_subject_info'] = " / ".join(subjects)
+                df_master.at[idx, 'exam_subject_info'] = " + ".join(subjects)
             
             # Pass Rate Summary
-            # Use '총합' if available or leave for later logic
-            total = str(raw_row.get('총합', '')).strip()
-            if total and total != 'nan':
-                df_master.at[idx, 'exam_pass_rate'] = f"최근 합격률(종합): {total}%"
+            pass_rates = []
+            for year in ['2024', '2023', '2022']:
+                for cha in ['3차', '2차', '1차']:
+                    rate_col = f"{year}년 {cha} 합격률"
+                    if rate_col in raw_row:
+                        val = str(raw_row.get(rate_col, '')).strip()
+                        if val and val != 'nan' and val != '0':
+                            try:
+                                pass_rates.append(float(val))
+                            except ValueError:
+                                pass
+            if pass_rates:
+                avg_rate = sum(pass_rates) / len(pass_rates)
+                df_master.at[idx, 'exam_pass_rate'] = f"최근 평균 합격률(종합): {avg_rate:.1f}%"
             
-            # Other fields might come from 비고 if they look like fee/frequency
-            notes = str(raw_row.get('비고', '')).strip()
-            if notes and notes != 'nan':
-                if '원' in notes or '비용' in notes:
-                    df_master.at[idx, 'exam_fee_info'] = notes
-                elif '회' in notes:
-                    df_master.at[idx, 'exam_frequency'] = notes
-                    
+            # Exam Frequency
+            freq = str(raw_row.get('검정 횟수', '')).strip()
+            if freq and freq != 'nan' and freq != '0':
+                df_master.at[idx, 'exam_frequency'] = f"연 {freq}회"
+                
             updated_count += 1
-
+                
     # 6. Save updated master
     df_master.to_csv(CERT_MASTER, index=False, encoding='utf-8-sig')
     print(f"Updated {updated_count} records in {CERT_MASTER}.")

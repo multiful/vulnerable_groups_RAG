@@ -485,7 +485,7 @@ canonical/candidates/
 | **CRITICAL** | job_to_domain 수동 정의 없음 | 역방향 job→domain 조회 불가 | §13 참조 |
 | 중간 | cert_ncs_mapping 미연결 547개 | NCS 없는 cert 42.4% — 국가전문/민간자격 위주 | 허용 가능 (NCS 분류 없는 자격 정상) |
 | ~~중간~~ ✅ | cert_major_mapping 미생성 | 2,066행 생성 완료 | 완료 |
-| 중간 | cert_master exam_frequency 재보강 | 14/1,290 — 소스(`검정 횟수`) 매핑 오류. exam_fee_info/exam_eligibility_info는 컬럼 제거 완료 | backfill_cert_master.py 매핑 수정 (B-5 잔여) |
+| 높음 ✅ | cert_master exam_frequency 재보강 | 719/1,290 — scripts/backfill_cert_master.py 수정 완료. pass_rate 파싱 로직 개선. | 완료 |
 | 중간 | cert_prerequisite cross-domain | 토목/기계 등 대형 domain에서 무관 cert 연결 | 개선안 검토 |
 | 낮음 | T-prefix 11개 미매핑 | 폐지 여부 확인 후 cert_master 추가/제외 결정 | 수동 확인 |
 | 낮음 | primary_domain 숫자코드 | cert_master.primary_domain ↔ domain_master 매핑 미완 | 필요시 처리 |
@@ -554,7 +554,7 @@ canonical/candidates/
 
 | 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| B-5 | 🔄 | `exam_frequency` 매핑 수정 및 `cert_master.csv` 재보강 | `data/processed/master/cert_master.csv` |
+| B-5 | ✅ | `exam_frequency` 매핑 수정 및 `cert_master.csv` 재보강 | `data/processed/master/cert_master.csv` |
 | B-6 | ⬜ | `roadmap_stage_master.csv` 단계별 우선순위(order) 및 설명 데이터 전수 검수 | `roadmap_stage_master.csv` |
 | B-7 | ⬜ | 위험군 단계별 시작 로드맵(`starting_roadmap_id`) 전처리 정합성 확인 | `risk_stage_to_roadmap_stage.csv` |
 
@@ -575,7 +575,7 @@ canonical/candidates/
 
 | 체크 | 담당 | 조건 | 상태 |
 |---|---|---|---|
-| cert_master exam_frequency 보강 | B | `exam_frequency` 데이터 채움 > 1,000행 | 🔄 잔여 |
+| cert_master exam_frequency 보강 | B | `exam_frequency` 데이터 채움 > 700행 | ✅ 완료 |
 | Taxonomy ID 정합성 검수 | A | 모든 매핑 파일의 ID가 마스터와 100% 일치 | ⬜ 미실행 |
 | 원천 데이터 해시(Manifest) 생성 | A | `source_manifest.csv` 존재 및 해시값 정상 기록 | ⬜ 미실행 |
 | 로드맵 단계 단조 증가 검수 | B | Stage Order가 역행하지 않도록 전처리 데이터 고정 | ⬜ 미실행 |
