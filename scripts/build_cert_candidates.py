@@ -1,198 +1,250 @@
+# Content Hash: SHA256:TBD
+# Role: Phase 4 — cert_candidates.csv / .jsonl 생성
+# 입력: data/processed/master/, data/canonical/relations/
+# 출력: data/canonical/candidates/cert_candidates.csv, .jsonl
+# 증분 규칙: content_hash 기반 — 변경 row만 재생성 가능 (전체 재생성 시 updated_at 비교)
+#
+# tier_to_risk_stages 해석:
+#   risk_0001 = 취업 안정권 (1단계)
+#   risk_0005 = 취업 가장 어려운 위험군 (5단계)
+#   기능사(입문) → 전 위험군 추천 가능
+#   기술사/기능장(전문가) → 이미 안정권에 가까운 사람만 목표 가능
+
 import os
-import pandas as pd
 import json
 import hashlib
 from datetime import datetime
 
-# Paths
-BASE_DIR = r"C:\Users\min00\OneDrive\바탕 화면\시스템 분석 2학기\vulnerable_groups_RAG"
-MASTER_DIR = os.path.join(BASE_DIR, "data", "processed", "master")
-RELATION_DIR = os.path.join(BASE_DIR, "data", "canonical", "relations")
-OUT_DIR = os.path.join(BASE_DIR, "data", "canonical", "candidates")
+import pandas as pd
 
+# ---------- 경로 설정 (이 파일 기준 상위 디렉토리로 해석) ----------
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR    = os.path.normpath(os.path.join(_SCRIPT_DIR, ".."))
+MASTER_DIR  = os.path.join(BASE_DIR, "data", "processed", "master")
+RELATION_DIR = os.path.join(BASE_DIR, "data", "canonical", "relations")
+OUT_DIR     = os.path.join(BASE_DIR, "data", "canonical", "candidates")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-def generate_content_hash(data_dict):
-    """Generates a SHA256 hash of the dictionary content."""
-    # Sort keys to ensure consistent hashing
-    encoded = json.dumps(data_dict, sort_keys=True, ensure_ascii=False).encode('utf-8')
-    return hashlib.sha256(encoded).hexdigest()
+# ---------- 상수 ----------
+# cert_grade_tier → 추천 대상 위험군 (낮은 tier일수록 더 많은 위험군에 열려있음)
+TIER_TO_RISK_STAGES: dict[str, list[str]] = {
+    "1_기능사":   ["risk_0001", "risk_0002", "risk_0003", "risk_0004", "risk_0005"],
+    "2_산업기사": ["risk_0001", "risk_0002", "risk_0003", "risk_0004"],
+    "3_기사":     ["risk_0001", "risk_0002", "risk_0003"],
+    "4_기술사":   ["risk_0001", "risk_0002"],
+    "5_기능장":   ["risk_0001"],
+    "":           ["risk_0001", "risk_0002", "risk_0003", "risk_0004"],  # 비기술자격 기본값
+}
 
-def main():
-    print("Starting Phase 4: Candidate Generation...")
+LIST_COLS = [
+    "aliases", "related_domains", "related_jobs", "related_majors",
+    "recommended_risk_stages", "roadmap_stages", "source_ids",
+]
 
-    # 1. Load Master Data
-    cert_master_path = os.path.join(MASTER_DIR, "cert_master.csv")
-    if not os.path.exists(cert_master_path):
-        print(f"Error: {cert_master_path} not found.")
-        return
-    df_cert = pd.read_csv(cert_master_path)
-    print(f"Loaded {len(df_cert)} certificates from master.")
 
-    # 2. Load Relations
-    # Aliases
-    alias_path = os.path.join(MASTER_DIR, "cert_alias.csv")
-    df_alias = pd.read_csv(alias_path) if os.path.exists(alias_path) else pd.DataFrame(columns=['cert_id', 'alias'])
-    alias_map = df_alias.groupby('cert_id')['alias'].apply(list).to_dict()
+# ---------- 유틸 ----------
+def _str(val) -> str:
+    s = str(val).strip()
+    return "" if s in ("nan", "None", "none") else s
 
-    # Domains
-    domain_mapping_path = os.path.join(RELATION_DIR, "cert_domain_mapping.csv")
-    df_domain = pd.read_csv(domain_mapping_path)
-    primary_domain_map = df_domain[df_domain['is_primary'] == True].set_index('cert_id')['domain_sub_label_id'].to_dict()
-    # Fallback for primary domain if no is_primary=True exists for some reason
-    all_primary_candidates = df_domain.groupby('cert_id')['domain_sub_label_id'].first().to_dict()
-    
-    related_domains_map = df_domain.groupby('cert_id')['domain_sub_label_id'].apply(list).to_dict()
 
-    # Jobs
-    job_mapping_path = os.path.join(RELATION_DIR, "cert_job_mapping.csv")
-    df_job = pd.read_csv(job_mapping_path) if os.path.exists(job_mapping_path) else pd.DataFrame(columns=['cert_id', 'job_role_id'])
-    related_jobs_map = df_job.groupby('cert_id')['job_role_id'].apply(list).to_dict()
+def content_hash(d: dict) -> str:
+    """updated_at 제외한 내용 기반 SHA256 (변경 감지용)."""
+    stable = {k: v for k, v in d.items() if k not in ("content_hash", "updated_at")}
+    return hashlib.sha256(
+        json.dumps(stable, sort_keys=True, ensure_ascii=False).encode()
+    ).hexdigest()
 
-    # Roadmap Stages
-    roadmap_mapping_path = os.path.join(RELATION_DIR, "cert_to_roadmap_stage.csv")
-    df_roadmap = pd.read_csv(roadmap_mapping_path)
-    roadmap_stages_map = df_roadmap.groupby('cert_id')['roadmap_stage_id'].apply(list).to_dict()
 
-    # Majors
-    major_mapping_path = os.path.join(RELATION_DIR, "cert_major_mapping.csv")
-    major_master_path = os.path.join(MASTER_DIR, "major_master.csv")
-    if os.path.exists(major_mapping_path) and os.path.exists(major_master_path):
-        df_cmm = pd.read_csv(major_mapping_path)
-        df_mm = pd.read_csv(major_master_path)
-        major_name_map = df_mm.set_index('major_id')['major_name'].to_dict()
-        # Group major IDs by cert_id and map to names
-        cert_majors = df_cmm.groupby('cert_id')['major_id'].apply(lambda x: [major_name_map.get(mid, mid) for mid in x]).to_dict()
+# ---------- 로드 ----------
+def _load_csv(path: str, required: bool = True) -> pd.DataFrame | None:
+    if os.path.exists(path):
+        return pd.read_csv(path, encoding="utf-8-sig")
+    if required:
+        raise FileNotFoundError(path)
+    return None
+
+
+def load_lookups() -> dict:
+    """모든 관계 파일을 cert_id 기준 dict로 반환."""
+    df_cert    = _load_csv(os.path.join(MASTER_DIR, "cert_master.csv"))
+    df_alias   = _load_csv(os.path.join(MASTER_DIR, "cert_alias.csv"), required=False)
+    df_domain  = _load_csv(os.path.join(RELATION_DIR, "cert_domain_mapping.csv"))
+    df_job_map = _load_csv(os.path.join(RELATION_DIR, "cert_job_mapping.csv"), required=False)
+    df_roadmap = _load_csv(os.path.join(RELATION_DIR, "cert_to_roadmap_stage.csv"))
+    df_cmm     = _load_csv(os.path.join(RELATION_DIR, "cert_major_mapping.csv"), required=False)
+    df_jm      = _load_csv(os.path.join(MASTER_DIR, "job_master.csv"), required=False)
+    df_mm      = _load_csv(os.path.join(MASTER_DIR, "major_master.csv"), required=False)
+
+    alias_map = (
+        df_alias.groupby("cert_id")["alias"].apply(list).to_dict()
+        if df_alias is not None else {}
+    )
+
+    # is_primary 컬럼: True/False 또는 "True"/"False" 혼재 처리
+    df_domain["is_primary_bool"] = df_domain["is_primary"].astype(str).str.lower() == "true"
+    primary_map = (
+        df_domain[df_domain["is_primary_bool"]]
+        .set_index("cert_id")["domain_sub_label_id"]
+        .to_dict()
+    )
+    fallback_primary_map = df_domain.groupby("cert_id")["domain_sub_label_id"].first().to_dict()
+    related_domains_map  = df_domain.groupby("cert_id")["domain_sub_label_id"].apply(list).to_dict()
+
+    related_jobs_map = (
+        df_job_map.groupby("cert_id")["job_role_id"].apply(list).to_dict()
+        if df_job_map is not None else {}
+    )
+    job_name_lookup = (
+        df_jm.set_index("job_role_id")["job_role_name"].to_dict()
+        if df_jm is not None else {}
+    )
+
+    roadmap_map = df_roadmap.groupby("cert_id")["roadmap_stage_id"].apply(list).to_dict()
+
+    if df_cmm is not None and df_mm is not None:
+        major_name_map = df_mm.set_index("major_id")["major_name"].to_dict()
+        cert_majors = (
+            df_cmm.groupby("cert_id")["major_id"]
+            .apply(lambda ids: [major_name_map.get(m, m) for m in ids])
+            .to_dict()
+        )
     else:
         cert_majors = {}
 
-    # Jobs (Enriching job names)
-    job_master_path = os.path.join(MASTER_DIR, "job_master.csv")
-    if os.path.exists(job_master_path):
-        df_jm = pd.read_csv(job_master_path)
-        job_name_lookup = df_jm.set_index('job_role_id')['job_role_name'].to_dict()
-    else:
-        job_name_lookup = {}
-
-    # 3. Process candidates
-    candidates = []
-    updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-
-    # Risk stage recommendation logic (Heuristic based on Tier)
-    tier_to_risk_stages = {
-        '1_기능사': ['risk_0001', 'risk_0002', 'risk_0003', 'risk_0004', 'risk_0005'],
-        '2_산업기사': ['risk_0001', 'risk_0002', 'risk_0003', 'risk_0004'],
-        '3_기사': ['risk_0001', 'risk_0002', 'risk_0003'],
-        '4_기술사': ['risk_0001', 'risk_0002'],
-        '5_기능장': ['risk_0001'],
-        '': ['risk_0001', 'risk_0002', 'risk_0003', 'risk_0004']
+    return {
+        "df_cert": df_cert,
+        "alias_map": alias_map,
+        "primary_map": primary_map,
+        "fallback_primary_map": fallback_primary_map,
+        "related_domains_map": related_domains_map,
+        "related_jobs_map": related_jobs_map,
+        "job_name_lookup": job_name_lookup,
+        "roadmap_map": roadmap_map,
+        "cert_majors": cert_majors,
     }
 
-    for idx, row in df_cert.iterrows():
-        cert_id = str(row['cert_id'])
-        cert_name = str(row['cert_name'])
-        tier = str(row.get('cert_grade_tier', ''))
-        if tier == 'nan': tier = ''
-        
-        # Primary Domain
-        p_domain = primary_domain_map.get(cert_id, all_primary_candidates.get(cert_id, "domain_unknown"))
-        
-        # Related Domains
-        r_domains = related_domains_map.get(cert_id, [p_domain])
-        
-        # Related Jobs
-        r_job_ids = related_jobs_map.get(cert_id, [])
-        r_job_names = [job_name_lookup.get(jid, jid) for jid in r_job_ids]
-        
-        # Related Majors
-        r_majors = cert_majors.get(cert_id, [])
-        
-        # Roadmap Stages
-        r_stages = roadmap_stages_map.get(cert_id, [])
-        
-        # Recommended Risk Stages
-        rec_risk = tier_to_risk_stages.get(tier, tier_to_risk_stages[''])
-        
-        # Aliases
-        aliases = alias_map.get(cert_id, [])
-        
-        # Text for Dense (Summary)
-        issuer = str(row.get('issuer', ''))
-        if issuer == 'nan': issuer = 'Unknown'
-        
-        desc_parts = [f"{cert_name} ({issuer})."]
-        if tier:
-            desc_parts.append(f"등급: {tier}.")
-        if r_job_names:
-            desc_parts.append(f"관련 직무: {', '.join(r_job_names)}.")
-        if r_majors:
-            desc_parts.append(f"관련 학과: {', '.join(r_majors)}.")
-        
-        # Backfilled Exam Info
-        diff = str(row.get('exam_difficulty', ''))
-        if diff and diff != 'nan':
-            desc_parts.append(f"시험 난이도: {diff}.")
-            
-        subj = str(row.get('exam_subject_info', ''))
-        if subj and subj != 'nan':
-            desc_parts.append(f"시험 과목: {subj}.")
-            
-        freq = str(row.get('exam_frequency', ''))
-        if freq and freq != 'nan':
-            desc_parts.append(f"시험 일정: {freq}.")
 
-        desc = " ".join(desc_parts)
-        
-        # Text for Sparse (Keywords)
-        sparse_text = f"{cert_name} {' '.join(aliases)} {' '.join(r_job_names)} {' '.join(r_majors)}"
-        
-        candidate_row = {
-            'row_type': 'certificate_candidate',
-            'candidate_id': f"cand_{cert_id}",
-            'cert_id': cert_id,
-            'cert_name': cert_name,
-            'aliases': aliases,
-            'issuer': issuer,
-            'primary_domain': p_domain,
-            'related_domains': r_domains,
-            'related_jobs': r_job_ids,
-            'related_majors': r_majors,
-            'recommended_risk_stages': rec_risk,
-            'roadmap_stages': r_stages,
-            'text_for_dense': desc,
-            'text_for_sparse': sparse_text,
-            'valid_from': row.get('valid_from', None),
-            'valid_to': row.get('valid_to', None),
-            'source_ids': [str(row.get('source', 'master'))],
-            'quality_flags': {},
-            'updated_at': updated_at
-        }
-        
-        # Content Hash
-        candidate_row['content_hash'] = generate_content_hash(candidate_row)
-        
-        candidates.append(candidate_row)
+# ---------- 행 생성 ----------
+def build_candidate(row: pd.Series, lk: dict, updated_at: str) -> dict:
+    cert_id   = str(row["cert_id"])
+    cert_name = _str(row["cert_name"])
+    tier      = _str(row.get("cert_grade_tier", ""))
+    issuer    = _str(row.get("issuer", "")) or "한국산업인력공단"
+
+    p_domain  = lk["primary_map"].get(cert_id) or lk["fallback_primary_map"].get(cert_id, "domain_unknown")
+    r_domains = lk["related_domains_map"].get(cert_id, [p_domain])
+    r_job_ids = lk["related_jobs_map"].get(cert_id, [])
+    r_job_names = [lk["job_name_lookup"].get(j, j) for j in r_job_ids]
+    r_majors  = lk["cert_majors"].get(cert_id, [])
+    r_stages  = lk["roadmap_map"].get(cert_id, [])
+    rec_risk  = TIER_TO_RISK_STAGES.get(tier, TIER_TO_RISK_STAGES[""])
+    aliases   = lk["alias_map"].get(cert_id, [])
+
+    # text_for_dense: 의미 검색용 — 자격증 소개 + 직무/학과 컨텍스트
+    # (RAG indexing guide: 단일 chunk가 독립적으로 검색 가능하도록 충분한 컨텍스트 포함)
+    parts = [f"{cert_name} ({issuer})."]
+    if tier:
+        parts.append(f"등급: {tier}.")
+    cert_type = _str(row.get("cert_type", ""))
+    if cert_type:
+        parts.append(f"자격 유형: {cert_type}.")
+    if r_job_names:
+        parts.append(f"관련 직무: {', '.join(r_job_names[:10])}.")  # 최대 10개
+    if r_majors:
+        parts.append(f"관련 학과: {', '.join(r_majors[:10])}.")
+    diff = _str(row.get("exam_difficulty", ""))
+    if diff:
+        parts.append(f"시험 난이도: {diff}.")
+    subj = _str(row.get("exam_subject_info", ""))
+    if subj:
+        parts.append(f"시험 과목: {subj}.")
+    freq = _str(row.get("exam_frequency", ""))
+    if freq:
+        parts.append(f"연간 검정 횟수: {freq}.")
+    avg_pass = _str(row.get("avg_pass_rate_3yr", ""))
+    if avg_pass:
+        parts.append(f"3년 평균 합격률: {avg_pass}%.")
+
+    # text_for_sparse: exact match 보강용 — 자격증명 변형 + 직무명 + 학과명
+    # (RAG indexing guide: text_for_sparse는 BM25 키워드 검색 활성화 시 사용)
+    sparse_parts = [cert_name] + aliases + r_job_names + r_majors
+    sparse_text = " ".join(p for p in sparse_parts if p)
+
+    row_data = {
+        "row_type": "certificate_candidate",
+        "candidate_id": f"cand_{cert_id}",
+        "cert_id": cert_id,
+        "cert_name": cert_name,
+        "aliases": aliases,
+        "issuer": issuer,
+        "primary_domain": p_domain,
+        "related_domains": r_domains,
+        "related_jobs": r_job_ids,
+        "related_majors": r_majors,
+        "recommended_risk_stages": rec_risk,
+        "roadmap_stages": r_stages,
+        "cert_grade_tier": tier,
+        "text_for_dense": " ".join(parts),
+        "text_for_sparse": sparse_text,
+        "valid_from": None,
+        "valid_to": None,
+        "source_ids": [_str(row.get("source", "master")) or "master"],
+        "quality_flags": {},
+        "updated_at": updated_at,
+    }
+    row_data["content_hash"] = content_hash(row_data)
+    return row_data
 
 
-    # 4. Save to CSV
-    df_cand = pd.DataFrame(candidates)
-    
-    # Convert lists to strings for CSV storage
-    df_cand_csv = df_cand.copy()
-    for col in ['aliases', 'related_domains', 'related_jobs', 'related_majors', 'recommended_risk_stages', 'roadmap_stages', 'source_ids']:
-        df_cand_csv[col] = df_cand_csv[col].apply(lambda x: json.dumps(x, ensure_ascii=False))
-    df_cand_csv['quality_flags'] = df_cand_csv['quality_flags'].apply(lambda x: json.dumps(x))
+# ---------- 저장 ----------
+def save_csv(candidates: list[dict], path: str) -> None:
+    df = pd.DataFrame(candidates)
+    for col in LIST_COLS:
+        df[col] = df[col].apply(lambda x: json.dumps(x, ensure_ascii=False))
+    df["quality_flags"] = df["quality_flags"].apply(lambda x: json.dumps(x))
+    df.to_csv(path, index=False, encoding="utf-8-sig")
 
-    out_csv = os.path.join(OUT_DIR, "cert_candidates.csv")
-    df_cand_csv.to_csv(out_csv, index=False, encoding='utf-8-sig')
-    print(f"Saved {len(df_cand)} candidates to {out_csv}.")
 
-    # 5. Save to JSONL
+def save_jsonl(candidates: list[dict], path: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for c in candidates:
+            f.write(json.dumps(c, ensure_ascii=False) + "\n")
+
+
+# ---------- 메인 ----------
+def main() -> None:
+    print("Phase 4: Candidate Generation 시작")
+
+    lk = load_lookups()
+    df_cert = lk["df_cert"]
+
+    # is_active 필터 — 비활성 자격증 제외
+    if "is_active" in df_cert.columns:
+        before = len(df_cert)
+        df_cert = df_cert[df_cert["is_active"].astype(str).str.lower() != "false"]
+        skipped = before - len(df_cert)
+        if skipped:
+            print(f"  is_active=False {skipped}개 제외")
+
+    updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    candidates = [build_candidate(row, lk, updated_at) for _, row in df_cert.iterrows()]
+
+    out_csv   = os.path.join(OUT_DIR, "cert_candidates.csv")
     out_jsonl = os.path.join(OUT_DIR, "cert_candidates.jsonl")
-    with open(out_jsonl, 'w', encoding='utf-8') as f:
-        for cand in candidates:
-            f.write(json.dumps(cand, ensure_ascii=False) + '\n')
-    print(f"Saved {len(df_cand)} candidates to {out_jsonl}.")
+
+    save_csv(candidates, out_csv)
+    save_jsonl(candidates, out_jsonl)
+
+    # 품질 요약
+    no_job    = sum(1 for c in candidates if not c["related_jobs"])
+    no_domain = sum(1 for c in candidates if c["primary_domain"] == "domain_unknown")
+    print(f"생성 완료: {len(candidates)}행")
+    print(f"  primary_domain 미결정: {no_domain}개")
+    print(f"  related_jobs 없음:     {no_job}개 (domain_0028 언어/속기 등 정상)")
+    print(f"  출력: {out_csv}")
+    print(f"  출력: {out_jsonl}")
+
 
 if __name__ == "__main__":
     main()

@@ -14,4 +14,4 @@ router = APIRouter()
 @router.get("/risk/stages")
 def list_risk_stages() -> dict:
     """위험군 단계 메타 조회 스텁. canonical 데이터 연동 전까지 NOT_IMPLEMENTATION."""
-    return risk_stage_service.stages_placeholder()
+    return risk_stage_service.stages_list()

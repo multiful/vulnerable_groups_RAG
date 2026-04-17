@@ -1,7 +1,7 @@
 # MASTER_MERGE_PLAN.md
 
 > **파일명**: MASTER_MERGE_PLAN.md
-> **최종 수정일**: 2026-04-15
+> **최종 수정일**: 2026-04-17
 > **문서 해시**: SHA256:TBD
 > **문서 역할**: master CSV 체크리스트 — 보강/생성/매핑/candidate 전체 진행 현황
 > **문서 우선순위**: reference
@@ -58,7 +58,13 @@
 | written_avg_pass_rate | ✅ | |
 | practical_avg_pass_rate | ✅ | |
 | avg_pass_rate_3yr | ✅ | |
-| exam_type, has_written, has_practical, has_interview, difficulty, exam_count_per_year | ⬜ optional | data_cert_rows 병합으로 보강 가능 — Phase 4 비blocking |
+| **exam_difficulty** | 🔄 617/1,290 | backfill_cert_master.py로 추가 — 소스 없는 자격증 빈값 허용 |
+| **exam_type_info** | 🔄 669/1,290 | backfill_cert_master.py로 추가 — 소스 없는 자격증 빈값 허용 |
+| **exam_subject_info** | 🔄 669/1,290 | backfill_cert_master.py로 추가 — 소스 없는 자격증 빈값 허용 |
+| **exam_pass_rate** | 🔄 698/1,290 | backfill_cert_master.py로 추가 — 소스 없는 자격증 빈값 허용 |
+| **exam_frequency** | ❌ 14/1,290 | 소스(`검정 횟수` 1009/1086) 있음 — B-5 매핑 수정으로 재보강 필요 |
+| ~~exam_fee_info~~ | ❌ 제거됨 | 소스 없음 + 설명용 데이터 → RAG 레이어에서 제공 |
+| ~~exam_eligibility_info~~ | ❌ 제거됨 | 소스 없음 + 응시자격은 복잡한 조건 텍스트 → RAG 레이어에서 제공 |
 
 ---
 
@@ -247,12 +253,23 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 
 ### Phase 2 — Source Mapping (보강)
 
-#### Step 2-1 — cert_master 시험 상세 컬럼 보강 ⬜ (optional — Phase 4 비blocking)
+#### Step 2-1 — cert_master 시험 상세 컬럼 보강 🔄 (부분 완료 — 재보강 필요)
 - 소스: `raw/csv/data_cert_rows.csv` (1,086행)
-- join: cert_name 기준
-- 추가 컬럼: exam_type, has_written, has_practical, has_interview, difficulty, exam_count_per_year
+- **스크립트**: `scripts/backfill_cert_master.py` (Person B 작성, 실행 완료)
+- **실제 추가된 컬럼 및 현황** (플랜 컬럼명과 다름):
+
+| 컬럼 | 채워진 행 | 상태 |
+|---|---|---|
+| exam_difficulty | 617/1,290 | 🔄 부분 완료 (소스 없는 자격증 빈값 허용) |
+| exam_type_info | 669/1,290 | 🔄 부분 완료 (소스 없는 자격증 빈값 허용) |
+| exam_subject_info | 669/1,290 | 🔄 부분 완료 (소스 없는 자격증 빈값 허용) |
+| exam_pass_rate | 698/1,290 | 🔄 부분 완료 (소스 없는 자격증 빈값 허용) |
+| exam_frequency | 14/1,290 | ❌ 소스(`검정 횟수` 1009/1086) 매핑 오류 — 재보강 필요 |
+| ~~exam_fee_info~~ | — | ❌ **컬럼 제거** — 소스 없음, RAG 레이어에서 제공 |
+| ~~exam_eligibility_info~~ | — | ❌ **컬럼 제거** — 소스 없음, RAG 레이어에서 제공 |
+
+- **잔여 과제**: `exam_frequency` 소스 컬럼(`검정 횟수`)으로 매핑 수정 후 재보강
 - **Phase 4 candidate 생성에 필수 아님** — cert_master 현재 컬럼으로 최소 candidate 생성 가능
-- 추천 필터링 품질 향상이 필요해질 때 진행
 
 #### Step 2-2 — cert_domain_mapping 보완 ✅
 - 578개 빈값(domain_name_raw 없음) — keyword 규칙 + top_domain fallback으로 전량 처리
@@ -285,11 +302,7 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - 소스: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼
 - join: cert_name → cert_id, 학과명 split → major_id
 - 출력: `canonical/relations/cert_major_mapping.csv` (2,066행 완료)
-
-#### Step 3-4 — cert_master exam 컬럼 보강 ✅
-- 소스: `raw/csv/data_cert_rows.csv`
-- 대상: `processed/master/cert_master.csv` (719행 보강 및 신규 7개 컬럼 추가 완료)
-- **스크립트**: `scripts/build_cert_major_mapping.py` (미작성 — Phase 4 비blocking)
+- **스크립트**: `scripts/build_cert_major_mapping.py`
 
 #### Step 3-4 — risk_stage_to_roadmap_stage.csv ✅
 - 결과: 5행
@@ -306,11 +319,12 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 - **스크립트**: `scripts/build_all_relations.py` (build_job_to_domain 함수)
 - domain_0028(언어/문서/속기) 미연결 — by design (job_master에 해당 직종 없음)
 
-### Phase 4 — Candidate Generation ⬜  ← **담당자 직접 구현**
+### Phase 4 — Candidate Generation ⬜  ← **Person A 직접 구현**
 
 > **진입 조건**: Phase 3 핵심 완료 → ✅ 충족  
-> **담당**: 담당자 직접 구현 (`scripts/build_cert_candidates.py`)  
-> **이 플랜 범위 외**: Phase 4 이후(추천 엔진 입력) 는 담당자 영역 — 상세 스키마·생성 규칙은 DATA_SCHEMA.md §candidate 참조
+> **스크립트**: `scripts/build_cert_candidates.py` (파일 존재, 실행 미완료)  
+> **출력 파일**: `data/canonical/candidates/cert_candidates.csv`, `cert_candidates.jsonl` — **미생성**  
+> **상세 스키마·생성 규칙**: DATA_SCHEMA.md §candidate 참조
 
 ---
 
@@ -321,12 +335,13 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 | 스크립트 | 담당 Step | 출력 파일 | 상태 |
 |---|---|---|---|
 | `scripts/build_cert_domain_mapping.py` | Step 2-2 | `canonical/relations/cert_domain_mapping.csv` | ✅ |
+| `scripts/backfill_cert_master.py` | Step 2-1 | `processed/master/cert_master.csv` (7컬럼 추가) | 🔄 부분완료 (3컬럼 재보강 필요) |
 | `scripts/build_all_relations.py` | Step 3-1 | `canonical/relations/cert_ncs_mapping.csv` | ✅ |
 | `scripts/build_all_relations.py` | Step 3-2 | `canonical/relations/cert_job_mapping.csv` | ✅ |
+| `scripts/build_cert_major_mapping.py` | Step 3-3 | `canonical/relations/cert_major_mapping.csv` | ✅ 2,066행 |
 | `scripts/build_all_relations.py` | Step 3-4 | `canonical/relations/risk_stage_to_roadmap_stage.csv` | ✅ |
-| `scripts/build_all_relations.py` | Step 3-6 | `canonical/relations/job_to_domain.csv` | ✅ |
 | `scripts/build_all_relations.py` | Step 3-5 ❌ | `risk_stage_to_domain.csv` | ❌ 폐기 (코드 잔존, 출력 미사용) |
-| `scripts/build_cert_major_mapping.py` | Step 3-3 | `canonical/relations/cert_major_mapping.csv` | ⬜ 미작성 (비blocking) |
+| `scripts/build_all_relations.py` | Step 3-6 | `canonical/relations/job_to_domain.csv` | ✅ |
 | `scratch_build_masters.py` | Phase 1 전체 | `processed/master/*.csv` | ✅ |
 
 > `build_all_relations.py`의 risk_stage_to_domain 코드는 폐기됐으나 삭제 전 주석 유지.  
@@ -352,8 +367,8 @@ canonical/relations/
 └── cert_to_hosting_org.csv         ❌  defer
 
 canonical/candidates/
-| `cert_candidates.csv`             | ✅  Phase 4 완료 (1,290행) |
-| `cert_candidates.jsonl`           | ✅  Backend ingestion용 JSONL 생성 |
+| `cert_candidates.csv`             | ⬜  미생성 — Phase 4 미실행 |
+| `cert_candidates.jsonl`           | ⬜  미생성 — Phase 4 미실행 |
 ```
 
 ---
@@ -469,8 +484,8 @@ canonical/candidates/
 | **CRITICAL** | risk_stage_to_domain 수동 정의 없음 | 위험군 기반 도메인 필터링 불가 | §13 참조 |
 | **CRITICAL** | job_to_domain 수동 정의 없음 | 역방향 job→domain 조회 불가 | §13 참조 |
 | 중간 | cert_ncs_mapping 미연결 547개 | NCS 없는 cert 42.4% — 국가전문/민간자격 위주 | 허용 가능 (NCS 분류 없는 자격 정상) |
-| 중간 | cert_major_mapping 미생성 | major→cert 추천 경로 단절 | Step 3-3 실행 |
-| 중간 | cert_master 시험 상세 컬럼 미보강 | exam_type/difficulty 등 6개 컬럼 빈값 | Step 2-1 실행 |
+| ~~중간~~ ✅ | cert_major_mapping 미생성 | 2,066행 생성 완료 | 완료 |
+| 중간 | cert_master exam_frequency 재보강 | 14/1,290 — 소스(`검정 횟수`) 매핑 오류. exam_fee_info/exam_eligibility_info는 컬럼 제거 완료 | backfill_cert_master.py 매핑 수정 (B-5 잔여) |
 | 중간 | cert_prerequisite cross-domain | 토목/기계 등 대형 domain에서 무관 cert 연결 | 개선안 검토 |
 | 낮음 | T-prefix 11개 미매핑 | 폐지 여부 확인 후 cert_master 추가/제외 결정 | 수동 확인 |
 | 낮음 | primary_domain 숫자코드 | cert_master.primary_domain ↔ domain_master 매핑 미완 | 필요시 처리 |
@@ -510,9 +525,9 @@ canonical/candidates/
 | cert → job | ✅ | cert_job_mapping |
 | cert → roadmap_stage | ✅ | cert_to_roadmap_stage |
 | cert → ncs | ✅ (57.6%) | cert_ncs_mapping |
-| cert → major | ❌ | cert_major_mapping 미생성 |
-| risk_stage → cert | ❌ | risk_stage_to_domain 수동 정의 필요 |
-| job → cert (역방향) | ❌ | job_to_domain 수동 정의 필요 |
+| cert → major | ✅ (2,066행) | cert_major_mapping |
+| risk_stage → cert | ✅ | risk_stage → roadmap_stage 경유 (cert_to_roadmap_stage) |
+| job → cert (역방향) | ✅ | job_to_domain 경유 (cert_job_mapping 역조회) |
 | ncs → domain | 간접 | cert 경유 (ncs→cert→domain) |
 
 ---
@@ -535,26 +550,40 @@ canonical/candidates/
 
 ---
 
-### Person B — cert_major_mapping + cert_master 보강 담당 (신규 배정)
+### Person B — cert_master 시험 상세 컬럼 재보강 (잔여 작업)
+
+> B-1~B-4는 실파일 검증 완료 — 모두 완료됨. 아래 B-5만 잔여.
 
 | 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| B-1 | ✅ | risk_stage_to_roadmap_stage.csv | `canonical/relations/` 5행 |
-| B-2 | ✅ | job_to_domain.csv | `canonical/relations/` 151행 |
-| B-3 | ✅ | major_to_domain.csv | `canonical/relations/` 5,268행 |
-| B-4 | ✅ | cert_major_mapping.csv 생성 | `canonical/relations/cert_major_mapping.csv` (2,066행) |
-| B-5 | ✅ | cert_master 시험 상세 컬럼 보강 | `processed/master/cert_master.csv` (719행 보강) |
+| B-5 | 🔄 | cert_master 시험 상세 컬럼 재보강 | `data/processed/master/cert_master.csv` |
 
-**B-4 작업 순서**: 독립 진행 가능  
-**B-4 참고 소스**: `raw/csv/ncs_mapping_rows.csv` 학과 컬럼 → major_master join  
-**B-5**: Phase 4 이후 exam_type 등 6개 컬럼 보강, `raw/csv/data_cert_rows.csv` (1,086행) 참고
+#### B-5 상세 — 재보강 필요 컬럼
+
+`scripts/backfill_cert_master.py`로 7개 컬럼이 추가됐으나, 아래 3개 컬럼은 데이터가 사실상 비어있음:
+
+| 컬럼 | 현재 채움 | 해야 할 일 |
+|---|---|---|
+| `exam_frequency` | 14/1,290 | `data_cert_rows.csv`의 `검정 횟수` 컬럼으로 매핑 수정 후 재실행 |
+| ~~`exam_fee_info`~~ | — | **제거 완료** — 소스 없음, 설명용 데이터는 RAG 레이어 담당 |
+| ~~`exam_eligibility_info`~~ | — | **제거 완료** — 소스 없음, 복잡한 조건 텍스트는 RAG 레이어 담당 |
+
+**작업 절차**:
+1. `scripts/backfill_cert_master.py` 열기
+2. `exam_frequency` 매핑을 `비고2` → `검정 횟수` 컬럼으로 수정
+3. 스크립트 재실행 (cert_master.csv 덮어쓰기)
+4. `exam_frequency` 채움 수 재확인 (목표: ~1009행)
+5. 완료 후 이 문서 B-5 상태를 ✅로 갱신
+
+**참고**: `exam_difficulty`(617), `exam_type_info`(669), `exam_subject_info`(669), `exam_pass_rate`(698)는 이미 부분 보강 완료 — 빈값은 소스에 없는 자격증으로 허용 가능.
 
 ---
 
 ### 완료 체크포인트
 
-| 체크 | 담당 | 조건 |
-|---|---|---|
-| cert_major_mapping 생성 | B | 파일 존재, 행 수 > 0 |
-| cert_candidates.csv 생성 | A | 1,290행, content_hash 있음 |
-| DEV_LOG.md 반영 | A | Phase 3 완료 + Phase 4 착수 기록 |
+| 체크 | 담당 | 조건 | 상태 |
+|---|---|---|---|
+| cert_major_mapping 생성 | B | 파일 존재, 행 수 > 0 | ✅ 2,066행 확인 |
+| cert_master exam 3컬럼 재보강 | B | exam_fee_info / exam_frequency / exam_eligibility_info 재확인 | 🔄 잔여 |
+| cert_candidates.csv 생성 | A | 1,290행, content_hash 있음 | ⬜ 미실행 |
+| DEV_LOG.md 반영 | A | Phase 3 완료 + Phase 4 착수 기록 | ⬜ |

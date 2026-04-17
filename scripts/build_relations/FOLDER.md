@@ -30,3 +30,9 @@
 
 - 비어 있거나 `.gitkeep`만 둔 것은 **개발 스캐폴드**일 수 있다.
 - 대용량 원본·산출물은 Git 정책(`.gitignore`)과 `HASH_INCREMENTAL_BUILD_GUIDE.md` 증분 원칙을 따른다.
+
+## Audit Findings (by Gemini CLI) - 2026-04-17
+- **Issue**: 자격증 간 선후 관계(`cert_to_cert_relation`)를 생성할 때, 해당 관계가 왜 형성되었는지에 대한 텍스트 근거(Reasoning)가 누락되어 있어 사용자에게 신뢰성 있는 설명을 제공하기 어려움.
+- **Required Action**: `build_all_relations.py` 수정 시, PDF 파싱 결과물(`data/index_ready/parse_ir/`)을 검색하여 "로드맵", "권장 순서", "선행 학습" 등의 키워드가 포함된 문장을 추출하고, 이를 `cert_to_cert_relation.csv`의 `reasoning_evidence` 컬럼에 저장할 것.
+- **Feasibility**: LangChain의 `SimpleDirectoryLoader` 또는 파싱된 JSONL을 정규표현식으로 스캔하여 관계 쌍과 텍스트를 매핑하는 로직 구현 권장.
+

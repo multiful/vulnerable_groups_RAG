@@ -30,3 +30,9 @@
 
 - 비어 있거나 `.gitkeep`만 둔 것은 **개발 스캐폴드**일 수 있다.
 - 대용량 원본·산출물은 Git 정책(`.gitignore`)과 `HASH_INCREMENTAL_BUILD_GUIDE.md` 증분 원칙을 따른다.
+
+## Audit Findings (by Gemini CLI) - 2026-04-17
+- **Issue**: `domain_v2.txt` 파일이 정형화되지 않은 텍스트 형식이어서 자동화 검증 시 파싱 오류가 발생할 위험이 높음.
+- **Required Action**: `domain_v2.txt`를 기반으로 한 구조적 마스터 파일(`domain_master.csv`)을 생성하거나, 텍스트 파일을 엄격한 `Key: Value` 또는 `Hierarchy` 형식으로 리팩토링할 것.
+- **Note**: Claude Code는 `backend/app/services/recommendation_service.py`에서 사용하는 `domain_map` 로직이 이 파일의 최신 내용을 반영하는지 전수 조사할 것.
+

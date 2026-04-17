@@ -1,15 +1,53 @@
 # File: risk_stage_service.py
-# Last Updated: 2026-04-03
+# Last Updated: 2026-04-17
 # Content Hash: SHA256:TBD
-# Role: 위험군 단계 서비스 스텁
+# Role: 위험군 단계 목록 조회 — risk_stage_master.csv 기반
+#
+# NOTE (CLAUDE.md §6):
+#   - 1단계 = 관심군 (관심군 → 취업 안정권에 가까운 쪽)
+#   - 5단계 = 은둔군 (취업 가장 어려운 위험군)
+#   - 2~4단계 세부 의미는 CSV의 description 그대로 노출한다.
+#     "확정 전 임의 정의 금지" 원칙에 따라 CSV 값 외 추가 정의를 삽입하지 않는다.
+
 from __future__ import annotations
 
-from backend.app.schemas.envelope import err_envelope
+import csv
+from functools import lru_cache
+from pathlib import Path
+
+from backend.app.schemas.envelope import ok_envelope
+
+_RISK_MASTER = Path(__file__).parents[3] / "data/processed/master/risk_stage_master.csv"
+_RISK_TO_ROADMAP = Path(__file__).parents[3] / "data/canonical/relations/risk_stage_to_roadmap_stage.csv"
 
 
-def stages_placeholder() -> dict:
-    return err_envelope(
-        "NOT_IMPLEMENTED",
-        "위험군 단계 목록 API는 canonical 데이터 연동 후 구현 예정입니다.",
-        {"route": "GET /api/v1/risk/stages"},
-    )
+@lru_cache(maxsize=1)
+def _load() -> list[dict]:
+    if not _RISK_MASTER.exists():
+        return []
+    with _RISK_MASTER.open(encoding="utf-8-sig") as f:
+        return list(csv.DictReader(f))
+
+
+@lru_cache(maxsize=1)
+def _load_risk_to_roadmap() -> dict[str, str]:
+    if not _RISK_TO_ROADMAP.exists():
+        return {}
+    with _RISK_TO_ROADMAP.open(encoding="utf-8-sig") as f:
+        return {r["risk_stage_id"]: r["roadmap_stage_id"] for r in csv.DictReader(f)}
+
+
+def stages_list() -> dict:
+    rows = _load()
+    r2rm = _load_risk_to_roadmap()
+    stages = [
+        {
+            "id": r["risk_stage_id"],
+            "name": r["risk_stage_name"],
+            "description": r.get("description", ""),
+            "order": int(r.get("risk_stage_order", 0)),
+            "starting_roadmap_stage_id": r2rm.get(r["risk_stage_id"]),
+        }
+        for r in sorted(rows, key=lambda x: int(x.get("risk_stage_order", 0)))
+    ]
+    return ok_envelope({"stages": stages, "total": len(stages)})
