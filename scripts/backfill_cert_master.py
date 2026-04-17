@@ -63,6 +63,7 @@ def main():
 
     # 5. Backfill
     updated_count = 0
+    freq_data = []
     for idx, row in df_master.iterrows():
         key = row['normalized_key']
         if key in lookup:
@@ -107,10 +108,38 @@ def main():
             # Exam Frequency
             freq = str(raw_row.get('검정 횟수', '')).strip()
             if freq and freq != 'nan' and freq != '0':
-                df_master.at[idx, 'exam_frequency'] = f"연 {freq}회"
+                try:
+                    num_freq = int(float(freq))
+                    df_master.at[idx, 'exam_frequency'] = f"연 {num_freq}회"
+                    # We store grade_name to calculate average later
+                    freq_data.append({'grade': str(row.get('grade_name', '')), 'freq': num_freq})
+                except ValueError:
+                    df_master.at[idx, 'exam_frequency'] = f"연 {freq}회"
                 
             updated_count += 1
                 
+    # Calculate average frequency per grade
+    grade_avg_freq = {}
+    if freq_data:
+        df_freq = pd.DataFrame(freq_data)
+        if not df_freq.empty:
+            grade_avg_freq = df_freq.groupby('grade')['freq'].mean().round().to_dict()
+
+    # Impute missing frequencies
+    imputed_count = 0
+    for idx, row in df_master.iterrows():
+        current_freq = df_master.at[idx, 'exam_frequency']
+        if pd.isna(current_freq) or str(current_freq).strip() == '':
+            grade = str(row.get('grade_name', ''))
+            if grade in grade_avg_freq and not pd.isna(grade_avg_freq[grade]) and grade_avg_freq[grade] > 0:
+                avg_val = int(grade_avg_freq[grade])
+                df_master.at[idx, 'exam_frequency'] = f"연 {avg_val}회"
+            else:
+                df_master.at[idx, 'exam_frequency'] = "연 1회 미만"
+            imputed_count += 1
+            
+    print(f"Imputed missing exam_frequency for {imputed_count} records.")
+
     # 6. Save updated master
     df_master.to_csv(CERT_MASTER, index=False, encoding='utf-8-sig')
     print(f"Updated {updated_count} records in {CERT_MASTER}.")
