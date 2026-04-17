@@ -12,6 +12,8 @@
 
 ---
 
+[![Sylveon](https://img.pokemondb.net/sprites/sword-shield/normal/sylveon.png)](https://pokemondb.net/pokedex/sylveon)
+
 ## 1. 용도
 
 엔티티 간 **관계(Relation) canonical 산출물**을 둔다. 추천 그래프·후보 생성의 직접 입력이 된다.
