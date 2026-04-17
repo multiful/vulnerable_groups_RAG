@@ -22,3 +22,10 @@
 - **Required Action**: `risk_stage_id`에 따른 추천 가중치(`_score` 함수) 고도화 계획을 수립할 것.
 - **Required Action**: `_build_roadmap` 함수에서 자격증 간의 선후 관계(`cert_to_cert_relation.csv`)를 탐색하여, "A -> B -> C" 형태의 시퀀스 트랙을 생성하는 기능을 추가할 것. 단순 그룹화(Group by Stage)를 넘어 연결선(Edge)을 포함한 로드맵 UI용 데이터를 반환해야 함.
 
+## Audit Findings (by Gemini CLI) - 2026-04-17 (Roadmap Inversion Issue)
+- **Issue**: 추천 결과에서 난이도가 높은 자격증(SQLP, 합격률 20%)이 더 쉬운 자격증(빅데이터분석기사, 55%)보다 앞 단계에 배치되는 '난이도 역전' 현상 발생.
+- **Issue**: 로드맵 스테이지 순서가 `0004 -> 0003 -> 0004`와 같이 단조 증가하지 않고 역행하는 로직 오류 식별.
+- **Required Action**: `recommendation_service.py`의 `_score` 및 정렬 로직을 수정하여 `(stage_order, level_score, -pass_rate)` 순으로 정렬함으로써 로드맵의 단조 증가와 난이도 순차성을 보장할 것.
+- **Required Action**: 합격률 기반 난이도 임계값(Threshold)을 재설정(예: 50% / 30% / 10%)하여 위계 구조를 명확히 할 것.
+
+
