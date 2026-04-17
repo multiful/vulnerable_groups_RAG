@@ -580,3 +580,33 @@ canonical/candidates/
 | 원천 데이터 해시(Manifest) 생성 | A | `source_manifest.csv` 존재 및 해시값 정상 기록 | ⬜ 미실행 |
 | 로드맵 단계 단조 증가 검수 | B | Stage Order가 역행하지 않도록 전처리 데이터 고정 | ⬜ 미실행 |
 
+---
+
+## 15. [신규] 업데이트 및 보완 임무 (Audit Findings 기반)
+
+최근 추천 로직 및 평가 체계 고도화를 위해 추가된 필수 임무입니다.
+
+| 임무 ID | 담당 | 보완 임무 내용 | 관련 산출물 | 상태 |
+|---|---|---|---|---|
+| **C-1** | **Gemini/Claude** | **지식 기반 근거(Reasoning) 추출**: PDF/Parse IR 스캔 및 자격증 선후 관계 근거 생성 | `cert_to_cert_relation.csv` | ✅ 완료 |
+| **C-2** | **Claude Code** | **추천 로직 고도화**: 동적 진입점(보유 자격증 기반), 합격률 기반 병목(Bottleneck) 분석, 중복 자격 필터링 | `recommendation_service.py` | ✅ 완료 |
+| **C-3** | **Persona/Eval** | **골든셋(Golden Set) 구축**: 15종 페르소나 설계 및 전문가 검토용 초기 정답셋 생성 | `golden_set.jsonl` | ✅ 완료 |
+| **C-4** | **Automation** | **LLM-as-a-Judge 평가**: 자동 정확도 측정 및 리포트 생성 파이프라인 구축 | `scripts/evaluation/` | ⬜ 예정 |
+| **C-5** | **Policy** | **전문가 정성 검토**: 생성된 로드맵의 도메인 지식 부합 여부 최종 승인 및 미세 조정 | `docs/evaluation/` | 🔄 진행중 |
+
+**핵심 업데이트 사항**:
+1. **로드맵 무결성**: 정렬 키 `(stage_order, level_score, -pass_rate)` 확정으로 단계 역행 방지.
+2. **개인화**: 사용자의 `held_cert_ids`를 분석하여 하위 티어 자격증은 `is_redundant` 처리.
+3. **설명력**: `reasoning_evidence` 컬럼을 활용해 RAG 응답의 신뢰도 확보.
+
+---
+
+### 완료 체크포인트 (고도화/평가 한정)
+
+| 체크 | 담당 | 조건 | 상태 |
+|---|---|---|---|
+| 데이터 무결성 감사 | A | `audit_integrity.md` 내 Taxonomy 위반 0건 확인 | ✅ 완료 |
+| 페르소나 커버리지 | B | 1~5단계 위험군 및 10개 이상의 도메인 시나리오 확보 | ✅ 완료 |
+| 평가 자동화 성공 | C | `evaluate_recommendations.py` 실행 시 Accuracy 도출 가능 | ⬜ 미실행 |
+| 전문가 최종 승인 | All | `golden_set.jsonl`에 대한 도메인 전문가의 '정답' 확인 완료 | 🔄 진행중 |
+

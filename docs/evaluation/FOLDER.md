@@ -35,3 +35,10 @@
 ## 4. 사용 방법
 
 `personas.json`의 `api_request` 필드를 `POST /api/v1/recommendations` 본문으로 사용.
+
+## 5. Next Steps (Audit Findings by Gemini CLI)
+
+1. **전문가 정성 검토**: `golden_set.jsonl`로 생성된 초기 정답셋이 실제 도메인 지식과 부합하는지 전문가 검토 및 수정 필요.
+2. **LLM-as-a-Judge 도입**: 시스템 출력값과 골든셋을 비교하여 점수(Relevance, Accuracy)를 매기는 자동 평가 스크립트 구축.
+3. **골든셋 확장**: 현재 5종인 골든셋을 `personas.json`의 전체 15종으로 확대 적용.
+4. **Reasoning 품질 고도화**: `cert_to_cert_relation.csv`에 추출된 `reasoning_evidence` 문장이 사용자에게 자연스럽게 전달되는지 프롬프트 튜닝 및 검증.
