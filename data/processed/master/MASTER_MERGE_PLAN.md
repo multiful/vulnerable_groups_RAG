@@ -532,58 +532,51 @@ canonical/candidates/
 
 ---
 
-## 14. 2인 업무 분담 (~2026-04-22)
+## 14. 데이터 수집 및 전처리 업무 분담 (~2026-04-25)
 
-> **역할 기준**  
-> - Person A: cert / ncs 관련 master CSV 및 매핑  
-> - Person B: major / hosting / risk / roadmap 관련 CSV  
+> **역할 기준 (수집/전처리 전용)**  
+> - **Person A (유빈)**: `cert / ncs` 관련 마스터 데이터 정제 및 원천 매핑 (Phase 1-2)  
+> - **Person B (영민)**: `major / roadmap / risk` 관련 데이터 보강 및 마스터 검수 (Phase 1-2)  
 
-### Person A — cert_candidates 생성 담당 (잔여 작업)
+### Person A (유빈) — 자격증 및 NCS 데이터 정제 (잔여 작업)
 
 | 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| A-1 | ❌ | cert_candidates.csv 생성 스크립트 작성 | `scripts/build_cert_candidates.py` |
-| A-2 | ✅ | cert_candidates.csv 최초 생성 | `canonical/candidates/cert_candidates.csv` 1,290행 |
+| A-1 | 🔄 | NCS 코드 정규화 및 마스터 ID 정합성 전수 조사 | `ncs_master.csv`, `cert_ncs_mapping.csv` |
+| A-2 | ⬜ | `cert_master.csv` 원천 데이터 해시(`source_hash`) 산출 로직 구현 | `scripts/maintenance/generate_master_hashes.py` (신규) |
+| A-3 | ⬜ | Unmapped Raw Data(직무/도메인) 텍스트 분석 및 Taxonomy 편입 검토 | `processed/mappings/` 내 unmapped 리스트 |
 
-**작업 순서**: A-1 → A-2  
-**참고**: §8 Phase 4 candidate row 스키마 기준, 1,290행 목표
+**작업 목표**: 추천 로직 진입 전, 모든 자격증과 NCS 데이터의 ID가 Taxonomy와 100% 일치하도록 전처리 무결성 확보.
 
 ---
 
-### Person B — cert_master 시험 상세 컬럼 재보강 (잔여 작업)
-
-> B-1~B-4는 실파일 검증 완료 — 모두 완료됨. 아래 B-5만 잔여.
+### Person B (영민) — 시험 상세 및 로드맵 데이터 보강 (잔여 작업)
 
 | 순번 | 상태 | 작업 | 대상 파일 |
 |---|---|---|---|
-| B-5 | 🔄 | cert_master 시험 상세 컬럼 재보강 | `data/processed/master/cert_master.csv` |
+| B-5 | 🔄 | `exam_frequency` 매핑 수정 및 `cert_master.csv` 재보강 | `data/processed/master/cert_master.csv` |
+| B-6 | ⬜ | `roadmap_stage_master.csv` 단계별 우선순위(order) 및 설명 데이터 전수 검수 | `roadmap_stage_master.csv` |
+| B-7 | ⬜ | 위험군 단계별 시작 로드맵(`starting_roadmap_id`) 전처리 정합성 확인 | `risk_stage_to_roadmap_stage.csv` |
 
-#### B-5 상세 — 재보강 필요 컬럼
-
-`scripts/backfill_cert_master.py`로 7개 컬럼이 추가됐으나, 아래 3개 컬럼은 데이터가 사실상 비어있음:
+#### B-5 상세 — `exam_frequency` 매핑 수정
 
 | 컬럼 | 현재 채움 | 해야 할 일 |
 |---|---|---|
-| `exam_frequency` | 14/1,290 | `data_cert_rows.csv`의 `검정 횟수` 컬럼으로 매핑 수정 후 재실행 |
-| ~~`exam_fee_info`~~ | — | **제거 완료** — 소스 없음, 설명용 데이터는 RAG 레이어 담당 |
-| ~~`exam_eligibility_info`~~ | — | **제거 완료** — 소스 없음, 복잡한 조건 텍스트는 RAG 레이어 담당 |
+| `exam_frequency` | 14/1,290 | `data_cert_rows.csv`의 `검정 횟수` 컬럼으로 소스 매핑 수정 |
 
 **작업 절차**:
-1. `scripts/backfill_cert_master.py` 열기
-2. `exam_frequency` 매핑을 `비고2` → `검정 횟수` 컬럼으로 수정
-3. 스크립트 재실행 (cert_master.csv 덮어쓰기)
-4. `exam_frequency` 채움 수 재확인 (목표: ~1009행)
-5. 완료 후 이 문서 B-5 상태를 ✅로 갱신
-
-**참고**: `exam_difficulty`(617), `exam_type_info`(669), `exam_subject_info`(669), `exam_pass_rate`(698)는 이미 부분 보강 완료 — 빈값은 소스에 없는 자격증으로 허용 가능.
+1. `scripts/backfill_cert_master.py`에서 매핑 소스를 `비고2` → `검정 횟수`로 변경.
+2. 스크립트 재실행하여 `exam_frequency` 데이터 보강 (목표: ~1,009행).
+3. 결측치(Null)에 대해 자격 등급별 평균값 또는 '연 1회 미만' 등의 기본값 처리 로직 추가.
 
 ---
 
-### 완료 체크포인트
+### 완료 체크포인트 (데이터 수집/전처리 한정)
 
 | 체크 | 담당 | 조건 | 상태 |
 |---|---|---|---|
-| cert_major_mapping 생성 | B | 파일 존재, 행 수 > 0 | ✅ 2,066행 확인 |
-| cert_master exam 3컬럼 재보강 | B | exam_fee_info / exam_frequency / exam_eligibility_info 재확인 | 🔄 잔여 |
-| cert_candidates.csv 생성 | A | 1,290행, content_hash 있음 | ⬜ 미실행 |
-| DEV_LOG.md 반영 | A | Phase 3 완료 + Phase 4 착수 기록 | ⬜ |
+| cert_master exam_frequency 보강 | B | `exam_frequency` 데이터 채움 > 1,000행 | 🔄 잔여 |
+| Taxonomy ID 정합성 검수 | A | 모든 매핑 파일의 ID가 마스터와 100% 일치 | ⬜ 미실행 |
+| 원천 데이터 해시(Manifest) 생성 | A | `source_manifest.csv` 존재 및 해시값 정상 기록 | ⬜ 미실행 |
+| 로드맵 단계 단조 증가 검수 | B | Stage Order가 역행하지 않도록 전처리 데이터 고정 | ⬜ 미실행 |
+
