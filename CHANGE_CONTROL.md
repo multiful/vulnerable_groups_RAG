@@ -1,8 +1,8 @@
 # CHANGE_CONTROL.md
 
 > **파일명**: CHANGE_CONTROL.md  
-> **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:fb205605a4aedf2d36161539c1d707e5feb483f9788174031df167ce0cff5dc7
+> **최종 수정일**: 2026-04-18  
+> **문서 해시**: SHA256:32276a62cb374153d93190dfc684ea68be0823fd4525e4331e2fbb752b829865
 > **문서 역할**: 루트 문서 갱신 규칙 및 작업 절차 문서  
 > **문서 우선순위**: 1  
 > **연관 문서**: README.md, PROJECT_SUMMARY.md, PRD.md, SYSTEM_ARCHITECTURE.md, DIRECTORY_SPEC.md, DEV_LOG.md, HASH_INCREMENTAL_BUILD_GUIDE.md  
@@ -159,7 +159,11 @@ Parse, Chunking, Metadata, Embedding, Retrieval 파이프라인을 담당한다.
 ### 5.3 도구 지시 파일 예외
 - AI 도구 지시 파일(예: `CLAUDE.md`)은 **우선순위 90 이상**의 숫자를 사용하며, 본 §5 충돌 해결 목록에 포함하지 않는다.
 - 이 파일들은 콘텐츠 충돌 해결 계층에 참여하지 않는다. 도구 동작 규칙만 담당한다.
-- 현재 지정: `CLAUDE.md` → 99
+- 도구 지시 파일 간에도 우선순위 숫자는 **중복되면 안 된다**.
+- 현재 지정:
+  - `CLAUDE.md` → 99 (Claude Code 작업 규칙·1차 구현 에이전트)
+  - `GEMINI.md` → 98 (전략 검증·Audit 에이전트, 코드/데이터 직접 수정 금지)
+  - `copilot-instructions.md` → 97 (FOLDER.md 유지·문서 품질 검토 에이전트)
 
 ---
 

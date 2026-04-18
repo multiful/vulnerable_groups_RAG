@@ -1,8 +1,8 @@
 # HASH_INCREMENTAL_BUILD_GUIDE.md
 
 > **파일명**: HASH_INCREMENTAL_BUILD_GUIDE.md  
-> **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:d61fce4efad10029e920cc45129bcd1acf7d95469da8701923d8214e766a37fa
+> **최종 수정일**: 2026-04-18  
+> **문서 해시**: SHA256:808071dd53f70493c977fadf63dd63790192fdccab32e9b963f3143c2833a925
 > **문서 역할**: 해시 라인, 증분 빌드, 선택적 재처리, 성능 최적화 규칙 가이드  
 > **문서 우선순위**: reference  
 > **연관 문서**: CHANGE_CONTROL.md, DATA_SCHEMA.md, RAG_PIPELINE.md, CURSOR_PROJECT_RULES.md  
@@ -254,6 +254,15 @@ CSV row 단위 정규화 결과 해시
 재처리 생략 조건:
 - upstream canonical hash 동일
 - build_version 동일
+
+### 7.6.1 candidate build manifest (구현)
+
+`scripts/build_cert_candidates.py`는 실행 시마다 `data/canonical/candidates/.build_manifest.json`을 읽고/쓰며 row-level diff를 산출한다.
+
+- manifest 스키마: `{"generated_at": "...", "candidates": {"<candidate_id>": "<content_hash>"}}`
+- diff 분류: `added` / `updated` / `removed` / `unchanged` — 모두 `content_hash` 비교 기준.
+- diff 결과는 stdout 요약으로 출력하고 manifest에 새 해시를 기록한다.
+- downstream 인덱스·검색 색인을 붙일 때는 이 manifest를 읽어 **바뀐 candidate만** 갱신하도록 구성한다 (CLAUDE.md §12 "candidate content hash가 안 바뀌면 recommendation index update를 스킵한다" 규칙의 실행 근거).
 
 ---
 

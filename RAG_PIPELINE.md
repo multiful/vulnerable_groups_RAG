@@ -1,8 +1,8 @@
 # RAG_PIPELINE.md
 
 > **파일명**: RAG_PIPELINE.md  
-> **최종 수정일**: 2026-04-03  
-> **문서 해시**: SHA256:3799bd38ac4e56c108991d55b9d2541ccb74100d04d2ae443af0f6a9e98fce9a
+> **최종 수정일**: 2026-04-18  
+> **문서 해시**: SHA256:0180bf0424d7875c4b842e1ba76e6e3a49ef453bc362b28f4107210fc121c9e6
 > **문서 역할**: RAG 인덱싱 및 evidence retrieval 파이프라인 정의 문서  
 > **문서 우선순위**: 8  
 > **연관 문서**: SYSTEM_ARCHITECTURE.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, EVALUATION_GUIDELINE.md  
@@ -596,6 +596,17 @@ RAG 파이프라인 산출물에는 최소 아래 버전 정보를 유지하는 
 4. **환경 변수**: `infra/env/.env.example` 기준 — `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, (OpenAI 경로면) `OPENAI_API_KEY` 등.  
 5. **재인제스트**: `ingest.cli`는 동일 `chunk_id`에 대한 **삭제·멱등 업서트를 강제하지 않는다.** 전량 갱신 시 테이블 정리 정책을 운영 규칙으로 정한 뒤 실행한다.  
 6. **증분·버전**: 장기 운영 시 `HASH_INCREMENTAL_BUILD_GUIDE.md`의 `file_hash` / `chunk_hash` / `embedding_version` 조합으로 재처리 범위를 줄인다.
+
+### 16.3 embed 증분 규칙 (manifest 기반)
+
+`ingest.cli`는 적재 전에 `data/index_ready/metadata/pipeline_manifest.json`의 `chunks[<chunk_id>].embed_key_hash`와 현재 `chunk_hash + embed_version`을 비교한다.
+
+- `embed_key_hash`가 **동일**하면 해당 청크는 스킵한다 (재임베딩·재적재 안 함).
+- `embed_key_hash`가 **다르거나** manifest에 기록이 없으면 재임베딩 대상이다.
+- 청크 JSONL에 `metadata.chunk_hash`가 **없으면** 증분 판정 불가 → 안전을 위해 적재하고 manifest 기록은 건너뛴다.
+- `--force` 플래그는 manifest를 무시하고 전체 재임베딩한다.
+- 적재 성공 후 `PipelineManifest.update_embed(chunk_id, chunk_hash, embedded_at)`가 호출되어 manifest가 갱신된다.
+- `embed_version`(`backend/rag/pipeline/manifest.py`의 `EMBED_VERSION`)이 올라가면 기존 모든 청크가 자동으로 stale 처리되어 일괄 재임베딩된다.
 
 ---
 

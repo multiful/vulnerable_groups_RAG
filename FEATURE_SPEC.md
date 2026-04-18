@@ -2,7 +2,7 @@
 
 > **파일명**: FEATURE_SPEC.md  
 > **최종 수정일**: 2026-04-14  
-> **문서 해시**: SHA256:7d412c2a05adda4325647ce120aabf8d82f55fa972050e07242ab981f1efebc1
+> **문서 해시**: SHA256:884ce94d3dfd1f87d22804704dc4a95c804dbf98f9136a9e233cde203ccf265c
 > **문서 역할**: 기능별 입력, 출력, 처리 규칙, 예외, 상태 정의 문서  
 > **문서 우선순위**: 4  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, API_SPEC.md, DATA_SCHEMA.md, RAG_PIPELINE.md  

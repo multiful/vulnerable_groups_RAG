@@ -1,8 +1,8 @@
 # DEV_LOG.md
 
 > **파일명**: DEV_LOG.md  
-> **최종 수정일**: 2026-04-14  
-> **문서 해시**: SHA256:1fefb46e6b08cbfc6ad345cb7f889fa0c90f149114be552594a715652c0ebdae
+> **최종 수정일**: 2026-04-18  
+> **문서 해시**: SHA256:bb3b943464ab0967bf91f11b395e83fca6db25057e4d4c5dff4c8dffd79976fc
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
 > **연관 문서**: CHANGE_CONTROL.md, PRD.md, DIRECTORY_SPEC.md, ERROR_ANALYSIS.md  
@@ -13,6 +13,26 @@
 ## 1. 문서 목적
 
 구현과 문서 정렬 작업의 **타임라인**을 남겨, 이후 기여자가 맥락을 잃지 않게 한다.
+
+---
+
+## 2026-04-18 — 증분·게이트 3종 (C1/C2/C3)
+
+### C2 — candidate 빌드 taxonomy 게이트 (build-time strict)
+- `DATA_SCHEMA.md §9.1.1` 신설: `primary_domain` / `related_domains`는 `domain_master.csv`의 `domain_sub_label_id`, `related_jobs`는 `job_master.csv`의 `job_role_id` 집합에만 속해야 함.
+- `scripts/build_cert_candidates.py`에 master CSV ID 기반 검증 단계 추가. 위반 시 기본 실패(exit 1), `--allow-violations`로 우회.
+- 위반 리포트: `data/canonical/validation/candidates_taxonomy.json`. 현 데이터 1290/1290 통과 — 회귀 가드.
+- `backend/canonical/candidate_jsonl.py` docstring 보정 (라벨 텍스트가 아닌 master CSV ID 기준임을 명시).
+
+### C1 — embed 단계 증분 (manifest 기반)
+- `backend/rag/ingest/cli.py`를 `PipelineManifest.is_embed_stale`와 연동. `embed_key_hash = chunk_hash + embed_version` 기준 스킵.
+- `--force` 플래그로 전체 재임베딩 가능. 적재 직후 `update_embed` → manifest 저장.
+- `RAG_PIPELINE.md §16.3` 신설로 계약 문서화. `embed_version` 상승 시 일괄 stale 동작 명시.
+
+### C3 — candidate build row-level 증분 (content_hash diff)
+- `scripts/build_cert_candidates.py`가 실행 시마다 `data/canonical/candidates/.build_manifest.json`(`{candidate_id: content_hash}`)을 읽고 `added/updated/removed/unchanged` diff를 stdout으로 출력, manifest를 갱신.
+- downstream 인덱스 업데이트는 이 manifest를 읽어 **바뀐 candidate만** 반영하도록 설계(§7.6.1). 두 번째 실행에서 1290 unchanged 확인.
+- `HASH_INCREMENTAL_BUILD_GUIDE.md §7.6.1` 보강, 후보 폴더 `FOLDER.md` 갱신.
 
 ---
 

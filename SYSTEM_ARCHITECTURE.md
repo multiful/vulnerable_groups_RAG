@@ -2,7 +2,7 @@
 
 > **파일명**: SYSTEM_ARCHITECTURE.md  
 > **최종 수정일**: 2026-04-14  
-> **문서 해시**: SHA256:23ce515a70a4cca9ccee30674b1a319f625f238265f55d40ef396ac3800d81ee
+> **문서 해시**: SHA256:f0777e87c5f69da10091bfe23ac8b38becec69eaadb4094865286b4b10528060
 > **문서 역할**: 시스템 구성, 계층, 책임, 데이터 흐름 정의 문서  
 > **문서 우선순위**: 3  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, PRD.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md  

@@ -25,11 +25,13 @@
 | `candidates.jsonl.example` | — | 형식 참고용 예시 — 실제 데이터 아님 |
 | `cert_candidates.csv` | 1,290행 | ✅ `scripts/build_cert_candidates.py` 생성 (21컬럼, content_hash 포함) |
 | `cert_candidates.jsonl` | 1,290행 | ✅ Backend ingestion용 JSONL |
+| `.build_manifest.json` | — | 빌드 증분 manifest (`{candidate_id: content_hash}`) — `HASH_INCREMENTAL_BUILD_GUIDE.md §7.6.1` |
 
 > 생성 스크립트: `scripts/build_cert_candidates.py` (경로 이식성 수정 완료)  
 > 추천 동작 검증: `scripts/test_recommendation.py`  
 > 스키마: `DATA_SCHEMA.md §9.1 certificate_candidate_row` 참조  
-> 증분 재생성: `content_hash` 기반 — 변경 cert만 재처리 가능
+> 증분 재생성: `content_hash` 기반 — 변경 cert만 재처리 가능. 실행 시 `added/updated/removed/unchanged` diff를 stdout에 출력하고 `.build_manifest.json`을 갱신한다.  
+> taxonomy 게이트: master CSV ID 기준 자동 검증 — 위반 시 기본 실패, `--allow-violations`로 우회 (`DATA_SCHEMA.md §9.1.1`). 위반 리포트는 `data/canonical/validation/candidates_taxonomy.json`.
 
 ---
 

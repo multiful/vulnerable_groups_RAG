@@ -1,7 +1,8 @@
-# Content Hash: SHA256:TBD
+# Content Hash: SHA256:0484a48a2a2f6d17b45a7bf86a68096193b223c27ab7d756e09334d2c472e2cc
 # Role: Phase 4 — cert_candidates.csv / .jsonl 생성
 # 입력: data/processed/master/, data/canonical/relations/
 # 출력: data/canonical/candidates/cert_candidates.csv, .jsonl
+#       data/canonical/validation/candidates_taxonomy.json (DATA_SCHEMA.md §9.1.1 게이트 결과)
 # 증분 규칙: content_hash 기반 — 변경 row만 재생성 가능 (전체 재생성 시 updated_at 비교)
 #
 # tier_to_risk_stages 해석:
@@ -10,9 +11,11 @@
 #   기능사(입문) → 전 위험군 추천 가능
 #   기술사/기능장(전문가) → 이미 안정권에 가까운 사람만 목표 가능
 
+import argparse
 import os
 import json
 import hashlib
+import sys
 from datetime import datetime
 
 import pandas as pd
@@ -23,7 +26,9 @@ BASE_DIR    = os.path.normpath(os.path.join(_SCRIPT_DIR, ".."))
 MASTER_DIR  = os.path.join(BASE_DIR, "data", "processed", "master")
 RELATION_DIR = os.path.join(BASE_DIR, "data", "canonical", "relations")
 OUT_DIR     = os.path.join(BASE_DIR, "data", "canonical", "candidates")
+VALIDATION_DIR = os.path.join(BASE_DIR, "data", "canonical", "validation")
 os.makedirs(OUT_DIR, exist_ok=True)
+os.makedirs(VALIDATION_DIR, exist_ok=True)
 
 # ---------- 상수 ----------
 # cert_grade_tier → 추천 대상 위험군 (낮은 tier일수록 더 많은 위험군에 열려있음)
@@ -197,6 +202,109 @@ def build_candidate(row: pd.Series, lk: dict, updated_at: str) -> dict:
     return row_data
 
 
+# ---------- taxonomy 게이트 (DATA_SCHEMA.md §9.1.1) ----------
+def load_taxonomy_ids() -> tuple[set[str], set[str]]:
+    """master CSV에서 허용 ID 집합을 로드한다.
+
+    - domain_sub_label_id: data/processed/master/domain_master.csv
+    - job_role_id:         data/processed/master/job_master.csv
+    """
+    df_domain = _load_csv(os.path.join(MASTER_DIR, "domain_master.csv"))
+    df_job    = _load_csv(os.path.join(MASTER_DIR, "job_master.csv"), required=False)
+    domain_ids = set(df_domain["domain_sub_label_id"].astype(str).tolist())
+    job_ids = (
+        set(df_job["job_role_id"].astype(str).tolist())
+        if df_job is not None else set()
+    )
+    return domain_ids, job_ids
+
+
+def validate_taxonomy(
+    candidates: list[dict],
+    domain_ids: set[str],
+    job_ids: set[str],
+) -> tuple[list[dict], list[dict]]:
+    """candidate row를 master CSV ID 집합에 대해 검증한다.
+
+    returns (valid_rows, violations) — violations 원소는 candidate_id / 위반 필드 / 위반 값.
+    """
+    valid: list[dict] = []
+    violations: list[dict] = []
+    for c in candidates:
+        bad_fields: dict[str, list[str]] = {}
+        if c["primary_domain"] not in domain_ids:
+            bad_fields["primary_domain"] = [c["primary_domain"]]
+        bad_related = [d for d in c["related_domains"] if d not in domain_ids]
+        if bad_related:
+            bad_fields["related_domains"] = bad_related
+        bad_jobs = [j for j in c["related_jobs"] if j not in job_ids]
+        if bad_jobs:
+            bad_fields["related_jobs"] = bad_jobs
+        if bad_fields:
+            violations.append({
+                "candidate_id": c["candidate_id"],
+                "cert_id": c["cert_id"],
+                "cert_name": c["cert_name"],
+                "violations": bad_fields,
+            })
+        else:
+            valid.append(c)
+    return valid, violations
+
+
+# ---------- build manifest (HASH_INCREMENTAL_BUILD_GUIDE.md §7.6/§8.3) ----------
+BUILD_MANIFEST_NAME = ".build_manifest.json"
+
+
+def load_build_manifest(path: str) -> dict[str, str]:
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    return dict(data.get("candidates", {}))
+
+
+def save_build_manifest(path: str, candidates: list[dict]) -> None:
+    payload = {
+        "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "candidates": {c["candidate_id"]: c["content_hash"] for c in candidates},
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def diff_build_manifest(
+    previous: dict[str, str],
+    candidates: list[dict],
+) -> dict[str, list[str]]:
+    current = {c["candidate_id"]: c["content_hash"] for c in candidates}
+    added    = sorted(set(current) - set(previous))
+    removed  = sorted(set(previous) - set(current))
+    updated  = sorted(k for k in current if k in previous and current[k] != previous[k])
+    unchanged = sorted(k for k in current if k in previous and current[k] == previous[k])
+    return {
+        "added": added,
+        "removed": removed,
+        "updated": updated,
+        "unchanged": unchanged,
+    }
+
+
+def write_validation_report(
+    violations: list[dict],
+    total: int,
+    path: str,
+) -> None:
+    report = {
+        "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "total_candidates": total,
+        "violation_count": len(violations),
+        "violations": violations,
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+
+
 # ---------- 저장 ----------
 def save_csv(candidates: list[dict], path: str) -> None:
     df = pd.DataFrame(candidates)
@@ -213,7 +321,15 @@ def save_jsonl(candidates: list[dict], path: str) -> None:
 
 
 # ---------- 메인 ----------
-def main() -> None:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="cert_candidates 빌드 + taxonomy 게이트")
+    parser.add_argument(
+        "--allow-violations",
+        action="store_true",
+        help="DATA_SCHEMA.md §9.1.1 taxonomy 위반이 있어도 빌드를 계속한다 (기본: 실패).",
+    )
+    args = parser.parse_args(argv)
+
     print("Phase 4: Candidate Generation 시작")
 
     lk = load_lookups()
@@ -230,21 +346,54 @@ def main() -> None:
     updated_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     candidates = [build_candidate(row, lk, updated_at) for _, row in df_cert.iterrows()]
 
+    # taxonomy 게이트 (DATA_SCHEMA.md §9.1.1) — master CSV ID 기준 검증
+    domain_ids, job_ids = load_taxonomy_ids()
+    valid_candidates, violations = validate_taxonomy(candidates, domain_ids, job_ids)
+    validation_path = os.path.join(VALIDATION_DIR, "candidates_taxonomy.json")
+    write_validation_report(violations, total=len(candidates), path=validation_path)
+
+    if violations:
+        print(
+            f"  taxonomy 위반 {len(violations)}개 감지 "
+            f"(domain_ids={len(domain_ids)}, job_ids={len(job_ids)})"
+        )
+        print(f"  위반 리포트: {validation_path}")
+        if not args.allow_violations:
+            print(
+                "  --allow-violations 플래그 없이 위반이 존재하여 빌드를 중단한다. "
+                "DATA_SCHEMA.md §9.1.1 참조."
+            )
+            return 1
+
     out_csv   = os.path.join(OUT_DIR, "cert_candidates.csv")
     out_jsonl = os.path.join(OUT_DIR, "cert_candidates.jsonl")
+    build_manifest_path = os.path.join(OUT_DIR, BUILD_MANIFEST_NAME)
 
-    save_csv(candidates, out_csv)
-    save_jsonl(candidates, out_jsonl)
+    # row-level 증분 diff (HASH_INCREMENTAL_BUILD_GUIDE.md §8.3) — content_hash 비교
+    prev_manifest = load_build_manifest(build_manifest_path)
+    diff = diff_build_manifest(prev_manifest, valid_candidates)
+
+    save_csv(valid_candidates, out_csv)
+    save_jsonl(valid_candidates, out_jsonl)
+    save_build_manifest(build_manifest_path, valid_candidates)
 
     # 품질 요약
-    no_job    = sum(1 for c in candidates if not c["related_jobs"])
-    no_domain = sum(1 for c in candidates if c["primary_domain"] == "domain_unknown")
-    print(f"생성 완료: {len(candidates)}행")
-    print(f"  primary_domain 미결정: {no_domain}개")
+    no_job    = sum(1 for c in valid_candidates if not c["related_jobs"])
+    print(f"생성 완료: {len(valid_candidates)}행 (위반 제외)")
     print(f"  related_jobs 없음:     {no_job}개 (domain_0028 언어/속기 등 정상)")
+    print(
+        "  증분 diff: "
+        f"added={len(diff['added'])} "
+        f"updated={len(diff['updated'])} "
+        f"removed={len(diff['removed'])} "
+        f"unchanged={len(diff['unchanged'])}"
+    )
     print(f"  출력: {out_csv}")
     print(f"  출력: {out_jsonl}")
+    print(f"  검증: {validation_path}")
+    print(f"  manifest: {build_manifest_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

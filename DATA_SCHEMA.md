@@ -1,8 +1,8 @@
 # DATA_SCHEMA.md
 
 > **파일명**: DATA_SCHEMA.md  
-> **최종 수정일**: 2026-04-15  
-> **문서 해시**: SHA256:33c4922f996b557777421d52c5f764ae7cc29d95ece20cd3ed1c6fdef33e12b7
+> **최종 수정일**: 2026-04-18  
+> **문서 해시**: SHA256:cad9bb4a5baa6f051ed768859bc1e2780c6059cb725d79eb122d170617ce4b05
 > **문서 역할**: 데이터 구조, 엔티티, 관계, 공통 필드, 제약조건 정의 문서  
 > **문서 우선순위**: 5  
 > **연관 문서**: PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, API_SPEC.md, RAG_PIPELINE.md  
@@ -648,6 +648,18 @@ recommendation candidate row는 recommendation core의 기본 검색 단위다.
 - `related_jobs`는 비어 있을 수 있으나, 추천 품질상 가능한 한 채운다.
 - `text_for_sparse`는 optional이며 exact miss 대응 시 활성화한다.
 - reserved 일정 필드는 현재 row 기본 필드에 포함하지 않는다.
+
+### 9.1.1 build-time taxonomy 게이트 (ID 기반)
+`primary_domain` / `related_domains` / `related_jobs` 값은 **런타임 소스 오브 트루스인 master CSV의 ID**와 반드시 일치해야 한다.
+
+- `primary_domain` / `related_domains` ∈ `data/processed/master/domain_master.csv`의 `domain_sub_label_id` 집합
+- `related_jobs` ∈ `data/processed/master/job_master.csv`의 `job_role_id` 집합
+- 위 집합 밖의 값(`domain_unknown` 같은 placeholder 포함)은 **candidate row로 저장하지 않는다**. §18.5 원칙대로 해당 row를 스킵하고 validation report에 기록한다.
+- 빌드 스크립트(`scripts/build_cert_candidates.py`)는 JSONL/CSV 출력 전에 이 게이트를 통과시킨다. 위반이 있으면 기본 동작은 **실패(raise)** 이며, 명시적 `--allow-violations` 플래그로만 우회 가능하다.
+- validation 결과는 `data/canonical/validation/candidates_taxonomy.json`에 저장한다(필드: §12 validation row 스키마).
+- 이 게이트 덕분에 런타임 추천 서비스는 JSONL을 신뢰하며 별도 taxonomy 검증을 수행하지 않는다.
+
+> taxonomy 라벨의 **사람이 읽는 이름 정의**는 `data/taxonomy/domain_v2.txt`, `data/taxonomy/prefer_job.txt`에 유지한다. 이 텍스트 파일은 master CSV의 상위 정의 소스이며, 런타임 검증에는 사용하지 않는다.
 
 ---
 

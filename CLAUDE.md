@@ -2,7 +2,7 @@
 
 > **파일명**: CLAUDE.md  
 > **최종 수정일**: 2026-04-17  
-> **문서 해시**: SHA256:bf0c189b5688ff6f6d08548720d69d29808428d00b5af6fecf7d32e64c2ac2a0  
+> **문서 해시**: SHA256:7098e64dac0df0b090ecb9ff1dd5d67e76293962dc2201581e7738fd674f53a6
 > **문서 역할**: Claude Code 작업 규칙 / 구현 및 문서화 실행 규칙 문서  
 > **문서 우선순위**: 99  
 > **연관 문서**: README.md, CHANGE_CONTROL.md, PRD.md, SYSTEM_ARCHITECTURE.md, FEATURE_SPEC.md, DATA_SCHEMA.md, API_SPEC.md, PROMPT_DESIGN.md, RAG_PIPELINE.md, DIRECTORY_SPEC.md, HASH_INCREMENTAL_BUILD_GUIDE.md  
