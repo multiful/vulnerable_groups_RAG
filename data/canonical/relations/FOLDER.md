@@ -63,3 +63,27 @@
 - **Data Source**: `data/raw/pdf` 및 `html` 파싱 결과에서 "추천 로드맵", "함께 취득하면 좋은 자격증" 문구를 추출하여 이 관계 파일에 반영할 것.
 - **Note**: Claude Code는 이 관계 데이터를 기반으로 `recommendation_service.py`가 단순 목록 나열이 아닌 '경로(Path)'를 생성할 수 있도록 로직 보완을 준비할 것.
 
+### ✅ 해소 현황 (2026-04-18)
+- `cert_to_cert_relation.csv` 4,256행 생성 완료. 스키마: `relation_id, from_cert_id, to_cert_id, relation_type, reasoning_evidence, source, is_active`.
+- `relation_type` 값: `next_step` (parse_ir 243행) + NCS 기반 4,013행 포함.
+- Audit Finding의 Required Action은 파일 생성 기준으로 완료. `recommendation_service.py` 경로 생성 로직은 미구현(다음 단계 §6 참조).
+
+---
+
+## 6. 미기재 파일 보충
+
+| 파일 | 행 수 | 상태 | 비고 |
+|---|---|---|---|
+| `verified_ids.txt` | 37 | ✅ | 랜덤서치 검증 완료 relation_id 누적 목록. 다음 랜덤서치에서 제외 대상. |
+
+---
+
+## 7. 다음 단계 (as of 2026-04-18)
+
+| 우선순위 | 항목 | 상태 | 비고 |
+|---|---|---|---|
+| P1 | `cert_prerequisite.csv` cross-domain 이슈 해결 | 🔄 | 동일 cert_id가 여러 도메인 걸쳐 연결되는 케이스 정리 필요 |
+| P2 | `recommendation_service.py` 경로(Path) 생성 로직 구현 | ⬜ | `cert_to_cert_relation.csv` + `cert_prerequisite.csv` DAG 순회 기반 |
+| P3 | downstream 인덱스 업데이트: `.build_manifest.json` diff → 변경 candidate만 반영 | ⬜ | C3 설계 완료, 실행 로직 미구현 |
+| P4 | `verified_ids.txt` 랜덤서치 범위 확대 | ⬜ | 현재 37행; 주요 relation_type별 샘플링 추가 |
+
