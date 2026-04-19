@@ -1,7 +1,7 @@
 # DEV_LOG.md
 
 > **파일명**: DEV_LOG.md  
-> **최종 수정일**: 2026-04-18  
+> **최종 수정일**: 2026-04-19  
 > **문서 해시**: SHA256:bb3b943464ab0967bf91f11b395e83fca6db25057e4d4c5dff4c8dffd79976fc
 > **문서 역할**: 날짜별 진행 로그, 변경 요약, 해결 이력  
 > **문서 우선순위**: 14  
@@ -13,6 +13,43 @@
 ## 1. 문서 목적
 
 구현과 문서 정렬 작업의 **타임라인**을 남겨, 이후 기여자가 맥락을 잃지 않게 한다.
+
+---
+
+## 2026-04-19 — eval runner + bottleneck tier-relative + job_to_domain (R4)
+
+### R4-1 — 골든셋 자동 평가 runner (`eval_golden_set.py`)
+- `scripts/eval_golden_set.py` 신규 작성. 6 persona × evaluation_criteria 패턴 매칭(18개 패턴 정의).
+- 구조적 체크(expected_entry_stage, entry_advanced, fallback_used, total_certs) + Jaccard + criteria 자동 검증.
+- P21 hard-fail: J=0.33 → A1 이후 top-10 전부 기능사로 변경된 것 확인. `golden_set.jsonl` expected_cert_ids 갱신 후 J=1.00, P21 100%.
+- 최종 PASS RATE 95.7% (P15 1건 FAIL 잔존 — stage_0005 tier 필터 미적용, R5 대상).
+- 실행: `python scripts/eval_golden_set.py [--persona P21] [--fail-fast]`
+
+### R4-3 — `is_bottleneck` tier-relative 판정
+- `recommendation_service.py`에 `_BOTTLENECK_TIER_THRESHOLD` 추가: 기능사 20%/산업기사 15%/기사 10%/기술사·기능장 5%.
+- `_build_roadmap_sequence` 내 is_bottleneck 계산 2곳 교체.
+- 검증: 발송배전기술사(기술사, 1.9%) → bottleneck ✅. P21 기능사(45-65%) → bottleneck=0건 유지 ✅.
+
+### R4-6 — `job_to_domain.csv` 런타임 통합
+- `_JOB_TO_DOMAIN` 경로 상수 + `_load_job_to_domain_map()` 함수 추가.
+- `recommendations()` job-only 쿼리(domain_ids 빈 경우)에 domain_ids 자동 확장.
+- `_invalidate_caches()`에 추가. 검증: job_0001 → domain_0001, total_certs=10 확인.
+
+---
+
+## 2026-04-19 — cert_to_cert_relation 버그 수정 + 방향 guard (R3: A1 + N6)
+
+### A1 — `_RELATION_TYPE_MAP` 오매핑 제거
+- `scripts/build_cert_to_cert_relation.py`에서 `_RELATION_TYPE_MAP = {"recommended_prior": "next_step", ...}` 딕셔너리 제거.
+- `_load_prereq_rows()`의 `relation_type` 할당을 `r.get("relation_kind", "next_step")` 직접 사용으로 교체.
+- 결과: NCS 775행 중 666행이 `next_step` → `recommended_prior`로 올바르게 복원. path_score 가중치 0.50→0.80 회복.
+- P21 검증: `cert_paths[0].path_score = 0.9485` (> 0.78 기준 통과).
+
+### N6 — `_TIER_ORDER` 기반 역방향 행 자동 swap/drop 빌드 가드
+- `_cert_tier_map()` 함수 추가 (cert_id → cert_grade_tier).
+- `build()`에 tier 비교 로직 추가: from_tier > to_tier 시 swap, 동일 tier 시 drop.
+- 재빌드 결과: total 999행 (active 775 / inactive 224), swapped=8, dropped=19 (모두 parse_ir 단독).
+- `data/canonical/relations/FOLDER.md` §2 파일 테이블 업데이트 (1,018→999, 설명 갱신).
 
 ---
 
@@ -132,13 +169,6 @@
 
 - 루트 문서: 인덱싱·Pre-retrieval **축 설명**만 유지, **특정 파일명·경로**는 적지 않음. 계약은 `RAG_PIPELINE.md` 우선, reserved는 범위 자동 확장 금지.
 - `.gitignore`: `docs/references/_private/` 무시(개인·팀 미공유 참고 자료용).
-
----
-
-## 2026-04-03 — `.cursor` Git 추적 제거
-
-- 원인: `.gitignore`에 `.cursor/`가 있어도 **이미 한 번 커밋된 경로**는 계속 추적됨.
-- 조치: `git rm -r --cached .cursor` 후 커밋 — 원격 반영은 `git push` 필요. 로컬 `.cursor/` 파일은 유지.
 
 ---
 

@@ -1,0 +1,48 @@
+=== risk_0005 + domain_0005 (은둔군) ===
+starting_stage = 상태 인식 (order=1)
+
+== roadmap_by_stage ==
+
+-- 상태 인식 (order=1) -- 0개
+
+-- 탐색 시작 (order=2) -- 0개
+
+-- 역량 준비 (order=3) -- 5개
+  [1_기능사   ] 3D프린터운용기능사             pass=65.5% bottleneck=False immediate
+  [1_기능사   ] 전자부품장착기능사              pass=63.5% bottleneck=False immediate
+  [1_기능사   ] 철도전기신호기능사              pass=57.9% bottleneck=False immediate
+  [1_기능사   ] 전기기능사                  pass=54.0% bottleneck=False immediate
+  [1_기능사   ] 의료전자기능사                pass=53.6% bottleneck=False immediate
+
+-- 실행 확대 (order=4) -- 5개
+  [2_산업기사  ] 반도체설계산업기사              pass=60.6% bottleneck=False immediate
+  [2_산업기사  ] 철도신호산업기사               pass=53.1% bottleneck=False immediate
+  [2_산업기사  ] 3D프린터개발산업기사            pass=40.3% bottleneck=False immediate
+  [2_산업기사  ] 전자산업기사                 pass=39.6% bottleneck=False immediate
+  [2_산업기사  ] 전기철도산업기사               pass=38.5% bottleneck=False immediate
+
+-- 유지·정착 (order=5) -- 0개
+
+== roadmap_sequence (flat top 15) ==
+  step  1: [1_기능사   ] 3D프린터운용기능사             stage=roadmap_stage_0003 pass=65.5%
+  step  2: [1_기능사   ] 전자부품장착기능사              stage=roadmap_stage_0003 pass=63.5%
+  step  3: [1_기능사   ] 철도전기신호기능사              stage=roadmap_stage_0003 pass=57.9%
+  step  4: [1_기능사   ] 전기기능사                  stage=roadmap_stage_0003 pass=54.0%
+  step  5: [1_기능사   ] 의료전자기능사                stage=roadmap_stage_0003 pass=53.6%
+  step  6: [1_기능사   ] 전자캐드기능사                stage=roadmap_stage_0003 pass=49.0%
+  step  7: [1_기능사   ] 전자기능사                  stage=roadmap_stage_0003 pass=45.7%
+  step  8: [1_기능사   ] 전기계측제어기능사              stage=roadmap_stage_0003 pass=None%
+  step  9: [1_기능사   ] 임베디드기능사                stage=roadmap_stage_0003 pass=None%
+  step 10: [1_기능사   ] 공업계측제어기능사              stage=roadmap_stage_0003 pass=None%
+  step 11: [2_산업기사  ] 반도체설계산업기사              stage=roadmap_stage_0004 pass=60.6%
+  step 12: [2_산업기사  ] 철도신호산업기사               stage=roadmap_stage_0004 pass=53.1%
+  step 13: [2_산업기사  ] 3D프린터개발산업기사            stage=roadmap_stage_0004 pass=40.3%
+  step 14: [2_산업기사  ] 전자산업기사                 stage=roadmap_stage_0004 pass=39.6%
+  step 15: [2_산업기사  ] 전기철도산업기사               stage=roadmap_stage_0004 pass=38.5%
+
+== cert_paths top 5 ==
+  score=0.792 len=3: 의료전자기능사 -> 전자기사 -> 전자응용기술사
+  score=0.787 len=3: 전자캐드기능사 -> 전자기사 -> 전자응용기술사
+  score=0.784 len=3: 전자기능사 -> 전자기사 -> 전자응용기술사
+  score=0.784 len=3: 전기기능사 -> 전기공사기사 -> 전기응용기술사
+  score=0.779 len=3: 전기기능사 -> 전기철도기사 -> 전기응용기술사

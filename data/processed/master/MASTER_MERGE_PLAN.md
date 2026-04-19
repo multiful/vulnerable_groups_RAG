@@ -74,7 +74,7 @@
 
 | 파일 | 행 수 | 상태 | 생성 기준 |
 |---|---|---|---|
-| `cert_prerequisite.csv` | 4,013 | 🔄 | 동일 domain_name_raw 내 grade_tier 단계 연결 (⚠️이슈 §10 참조) |
+| `cert_prerequisite.csv` | 267 | ✅ | 동일 domain_name_raw + subject_prefix 내 grade_tier 단계 연결 (§10.1 해소) |
 | `cert_to_roadmap_stage.csv` | 1,290 | ✅ | cert_grade_tier → roadmap_stage 단계 매핑 |
 | `cert_domain_mapping.csv` | 1,290 | ✅ | is_primary=True 712행 + fallback 578행 (100% 커버) |
 | `major_to_domain.csv` | 5,268 | ✅ | domain_label_candidate → domain_master |
@@ -148,7 +148,8 @@ cert_grade_tier = '5_기능장'   → roadmap_stage_0005 (유지·정착)
 
 ## 5. cert_prerequisite 생성 규칙
 
-동일 `domain_name_raw` 안에서 grade_tier 단계별 연결:
+동일 `domain_name_raw` + 동일 `subject_prefix` 안에서 grade_tier 단계별 연결.
+`subject_prefix` = `cert_name`에서 후행 grade 접미사(기능사/산업기사/기사/기술사/기능장) 제거:
 
 ```
 기능사   → 산업기사 : recommended_prior
@@ -158,9 +159,10 @@ cert_grade_tier = '5_기능장'   → roadmap_stage_0005 (유지·정착)
 기사     → 기능장   : recommended_prior
 ```
 
-총 **4,013개** 관계 생성 (54개 domain_name_raw 기준)
+총 **267개** 관계 생성 (408개 `(domain, subject_prefix)` 그룹 중 2-tier 이상 보유 그룹 기준)
+생성 스크립트: `scripts/build_cert_prerequisite.py`
 
-> ⚠️ 의미 정확도 이슈 §10.1 참조 — domain_name_raw가 coarse해서 무관한 cert 간 연결 발생
+> §10.1 cross-domain 이슈는 본 규칙(subject_prefix 정확매칭)으로 해소 — cross-domain rows 0건 검증 완료.
 
 ---
 
@@ -353,7 +355,7 @@ Phase 4: Candidates     → canonical/candidates/ 추천 후보 행 생성
 
 ```
 canonical/relations/
-├── cert_prerequisite.csv           🔄  4,013행 (⚠️cross-domain 이슈)
+├── cert_prerequisite.csv           ✅  267행 (subject_prefix 정확매칭, cross-domain 0건)
 ├── cert_to_roadmap_stage.csv       ✅  1,290행
 ├── cert_domain_mapping.csv         ✅  1,290행 (is_primary=T 712 / fallback 578)
 ├── major_to_domain.csv             ✅  5,268행
@@ -375,21 +377,24 @@ canonical/candidates/
 
 ## 10. 매핑 정확도 이슈
 
-### 10.1 cert_prerequisite — cross-domain 연결 문제 (🔄 수용가능 / 개선 고려)
+### 10.1 cert_prerequisite — cross-domain 연결 문제 (✅ 해소 — 2026-04-18)
 
 **문제**: `domain_name_raw`가 coarse해서 동일 도메인 라벨 안에 서로 무관한 자격증이 묶임
 
-**실제 사례** (`토목` 도메인, 692개 연결):
+**이전 사례** (`토목` 도메인, 692개 연결):
 ```
 콘크리트산업기사 → 항로표지기능사   [recommended_prior]  ← 무관
 콘크리트산업기사 → 잠수기능사        [recommended_prior]  ← 무관
-측량기사         → 토목시공기술사    [prerequisite]       ← 정상
 ```
 
-**영향 범위**: 토목(692), 기계장비설비.설치(677), 건축(357) — 대형 도메인일수록 심각
+**해소 방법**: `scripts/build_cert_prerequisite.py` — `domain_name_raw` + `subject_prefix`(cert_name에서 grade 접미사 제거) 정확매칭으로 재생성.
 
-**현재 결정**: `recommended_prior` 관계는 필터링/활용 시 도메인 일치 여부를 2차 체크  
-**개선안 (optional)**: `domain_name_raw` + `grade_name` 기반 서브그루핑으로 재생성
+**결과**: 4,013행 → 267행, cross-domain rows = 0건 검증.
+- 토목: 692 → 25행 (콘크리트 ↔ 콘크리트, 지적 ↔ 지적 등 subject_prefix 내부 연결만)
+- 기계장비설비.설치: 677 → 23행
+- 건축: 357 → 12행
+
+**출력 컬럼 추가**: `subject_prefix` (감사용) — DATA_SCHEMA.md §6.8 정합화 후속 필요.
 
 ### 10.2 cert_domain_mapping — fallback 완료 ✅
 
@@ -486,7 +491,7 @@ canonical/candidates/
 | 중간 | cert_ncs_mapping 미연결 547개 | NCS 없는 cert 42.4% — 국가전문/민간자격 위주 | 허용 가능 (NCS 분류 없는 자격 정상) |
 | ~~중간~~ ✅ | cert_major_mapping 미생성 | 2,066행 생성 완료 | 완료 |
 | 높음 ✅ | cert_master exam_frequency 재보강 | 719/1,290 — scripts/backfill_cert_master.py 수정 완료. pass_rate 파싱 로직 개선. | 완료 |
-| 중간 | cert_prerequisite cross-domain | 토목/기계 등 대형 domain에서 무관 cert 연결 | 개선안 검토 |
+| ~~중간~~ ✅ | cert_prerequisite cross-domain | subject_prefix 정확매칭으로 재생성 (4,013 → 267행) | 완료 |
 | 낮음 | T-prefix 11개 미매핑 | 폐지 여부 확인 후 cert_master 추가/제외 결정 | 수동 확인 |
 | 낮음 | primary_domain 숫자코드 | cert_master.primary_domain ↔ domain_master 매핑 미완 | 필요시 처리 |
 

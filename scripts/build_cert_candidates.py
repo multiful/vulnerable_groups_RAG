@@ -1,15 +1,24 @@
-# Content Hash: SHA256:0484a48a2a2f6d17b45a7bf86a68096193b223c27ab7d756e09334d2c472e2cc
+# Content Hash: SHA256:TBD
 # Role: Phase 4 — cert_candidates.csv / .jsonl 생성
 # 입력: data/processed/master/, data/canonical/relations/
 # 출력: data/canonical/candidates/cert_candidates.csv, .jsonl
 #       data/canonical/validation/candidates_taxonomy.json (DATA_SCHEMA.md §9.1.1 게이트 결과)
 # 증분 규칙: content_hash 기반 — 변경 row만 재생성 가능 (전체 재생성 시 updated_at 비교)
 #
-# tier_to_risk_stages 해석:
-#   risk_0001 = 취업 안정권 (1단계)
-#   risk_0005 = 취업 가장 어려운 위험군 (5단계)
-#   기능사(입문) → 전 위험군 추천 가능
-#   기술사/기능장(전문가) → 이미 안정권에 가까운 사람만 목표 가능
+# recommended_risk_stages 정책 (relations/FOLDER.md §P6-1):
+#   risk_0001 = 취업 안정권, risk_0005 = 최고 위험군.
+#   [기술자격 tier 기반]
+#     1_기능사   → [0003, 0004, 0005]          (안정권에는 부적절 — 장기 경로)
+#     2_산업기사 → [0002, 0003, 0004, 0005]   (중간 단계, 기초 다진 후 접근)
+#     3_기사     → [0001, 0002, 0003, 0004]   (취업 핵심, 안정권 목표)
+#     4_기술사   → [0001, 0002]                (고급 전문가, 안정권 한정)
+#     5_기능장   → [0001, 0002]                (최고등급, 안정권 한정)
+#   [비기술자격 — 합격률 3yr 평균 기반]
+#     ≥50%      → [0003, 0004, 0005]           (쉬움)
+#     30~50%    → [0002, 0003, 0004]           (중)
+#     10~30%    → [0001, 0002, 0003]           (어려움)
+#     <10%      → [0001, 0002]                 (매우 어려움 — 장기 목표형)
+#     합격률 없음 → [0002, 0003, 0004]         (기본값)
 
 import argparse
 import os
@@ -31,15 +40,26 @@ os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(VALIDATION_DIR, exist_ok=True)
 
 # ---------- 상수 ----------
-# cert_grade_tier → 추천 대상 위험군 (낮은 tier일수록 더 많은 위험군에 열려있음)
+# cert_grade_tier → 추천 대상 위험군 (§P6-1 정책)
+# 기능사는 최고위험군(장기 경로), 기술사·기능장은 안정권(고급 전문가)에 배치한다.
 TIER_TO_RISK_STAGES: dict[str, list[str]] = {
-    "1_기능사":   ["risk_0001", "risk_0002", "risk_0003", "risk_0004", "risk_0005"],
-    "2_산업기사": ["risk_0001", "risk_0002", "risk_0003", "risk_0004"],
-    "3_기사":     ["risk_0001", "risk_0002", "risk_0003"],
+    "1_기능사":   ["risk_0003", "risk_0004", "risk_0005"],
+    "2_산업기사": ["risk_0002", "risk_0003", "risk_0004", "risk_0005"],
+    "3_기사":     ["risk_0001", "risk_0002", "risk_0003", "risk_0004"],
     "4_기술사":   ["risk_0001", "risk_0002"],
-    "5_기능장":   ["risk_0001"],
-    "":           ["risk_0001", "risk_0002", "risk_0003", "risk_0004"],  # 비기술자격 기본값
+    "5_기능장":   ["risk_0001", "risk_0002"],
 }
+
+# 비기술자격(tier 없음) — 합격률 기반. (min_pass_rate_inclusive, risk_stages)
+# 임계값: ≥50, 30~50, 10~30, <10. 비교는 내림차순 match-first.
+PASSRATE_TO_RISK_STAGES: list[tuple[float, list[str]]] = [
+    (50.0, ["risk_0003", "risk_0004", "risk_0005"]),
+    (30.0, ["risk_0002", "risk_0003", "risk_0004"]),
+    (10.0, ["risk_0001", "risk_0002", "risk_0003"]),
+    (0.0,  ["risk_0001", "risk_0002"]),
+]
+# 합격률도 tier도 없는 경우 기본값
+DEFAULT_NONTECH_RISK_STAGES: list[str] = ["risk_0002", "risk_0003", "risk_0004"]
 
 LIST_COLS = [
     "aliases", "related_domains", "related_jobs", "related_majors",
@@ -130,6 +150,31 @@ def load_lookups() -> dict:
     }
 
 
+def _risk_stages_for(tier: str, pass_rate: float | None) -> list[str]:
+    """§P6-1 정책에 따라 recommended_risk_stages 계산.
+    1) tier 있으면 TIER_TO_RISK_STAGES 사용
+    2) tier 없고 pass_rate 있으면 PASSRATE_TO_RISK_STAGES match-first
+    3) 둘 다 없으면 DEFAULT_NONTECH_RISK_STAGES
+    """
+    if tier and tier in TIER_TO_RISK_STAGES:
+        return list(TIER_TO_RISK_STAGES[tier])
+    if pass_rate is not None:
+        for min_rate, stages in PASSRATE_TO_RISK_STAGES:
+            if pass_rate >= min_rate:
+                return list(stages)
+    return list(DEFAULT_NONTECH_RISK_STAGES)
+
+
+def _parse_pass_rate(val) -> float | None:
+    s = _str(val)
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
 # ---------- 행 생성 ----------
 def build_candidate(row: pd.Series, lk: dict, updated_at: str) -> dict:
     cert_id   = str(row["cert_id"])
@@ -143,7 +188,8 @@ def build_candidate(row: pd.Series, lk: dict, updated_at: str) -> dict:
     r_job_names = [lk["job_name_lookup"].get(j, j) for j in r_job_ids]
     r_majors  = lk["cert_majors"].get(cert_id, [])
     r_stages  = lk["roadmap_map"].get(cert_id, [])
-    rec_risk  = TIER_TO_RISK_STAGES.get(tier, TIER_TO_RISK_STAGES[""])
+    pass_rate = _parse_pass_rate(row.get("avg_pass_rate_3yr", ""))
+    rec_risk  = _risk_stages_for(tier, pass_rate)
     aliases   = lk["alias_map"].get(cert_id, [])
 
     # text_for_dense: 의미 검색용 — 자격증 소개 + 직무/학과 컨텍스트
@@ -253,7 +299,9 @@ def validate_taxonomy(
 
 
 # ---------- build manifest (HASH_INCREMENTAL_BUILD_GUIDE.md §7.6/§8.3) ----------
-BUILD_MANIFEST_NAME = ".build_manifest.json"
+BUILD_MANIFEST_NAME       = ".build_manifest.json"
+BUILD_MANIFEST_DIFF_NAME  = ".build_manifest_diff.json"
+CHANGED_JSONL_NAME        = "cert_candidates_changed.jsonl"
 
 
 def load_build_manifest(path: str) -> dict[str, str]:
@@ -288,6 +336,52 @@ def diff_build_manifest(
         "updated": updated,
         "unchanged": unchanged,
     }
+
+
+def save_build_manifest_diff(
+    path: str,
+    diff: dict[str, list[str]],
+    previous_generated_at: str | None,
+) -> None:
+    """다운스트림 인덱스 소비용 diff 아티팩트.
+    added/updated/removed 목록만 기록 (unchanged 제외). 매 실행마다 덮어쓴다."""
+    payload = {
+        "generated_at": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        "previous_generated_at": previous_generated_at,
+        "counts": {k: len(v) for k, v in diff.items()},
+        "added":   diff["added"],
+        "updated": diff["updated"],
+        "removed": diff["removed"],
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def save_changed_jsonl(
+    path: str,
+    candidates: list[dict],
+    changed_ids: set[str],
+) -> int:
+    """added + updated candidate_id 에 해당하는 행만 JSONL 로 기록.
+    다운스트림(임베딩·인덱스 빌더)이 이 파일만 읽어 증분 반영하도록 구성."""
+    written = 0
+    with open(path, "w", encoding="utf-8") as f:
+        for c in candidates:
+            if c["candidate_id"] in changed_ids:
+                f.write(json.dumps(c, ensure_ascii=False) + "\n")
+                written += 1
+    return written
+
+
+def _read_previous_manifest_generated_at(path: str) -> str | None:
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("generated_at")
+    except (OSError, json.JSONDecodeError):
+        return None
 
 
 def write_validation_report(
@@ -368,14 +462,20 @@ def main(argv: list[str] | None = None) -> int:
     out_csv   = os.path.join(OUT_DIR, "cert_candidates.csv")
     out_jsonl = os.path.join(OUT_DIR, "cert_candidates.jsonl")
     build_manifest_path = os.path.join(OUT_DIR, BUILD_MANIFEST_NAME)
+    diff_path           = os.path.join(OUT_DIR, BUILD_MANIFEST_DIFF_NAME)
+    changed_path        = os.path.join(OUT_DIR, CHANGED_JSONL_NAME)
 
     # row-level 증분 diff (HASH_INCREMENTAL_BUILD_GUIDE.md §8.3) — content_hash 비교
     prev_manifest = load_build_manifest(build_manifest_path)
+    prev_generated_at = _read_previous_manifest_generated_at(build_manifest_path)
     diff = diff_build_manifest(prev_manifest, valid_candidates)
+    changed_ids: set[str] = set(diff["added"]) | set(diff["updated"])
 
     save_csv(valid_candidates, out_csv)
     save_jsonl(valid_candidates, out_jsonl)
     save_build_manifest(build_manifest_path, valid_candidates)
+    save_build_manifest_diff(diff_path, diff, prev_generated_at)
+    changed_written = save_changed_jsonl(changed_path, valid_candidates, changed_ids)
 
     # 품질 요약
     no_job    = sum(1 for c in valid_candidates if not c["related_jobs"])
@@ -392,6 +492,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  출력: {out_jsonl}")
     print(f"  검증: {validation_path}")
     print(f"  manifest: {build_manifest_path}")
+    print(f"  diff:     {diff_path}")
+    print(f"  changed:  {changed_path} ({changed_written}행)")
     return 0
 
 

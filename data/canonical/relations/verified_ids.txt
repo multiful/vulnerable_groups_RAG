@@ -1,17 +1,30 @@
 # verified_ids.txt
-# 최종 수정일: 2026-04-15
+# 최종 수정일: 2026-04-19
 # 목적: relations/ 각 CSV에서 랜덤서치로 검증 완료된 relation_id 누적 기록
 #       완료 목록에 있는 ID는 다음 랜덤서치에서 반드시 제외한다.
+#
+# [검증 우선순위 — §P5]
+#   1. cert_prerequisite.csv  (재생성 후 union-find 결과 — 우선 샘플링)
+#   2. cert_to_cert_relation.csv (parse_ir + prereq 병합 결과 — confidence=1.0 행 위주)
+#   3. cert_domain_mapping.csv / cert_job_mapping.csv (taxonomy 무결성 중심)
+#   나머지는 상기 3개 안정화 이후에 샘플링한다.
 #
 # [검증 규칙]
 # 1. 랜덤서치 후 터미널에 반드시 아래 형식으로 출력해서 확인한다:
 #      cert_job_mapping.csv  →  cjm_00356: 제품디자인기술사 → 산업디자인
 #      cert_domain_mapping.csv  →  cdm_00001: 용접기술사 → 기계/제조 (is_primary=True)
+#      cert_prerequisite.csv  →  prereq_00001: 공기압축기기사 ← 공기압축기기능사 (건설기계운전)
 # 2. 출력 내용을 육안으로 확인 후 이상 없으면 해당 ID를 완료 줄에 추가한다.
 # 3. 이상 있으면 ID 뒤에 WRONG:(사유) 를 붙이고 완료 줄 끝에 추가한다.
 #    예: cjm_00539 WRONG:(도시계획기사→측량/GIS 매핑 오류, 실제는 도시/교통)
 # 4. 완료 줄은 가로로만 늘린다. 줄 추가 금지.
 # 5. 이 파일은 짧게 유지한다. 파일당 완료 ID가 50개를 넘으면 별도 아카이브로 이동.
+
+cert_prerequisite.csv
+완료:
+
+cert_to_cert_relation.csv
+완료:
 
 cert_domain_mapping.csv
 완료:
@@ -20,9 +33,6 @@ cert_job_mapping.csv
 완료:
 
 cert_ncs_mapping.csv
-완료:
-
-cert_prerequisite.csv
 완료:
 
 cert_to_roadmap_stage.csv
