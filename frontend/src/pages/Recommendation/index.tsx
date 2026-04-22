@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Map, ExternalLink } from 'lucide-react';
+import certCandidatesData from '../../data/cert_candidates.json';
 
 const Recommendation: React.FC = () => {
   const location = useLocation();
@@ -12,29 +13,38 @@ const Recommendation: React.FC = () => {
   const [selectedJob, setSelectedJob] = useState('');
   const [selectedDomain, setSelectedDomain] = useState('');
 
-  // 스텁(Mock) 데이터 (API_SPEC.md 참고)
-  const mockCandidates = [
-    {
-      candidate_id: "cand_cert_013",
-      cert_id: "cert_013",
-      cert_name: "정보처리기사",
-      primary_domain: "데이터/AI",
-      related_jobs: ["데이터 분석", "백엔드 개발"],
-      related_domains: ["데이터/AI", "소프트웨어개발"],
-      roadmap_stages: ["기초", "실무"],
-      summary: "데이터/AI 및 소프트웨어개발 영역으로 연결되는 대표 자격증입니다."
-    },
-    {
-      candidate_id: "cand_cert_014",
-      cert_id: "cert_014",
-      cert_name: "웹디자인기능사",
-      primary_domain: "소프트웨어개발",
-      related_jobs: ["프론트엔드 개발", "UX/UI 디자이너"],
-      related_domains: ["소프트웨어개발", "디자인"],
-      roadmap_stages: ["탐색", "기초"],
-      summary: "UI 구현 및 웹 퍼블리싱의 기초를 다질 수 있는 자격증입니다. 4~5단계 위험군에게 우선 추천됩니다."
-    }
-  ];
+  const riskStageMapping: Record<string, string> = {
+    'risk_stage_1': 'risk_0001',
+    'risk_stage_2': 'risk_0002',
+    'risk_stage_3': 'risk_0003',
+    'risk_stage_4': 'risk_0004',
+    'risk_stage_5': 'risk_0005',
+    '선택안함': ''
+  };
+  const targetRiskStage = riskStageMapping[riskStageId] || '';
+
+  // 필터링 로직 구현 (실제 마스터 데이터셋 연동)
+  const filteredCandidates = useMemo(() => {
+    return certCandidatesData.filter((cert: any) => {
+      // 1. 위험군 필터링 (location.state를 통해 넘어온 진단 결과 적용)
+      if (targetRiskStage && (!cert.recommended_risk_stages || !cert.recommended_risk_stages.includes(targetRiskStage))) {
+        return false;
+      }
+      
+      const searchTarget = cert.text_for_dense || '';
+      
+      // 2. 검색어 필터링
+      const matchQuery = !searchQuery || cert.cert_name.includes(searchQuery) || searchTarget.includes(searchQuery);
+      
+      // 3. 관심 직무 필터링
+      const matchJob = selectedJob === "" || searchTarget.includes(selectedJob);
+      
+      // 4. 관심 도메인 필터링
+      const matchDomain = selectedDomain === "" || searchTarget.includes(selectedDomain);
+
+      return matchQuery && matchJob && matchDomain;
+    });
+  }, [searchQuery, selectedJob, selectedDomain, targetRiskStage]);
 
   const handleCreateRoadmap = (certId: string) => {
     navigate('/roadmap', { state: { certId, riskStageId } });
@@ -64,18 +74,23 @@ const Recommendation: React.FC = () => {
             <label>관심 직무</label>
             <select value={selectedJob} onChange={(e) => setSelectedJob(e.target.value)} className="filter-select">
               <option value="">전체 직무</option>
-              <option value="데이터 분석">데이터 분석</option>
-              <option value="백엔드 개발">백엔드 개발</option>
-              <option value="프론트엔드 개발">프론트엔드 개발</option>
+              <option value="데이터">데이터 관련</option>
+              <option value="개발">개발 (소프트웨어/웹/앱)</option>
+              <option value="기계">기계/생산/제조</option>
+              <option value="전기">전기/전자/통신</option>
+              <option value="설계">설계/건축/토목</option>
+              <option value="기획">경영/기획/사무</option>
             </select>
           </div>
           <div className="filter-group">
             <label>관심 도메인</label>
             <select value={selectedDomain} onChange={(e) => setSelectedDomain(e.target.value)} className="filter-select">
               <option value="">전체 도메인</option>
-              <option value="데이터/AI">데이터/AI</option>
-              <option value="소프트웨어개발">소프트웨어개발</option>
-              <option value="디자인">디자인</option>
+              <option value="IT">IT/소프트웨어</option>
+              <option value="기계">기계/제조</option>
+              <option value="전기">전기/전자</option>
+              <option value="건축">건축/토목</option>
+              <option value="디자인">디자인/예술</option>
             </select>
           </div>
           <button className="btn-primary" style={{ alignSelf: 'flex-end', height: '42px' }}>
@@ -85,22 +100,22 @@ const Recommendation: React.FC = () => {
       </div>
 
       <div className="results-section">
-        <h2 className="section-title">추천 후보 ({mockCandidates.length})</h2>
+        <h2 className="section-title">추천 후보 ({filteredCandidates.length})</h2>
         <div className="candidates-grid">
-          {mockCandidates.map((cert) => (
+          {filteredCandidates.slice(0, 50).map((cert: any) => (
             <div key={cert.candidate_id} className="glass-card cert-card">
               <div className="cert-header">
                 <div>
-                  <span className="domain-badge">{cert.primary_domain}</span>
+                  <span className="domain-badge">{cert.cert_grade_tier || '등급 미상'}</span>
                   <h3 className="cert-title">{cert.cert_name}</h3>
                 </div>
               </div>
-              <p className="cert-summary">{cert.summary}</p>
+              <p className="cert-summary" style={{ fontSize: '0.85rem' }}>{cert.text_for_dense}</p>
               
               <div className="cert-tags">
                 <div className="tag-group">
-                  <span className="tag-label">관련 직무:</span>
-                  {cert.related_jobs.map(job => <span key={job} className="tag">{job}</span>)}
+                  <span className="tag-label">추천 위험군 단계:</span>
+                  {(cert.recommended_risk_stages || []).map((risk: string) => <span key={risk} className="tag">{risk}</span>)}
                 </div>
               </div>
 
