@@ -2,31 +2,28 @@
 
 > **파일명**: FOLDER.md  
 > **폴더 경로**: `frontend/src/types`  
-> **최종 수정일**: 2026-04-03  
+> **최종 수정일**: 2026-04-27  
 > **문서 해시**: SHA256:TBD  
-> **문서 역할**: 디렉터리 스캐폴드 명시서 — 담는 내용·금지·다음 단계 연계  
-> **문서 우선순위**: reference (충돌 시 루트 기준 문서 우선)  
-> **연관 문서**: DIRECTORY_SPEC.md, SYSTEM_ARCHITECTURE.md, RAG_PIPELINE.md, DATA_SCHEMA.md, PRD.md, PROJECT_SUMMARY.md, README.md, CHANGE_CONTROL.md  
-
-> **참조 규칙**: 폴더 용도가 바뀌면 본 파일과 `DIRECTORY_SPEC.md`를 같은 작업에서 갱신한다. 실제 스키마·API 계약은 루트 `DATA_SCHEMA.md`, `API_SPEC.md`, `RAG_PIPELINE.md`가 우선한다.
+> **문서 역할**: 디렉터리 스캐폴드 명시서  
+> **문서 우선순위**: reference  
+> **연관 문서**: DIRECTORY_SPEC.md, DATA_SCHEMA.md
 
 ---
 
 ## 1. 용도
 
-프론트 **타입 정의**.
+프론트엔드 TypeScript 타입 정의 파일. API 응답 형상과 도메인 엔티티 인터페이스를 담는다.
 
-## 2. 담지 않는 것
+## 2. 현재 파일
 
-`shared/types`와 중복 시 하나로 합칠 것.
+- `cert.ts` — `CertCandidate` 인터페이스 (cert_candidates.json 행 타입)
 
-## 3. 산출·연계
+## 3. 담지 않는 것
 
-`API_SPEC.md` 응답 스키마와 필드명을 맞춘다.
+- 컴포넌트 props 타입 (각 컴포넌트 파일 내 정의)
+- API 호출 로직 (`src/api/` 담당)
 
----
+## 4. 연계
 
-## 4. 비고
-
-- 비어 있거나 `.gitkeep`만 둔 것은 **개발 스캐폴드**일 수 있다.
-- 대용량 원본·산출물은 Git 정책(`.gitignore`)과 `HASH_INCREMENTAL_BUILD_GUIDE.md` 증분 원칙을 따른다.
+- `src/pages/Recommendation/index.tsx`에서 `CertCandidate` import
+- 백엔드 `DATA_SCHEMA.md`의 candidate row 구조를 따른다

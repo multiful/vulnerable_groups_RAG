@@ -2,173 +2,211 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Info } from 'lucide-react';
 
+// §6: 1단계=취업 안정권, 5단계=고위험 확정. 2~4단계 세부 의미는 정책 확정 전 임의 정의 금지.
+const RISK_STAGES = [
+  {
+    id: '1',
+    riskId: 'risk_stage_1',
+    label: '1단계',
+    sublabel: '취업 안정권',
+    desc: '취업 준비가 비교적 안정적으로 진행 중입니다.',
+    dotColor: '#10b981',
+    bgClass: 'stage-green',
+  },
+  {
+    id: '2',
+    riskId: 'risk_stage_2',
+    label: '2단계',
+    sublabel: '준비 단계',
+    desc: '', // TODO: 세부 기준 정책 확정 후 업데이트 (CLAUDE.md §6)
+    dotColor: '#6366f1',
+    bgClass: 'stage-indigo',
+  },
+  {
+    id: '3',
+    riskId: 'risk_stage_3',
+    label: '3단계',
+    sublabel: '준비 단계',
+    desc: '', // TODO: 세부 기준 정책 확정 후 업데이트 (CLAUDE.md §6)
+    dotColor: '#6366f1',
+    bgClass: 'stage-indigo',
+  },
+  {
+    id: '4',
+    riskId: 'risk_stage_4',
+    label: '4단계',
+    sublabel: '집중 케어 단계',
+    desc: '', // TODO: 세부 기준 정책 확정 후 업데이트 (CLAUDE.md §6)
+    dotColor: '#f59e0b',
+    bgClass: 'stage-amber',
+  },
+  {
+    id: '5',
+    riskId: 'risk_stage_5',
+    label: '5단계',
+    sublabel: '고위험군',
+    desc: '취업을 원하지만 현실적 장벽이 높은 단계입니다.',
+    dotColor: '#f43f5e',
+    bgClass: 'stage-red',
+  },
+] as const;
+
 const RiskAssessment: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedStage, setSelectedStage] = useState<string>('');
-
-  const riskStages = [
-    { id: '1', title: '1단계: 안정/초기', desc: '기본적인 준비가 되어 있으며, 명확한 목표 설정이 필요한 단계' },
-    { id: '2', title: '2단계: 탐색/준비', desc: '관심 분야를 탐색하고 있으며, 구체적인 방향성을 찾고 있는 단계' },
-    { id: '3', title: '3단계: 정체/고민', desc: '취업 준비 기간이 길어지거나 방향성에 대해 고민이 많은 단계' },
-    { id: '4', title: '4단계: 취약/집중 케어', desc: '실질적인 기초 역량 강화와 작은 성공 경험이 우선적으로 필요한 단계' },
-    { id: '5', title: '5단계: 고위험/기초', desc: '심리적 안정과 아주 기본적인 직무 탐색부터 천천히 시작해야 하는 단계' }
-  ];
+  const [selected, setSelected] = useState<string>('');
 
   const handleNext = () => {
-    // 실 서비스에서는 상태 관리나 API 호출을 통해 다음 페이지로 데이터 전달
-    if (selectedStage) {
-      navigate('/recommendation', { state: { riskStageId: `risk_stage_${selectedStage}` } });
-    }
+    if (!selected) return;
+    navigate(`/recommendation?stage=${selected}`);
   };
 
   return (
-    <div className="risk-container">
+    <div className="risk-wrap">
       <div className="page-header">
         <h1 className="page-title">위험군 진단</h1>
         <p className="page-desc">현재 상황에 가장 가까운 단계를 선택해주세요.</p>
       </div>
 
-      <div className="glass-card assessment-content">
-        <div className="info-box">
-          <Info size={20} color="var(--secondary)" />
-          <span>선택한 단계에 따라 추천되는 자격증의 권장 등급(난이도)이 조정됩니다.</span>
+      <div className="card risk-card">
+        <div className="info-banner">
+          <Info size={16} />
+          <span>선택한 단계에 따라 추천 자격증의 권장 등급이 달라집니다.</span>
         </div>
 
         <div className="stages-list">
-          {riskStages.map((stage) => (
-            <div 
+          {RISK_STAGES.map(stage => (
+            <button
               key={stage.id}
-              className={`stage-option ${selectedStage === stage.id ? 'selected' : ''}`}
-              onClick={() => setSelectedStage(stage.id)}
+              className={`stage-btn ${selected === stage.id ? 'selected' : ''}`}
+              onClick={() => setSelected(stage.id)}
+              type="button"
             >
-              <div className="stage-radio">
-                <div className="radio-inner" />
+              <div className={`stage-indicator ${stage.bgClass}`} />
+              <div className="stage-text">
+                <div className="stage-labels">
+                  <span className="stage-num">{stage.label}</span>
+                  <span className="stage-sub">{stage.sublabel}</span>
+                </div>
+                {stage.desc && <p className="stage-desc">{stage.desc}</p>}
               </div>
-              <div className="stage-info">
-                <h3>{stage.title}</h3>
-                <p>{stage.desc}</p>
-              </div>
-            </div>
+              <div className={`stage-check ${selected === stage.id ? 'visible' : ''}`}>✓</div>
+            </button>
           ))}
         </div>
 
-        <div className="actions">
-          <button 
-            className="btn-primary" 
-            disabled={!selectedStage}
+        <div className="risk-actions">
+          <button
+            className="btn-primary"
+            disabled={!selected}
             onClick={handleNext}
-            style={{ opacity: selectedStage ? 1 : 0.5, pointerEvents: selectedStage ? 'auto' : 'none' }}
           >
-            다음 단계로 <ArrowRight size={20} />
+            다음 단계로 <ArrowRight size={18} />
           </button>
         </div>
       </div>
 
       <style>{`
-        .risk-container {
-          max-width: 800px;
-          margin: 0 auto;
+        .risk-wrap {
+          max-width: 680px;
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 1.5rem;
         }
-        .page-header {
+        .risk-card {
+          padding: 1.75rem;
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 1.5rem;
         }
-        .page-title {
-          font-size: 2rem;
-          font-weight: 700;
-        }
-        .page-desc {
-          color: var(--text-muted);
-          font-size: 1.1rem;
-        }
-        .assessment-content {
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-        .info-box {
+        .info-banner {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          padding: 1rem;
-          background: rgba(6, 182, 212, 0.1);
-          border: 1px solid rgba(6, 182, 212, 0.2);
-          border-radius: 0.75rem;
-          color: var(--secondary);
-          font-size: 0.95rem;
+          gap: 0.625rem;
+          padding: 0.75rem 1rem;
+          background: var(--primary-light);
+          border-radius: var(--radius-sm);
+          color: var(--primary);
+          font-size: 0.875rem;
+          font-weight: 500;
         }
         .stages-list {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 0.625rem;
         }
-        .stage-option {
+        .stage-btn {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           gap: 1rem;
-          padding: 1.5rem;
-          border-radius: 1rem;
-          border: 1px solid var(--border);
-          background: rgba(30, 41, 59, 0.4);
-          cursor: pointer;
+          padding: 1.125rem 1.25rem;
+          border-radius: var(--radius-sm);
+          border: 1.5px solid var(--border);
+          background: var(--surface);
+          text-align: left;
           transition: var(--transition);
+          width: 100%;
+          cursor: pointer;
         }
-        .stage-option:hover {
-          border-color: var(--text-muted);
-          background: rgba(30, 41, 59, 0.8);
+        .stage-btn:hover {
+          border-color: var(--border-strong);
+          background: var(--surface-2);
         }
-        .stage-option.selected {
+        .stage-btn.selected {
           border-color: var(--primary);
-          background: rgba(99, 102, 241, 0.1);
+          background: linear-gradient(135deg, var(--primary-light), rgba(14,165,233,0.07));
+          box-shadow: 0 4px 16px var(--primary-glow);
         }
-        .stage-radio {
-          width: 1.25rem;
-          height: 1.25rem;
+        .stage-indicator {
+          width: 6px;
+          height: 44px;
+          border-radius: 3px;
+          flex-shrink: 0;
+        }
+        .stage-green  { background: #10b981; }
+        .stage-indigo { background: #6366f1; }
+        .stage-amber  { background: #f59e0b; }
+        .stage-red    { background: #f43f5e; }
+
+        .stage-text { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; }
+        .stage-labels { display: flex; align-items: baseline; gap: 0.625rem; }
+        .stage-num {
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--text-muted);
+        }
+        .stage-btn.selected .stage-num { color: var(--primary); }
+        .stage-sub {
+          font-size: 1rem;
+          font-weight: 700;
+          color: var(--text);
+        }
+        .stage-desc {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          line-height: 1.5;
+        }
+        .stage-check {
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
-          border: 2px solid var(--text-muted);
-          margin-top: 0.25rem;
+          background: var(--primary);
+          color: #fff;
+          font-size: 0.75rem;
+          font-weight: 700;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: var(--transition);
+          opacity: 0;
+          transition: opacity 0.15s;
+          flex-shrink: 0;
         }
-        .stage-option.selected .stage-radio {
-          border-color: var(--primary);
-        }
-        .radio-inner {
-          width: 0.625rem;
-          height: 0.625rem;
-          border-radius: 50%;
-          background: var(--primary);
-          transform: scale(0);
-          transition: var(--transition);
-        }
-        .stage-option.selected .radio-inner {
-          transform: scale(1);
-        }
-        .stage-info {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-        }
-        .stage-info h3 {
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: var(--text);
-        }
-        .stage-info p {
-          color: var(--text-muted);
-          font-size: 0.95rem;
-        }
-        .actions {
+        .stage-check.visible { opacity: 1; }
+
+        .risk-actions {
           display: flex;
           justify-content: flex-end;
-          margin-top: 1rem;
+          padding-top: 0.5rem;
+          border-top: 1px solid var(--border);
         }
       `}</style>
     </div>

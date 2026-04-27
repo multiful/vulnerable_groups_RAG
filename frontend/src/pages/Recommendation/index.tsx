@@ -1,183 +1,237 @@
-import React, { useState, useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Search, Map, ExternalLink } from 'lucide-react';
+import React, { useState, useMemo, useDeferredValue } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Search, Map, ExternalLink, ChevronDown, AlertCircle } from 'lucide-react';
 import certCandidatesData from '../../data/cert_candidates.json';
+import type { CertCandidate } from '../../types/cert';
+
+const certs = certCandidatesData as CertCandidate[];
+
+const RISK_STAGE_LABELS: Record<string, string> = {
+  '1': '1단계',
+  '2': '2단계',
+  '3': '3단계',
+  '4': '4단계',
+  '5': '5단계',
+};
+
+const RISK_INTERNAL_MAP: Record<string, string> = {
+  '1': 'risk_0001',
+  '2': 'risk_0002',
+  '3': 'risk_0003',
+  '4': 'risk_0004',
+  '5': 'risk_0005',
+};
+
+function gradeBadgeClass(tier: string): string {
+  if (tier.startsWith('5')) return 'badge-primary';
+  if (tier.startsWith('4')) return 'badge-primary';
+  if (tier.startsWith('3')) return 'badge-secondary';
+  if (tier.startsWith('2')) return 'badge-success';
+  if (tier.startsWith('1')) return 'badge-warning';
+  return 'badge-neutral';
+}
+
+function gradeLabel(tier: string): string {
+  const map: Record<string, string> = {
+    '5_기능장': '기능장',
+    '4_기술사': '기술사',
+    '3_기사': '기사',
+    '2_산업기사': '산업기사',
+    '1_기능사': '기능사',
+  };
+  return map[tier] ?? (tier || '기타');
+}
 
 const Recommendation: React.FC = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  // 실 구현에서는 location.state 에서 넘어온 정보를 기반으로 API를 호출합니다.
-  const riskStageId = location.state?.riskStageId || '선택안함';
+  const [searchParams] = useSearchParams();
+  const stageParam = searchParams.get('stage') ?? '';
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedJob, setSelectedJob] = useState('');
   const [selectedDomain, setSelectedDomain] = useState('');
 
-  const riskStageMapping: Record<string, string> = {
-    'risk_stage_1': 'risk_0001',
-    'risk_stage_2': 'risk_0002',
-    'risk_stage_3': 'risk_0003',
-    'risk_stage_4': 'risk_0004',
-    'risk_stage_5': 'risk_0005',
-    '선택안함': ''
-  };
-  const targetRiskStage = riskStageMapping[riskStageId] || '';
+  const deferredQuery = useDeferredValue(searchQuery);
 
-  // 필터링 로직 구현 (실제 마스터 데이터셋 연동)
-  const filteredCandidates = useMemo(() => {
-    return certCandidatesData.filter((cert: any) => {
-      // 1. 위험군 필터링 (location.state를 통해 넘어온 진단 결과 적용)
-      if (targetRiskStage && (!cert.recommended_risk_stages || !cert.recommended_risk_stages.includes(targetRiskStage))) {
-        return false;
-      }
-      
-      const searchTarget = cert.text_for_dense || '';
-      
-      // 2. 검색어 필터링
-      const matchQuery = !searchQuery || cert.cert_name.includes(searchQuery) || searchTarget.includes(searchQuery);
-      
-      // 3. 관심 직무 필터링
-      const matchJob = selectedJob === "" || searchTarget.includes(selectedJob);
-      
-      // 4. 관심 도메인 필터링
-      const matchDomain = selectedDomain === "" || searchTarget.includes(selectedDomain);
+  const targetRiskInternal = stageParam ? RISK_INTERNAL_MAP[stageParam] : '';
+  const riskLabel = stageParam ? (RISK_STAGE_LABELS[stageParam] ?? stageParam) : '';
 
-      return matchQuery && matchJob && matchDomain;
+  const filtered = useMemo(() => {
+    return certs.filter(cert => {
+      if (targetRiskInternal && !cert.recommended_risk_stages.includes(targetRiskInternal)) return false;
+      const haystack = cert.text_for_dense;
+      if (deferredQuery && !cert.cert_name.includes(deferredQuery) && !haystack.includes(deferredQuery)) return false;
+      if (selectedJob && !haystack.includes(selectedJob)) return false;
+      if (selectedDomain && !haystack.includes(selectedDomain)) return false;
+      return true;
     });
-  }, [searchQuery, selectedJob, selectedDomain, targetRiskStage]);
+  }, [deferredQuery, selectedJob, selectedDomain, targetRiskInternal]);
 
-  const handleCreateRoadmap = (certId: string) => {
-    navigate('/roadmap', { state: { certId, riskStageId } });
+  const handleRoadmap = (certId: string) => {
+    const params = new URLSearchParams();
+    params.set('cert', certId);
+    if (stageParam) params.set('stage', stageParam);
+    navigate(`/roadmap?${params.toString()}`);
   };
 
   return (
-    <div className="recommendation-container">
+    <div className="rec-wrap">
       <div className="page-header">
         <h1 className="page-title">자격증 추천</h1>
-        <p className="page-desc">관심 직무와 도메인을 검색하여 맞춤형 자격증을 확인하세요. (현재 진단: {riskStageId})</p>
+        <p className="page-desc">
+          {riskLabel
+            ? `${riskLabel} 기준으로 적합한 자격증을 보여드립니다.`
+            : '관심 직무와 도메인으로 자격증을 탐색하세요.'}
+        </p>
       </div>
 
-      <div className="glass-card filter-section">
-        <div className="search-box">
-          <Search size={20} className="search-icon" />
-          <input 
-            type="text" 
-            placeholder="자유롭게 입력해보세요 (예: 데이터 분석 쪽으로 갈 때 도움이 되는 자격증)" 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
-        </div>
-        
-        <div className="filter-row">
-          <div className="filter-group">
-            <label>관심 직무</label>
-            <select value={selectedJob} onChange={(e) => setSelectedJob(e.target.value)} className="filter-select">
-              <option value="">전체 직무</option>
-              <option value="데이터">데이터 관련</option>
-              <option value="개발">개발 (소프트웨어/웹/앱)</option>
-              <option value="기계">기계/생산/제조</option>
-              <option value="전기">전기/전자/통신</option>
-              <option value="설계">설계/건축/토목</option>
-              <option value="기획">경영/기획/사무</option>
-            </select>
+      {/* No risk stage selected — prompt */}
+      {!stageParam && (
+        <div className="empty-hint card">
+          <AlertCircle size={20} />
+          <div>
+            <p className="empty-hint-title">위험군 진단을 먼저 해보세요</p>
+            <p className="empty-hint-sub">진단 결과를 바탕으로 더 정확한 추천을 드릴 수 있습니다.</p>
           </div>
-          <div className="filter-group">
-            <label>관심 도메인</label>
-            <select value={selectedDomain} onChange={(e) => setSelectedDomain(e.target.value)} className="filter-select">
-              <option value="">전체 도메인</option>
-              <option value="IT">IT/소프트웨어</option>
-              <option value="기계">기계/제조</option>
-              <option value="전기">전기/전자</option>
-              <option value="건축">건축/토목</option>
-              <option value="디자인">디자인/예술</option>
-            </select>
-          </div>
-          <button className="btn-primary" style={{ alignSelf: 'flex-end', height: '42px' }}>
-            검색
+          <button className="btn-ghost" onClick={() => navigate('/risk-assessment')}>
+            진단하러 가기
           </button>
         </div>
+      )}
+
+      {/* Filters */}
+      <div className="card filter-card">
+        <div className="search-wrapper">
+          <Search size={18} className="search-icon" />
+          <input
+            type="text"
+            className="input search-input"
+            placeholder="자격증명, 직무, 도메인으로 검색…"
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+        </div>
+
+        <div className="filter-row">
+          <div className="filter-group">
+            <label className="filter-label">관심 직무</label>
+            <div className="select-wrap">
+              <select
+                className="select"
+                value={selectedJob}
+                onChange={e => setSelectedJob(e.target.value)}
+              >
+                <option value="">전체 직무</option>
+                <option value="데이터">데이터 관련</option>
+                <option value="개발">개발 (소프트웨어/웹/앱)</option>
+                <option value="기계">기계/생산/제조</option>
+                <option value="전기">전기/전자/통신</option>
+                <option value="설계">설계/건축/토목</option>
+                <option value="기획">경영/기획/사무</option>
+              </select>
+              <ChevronDown size={16} className="select-arrow" />
+            </div>
+          </div>
+          <div className="filter-group">
+            <label className="filter-label">관심 도메인</label>
+            <div className="select-wrap">
+              <select
+                className="select"
+                value={selectedDomain}
+                onChange={e => setSelectedDomain(e.target.value)}
+              >
+                <option value="">전체 도메인</option>
+                <option value="IT">IT/소프트웨어</option>
+                <option value="기계">기계/제조</option>
+                <option value="전기">전기/전자</option>
+                <option value="건축">건축/토목</option>
+                <option value="디자인">디자인/예술</option>
+              </select>
+              <ChevronDown size={16} className="select-arrow" />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="results-section">
-        <h2 className="section-title">추천 후보 ({filteredCandidates.length})</h2>
-        <div className="candidates-grid">
-          {filteredCandidates.slice(0, 50).map((cert: any) => (
-            <div key={cert.candidate_id} className="glass-card cert-card">
-              <div className="cert-header">
-                <div>
-                  <span className="domain-badge">{cert.cert_grade_tier || '등급 미상'}</span>
-                  <h3 className="cert-title">{cert.cert_name}</h3>
-                </div>
+      {/* Results */}
+      <section>
+        <p className="section-title result-count">
+          추천 자격증 <span className="count-num">{filtered.length}</span>건
+        </p>
+        <div className="cert-grid">
+          {filtered.slice(0, 50).map(cert => (
+            <div key={cert.candidate_id} className="card cert-card">
+              <div className="cert-top">
+                <span className={`badge ${gradeBadgeClass(cert.cert_grade_tier)}`}>
+                  {gradeLabel(cert.cert_grade_tier)}
+                </span>
+                <h3 className="cert-name">{cert.cert_name}</h3>
+                <p className="cert-issuer">{cert.issuer}</p>
               </div>
-              <p className="cert-summary" style={{ fontSize: '0.85rem' }}>{cert.text_for_dense}</p>
-              
-              <div className="cert-tags">
-                <div className="tag-group">
-                  <span className="tag-label">추천 위험군 단계:</span>
-                  {(cert.recommended_risk_stages || []).map((risk: string) => <span key={risk} className="tag">{risk}</span>)}
-                </div>
+
+              <p className="cert-summary">{cert.text_for_dense}</p>
+
+              <div className="cert-stages">
+                {cert.recommended_risk_stages.map(rs => {
+                  const stageNum = rs.replace('risk_000', '');
+                  return (
+                    <span key={rs} className="badge badge-neutral">
+                      {stageNum}단계
+                    </span>
+                  );
+                })}
               </div>
 
               <div className="cert-actions">
-                <button className="action-btn text-blue">
-                  <ExternalLink size={16} /> 설명 근거 (문서)
+                <button className="text-btn">
+                  <ExternalLink size={14} /> 설명 근거
                 </button>
-                <button 
-                  className="action-btn text-primary"
-                  onClick={() => handleCreateRoadmap(cert.cert_id)}
+                <button
+                  className="text-btn roadmap-btn"
+                  onClick={() => handleRoadmap(cert.cert_id)}
                 >
-                  <Map size={16} /> 로드맵 생성
+                  <Map size={14} /> 로드맵 보기
                 </button>
               </div>
             </div>
           ))}
+
+          {filtered.length === 0 && (
+            <div className="no-results">
+              <p>조건에 맞는 자격증이 없습니다.</p>
+              <p>검색어나 필터를 변경해보세요.</p>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
 
       <style>{`
-        .recommendation-container {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-        }
-        .page-header {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        .page-title { font-size: 2rem; font-weight: 700; }
-        .page-desc { color: var(--text-muted); font-size: 1.1rem; }
-        
-        .filter-section {
-          padding: 1.5rem;
+        .rec-wrap {
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
         }
-        .search-box {
-          position: relative;
+
+        /* Empty hint */
+        .empty-hint {
           display: flex;
           align-items: center;
-        }
-        .search-icon {
-          position: absolute;
-          left: 1rem;
+          gap: 1rem;
+          padding: 1rem 1.25rem;
           color: var(--text-muted);
+          flex-wrap: wrap;
         }
-        .search-input {
-          width: 100%;
-          padding: 1rem 1rem 1rem 3rem;
-          background: rgba(15, 23, 42, 0.5);
-          border: 1px solid var(--border);
-          border-radius: 0.75rem;
-          color: var(--text);
-          font-size: 1rem;
-          outline: none;
-          transition: var(--transition);
+        .empty-hint-title { font-weight: 600; color: var(--text); font-size: 0.9rem; }
+        .empty-hint-sub { font-size: 0.825rem; color: var(--text-muted); }
+        .empty-hint > div { flex: 1; min-width: 180px; }
+
+        /* Filter card */
+        .filter-card {
+          padding: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
-        .search-input:focus { border-color: var(--primary); }
-        
         .filter-row {
           display: flex;
           gap: 1rem;
@@ -186,108 +240,89 @@ const Recommendation: React.FC = () => {
         .filter-group {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 0.375rem;
           flex: 1;
-          min-width: 200px;
+          min-width: 180px;
         }
-        .filter-group label {
-          font-size: 0.875rem;
-          color: var(--text-muted);
-          font-weight: 500;
-        }
-        .filter-select {
-          padding: 0.75rem 1rem;
-          background: rgba(15, 23, 42, 0.5);
-          border: 1px solid var(--border);
-          border-radius: 0.5rem;
-          color: var(--text);
-          outline: none;
-          appearance: none;
-        }
-        
-        .results-section {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        .section-title { font-size: 1.25rem; font-weight: 600; }
-        .candidates-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-          gap: 1.5rem;
-        }
-        .cert-card {
-          padding: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        .cert-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-        }
-        .domain-badge {
-          display: inline-block;
-          padding: 0.25rem 0.75rem;
-          background: rgba(99, 102, 241, 0.1);
-          color: var(--primary);
-          border-radius: 1rem;
-          font-size: 0.75rem;
+        .filter-label {
+          font-size: 0.8rem;
           font-weight: 600;
-          margin-bottom: 0.75rem;
-        }
-        .cert-title {
-          font-size: 1.25rem;
-          font-weight: 700;
-        }
-        .cert-summary {
           color: var(--text-muted);
-          font-size: 0.95rem;
-          line-height: 1.5;
         }
-        .cert-tags {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          margin-top: 0.5rem;
-          padding-top: 1rem;
-          border-top: 1px solid var(--border);
-        }
-        .tag-group {
+        .select-wrap {
+          position: relative;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          flex-wrap: wrap;
         }
-        .tag-label {
-          font-size: 0.85rem;
+        .select-arrow {
+          position: absolute;
+          right: 0.75rem;
+          color: var(--text-light);
+          pointer-events: none;
+        }
+
+        /* Results */
+        .result-count {
+          margin-bottom: 1rem;
+        }
+        .count-num {
+          color: var(--primary);
+          font-size: 1.25rem;
+          font-weight: 800;
+        }
+        .cert-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 1rem;
+        }
+        .cert-card {
+          padding: 1.25rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+        }
+        .cert-card:hover {
+          box-shadow: 0 8px 28px rgba(99,102,241,0.14), var(--shadow-md);
+          border-color: rgba(99,102,241,0.2);
+          transform: translateY(-3px);
+        }
+
+        .cert-top { display: flex; flex-direction: column; gap: 0.25rem; }
+        .cert-name { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+        .cert-issuer { font-size: 0.78rem; color: var(--text-light); }
+
+        .cert-summary {
+          font-size: 0.825rem;
           color: var(--text-muted);
+          line-height: 1.55;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
-        .tag {
-          background: var(--surface);
-          padding: 0.2rem 0.5rem;
-          border-radius: 0.25rem;
-          font-size: 0.8rem;
-          color: var(--text);
+        .cert-stages {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.375rem;
         }
         .cert-actions {
           display: flex;
           gap: 1rem;
+          padding-top: 0.75rem;
+          border-top: 1px solid var(--border);
           margin-top: auto;
-          padding-top: 1rem;
         }
-        .action-btn {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.9rem;
-          font-weight: 500;
-          transition: var(--transition);
+        .roadmap-btn { margin-left: auto; }
+
+        /* Empty state */
+        .no-results {
+          grid-column: 1 / -1;
+          text-align: center;
+          padding: 3rem 1rem;
+          color: var(--text-muted);
+          line-height: 1.8;
         }
-        .action-btn:hover { text-decoration: underline; }
-        .text-blue { color: #3b82f6; }
-        .text-primary { color: var(--primary); }
       `}</style>
     </div>
   );
