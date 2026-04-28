@@ -68,7 +68,7 @@ const MainLayout: React.FC = () => {
       <header className="app-header">
         <div className="container header-inner">
           <Link to="/" className="logo">
-            <span className="logo-mark">나침반</span>
+            <span className="logo-mark">VulnerableRAG</span>
           </Link>
           <nav className="header-nav">
             {NAV_ITEMS.slice(1).map(item => (
@@ -138,12 +138,13 @@ const MainLayout: React.FC = () => {
         }
 
         /* ── Header ── */
+body { margin:0; background:#0a0a0a; color:#e5e7eb; font-family:'Inter',sans-serif; }
         .app-header {
           position: sticky;
           top: 0;
           z-index: 100;
           height: var(--header-h);
-          background: rgba(255,255,255,0.92);
+          background: rgba(0,0,0,0.92);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           border-bottom: 1px solid var(--border);
