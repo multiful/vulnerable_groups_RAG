@@ -6,7 +6,7 @@ const FEATURES = [
   {
     icon: <ShieldAlert size={26} />,
     title: '위험군 진단',
-    desc: '현재 취업 상태를 5단계로 진단하고 현실적인 목표를 설정합니다.',
+    desc: '취업 준비 상태를 1~5단계로 진단합니다. 단계별로 추천 우선순위와 로드맵 구조가 달라집니다.',
     colorClass: 'feat-primary',
     glowColor: 'rgba(99,102,241,0.15)',
     path: '/risk-assessment',
@@ -14,7 +14,7 @@ const FEATURES = [
   {
     icon: <Award size={26} />,
     title: '맞춤 자격증',
-    desc: '진단 결과와 관심 직무를 바탕으로 최적의 자격증을 추천합니다.',
+    desc: '위험군 단계와 관심 직무·도메인을 바탕으로 관련 자격증 후보를 추천합니다.',
     colorClass: 'feat-secondary',
     glowColor: 'rgba(14,165,233,0.15)',
     path: '/recommendation',
@@ -22,11 +22,17 @@ const FEATURES = [
   {
     icon: <MapIcon size={26} />,
     title: '성장 로드맵',
-    desc: '목표 자격증 취득까지 단계별 학습 경로를 제공합니다.',
+    desc: '선택한 자격증 기준으로 단계별 학습 경로와 준비 순서를 제안합니다.',
     colorClass: 'feat-accent',
     glowColor: 'rgba(244,63,94,0.12)',
     path: '/roadmap',
   },
+];
+
+const FLOW_STEPS = [
+  { num: '1', label: '위험군 진단', sub: '현재 단계 선택' },
+  { num: '2', label: '자격증 추천', sub: '후보 목록 확인' },
+  { num: '3', label: '로드맵 탐색', sub: '학습 경로 확인' },
 ];
 
 const Home: React.FC = () => {
@@ -39,19 +45,19 @@ const Home: React.FC = () => {
         <div className="hero-content">
           <div className="hero-badge">
             <TrendingUp size={14} />
-            <span>청년 취업 지원 서비스</span>
+            <span>청년 위험군 맞춤 자격증·로드맵 추천</span>
           </div>
           <h1 className="hero-title">
-            나에게 맞는 자격증과<br />
-            <span className="gradient-text">단계별 성장 로드맵</span>
+            지금 내 상황에 맞는<br />
+            <span className="gradient-text">자격증과 성장 경로</span>
           </h1>
           <p className="hero-sub">
-            취업 위험군 진단부터 자격증 추천, 학습 로드맵까지 한 번에.<br />
-            지금 상황에서 시작할 수 있는 가장 현실적인 길을 찾아드립니다.
+            위험군 단계·관심 직무·도메인을 바탕으로 자격증을 추천하고,<br />
+            단계별 로드맵을 제안합니다.
           </p>
           <div className="hero-actions">
             <Link to="/risk-assessment" className="btn-primary hero-btn">
-              지금 시작하기 <ArrowRight size={18} />
+              진단 시작하기 <ArrowRight size={18} />
             </Link>
             <Link to="/recommendation" className="btn-ghost hero-btn">
               자격증 둘러보기
@@ -60,9 +66,30 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Flow steps */}
+      <section className="flow-section">
+        <p className="section-eyebrow">이용 흐름</p>
+        <div className="flow-steps">
+          {FLOW_STEPS.map((s, idx) => (
+            <React.Fragment key={s.num}>
+              <div className="flow-step">
+                <div className="flow-num">{s.num}</div>
+                <div className="flow-text">
+                  <span className="flow-label">{s.label}</span>
+                  <span className="flow-sub">{s.sub}</span>
+                </div>
+              </div>
+              {idx < FLOW_STEPS.length - 1 && (
+                <ArrowRight size={16} className="flow-arrow" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
+
       {/* Features */}
       <section>
-        <p className="section-eyebrow">어떻게 도와드릴까요</p>
+        <p className="section-eyebrow">주요 기능</p>
         <div className="features-grid">
           {FEATURES.map(feat => (
             <Link
@@ -121,13 +148,13 @@ const Home: React.FC = () => {
         }
         .orb-1 {
           width: 480px; height: 480px;
-          background: radial-gradient(circle, rgba(99,102,241,0.14), transparent 70%);
+          background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
           top: -160px; left: -120px;
           animation: orb-drift 9s ease-in-out infinite;
         }
         .orb-2 {
           width: 360px; height: 360px;
-          background: radial-gradient(circle, rgba(14,165,233,0.11), transparent 70%);
+          background: radial-gradient(circle, rgba(14,165,233,0.08), transparent 70%);
           bottom: -80px; right: -60px;
           animation: orb-drift 11s ease-in-out infinite reverse;
         }
@@ -172,6 +199,56 @@ const Home: React.FC = () => {
         .hero-btn {
           padding: 0.75rem 1.625rem;
           font-size: 1rem;
+        }
+
+        /* Flow steps */
+        .flow-section { }
+        .flow-steps {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+          padding: 1.25rem 1.5rem;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow-xs);
+        }
+        .flow-step {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .flow-num {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: var(--gradient-primary);
+          color: #fff;
+          font-size: 0.85rem;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .flow-text {
+          display: flex;
+          flex-direction: column;
+        }
+        .flow-label {
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: var(--text);
+          line-height: 1.3;
+        }
+        .flow-sub {
+          font-size: 0.75rem;
+          color: var(--text-light);
+        }
+        .flow-arrow {
+          color: var(--text-light);
+          flex-shrink: 0;
         }
 
         /* Features */

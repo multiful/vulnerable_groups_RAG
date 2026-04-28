@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { CheckCircle2, Circle, Clock, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, Circle, Clock, ArrowLeft, Info } from 'lucide-react';
 
 const RISK_STAGE_LABELS: Record<string, string> = {
   '1': '1단계',
@@ -10,27 +10,24 @@ const RISK_STAGE_LABELS: Record<string, string> = {
   '5': '5단계',
 };
 
-// Stub data based on API_SPEC.md examples
+// Stub data — 실제 로드맵 API 연결 전 데모용
 const MOCK_STAGES = [
   {
     id: 'roadmap_stage_01',
     name: '기초',
     desc: '기본 개념과 직무 연관성을 이해하는 단계입니다.',
-    certIds: ['cert_013'],
     status: 'completed' as const,
   },
   {
     id: 'roadmap_stage_02',
     name: '실무',
     desc: '실무 적용 가능성을 높이는 단계입니다.',
-    certIds: ['cert_013'],
     status: 'current' as const,
   },
   {
     id: 'roadmap_stage_03',
     name: '심화',
     desc: '직무 전문성을 입증할 수 있는 고급 자격증 취득 단계입니다.',
-    certIds: ['cert_099'],
     status: 'locked' as const,
   },
 ];
@@ -58,8 +55,13 @@ const Roadmap: React.FC = () => {
         </button>
         <h1 className="page-title">성장 로드맵</h1>
         <p className="page-desc">
-          목표 자격증{riskLabel ? ` · ${riskLabel}` : ''} 기준 단계별 학습 경로입니다.
+          {certId ? `${certId}` : '선택한 자격증'}{riskLabel ? ` · ${riskLabel}` : ''} 기준 단계별 학습 경로입니다.
         </p>
+      </div>
+
+      <div className="roadmap-notice">
+        <Info size={14} />
+        <span>로드맵 API 연결 준비 중입니다. 아래는 단계 구조 예시입니다.</span>
       </div>
 
       <div className="card roadmap-card">
@@ -78,18 +80,16 @@ const Roadmap: React.FC = () => {
               <div className="tl-content">
                 <div className="tl-header">
                   <span className={`badge tl-badge ${stage.status === 'current' ? 'badge-secondary' : stage.status === 'completed' ? 'badge-success' : 'badge-neutral'}`}>
-                    {stage.status === 'completed' ? '완료' : stage.status === 'current' ? '진행중' : '잠김'}
+                    {stage.status === 'completed' ? '완료' : stage.status === 'current' ? '진행중' : '대기'}
                   </span>
                   <h3 className="tl-name">{stage.name}</h3>
                 </div>
                 <p className="tl-desc">{stage.desc}</p>
-                <div className="tl-certs">
-                  {stage.certIds.map(id => (
-                    <span key={id} className={`cert-chip ${id === certId ? 'cert-chip-target' : ''}`}>
-                      {id === certId ? '★ ' : ''}{id}
-                    </span>
-                  ))}
-                </div>
+                {stage.status === 'current' && certId && (
+                  <div className="tl-certs">
+                    <span className="cert-chip cert-chip-target">★ {certId}</span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -115,6 +115,17 @@ const Roadmap: React.FC = () => {
         }
         .back-btn:hover { color: var(--text); }
 
+        .roadmap-notice {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.625rem 1rem;
+          background: var(--warning-light);
+          border-radius: var(--radius-sm);
+          font-size: 0.825rem;
+          color: #92400e;
+          border: 1px solid rgba(245,158,11,0.25);
+        }
         .roadmap-card { padding: 2rem 1.75rem; }
         .timeline { display: flex; flex-direction: column; gap: 0; }
 

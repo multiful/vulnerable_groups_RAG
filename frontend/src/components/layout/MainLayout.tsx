@@ -138,16 +138,16 @@ const MainLayout: React.FC = () => {
         }
 
         /* ── Header ── */
-body { margin:0; background:#0a0a0a; color:#e5e7eb; font-family:'Inter',sans-serif; }
         .app-header {
           position: sticky;
           top: 0;
           z-index: 100;
           height: var(--header-h);
-          background: rgba(0,0,0,0.92);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid var(--border);
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border-bottom: 1px solid var(--border-strong);
+          box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
         }
         .header-inner {
           height: 100%;

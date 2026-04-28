@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useDeferredValue } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Search, Map, ExternalLink, ChevronDown, AlertCircle } from 'lucide-react';
+import { Search, Map, FileText, ChevronDown, AlertCircle } from 'lucide-react';
 import certCandidatesData from '../../data/cert_candidates.json';
 import type { CertCandidate } from '../../types/cert';
 
@@ -40,6 +40,12 @@ function gradeLabel(tier: string): string {
     '1_기능사': '기능사',
   };
   return map[tier] ?? (tier || '기타');
+}
+
+function extractJobs(text: string): string[] {
+  const m = text.match(/관련 직무[:\s]+([^.]+)/);
+  if (!m) return [];
+  return m[1].split(/[,，]/).map(s => s.trim()).filter(Boolean).slice(0, 4);
 }
 
 const Recommendation: React.FC = () => {
@@ -162,30 +168,42 @@ const Recommendation: React.FC = () => {
           {filtered.slice(0, 50).map(cert => (
             <div key={cert.candidate_id} className="card cert-card">
               <div className="cert-top">
-                <span className={`badge ${gradeBadgeClass(cert.cert_grade_tier)}`}>
-                  {gradeLabel(cert.cert_grade_tier)}
-                </span>
+                <div className="cert-top-row">
+                  <span className={`badge ${gradeBadgeClass(cert.cert_grade_tier)}`}>
+                    {gradeLabel(cert.cert_grade_tier)}
+                  </span>
+                  <div className="cert-stages">
+                    {cert.recommended_risk_stages.map(rs => {
+                      const stageNum = rs.replace('risk_000', '');
+                      return (
+                        <span key={rs} className="badge badge-neutral stage-badge">
+                          {stageNum}단계
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
                 <h3 className="cert-name">{cert.cert_name}</h3>
                 <p className="cert-issuer">{cert.issuer}</p>
               </div>
 
-              <p className="cert-summary">{cert.text_for_dense}</p>
-
-              <div className="cert-stages">
-                {cert.recommended_risk_stages.map(rs => {
-                  const stageNum = rs.replace('risk_000', '');
-                  return (
-                    <span key={rs} className="badge badge-neutral">
-                      {stageNum}단계
-                    </span>
-                  );
-                })}
-              </div>
+              {(() => {
+                const jobs = extractJobs(cert.text_for_dense);
+                return jobs.length > 0 ? (
+                  <div className="cert-jobs">
+                    {jobs.map(j => (
+                      <span key={j} className="job-chip">{j}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="cert-summary">{cert.text_for_dense}</p>
+                );
+              })()}
 
               <div className="cert-actions">
-                <button className="text-btn">
-                  <ExternalLink size={14} /> 설명 근거
-                </button>
+                <span className="text-btn text-btn-disabled" title="설명 근거 검색은 준비 중입니다">
+                  <FileText size={14} /> 설명 근거
+                </span>
                 <button
                   className="text-btn roadmap-btn"
                   onClick={() => handleRoadmap(cert.cert_id)}
@@ -288,7 +306,13 @@ const Recommendation: React.FC = () => {
           transform: translateY(-3px);
         }
 
-        .cert-top { display: flex; flex-direction: column; gap: 0.25rem; }
+        .cert-top { display: flex; flex-direction: column; gap: 0.3rem; }
+        .cert-top-row {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
         .cert-name { font-size: 1.05rem; font-weight: 700; color: var(--text); }
         .cert-issuer { font-size: 0.78rem; color: var(--text-light); }
 
@@ -297,14 +321,29 @@ const Recommendation: React.FC = () => {
           color: var(--text-muted);
           line-height: 1.55;
           display: -webkit-box;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
         .cert-stages {
           display: flex;
           flex-wrap: wrap;
+          gap: 0.3rem;
+          margin-left: auto;
+        }
+        .stage-badge { font-size: 0.68rem; }
+        .cert-jobs {
+          display: flex;
+          flex-wrap: wrap;
           gap: 0.375rem;
+        }
+        .job-chip {
+          padding: 0.175rem 0.6rem;
+          border-radius: var(--radius-xs);
+          background: var(--surface-2);
+          border: 1px solid var(--border);
+          font-size: 0.75rem;
+          color: var(--text-muted);
         }
         .cert-actions {
           display: flex;
@@ -312,8 +351,19 @@ const Recommendation: React.FC = () => {
           padding-top: 0.75rem;
           border-top: 1px solid var(--border);
           margin-top: auto;
+          align-items: center;
         }
         .roadmap-btn { margin-left: auto; }
+        .text-btn-disabled {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.375rem;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: var(--text-light);
+          cursor: not-allowed;
+          user-select: none;
+        }
 
         /* Empty state */
         .no-results {
